@@ -5,9 +5,9 @@ Development
 -----------
 
 If you want to run this project in a `virtualenv`_ to isolate it from
-other Python projects on your system, create a virtualenv and activate
-it.  Then run ``bin/install-reqs`` to install the dependencies for this
-project into your Python environment.
+other Python projects on your system, create a Python 3.3 virtualenv and
+activate it.  Then run ``bin/install-reqs`` to install the dependencies
+for this project into your Python environment.
 
 In order to run K Network (or its tests), you'll need a PostgreSQL
 database. By default, K Network will look for a PostgreSQL database
@@ -32,10 +32,6 @@ To install the necessary Ruby gems for Compass/Sass development (only
 necessary if you plan to modify Sass files and re-generate CSS), install
 Bundler (``gem install bundler``) and then run ``bundle install``.
 
-If you make changes to the client-side Handlebars templates in
-``jstemplates/``, run ``bin/grunt`` to recompile the templates.
-Alternatively, run ``bin/grunt watch`` (takes over a terminal) to watch for
-changes to the templates and recompile automatically.
 
 Deployment
 ----------
