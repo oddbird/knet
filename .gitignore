@@ -1,0 +1,14 @@
+TAGS
+collected-assets/*
+*.DS_Store
+*~
+*.pyc
+.sass-cache/
+.livereload
+htmlcov/
+__pycache__
+logfile
+chromedriver.log
+.coverage
+celerybeat-schedule
+uploads/*
