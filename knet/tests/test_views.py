@@ -1,2 +1,4 @@
 def test_home(client):
-    pass
+    """Home page loads without error."""
+    client.get('/', status=200)
+
