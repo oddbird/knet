@@ -1,0 +1,38 @@
+// ---------------------------------------------------------------------------
+// Font Sizes
+
+$base-font-size             : $normpx;
+$base-line-height           : $medpx;
+
+$rhythm-unit                : rem;
+$rem-with-px-fallback       : true;
+
+$relative-font-sizing       : true;
+$round-to-nearest-half-line : true;
+
+// ---------------------------------------------------------------------------
+// Links
+
+$link   :   "&:link, &:visited";
+$focus  :   "&:focus, &:hover, &:active";
+
+@mixin focus-default {
+  outline: thin dotted $accent;
+}
+
+@mixin no-style-link {
+  #{$link}, #{$focus} { color: inherit; }
+}
+
+@mixin camo-link {
+  #{$link} { color: inherit; }
+  #{$focus} { color: $accent; }
+}
+
+// ---------------------------------------------------------------------------
+// Lists
+
+@mixin no-style-list {
+  @include reset-box-model;
+  @include no-bullets;
+}

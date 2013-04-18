@@ -1,0 +1,22 @@
+// Partials
+// ========
+
+@import "base";
+@import "general";
+
+// Layout
+// ------
+
+.landing {
+  @include container;
+  @include leader(2);
+
+  .logo {
+    @include replace-text('logo.jpg');
+    @include background-size;
+    height: image-height('logo.jpg');
+  }
+  .tagline {
+    text-align: right;
+  }
+}

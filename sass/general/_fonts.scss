@@ -1,0 +1,20 @@
+// ---------------------------------------------------------------------------
+// Imports
+
+@import "fonts/font-license";
+@import "fonts/cambridge-round";
+@import "fonts/square-serif";
+// @import "fonts/icomoon";
+
+//-----------------------------------------------------------------------------
+// Settings
+
+$mono-stack : Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+
+//-----------------------------------------------------------------------------
+// Mixins
+
+@mixin serif { font-family: $serif-stack; }
+@mixin sans { font-family: $sans-stack; }
+@mixin cond { font-family: $cond-stack; }
+@mixin mono { font-family: $mono-stack; }

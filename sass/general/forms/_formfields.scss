@@ -1,0 +1,7 @@
+// -----------
+// Form fields
+
+.formfield {
+  @include pie-clearfix;
+  @include trailer(.5);
+}

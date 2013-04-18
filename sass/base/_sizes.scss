@@ -1,0 +1,16 @@
+// ---------------------------------------------------------------------------
+// Size Settings
+
+$base-size    : 18px;
+$ratio        : major-third() fifth();
+
+$normpx       : $base-size;
+$medpx        : ms(1);
+$smallpx      : ms(-1);
+$xsmallpx     : ms(-2);
+$xxsmallpx    : ms(-3);
+$xxxsmallpx   : ms(-4);
+$largepx      : ms(4);
+$xlargepx     : ms(6);
+$xxlargepx    : ms(12);
+$xxxlargepx   : ms(16);
