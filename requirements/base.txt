@@ -1,4 +1,4 @@
-Django==1.6.dev20130416193406
+Django==1.6.dev20130418183807
 
 psycopg2==2.5
 South==0.7.6.hg1206

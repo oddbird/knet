@@ -95,6 +95,8 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'knet.urls'
 
+TEMPLATE_DIRS = os.path.join(BASE_DIR, 'templates')
+
 WSGI_APPLICATION = 'knet.wsgi.application'
 
 # Internationalization
@@ -115,3 +117,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = env('KNET_STATIC_URL', default='/static/')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]

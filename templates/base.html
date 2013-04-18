@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% load compress %}
 <!--[if lte IE 8 ]>             <html class="no-js lt-ie9" lang="en" dir="ltr">   <![endif]-->
 <!--[if IE 9 ]>                 <html class="no-js ie9" lang="en" dir="ltr">  <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->  <html class="no-js" lang="en" dir="ltr">      <!--<![endif]-->
@@ -52,25 +51,21 @@
 
   <!--[if gte IE 7]><!-->
   {% block styles %}
-  {% compress css %}
   <link rel="stylesheet" href="{{ STATIC_URL }}css/screen.css" />
-  {% endcompress %}
   {% endblock styles %}
   <!--<![endif]-->
 
   <!-- Modernizr -->
-  {% compress js %}
   <script src="{{ STATIC_URL }}js/plugins/modernizr.custom.02470.js"></script>
   <script src="{{ STATIC_URL }}js/plugins/modernizr.selectors.js"></script>
   <script src="{{ STATIC_URL }}js/plugins/elem-details.js"></script>
-  {% endcompress %}
 
   <!-- Page-Specific Head -->
   {% block extrahead %}{% endblock %}
 
 </head>
 
-<body id="knet" class="{% block bodyclasses %}{% if request.real_user %} impersonate {% endif %}{% endblock %}" data-user-events="{{ events.json }}">
+<body id="knet" class="{% block bodyclasses %}{% endblock %}">
 {% block body %}
 
 {% endblock body %}
@@ -78,9 +73,7 @@
 <!-- JavaScript -->
 {% block js %}
 <script src="{{ STATIC_URL }}js/libs/jquery-2.0.0b1.min.js"></script>
-{% compress js %}
 <script src="{{ STATIC_URL }}js/base.js"></script>
-{% endcompress %}
 {% endblock js %}
 
 {% block extrajs %}
