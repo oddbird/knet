@@ -12,18 +12,18 @@ class TestClient(django_webtest.DjangoTestApp):
 
     """
     def get(self, *a, **kw):
-        """Add easier support for making simulated ajax requests."""
-        ajax = kw.pop('ajax', False)
-        if ajax:
-            headers = kw.setdefault('headers', {})
-            headers['X-Requested-With'] = 'XMLHttpRequest'
-        return super(TestClient, self).get(*a, **kw)
+        """Make a GET request."""
+        return super(TestClient, self).get(*a, **self._ajax(kw))
 
 
     def post(self, *a, **kw):
-        """Add easier support for making simulated ajax requests."""
-        ajax = kw.pop('ajax', False)
-        if ajax:
+        """Make a POST request."""
+        return super(TestClient, self).post(*a, **self._ajax(kw))
+
+
+    def _ajax(self, kw):
+        """Support a boolean 'ajax' kwarg for simulating ajax requests."""
+        if kw.pop('ajax', False):
             headers = kw.setdefault('headers', {})
             headers['X-Requested-With'] = 'XMLHttpRequest'
-        return super(TestClient, self).post(*a, **kw)
+        return kw

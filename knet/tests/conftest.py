@@ -3,32 +3,34 @@ import pytest
 
 
 @pytest.fixture
-def client(request, db):
+def client(request, db, webtest):
     """Give a test access to a WebTest client for integration-testing views."""
-    # We don't use TestCase classes, but we instantiate the django_webtest
-    # TestCase subclass to use its methods for patching/unpatching settings.
-    from knet.tests import client
-    import django_webtest
-    webtestcase = django_webtest.WebTest("__init__")
-    webtestcase.setup_auth = False
-    webtestcase._patch_settings()
-    request.addfinalizer(webtestcase._unpatch_settings)
-
-    return client.TestClient()
-
+    from knet.tests.client import TestClient
+    return TestClient()
 
 
 @pytest.fixture
-def no_csrf_client(request, db):
+def no_csrf_client(request, client, webtest):
     """Give a test access to a CSRF-exempt WebTest client."""
-    # We don't use TestCase classes, but we instantiate the django_webtest
-    # TestCase subclass to use its methods for patching/unpatching settings.
-    from knet.tests import client
-    import django_webtest
-    webtestcase = django_webtest.WebTest("__init__")
-    webtestcase.setup_auth = False
-    webtestcase.csrf_checks = False
-    webtestcase._patch_settings()
-    request.addfinalizer(webtestcase._unpatch_settings)
+    webtest._disable_csrf_checks()
+    return client
 
-    return client.TestClient()
+
+@pytest.fixture
+def webtest(request):
+    """
+    Get an instance of a django-webtest TestCase subclass.
+
+    We don't use TestCase classes, but we instantiate the django_webtest
+    TestCase subclass in our web client fixtures to use its methods for
+    patching/unpatching settings.
+
+    """
+    import django_webtest
+    webtest = django_webtest.WebTest("__init__")
+    webtest.setup_auth = False
+
+    webtest._patch_settings()
+    request.addfinalizer(webtest._unpatch_settings)
+
+    return webtest
