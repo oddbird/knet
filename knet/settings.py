@@ -82,6 +82,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.staticfiles',
     'south',
+    'djangosecure',
 ]
 
 MIDDLEWARE_CLASSES = (
