@@ -3,6 +3,7 @@ var KNET = (function (KNET, $) {
     'use strict';
 
     var teacherNameInput = $('#teacher-name');
+    var teacherNameButton = $('.teacher-login button');
     var teacherName = $('header .meta .teacher span');
     var learnerName = $('header .meta .learner span');
 
@@ -24,12 +25,22 @@ var KNET = (function (KNET, $) {
     };
 
     KNET.inputTeacherName = function () {
-        teacherNameInput.keydown(function (e) {
-            if (e.keyCode === KNET.keycodes.ENTER && teacherNameInput.val() !== '') {
+        var addTeacherName = function () {
+            if (teacherNameInput.val() !== '') {
                 var name = teacherNameInput.val().toString();
                 teacherName.text(name).closest('.vcard').removeClass('empty');
                 teacherNameInput.val('');
             }
+        };
+
+        teacherNameInput.keydown(function (e) {
+            if (e.keyCode === KNET.keycodes.ENTER) {
+                addTeacherName();
+            }
+        });
+
+        teacherNameButton.click(function (e) {
+            addTeacherName();
         });
     };
 
