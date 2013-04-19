@@ -1,0 +1,15 @@
+// Inputs
+// ------
+
+%input {
+  @include rhythm-borders(1px,.25);
+  @include adjust-font-size-to($xsmallpx);
+  display: block;
+  width: 100%;
+  border-color: color(lighter);
+  height: rhythm(1.5);
+}
+
+[type="text"], [type="email"], [type="password"] {
+  @extend %input;
+}

@@ -1,0 +1,57 @@
+// Demo
+// ====
+
+.demo {
+  @extend %type;
+  button { @extend %button; }
+  .label { @include trailer(0); }
+}
+
+// Instructions
+// ------------
+
+.instructions {
+  @include leader;
+  @include adjust-font-size-to($smallpx);
+  @include rhythm-borders(1px,.5);
+  @include arrow(top center .5em $orange);
+  @include border-radius(.25em);
+  clear: both;
+  border-color: $orange;
+}
+
+// Steps
+// -----
+
+.step {
+  @include pie-clearfix;
+  @include leading-border(2px,.25);
+  @include trailer;
+}
+
+.collaborate {
+  @include pie-clearfix;
+  @include trailer;
+  height: rhythm(12);
+  border: 1px solid;
+  .work {
+    float: left;
+    width: space(5);
+    height: 100%;
+  }
+  .session {
+    float: right;
+    width: columns(3);
+    height: 100%;
+    margin-left: -1em;
+  }
+}
+
+.learner-feedback {
+  @include span-columns(4);
+}
+
+.teacher-feedback {
+  @include span-columns(4 omega);
+}
+

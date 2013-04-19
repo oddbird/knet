@@ -1,102 +1,171 @@
 {% extends "base.html" %}
 
 {% block body %}
-<article class="demo">
-  <h1 class="logo">The K Network.</h1>
-  <p class="tagline">exploring what's possible in the world of teaching and learning</p>
-  <div>
-    Teacher name:
-    <span class="teacher-name"></span>
+<header role="banner">
+  <div class="branding">
+    <h1 class="logo">The K Network</h1>
+    <h2 class="pagetitle">What's Possible</h2>
   </div>
-  <div>
-    Learner name:
-    <span class="learner-name"></span>
-  </div>
-
-  <div id="step-1">
-    <h2>What's Possible | Step 1</h2>
-    <label for="teacher-name">As a teacher, enter your name:</label>
-    <input type="text" id="teacher-name" placeholder="e.g. John Doe">
-    <p class="instructions">Pretend you are a teacher and that you are about to tutor someone in mathematics. Enter your name, hit return.</p>
-  </div>
-
-  <div id="step-2">
-    <h2>What's Possible | Step 2</h2>
-    <p>As a learner, log into Khan Academy:</p>
-    <img src="{{ STATIC_URL }}images/login.jpg">
-    <button>Login Peter K</button>
-    <p class="instructions">Pretend you have someone to tutor, and his name is Peter K. <strong>Press the “Login Peter K” button</strong></p>
-  </div>
-
-  <div id="step-3">
-    <h2>What's Possible | Step 3</h2>
-    <p>With Peter K, choose a math topic for the session:</p>
-    <img src="{{ STATIC_URL }}images/KA-data.jpg">
-    <button>Select</button>
-    <p class="instructions"><strong>Press the Select button</strong></p>
-  </div>
-
-  <div id="step-4">
-    <h2>What's Possible | Step 4</h2>
-    <p>Engage in a learning session</p>
-    <p>Play with the 3 interactive tools:</p>
-      <div class="timer">
-        <p class="time">00:00</p>
-        <button>start</button>
-        <button>stop</button>
-        <button>reset</button>
-        <p>this will be automatically tracked in the final version</p>
-      </div>
-
-      <div class="learner-feedback">
-        <button class="explained">Explained it well</button>
-        <span class="explained-count">0</span>
-        <button class="connected-count">Connected with me</button>
-        <span class="connected-count">0</span>
-        Learner Feedback Buttons to track teacher performance (click them, watch how the feedback count goes up)
-      </div>
-
-      <div class="teacher-feedback">
-        <button class="grit">Grit</button>
-        <span class="grit-count">0</span>
-        <button class="optimism">Optimism</button>
-        <span class="optimism-count">0</span>
-        <button class="curiosity">Curiosity</button>
-        <span class="curiosity-count">0</span>
-        Teacher Feedback buttons to track learner performance (click them, watch how the feedback count goes up)
-      </div>
-
-      <p>NOTE: The K Network wants Teacher-Learner Feedback to go both ways. Users will be able to build reputations both as teachers AND as learners.</p>
+  <div class="meta">
+    <p class="vcard empty">
+      <b class="title">Teacher</b>:
+      <span class="fn"></span>
     </p>
-    <img src="{{ STATIC_URL }}images/screenshot.jpg">
+    <p class="vcard empty">
+      <b class="title">Learner</b>:
+      <span class="fn"></span>
+    </p>
+  </div>
+</header>
+
+<article role="main" class="demo">
+
+  <div class="step teacher-login">
+    <h2>Teacher Login</h2>
+    <div class="formfield">
+      <label for="teacher-name">As a <strong>teacher</strong>, enter your name:</label>
+      <input type="text" id="teacher-name" placeholder="e.g. John Doe">
+    </div>
+    <button>Login</button>
+    <p class="instructions">
+      Pretend you are a teacher and that you are about to tutor someone in mathematics.
+      Enter your name and login.
+    </p>
+  </div>
+
+  <div class="step learner-login">
+    <h2>Learner Login</h2>
+    <p class="label">As a <strong>learner</strong>, log into Khan Academy:</p>
+    <button>Login with Google</button>
+    <button>Login with Facebook</button>
+    <p class="instructions">
+      Pretend your learner (Peter K) has logged in through Khan Academy.
+      Press one of the learner buttons for Peter.
+    </p>
+  </div>
+
+
+  <div class="step topic-select">
+    <h2>Select a Topic</h2>
+    <p class="label">With Peter K, choose a math topic for the session:</p>
+    <ul class="formfield">
+      <li>
+        <input type="radio" id="addition-topic" name="select-topic" checked/>
+        <label for="addition-topic">
+          Addition and Subtraction
+          <span class="topic-status">(10/11 skills)</span>
+        </label>
+      </li>
+      <li>
+        <input type="radio" id="matrices-topic" name="select-topic"/>
+        <label for="matrices-topic">
+          Matrices
+          <span class="topic-status">(0/11 skills)</span>
+        </label>
+      </li>
+    </ul>
+    <button>Select</button>
+    <p class="instructions">Press the Select button.</p>
+  </div>
+
+  <div class="step learning-session">
+    <h2>Learning Session</h2>
+
+    <section class="collaborate">
+      <div class="work">Draw and work together</div>
+      <div class="session">
+        <div class="time"><p>00:00</p></div>
+        <div class="chat"><p>Text chat</p></div>
+        <div class="voice"><button>Voice chat</button></div>
+      </div>
+    </section>
+
+    <div class="learner-feedback">
+      <div class="feedback-item">
+        <span class="explained-count">0</span>
+        <button class="explained">Explained it well</button>
+      </div>
+      <div class="feedback-item">
+        <span class="connected-count">0</span>
+        <button class="connected-count">Connected with me</button>
+      </div>
+      <p class="instructions">
+        Learner Feedback Buttons to track teacher performance.
+        Click them and see how the feedback count goes up.
+      </p>
+    </div>
+
+    <div class="teacher-feedback">
+      <div class="feedback-item">
+        <span class="grit-count">0</span>
+        <button class="grit">Grit</button>
+      </div>
+      <div class="feedback-item">
+        <span class="optimism-count">0</span>
+        <button class="optimism">Optimism</button>
+      </div>
+      <div class="feedback-item">
+        <span class="curiosity-count">0</span>
+        <button class="curiosity">Curiosity</button>
+      </div>
+      <p class="instructions">
+        Teacher Feedback buttons to track learner performance.
+        Click them and see how the feedback count goes up.
+      </p>
+    </div>
+
+    <p class="instructions">
+      The K Network wants Teacher-Learner Feedback to go both ways.
+      Users will be able to build reputations both as teachers AND as learners.
+    </p>
+
     <button>Done</button>
-    <p class="instructions"><strong>When finished, press the Done button</strong></p>
+    <p class="instructions">
+      When finished, press the Done button.
+    </p>
   </div>
 
-  <div id="step-5">
-    <h2>What's Possible | Step 5</h2>
-    <p>Get end-of-session feedback:</p>
-    <div class="hard-data">
-      Hard Data:
-      Before
-      <img src="{{ STATIC_URL }}images/KA-data.jpg">
-      After
-      <img src="{{ STATIC_URL }}images/KA-data.jpg">
-      <p>Now looks like 11 / 11 Skills</p>
-      <p>Now Word Problems is a Gold Star</p>
+  <div class="step results">
+    <h2>Session Results</h2>
+
+    <div class="data-before">
+      <h3>Before</h3>
+      <ul>
+        <li>
+          Addition and Subtraction
+          <span class="topic-status">(10/11 skills)</span>
+        </li>
+        <li>
+          Matrices
+          <span class="topic-status">(0/11 skills)</span>
+        </li>
+      </ul>
     </div>
-    <div class="soft-data">
-      Learner Feedback goes to Teacher
-      Teacher Feedback goes to Learner
-      (reflected in User Profiles, next page)
+
+    <div class="data-after">
+      <h3>After</h3>
+      <ul>
+        <li>
+          Addition and Subtraction
+          <span class="topic-status">(11/11 skills)</span>
+        </li>
+        <li>
+          Matrices
+          <span class="topic-status">(0/11 skills)</span>
+        </li>
+      </ul>
     </div>
+
     <button>Next</button>
-    <p class="instructions"><strong>Press the Next button when ready</strong></p>
+    <p class="instructions">
+      Teacher and learner feedback shows up in profile (next step).
+      Press the Next button when ready.
+    </p>
   </div>
 
-  <div id="step-6">
-    <h2>What's Possible | Step 6</h2>
-    <p>“Hard Data” stats and “Soft Data” Stats go into user profile system</p>
+  <div class="step profiles">
+    <h2>Updated User Profiles</h2>
+
     <div class="teacher-profile">
       <h3>Teacher Profile for <span class="teacher-name"></span></h3>
       <div class="hard-data">
@@ -108,6 +177,7 @@
         <p>Ability to Connect: Moderate to Good</p>
       </div>
     </div>
+
     <div class="learner-profile">
       <h3>Learner Profile for <span class="learner-name"></span></h3>
       <div class="grit">
@@ -134,12 +204,13 @@
         <span>Moderate to Good</span>
       </div>
     </div>
-    <div class="instructions">
-      <ul>
-        <li>Teachers can use their profile for applying in the teaching industry.</li>
-        <li>Learners can use their profile to show they have the character traits that mean they are good to work with, worthy of their first job, etc.</li>
-      </ul>
-    </div>
+
+    <p class="instructions">
+      “Hard Data” stats and “Soft Data” Stats go into user profile system.
+      Teachers can use their profile for applying in the teaching industry.
+      Learners can use their profile to show they have the character traits
+      that mean they are good to work with, worthy of their first job, etc.
+    </p>
   </div>
 
 </article>

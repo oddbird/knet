@@ -1,5 +1,5 @@
-// Partials
-// ========
+// Screen
+// ======
 
 @import "base";
 @import "general";
@@ -7,16 +7,10 @@
 // Layout
 // ------
 
-.landing {
-  @include container;
-  @include leader(2);
+@import "layout/base";
 
-  .logo {
-    @include replace-text('logo.jpg');
-    @include background-size;
-    height: image-height('logo.jpg');
-  }
-  .tagline {
-    text-align: right;
-  }
-}
+// Modules
+// -------
+
+@import "modules/landing";
+@import "modules/demo";
