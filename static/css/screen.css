@@ -512,7 +512,6 @@ button {
 .collaborate {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
-  height: 15.33333rem;
   border: 1px solid;
 }
 .collaborate:after {
@@ -523,13 +522,33 @@ button {
 .collaborate .work {
   float: left;
   width: 64.10256%;
-  height: 100%;
+  padding: 7.66667rem 1.27778rem;
+  border-right: 1px solid;
+  text-align: center;
 }
 .collaborate .session {
   float: right;
   width: 35.89744%;
   height: 100%;
   margin-left: -1em;
+  padding: 0.63889rem;
+}
+.collaborate .time, .collaborate .chat {
+  border-bottom-width: 1px;
+  border-bottom-width: 0.05556rem;
+  border-bottom-style: solid;
+  padding-bottom: 11px;
+  padding-bottom: 0.58333rem;
+}
+.collaborate .chat {
+  padding-top: 92px;
+  padding-top: 5.11111rem;
+  padding-bottom: 92px;
+  padding-bottom: 5.11111rem;
+}
+.collaborate .voice {
+  padding-top: 12px;
+  padding-top: 0.63889rem;
 }
 
 .learner-feedback {
@@ -542,4 +561,20 @@ button {
   width: 48.71795%;
   float: right;
   margin-right: 0;
+}
+
+.feedback-item {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  display: inline-block;
+  text-align: center;
+}
+.feedback-item [class$="-count"] {
+  font-size: 23px;
+  font-size: 1.27778rem;
+  line-height: 35px;
+  line-height: 1.91667rem;
+  display: block;
 }

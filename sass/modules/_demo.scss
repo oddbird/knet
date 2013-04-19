@@ -61,21 +61,35 @@ $steps: teacher-login learner-login topic-select learning-session results profil
   }
 }
 
+// Learning Session
+// ----------------
+
 .collaborate {
   @include pie-clearfix;
   @include trailer;
-  height: rhythm(12);
   border: 1px solid;
   .work {
     float: left;
     width: space(5);
-    height: 100%;
+    padding: rhythm(6) rhythm(1);
+    border-right: 1px solid;
+    text-align: center;
   }
   .session {
     float: right;
     width: columns(3);
     height: 100%;
     margin-left: -1em;
+    padding: rhythm(.5);
+  }
+  .time, .chat {
+    @include trailing-border(1px,.5);
+  }
+  .chat {
+    @include rhythm-padding(4);
+  }
+  .voice {
+    @include padding-leader(.5);
   }
 }
 
@@ -87,3 +101,12 @@ $steps: teacher-login learner-login topic-select learning-session results profil
   @include span-columns(4 omega);
 }
 
+.feedback-item {
+  @include adjust-font-size-to($smallpx);
+  display: inline-block;
+  text-align: center;
+  [class$="-count"] {
+    @include adjust-font-size-to($medpx);
+    display: block;
+  }
+}
