@@ -117,4 +117,40 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = env('KNET_STATIC_URL', default='/static/')
+STATIC_ROOT = env(
+    'KNET_STATIC_ROOT', default=os.path.join(BASE_DIR, 'collected-assets'))
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+INSTALLED_APPS += ['pipeline']
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+PIPELINE_CSS_COMPRESSOR = 'knet.assets.css.RCSSMinCompressor'
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.slimit.SlimItCompressor'
+
+PIPELINE_CSS = {
+    'screen': {
+        'source_filenames': [
+            'css/screen.css',
+            ],
+        'output_filename': 'css/screen.min.css',
+        },
+    }
+
+PIPELINE_JS = {
+    'main': {
+        'source_filenames': [
+            'js/base.js',
+            ],
+        'output_filename': 'js/base.min.js',
+        },
+    'modernizr': {
+        'source_filenames': [
+            'js/plugins/modernizr.custom.02470.js',
+            'js/plugins/modernizr.selectors.js',
+            'js/plugins/elem-details.js',
+            ],
+        'output_filename': 'js/modernizr.min.js',
+        },
+    }
+
+# Pipeline doesn't need to wrap JS in an anonymous function for us
+PIPELINE_DISABLE_WRAPPER = True

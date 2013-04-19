@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load compressed %}
 <!--[if lte IE 8 ]>             <html class="no-js lt-ie9" lang="en" dir="ltr">   <![endif]-->
 <!--[if IE 9 ]>                 <html class="no-js ie9" lang="en" dir="ltr">  <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->  <html class="no-js" lang="en" dir="ltr">      <!--<![endif]-->
@@ -38,13 +39,11 @@
   <link rel="apple-touch-startup-image" href="{{ STATIC_URL }}images/favicons/splash.png">
 
   {% block styles %}
-  <link rel="stylesheet" href="{{ STATIC_URL }}css/screen.css" />
+  {% compressed_css "screen" %}
   {% endblock styles %}
 
   <!-- Modernizr -->
-  <script src="{{ STATIC_URL }}js/plugins/modernizr.custom.02470.js"></script>
-  <script src="{{ STATIC_URL }}js/plugins/modernizr.selectors.js"></script>
-  <script src="{{ STATIC_URL }}js/plugins/elem-details.js"></script>
+  {% compressed_js "modernizr" %}
 
   <!-- Page-Specific Head -->
   {% block extrahead %}{% endblock %}
@@ -59,7 +58,7 @@
 <!-- JavaScript -->
 {% block js %}
 <script src="{{ STATIC_URL }}js/libs/jquery-2.0.0.min.js"></script>
-<script src="{{ STATIC_URL }}js/base.js"></script>
+{% compressed_js "main" %}
 {% endblock js %}
 
 {% block extrajs %}
