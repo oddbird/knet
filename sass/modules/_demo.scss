@@ -7,12 +7,14 @@ $steps: teacher-login learner-login topic-select learning-session results profil
   @include trailer(0);
   opacity: 0;
   max-height: 0;
+  overflow: hidden;
 }
 %show-tab-content {
   @include transition(all 200ms linear);
   @include trailer(1);
   opacity: 1;
   max-height: 80em;
+  overflow: visible;
 }
 %active-tab-title { font-weight: bold; }
 
@@ -57,7 +59,6 @@ $steps: teacher-login learner-login topic-select learning-session results profil
   }
 
   [class$="-content"] {
-    overflow: hidden;
   }
 }
 
@@ -110,3 +111,47 @@ $steps: teacher-login learner-login topic-select learning-session results profil
     display: block;
   }
 }
+
+// Results
+// -------
+
+.results-table {
+  @include rhythm-margins(1);
+  @include h-borders(1px,.5);
+  width: 100%;
+  th { font-weight: bold; }
+  th, td {
+    padding: rhythm(.25);
+  }
+  .yay { background: color($green lightest); }
+}
+
+// Profiles
+// --------
+
+.learner-profile {
+  @include span-columns(4);
+  @include trailer;
+}
+
+.teacher-profile {
+  @include span-columns(4 omega);
+  @include trailer;
+}
+
+.measure {
+  .property {
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+  .value {
+    @include wrap-content("[" "]");
+    color: color(light);
+  }
+  .description {
+    @include adjust-font-size-to($smallpx);
+    @include rhythm-margins(.5);
+    margin-left: rhythm(1);
+  }
+}
+

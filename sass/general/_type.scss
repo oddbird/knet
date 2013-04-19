@@ -45,6 +45,8 @@ a {
 
   p, ul, ol, pre { @include trailer; }
 
+  ul { list-style: disc; }
+
   code, .code {
     @include mono;
     @include adjust-font-size-to($xxsmallpx,1);

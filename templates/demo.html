@@ -144,33 +144,27 @@
   <div class="step">
     <h2><label for="results-toggle">Session Results</label></h2>
     <div class="results-content">
-      <div class="data-before">
-        <h3>Before</h3>
-        <ul>
-          <li>
-            Addition and Subtraction
-            <span class="topic-status">(10/11 skills)</span>
-          </li>
-          <li>
-            Matrices
-            <span class="topic-status">(0/11 skills)</span>
-          </li>
-        </ul>
-      </div>
 
-      <div class="data-after">
-        <h3>After</h3>
-        <ul>
-          <li>
-            Addition and Subtraction
-            <span class="topic-status">(11/11 skills)</span>
-          </li>
-          <li>
-            Matrices
-            <span class="topic-status">(0/11 skills)</span>
-          </li>
-        </ul>
-      </div>
+      <table class="results-table">
+        <thead>
+          <th>Skill</th>
+          <th>Before</th>
+          <th>After</th>
+          <th>Available</th>
+        </thead>
+        <tr class="yay">
+          <td>Addition and Subtraction</td>
+          <td>10</td>
+          <td>11</td>
+          <td>11</td>
+        </tr>
+        <tr>
+          <td>Matrices</td>
+          <td>0</td>
+          <td>0</td>
+          <td>11</td>
+        </tr>
+      </table>
 
       <label for="profiles-toggle" class="next-button">Next</label>
       <p class="instructions">
@@ -183,42 +177,44 @@
   <div class="step">
     <h2><label for="profiles-toggle">Updated User Profiles</label></h2>
     <div class="profiles-content">
+
       <div class="teacher-profile">
         <h3>Teacher Profile for <span class="teacher-name"></span></h3>
         <div class="hard-data">
           <p>5 students, 12 sessions, 23 proficiencies gained</p>
-          <p>[note: available when / if Khan Academy is used]</p>
+          <p class="instructions">Available when/if Khan Academy is used.</p>
         </div>
-        <div class="soft-data">
-          <p>Ability to Teach: Very High</p>
-          <p>Ability to Connect: Moderate to Good</p>
+        <div class="measure">
+          <strong class="property">Ability to Teach:</strong>
+          <span class="rating">Very High</span>
+        </div>
+        <div class="measure">
+          <strong class="property">Ability to Connect:</strong>
+          <span class="rating">Moderate to Good</span>
         </div>
       </div>
 
       <div class="learner-profile">
         <h3>Learner Profile for <span class="learner-name"></span></h3>
-        <div class="grit">
-          Grit:
-          <span>67</span>
-          <span>Extremely High</span>
-          <div class="description">
-            Finishing what one starts; completing something despite obstacles; a combination of persistence and resilience.
-            <ul>
-              <li>Finishes whatever he or she begins</li>
-              <li>Tries very hard even after experiencing failure</li>
-              <li>Works independently with focus</li>
-            </ul>
-          </div>
+        <div class="measure">
+          <strong class="property">Grit:</strong>
+          <span class="value">67</span>
+          <span class="rating">Extremely High</span>
+          <ul class="description">
+            <li>Finishes whatever he or she begins</li>
+            <li>Tries very hard even after experiencing failure</li>
+            <li>Works independently with focus</li>
+          </ul>
         </div>
-        <div class="optimism">
-          Optimism:
-          <span>54</span>
-          <span>Average</span>
+        <div class="measure">
+          <strong class="property">Optimism:</strong>
+          <span class="value">54</span>
+          <span class="rating">Average</span>
         </div>
-        <div class="curiosity">
-          Curiosity:
-          <span>25</span>
-          <span>Moderate to Good</span>
+        <div class="measure">
+          <strong class="property">Curiosity:</strong>
+          <span class="value">25</span>
+          <span class="rating">Moderate to Good</span>
         </div>
       </div>
 

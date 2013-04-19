@@ -221,6 +221,9 @@ a:focus, a:hover, a:active {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
 }
+.demo ul {
+  list-style: disc;
+}
 .demo code, .demo .code {
   font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
   font-size: 12px;
@@ -423,6 +426,7 @@ button {
   margin-bottom: 0rem;
   opacity: 0;
   max-height: 0;
+  overflow: hidden;
 }
 
 .demo [id*="teacher-login"]:checked ~ .step [class*="teacher-login"], .demo [id*="learner-login"]:checked ~ .step [class*="learner-login"], .demo [id*="topic-select"]:checked ~ .step [class*="topic-select"], .demo [id*="learning-session"]:checked ~ .step [class*="learning-session"], .demo [id*="results"]:checked ~ .step [class*="results"], .demo [id*="profiles"]:checked ~ .step [class*="profiles"] {
@@ -434,6 +438,7 @@ button {
   margin-bottom: 1.27778rem;
   opacity: 1;
   max-height: 80em;
+  overflow: visible;
 }
 
 .demo [id*="teacher-login"]:checked ~ .step h2 [for*="teacher-login"], .demo [id*="learner-login"]:checked ~ .step h2 [for*="learner-login"], .demo [id*="topic-select"]:checked ~ .step h2 [for*="topic-select"], .demo [id*="learning-session"]:checked ~ .step h2 [for*="learning-session"], .demo [id*="results"]:checked ~ .step h2 [for*="results"], .demo [id*="profiles"]:checked ~ .step h2 [for*="profiles"] {
@@ -505,9 +510,6 @@ button {
   font-weight: normal;
   color: #999999;
 }
-.step [class$="-content"] {
-  overflow: hidden;
-}
 
 .collaborate {
   margin-bottom: 23px;
@@ -577,4 +579,72 @@ button {
   line-height: 35px;
   line-height: 1.91667rem;
   display: block;
+}
+
+.results-table {
+  margin-top: 23px;
+  margin-top: 1.27778rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+  border-top-width: 1px;
+  border-top-width: 0.05556rem;
+  border-top-style: solid;
+  padding-top: 11px;
+  padding-top: 0.58333rem;
+  border-bottom-width: 1px;
+  border-bottom-width: 0.05556rem;
+  border-bottom-style: solid;
+  padding-bottom: 11px;
+  padding-bottom: 0.58333rem;
+  width: 100%;
+}
+.results-table th {
+  font-weight: bold;
+}
+.results-table th, .results-table td {
+  padding: 0.31944rem;
+}
+.results-table .yay {
+  background: #e6eacc;
+}
+
+.learner-profile {
+  width: 48.71795%;
+  float: left;
+  margin-right: 2.5641%;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+}
+
+.teacher-profile {
+  width: 48.71795%;
+  float: right;
+  margin-right: 0;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+}
+
+.measure .property {
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.measure .value {
+  color: #999999;
+}
+.measure .value:before {
+  content: "[";
+}
+.measure .value:after {
+  content: "]";
+}
+.measure .description {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  margin-top: 12px;
+  margin-top: 0.63889rem;
+  margin-bottom: 12px;
+  margin-bottom: 0.63889rem;
+  margin-left: 1.27778rem;
 }
