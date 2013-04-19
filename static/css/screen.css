@@ -1,3 +1,9 @@
+.demo [id*="teacher-login"], .demo [id*="learner-login"], .demo [id*="topic-select"], .demo [id*="learning-session"], .demo [id*="results"], .demo [id*="profiles"] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -204,7 +210,6 @@ a:focus, a:hover, a:active {
   margin-bottom: 12px;
   margin-bottom: 0.63889rem;
   text-transform: uppercase;
-  font-weight: bold;
 }
 .demo h3, .demo h4, .demo strong {
   font-weight: bold;
@@ -253,7 +258,7 @@ a:focus, a:hover, a:active {
   content: attr(data-icon);
 }
 
-.demo button {
+.demo button, .demo .next-button {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -272,13 +277,13 @@ a:focus, a:hover, a:active {
   cursor: pointer;
 }
 
-.demo button:hover, .demo button:focus {
+.demo button:hover, .demo .next-button:hover, .demo button:focus, .demo .next-button:focus {
   -webkit-box-shadow: rgba(124, 185, 228, 0.25) 0 0 0.31944rem;
   -moz-box-shadow: rgba(124, 185, 228, 0.25) 0 0 0.31944rem;
   box-shadow: rgba(124, 185, 228, 0.25) 0 0 0.31944rem;
 }
 
-.demo button:active {
+.demo button:active, .demo .next-button:active {
   -webkit-box-shadow: #657b83 0 0 0.31944rem inset;
   -moz-box-shadow: #657b83 0 0 0.31944rem inset;
   box-shadow: #657b83 0 0 0.31944rem inset;
@@ -413,9 +418,40 @@ button {
   text-align: right;
 }
 
+.demo [class*="teacher-login"], .demo [class*="learner-login"], .demo [class*="topic-select"], .demo [class*="learning-session"], .demo [class*="results"], .demo [class*="profiles"] {
+  margin-bottom: 0px;
+  margin-bottom: 0rem;
+  opacity: 0;
+  max-height: 0;
+}
+
+.demo [id*="teacher-login"]:checked ~ .step [class*="teacher-login"], .demo [id*="learner-login"]:checked ~ .step [class*="learner-login"], .demo [id*="topic-select"]:checked ~ .step [class*="topic-select"], .demo [id*="learning-session"]:checked ~ .step [class*="learning-session"], .demo [id*="results"]:checked ~ .step [class*="results"], .demo [id*="profiles"]:checked ~ .step [class*="profiles"] {
+  -webkit-transition: all 200ms linear;
+  -moz-transition: all 200ms linear;
+  -o-transition: all 200ms linear;
+  transition: all 200ms linear;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+  opacity: 1;
+  max-height: 80em;
+}
+
+.demo [id*="teacher-login"]:checked ~ .step h2 [for*="teacher-login"], .demo [id*="learner-login"]:checked ~ .step h2 [for*="learner-login"], .demo [id*="topic-select"]:checked ~ .step h2 [for*="topic-select"], .demo [id*="learning-session"]:checked ~ .step h2 [for*="learning-session"], .demo [id*="results"]:checked ~ .step h2 [for*="results"], .demo [id*="profiles"]:checked ~ .step h2 [for*="profiles"] {
+  font-weight: bold;
+}
+
+.demo {
+  counter-reset: demo;
+}
+.demo .next-button {
+  background-color: #e6eacc;
+}
 .demo .label {
   margin-bottom: 0px;
   margin-bottom: 0rem;
+}
+.demo label {
+  cursor: pointer;
 }
 
 .instructions {
@@ -457,13 +493,20 @@ button {
   border-top-style: solid;
   padding-top: 4px;
   padding-top: 0.20833rem;
-  margin-bottom: 23px;
-  margin-bottom: 1.27778rem;
+  counter-increment: demo;
 }
 .step:after {
   content: "";
   display: table;
   clear: both;
+}
+.step h2:before {
+  content: "Step " counter(demo) ": ";
+  font-weight: normal;
+  color: #999999;
+}
+.step [class$="-content"] {
+  overflow: hidden;
 }
 
 .collaborate {

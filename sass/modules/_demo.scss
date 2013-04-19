@@ -1,10 +1,31 @@
 // Demo
 // ====
 
+$steps: teacher-login learner-login topic-select learning-session results profiles;
+
+%hide-tab-content {
+  @include trailer(0);
+  opacity: 0;
+  max-height: 0;
+}
+%show-tab-content {
+  @include transition(all 200ms linear);
+  @include trailer(1);
+  opacity: 1;
+  max-height: 80em;
+}
+%active-tab-title { font-weight: bold; }
+
 .demo {
   @extend %type;
-  button { @extend %button; }
+  counter-reset: demo;
+
+  button, .next-button { @extend %button; }
+  .next-button { background-color: color($green lightest); }
   .label { @include trailer(0); }
+  label { cursor: pointer; }
+
+  @include tabs($steps, '.step h2' '.step');
 }
 
 // Instructions
@@ -26,7 +47,18 @@
 .step {
   @include pie-clearfix;
   @include leading-border(2px,.25);
-  @include trailer;
+  counter-increment: demo;
+
+  h2 {
+    @include before(unquote('"Step " counter(demo) ": "')) {
+      font-weight: normal;
+      color: color(light);
+    }
+  }
+
+  [class$="-content"] {
+    overflow: hidden;
+  }
 }
 
 .collaborate {

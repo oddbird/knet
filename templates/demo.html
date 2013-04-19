@@ -20,197 +20,213 @@
 
 <article role="main" class="demo">
 
-  <div class="step teacher-login">
-    <h2>Teacher Login</h2>
-    <div class="formfield">
-      <label for="teacher-name">As a <strong>teacher</strong>, enter your name:</label>
-      <input type="text" id="teacher-name" placeholder="e.g. John Doe">
-    </div>
-    <button>Login</button>
-    <p class="instructions">
-      Pretend you are a teacher and that you are about to tutor someone in mathematics.
-      Enter your name and login.
-    </p>
-  </div>
+  <input type="radio" name="steps" id="teacher-login-toggle" checked>
+  <input type="radio" name="steps" id="learner-login-toggle">
+  <input type="radio" name="steps" id="topic-select-toggle">
+  <input type="radio" name="steps" id="learning-session-toggle">
+  <input type="radio" name="steps" id="results-toggle">
+  <input type="radio" name="steps" id="profiles-toggle">
 
-  <div class="step learner-login">
-    <h2>Learner Login</h2>
-    <p class="label">As a <strong>learner</strong>, log into Khan Academy:</p>
-    <button>Login with Google</button>
-    <button>Login with Facebook</button>
-    <p class="instructions">
-      Pretend your learner (Peter K) has logged in through Khan Academy.
-      Press one of the learner buttons for Peter.
-    </p>
-  </div>
-
-
-  <div class="step topic-select">
-    <h2>Select a Topic</h2>
-    <p class="label">With Peter K, choose a math topic for the session:</p>
-    <ul class="formfield">
-      <li>
-        <input type="radio" id="addition-topic" name="select-topic" checked/>
-        <label for="addition-topic">
-          Addition and Subtraction
-          <span class="topic-status">(10/11 skills)</span>
-        </label>
-      </li>
-      <li>
-        <input type="radio" id="matrices-topic" name="select-topic"/>
-        <label for="matrices-topic">
-          Matrices
-          <span class="topic-status">(0/11 skills)</span>
-        </label>
-      </li>
-    </ul>
-    <button>Select</button>
-    <p class="instructions">Press the Select button.</p>
-  </div>
-
-  <div class="step learning-session">
-    <h2>Learning Session</h2>
-
-    <section class="collaborate">
-      <div class="work">Draw and work together</div>
-      <div class="session">
-        <div class="time"><p>00:00</p></div>
-        <div class="chat"><p>Text chat</p></div>
-        <div class="voice"><button>Voice chat</button></div>
+  <div class="step">
+    <h2><label for="teacher-login-toggle">Teacher Login</label></h2>
+    <div class="teacher-login-content">
+      <div class="formfield">
+        <label for="teacher-name">As a <strong>teacher</strong>, enter your name:</label>
+        <input type="text" id="teacher-name" placeholder="e.g. John Doe">
       </div>
-    </section>
-
-    <div class="learner-feedback">
-      <div class="feedback-item">
-        <span class="explained-count">0</span>
-        <button class="explained">Explained it well</button>
-      </div>
-      <div class="feedback-item">
-        <span class="connected-count">0</span>
-        <button class="connected-count">Connected with me</button>
-      </div>
+      <label for="learner-login-toggle" class="next-button">Login</label>
       <p class="instructions">
-        Learner Feedback Buttons to track teacher performance.
-        Click them and see how the feedback count goes up.
+        Pretend you are a teacher and that you are about to tutor someone in mathematics.
+        Enter your name and login.
       </p>
     </div>
+  </div>
 
-    <div class="teacher-feedback">
-      <div class="feedback-item">
-        <span class="grit-count">0</span>
-        <button class="grit">Grit</button>
-      </div>
-      <div class="feedback-item">
-        <span class="optimism-count">0</span>
-        <button class="optimism">Optimism</button>
-      </div>
-      <div class="feedback-item">
-        <span class="curiosity-count">0</span>
-        <button class="curiosity">Curiosity</button>
-      </div>
+  <div class="step">
+    <h2><label for="learner-login-toggle">Learner Login</label></h2>
+    <div class="learner-login-content">
+      <p class="label">As a <strong>learner</strong>, log into Khan Academy:</p>
+      <label for="topic-select-toggle" class="next-button">Login with Google</label>
+      <label for="topic-select-toggle" class="next-button">Login with Facebook</label>
       <p class="instructions">
-        Teacher Feedback buttons to track learner performance.
-        Click them and see how the feedback count goes up.
+        Pretend your learner (Peter K) has logged in through Khan Academy.
+        Press one of the learner buttons for Peter.
       </p>
     </div>
-
-    <p class="instructions">
-      The K Network wants Teacher-Learner Feedback to go both ways.
-      Users will be able to build reputations both as teachers AND as learners.
-    </p>
-
-    <button>Done</button>
-    <p class="instructions">
-      When finished, press the Done button.
-    </p>
   </div>
 
-  <div class="step results">
-    <h2>Session Results</h2>
 
-    <div class="data-before">
-      <h3>Before</h3>
-      <ul>
+  <div class="step">
+    <h2><label for="topic-select-toggle">Select a Topic</label></h2>
+    <div class="topic-select-content">
+      <p class="label">With Peter K, choose a math topic for the session:</p>
+      <ul class="formfield">
         <li>
-          Addition and Subtraction
-          <span class="topic-status">(10/11 skills)</span>
+          <input type="radio" id="addition-topic" name="select-topic" checked/>
+          <label for="addition-topic">
+            Addition and Subtraction
+            <span class="topic-status">(10/11 skills)</span>
+          </label>
         </li>
         <li>
-          Matrices
-          <span class="topic-status">(0/11 skills)</span>
+          <input type="radio" id="matrices-topic" name="select-topic"/>
+          <label for="matrices-topic">
+            Matrices
+            <span class="topic-status">(0/11 skills)</span>
+          </label>
         </li>
       </ul>
+      <label for="learning-session-toggle" class="next-button">Select</label>
+      <p class="instructions">Press the Select button.</p>
     </div>
-
-    <div class="data-after">
-      <h3>After</h3>
-      <ul>
-        <li>
-          Addition and Subtraction
-          <span class="topic-status">(11/11 skills)</span>
-        </li>
-        <li>
-          Matrices
-          <span class="topic-status">(0/11 skills)</span>
-        </li>
-      </ul>
-    </div>
-
-    <button>Next</button>
-    <p class="instructions">
-      Teacher and learner feedback shows up in profile (next step).
-      Press the Next button when ready.
-    </p>
   </div>
 
-  <div class="step profiles">
-    <h2>Updated User Profiles</h2>
+  <div class="step">
+    <h2><label for="learning-session-toggle">Learning Session</label></h2>
+    <div class="learning-session-content">
+      <section class="collaborate">
+        <div class="work">Draw and work together</div>
+        <div class="session">
+          <div class="time"><p>00:00</p></div>
+          <div class="chat"><p>Text chat</p></div>
+          <div class="voice"><button>Voice chat</button></div>
+        </div>
+      </section>
 
-    <div class="teacher-profile">
-      <h3>Teacher Profile for <span class="teacher-name"></span></h3>
-      <div class="hard-data">
-        <p>5 students, 12 sessions, 23 proficiencies gained</p>
-        <p>[note: available when / if Khan Academy is used]</p>
+      <div class="learner-feedback">
+        <div class="feedback-item">
+          <span class="explained-count">0</span>
+          <button class="explained">Explained it well</button>
+        </div>
+        <div class="feedback-item">
+          <span class="connected-count">0</span>
+          <button class="connected-count">Connected with me</button>
+        </div>
+        <p class="instructions">
+          Learner Feedback Buttons to track teacher performance.
+          Click them and see how the feedback count goes up.
+        </p>
       </div>
-      <div class="soft-data">
-        <p>Ability to Teach: Very High</p>
-        <p>Ability to Connect: Moderate to Good</p>
+
+      <div class="teacher-feedback">
+        <div class="feedback-item">
+          <span class="grit-count">0</span>
+          <button class="grit">Grit</button>
+        </div>
+        <div class="feedback-item">
+          <span class="optimism-count">0</span>
+          <button class="optimism">Optimism</button>
+        </div>
+        <div class="feedback-item">
+          <span class="curiosity-count">0</span>
+          <button class="curiosity">Curiosity</button>
+        </div>
+        <p class="instructions">
+          Teacher Feedback buttons to track learner performance.
+          Click them and see how the feedback count goes up.
+        </p>
       </div>
+
+      <p class="instructions">
+        The K Network wants Teacher-Learner Feedback to go both ways.
+        Users will be able to build reputations both as teachers AND as learners.
+      </p>
+
+      <label for="results-toggle" class="next-button">Done</label>
+      <p class="instructions">
+        When finished, press the Done button.
+      </p>
     </div>
+  </div>
 
-    <div class="learner-profile">
-      <h3>Learner Profile for <span class="learner-name"></span></h3>
-      <div class="grit">
-        Grit:
-        <span>67</span>
-        <span>Extremely High</span>
-        <div class="description">
-          Finishing what one starts; completing something despite obstacles; a combination of persistence and resilience.
-          <ul>
-            <li>Finishes whatever he or she begins</li>
-            <li>Tries very hard even after experiencing failure</li>
-            <li>Works independently with focus</li>
-          </ul>
+  <div class="step">
+    <h2><label for="results-toggle">Session Results</label></h2>
+    <div class="results-content">
+      <div class="data-before">
+        <h3>Before</h3>
+        <ul>
+          <li>
+            Addition and Subtraction
+            <span class="topic-status">(10/11 skills)</span>
+          </li>
+          <li>
+            Matrices
+            <span class="topic-status">(0/11 skills)</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="data-after">
+        <h3>After</h3>
+        <ul>
+          <li>
+            Addition and Subtraction
+            <span class="topic-status">(11/11 skills)</span>
+          </li>
+          <li>
+            Matrices
+            <span class="topic-status">(0/11 skills)</span>
+          </li>
+        </ul>
+      </div>
+
+      <label for="profiles-toggle" class="next-button">Next</label>
+      <p class="instructions">
+        Teacher and learner feedback shows up in profile (next step).
+        Press the Next button when ready.
+      </p>
+    </div>
+  </div>
+
+  <div class="step">
+    <h2><label for="profiles-toggle">Updated User Profiles</label></h2>
+    <div class="profiles-content">
+      <div class="teacher-profile">
+        <h3>Teacher Profile for <span class="teacher-name"></span></h3>
+        <div class="hard-data">
+          <p>5 students, 12 sessions, 23 proficiencies gained</p>
+          <p>[note: available when / if Khan Academy is used]</p>
+        </div>
+        <div class="soft-data">
+          <p>Ability to Teach: Very High</p>
+          <p>Ability to Connect: Moderate to Good</p>
         </div>
       </div>
-      <div class="optimism">
-        Optimism:
-        <span>54</span>
-        <span>Average</span>
-      </div>
-      <div class="curiosity">
-        Curiosity:
-        <span>25</span>
-        <span>Moderate to Good</span>
-      </div>
-    </div>
 
-    <p class="instructions">
-      “Hard Data” stats and “Soft Data” Stats go into user profile system.
-      Teachers can use their profile for applying in the teaching industry.
-      Learners can use their profile to show they have the character traits
-      that mean they are good to work with, worthy of their first job, etc.
-    </p>
+      <div class="learner-profile">
+        <h3>Learner Profile for <span class="learner-name"></span></h3>
+        <div class="grit">
+          Grit:
+          <span>67</span>
+          <span>Extremely High</span>
+          <div class="description">
+            Finishing what one starts; completing something despite obstacles; a combination of persistence and resilience.
+            <ul>
+              <li>Finishes whatever he or she begins</li>
+              <li>Tries very hard even after experiencing failure</li>
+              <li>Works independently with focus</li>
+            </ul>
+          </div>
+        </div>
+        <div class="optimism">
+          Optimism:
+          <span>54</span>
+          <span>Average</span>
+        </div>
+        <div class="curiosity">
+          Curiosity:
+          <span>25</span>
+          <span>Moderate to Good</span>
+        </div>
+      </div>
+
+      <p class="instructions">
+        “Hard Data” stats and “Soft Data” Stats go into user profile system.
+        Teachers can use their profile for applying in the teaching industry.
+        Learners can use their profile to show they have the character traits
+        that mean they are good to work with, worthy of their first job, etc.
+      </p>
+    </div>
   </div>
 
 </article>
