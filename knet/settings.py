@@ -153,6 +153,12 @@ PIPELINE_JS = {
             ],
         'output_filename': 'js/modernizr.min.js',
         },
+    'plugins': {
+        'source_filenames': [
+            'js/plugins/jquery.stopwatch.js',
+            ],
+        'output_filename': 'js/plugins.min.js',
+        },
     }
 
 # Pipeline doesn't need to wrap JS in an anonymous function for us

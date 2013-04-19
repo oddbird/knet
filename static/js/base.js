@@ -3,9 +3,12 @@ var KNET = (function (KNET, $) {
     'use strict';
 
     var teacherNameInput = $('#teacher-name');
-    var teacherNameButton = $('.teacher-login button');
+    var teacherNameButton = $('.teacher-login-content .next-button');
     var teacherName = $('header .meta .teacher span');
     var learnerName = $('header .meta .learner span');
+    var timer = $('.learning-session-content .timer');
+    var timerStart = $('label[for="learning-session-toggle"]');
+    var timerStop = $('label[for="results-toggle"]');
 
     // Store keycode variables for easier readability
     KNET.keycodes = {
@@ -44,8 +47,18 @@ var KNET = (function (KNET, $) {
         });
     };
 
+    KNET.initializeTimer = function () {
+        timerStart.one('click', function () {
+            timer.stopwatch().stopwatch('start');
+        });
+        timerStop.one('click', function () {
+            timer.stopwatch('stop');
+        });
+    };
+
     $(function () {
         KNET.inputTeacherName();
+        KNET.initializeTimer();
     });
 
     return KNET;

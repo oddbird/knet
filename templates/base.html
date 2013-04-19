@@ -58,6 +58,7 @@
 <!-- JavaScript -->
 {% block js %}
 <script src="{{ STATIC_URL }}js/libs/jquery-2.0.0.min.js"></script>
+{% compressed_js "plugins" %}
 {% compressed_js "main" %}
 {% endblock js %}
 
