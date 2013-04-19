@@ -19,8 +19,6 @@
     "white": true,
 
     "globals": {
-        "mixpanel": true,
-        "FlashDetect": true,
         "Modernizr": true
     }
 }
