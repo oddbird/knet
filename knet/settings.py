@@ -27,8 +27,11 @@ def env(key, coerce=str, default=NOT_PROVIDED):
         default = default.get(MODE, NOT_PROVIDED)
     except AttributeError:
         pass
+
     if default is NOT_PROVIDED:
         val = os.environ.get(key)
+        if val is None:
+            raise ValueError("Environment variable %s is required." % key)
     else:
         val = os.environ.get(key, default)
     return coerce(val)
