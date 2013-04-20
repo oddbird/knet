@@ -2,13 +2,14 @@ var KNET = (function (KNET, $) {
 
     'use strict';
 
+    var container = $('.demo');
     var teacherNameInput = $('#teacher-name');
-    var teacherNameButton = $('.teacher-login-content .next-button');
+    var teacherNameButton = container.find('.teacher-login-content .next-button');
     var teacherName = $('header .meta .teacher span');
     var learnerName = $('header .meta .learner span');
-    var timer = $('.learning-session-content .timer');
-    var timerStart = $('label[for="learning-session-toggle"]');
-    var timerStop = $('label[for="results-toggle"]');
+    var timer = container.find('.learning-session-content .timer');
+    var timerStartSel = 'label[for="learning-session-toggle"]';
+    var timerStopSel = 'label[for="results-toggle"]';
 
     // Store keycode variables for easier readability
     KNET.keycodes = {
@@ -48,10 +49,10 @@ var KNET = (function (KNET, $) {
     };
 
     KNET.initializeTimer = function () {
-        timerStart.one('click', function () {
+        container.one('click', timerStartSel, function () {
             timer.stopwatch().stopwatch('start');
         });
-        timerStop.one('click', function () {
+        container.one('click', timerStopSel, function () {
             timer.stopwatch('stop');
         });
     };
