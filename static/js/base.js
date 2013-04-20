@@ -10,6 +10,7 @@ var KNET = (function (KNET, $) {
     var timer = container.find('.learning-session-content .timer');
     var timerStartSel = 'label[for="learning-session-toggle"]';
     var timerStopSel = 'label[for="results-toggle"]';
+    var feedbackButtons = container.find('.feedback-item button');
 
     // Store keycode variables for easier readability
     KNET.keycodes = {
@@ -57,9 +58,26 @@ var KNET = (function (KNET, $) {
         });
     };
 
+    KNET.initFeedbackButtons = function () {
+        feedbackButtons.each(function () {
+            var button = $(this);
+            var counter = button.siblings('span');
+
+            button.on('click.feedback', function () {
+                var count = parseInt(counter.text(), 10) + 1;
+                counter.text('+' + count);
+                if (count === 5) {
+                    button.off('click.countdown');
+                    button.attr('disabled', 'disabled');
+                }
+            });
+        });
+    };
+
     $(function () {
         KNET.inputTeacherName();
         KNET.initializeTimer();
+        KNET.initFeedbackButtons();
     });
 
     return KNET;
