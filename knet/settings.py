@@ -144,7 +144,7 @@ PIPELINE_JS = {
         'source_filenames': [
             'js/base.js',
             ],
-        'output_filename': 'js/base.min.js',
+        'output_filename': 'js/main.min.js',
         },
     'modernizr': {
         'source_filenames': [
@@ -156,6 +156,7 @@ PIPELINE_JS = {
         },
     'plugins': {
         'source_filenames': [
+            'js/libs/jquery-2.0.0.js',
             'js/plugins/jquery.stopwatch.js',
             ],
         'output_filename': 'js/plugins.min.js',
