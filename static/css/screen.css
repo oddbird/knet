@@ -620,7 +620,10 @@ button {
   padding: 0.31944rem;
 }
 .results-table .yay {
-  background: #e6eacc;
+  color: #6a7a00;
+}
+.results-table .yay .after {
+  font-weight: bold;
 }
 
 .learner-profile {

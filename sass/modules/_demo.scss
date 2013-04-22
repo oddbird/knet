@@ -123,7 +123,10 @@ $steps: teacher-login learner-login topic-select learning-session results profil
   th, td {
     padding: rhythm(.25);
   }
-  .yay { background: color($green lightest); }
+  .yay {
+    color: color($green dark);
+    .after { font-weight: bold; }
+  }
 }
 
 // Profiles
