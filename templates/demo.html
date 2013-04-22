@@ -64,14 +64,14 @@
         <li>
           <input type="radio" id="addition-topic" name="select-topic" checked/>
           <label for="addition-topic">
-            Addition and Subtraction
+            <span class="topic">Addition and Subtraction</span>
             <span class="topic-status">(10/11 skills)</span>
           </label>
         </li>
         <li>
           <input type="radio" id="matrices-topic" name="select-topic"/>
           <label for="matrices-topic">
-            Matrices
+            <span class="topic">Matrices</span>
             <span class="topic-status">(0/11 skills)</span>
           </label>
         </li>
@@ -84,6 +84,7 @@
   <div class="step">
     <h2><label for="learning-session-toggle">Learning Session</label></h2>
     <div class="learning-session-content">
+      <h3 class="selected-topic"></h3>
       <section class="collaborate">
         <div class="work">Draw and work together</div>
         <div class="session">
@@ -160,6 +161,7 @@
   <div class="step">
     <h2><label for="results-toggle">Session Results</label></h2>
     <div class="results-content">
+      <h3 class="selected-topic"></h3>
 
       <table class="results-table">
         <thead>

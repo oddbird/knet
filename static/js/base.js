@@ -11,6 +11,7 @@ var KNET = (function (KNET, $) {
     var timerStartSel = 'label[for="learning-session-toggle"]';
     var timerStopSel = 'label[for="results-toggle"]';
     var feedbackButtons = container.find('.feedback-item button');
+    var topicSel = 'input[type="radio"][name="select-topic"]';
 
     // Store keycode variables for easier readability
     KNET.keycodes = {
@@ -74,10 +75,25 @@ var KNET = (function (KNET, $) {
         });
     };
 
+    KNET.selectTopic = function () {
+        var updateTopic = function () {
+            var text = container.find(topicSel).filter(':checked').siblings('label').find('.topic').text();
+            var targets = container.find('.selected-topic');
+            targets.text(text);
+        };
+
+        container.on('change', topicSel, function () {
+            updateTopic();
+        });
+
+        updateTopic();
+    };
+
     $(function () {
         KNET.inputTeacherName();
         KNET.initializeTimer();
         KNET.initFeedbackButtons();
+        KNET.selectTopic();
     });
 
     return KNET;
