@@ -3,15 +3,6 @@ var KNET = (function (KNET, $) {
     'use strict';
 
     var container = $('.demo');
-    var teacherNameInput = $('#teacher-name');
-    var teacherNameButton = container.find('.teacher-login-content .next-button');
-    var teacherName = $('header .meta .teacher span');
-    var learnerName = $('header .meta .learner span');
-    var timer = container.find('.learning-session-content .timer');
-    var timerStartSel = 'label[for="learning-session-toggle"]';
-    var timerStopSel = 'label[for="results-toggle"]';
-    var feedbackButtons = container.find('.feedback-item button');
-    var topicSel = 'input[type="radio"][name="select-topic"]';
 
     // Store keycode variables for easier readability
     KNET.keycodes = {
@@ -31,6 +22,10 @@ var KNET = (function (KNET, $) {
     };
 
     KNET.inputTeacherName = function () {
+        var teacherNameInput = $('#teacher-name');
+        var teacherNameButton = container.find('.teacher-login-content .next-button');
+        var teacherName = $('header .meta .teacher span');
+        var learnerName = $('header .meta .learner span');
         var addTeacherName = function () {
             if (teacherNameInput.val() !== '') {
                 var name = teacherNameInput.val().toString();
@@ -51,6 +46,10 @@ var KNET = (function (KNET, $) {
     };
 
     KNET.initializeTimer = function () {
+        var timer = container.find('.learning-session-content .timer');
+        var timerStartSel = 'label[for="learning-session-toggle"]';
+        var timerStopSel = 'label[for="results-toggle"]';
+
         container.one('click', timerStartSel, function () {
             timer.stopwatch().stopwatch('start');
         });
@@ -60,6 +59,8 @@ var KNET = (function (KNET, $) {
     };
 
     KNET.initFeedbackButtons = function () {
+        var feedbackButtons = container.find('.feedback-item button');
+
         feedbackButtons.each(function () {
             var button = $(this);
             var counter = button.siblings('span');
@@ -76,9 +77,11 @@ var KNET = (function (KNET, $) {
     };
 
     KNET.selectTopic = function () {
+        var topicSel = 'input[type="radio"][name="select-topic"]';
+        var topicInputs = container.find(topicSel);
+        var targets = container.find('.selected-topic');
         var updateTopic = function () {
-            var text = container.find(topicSel).filter(':checked').siblings('label').find('.topic').text();
-            var targets = container.find('.selected-topic');
+            var text = topicInputs.filter(':checked').siblings('label').find('.topic').text();
             targets.text(text);
         };
 
