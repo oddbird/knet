@@ -104,11 +104,10 @@ $steps: teacher-login learner-login topic-select learning-session results profil
 
 .feedback-item {
   @include adjust-font-size-to($smallpx);
-  display: inline-block;
-  text-align: center;
+  &.positive button { background-color: color($green lightest,.5); }
+  &.negative button { background-color: color($red lightest,.5); }
   [class$="-count"] {
     @include adjust-font-size-to($medpx);
-    display: block;
   }
 }
 
