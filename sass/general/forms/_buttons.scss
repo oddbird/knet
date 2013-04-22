@@ -40,6 +40,16 @@ $button-gradient: color($base,0) 40%, color(lightest,.25);
   @extend %button-base-active;
 }
 
+%button-disabled {
+  opacity: .5;
+  background: color($yellow lightest,.5);
+  cursor: default;
+  #{$focus} {
+    @include box-shadow(none);
+    background-image: none;
+  }
+}
+
 %button-large {
   @extend %button;
   @include adjust-font-size-to($largepx);

@@ -296,6 +296,18 @@ a:focus, a:hover, a:active {
   background-image: linear-gradient(to top, rgba(101, 123, 131, 0) 40%, rgba(229, 229, 229, 0.25));
 }
 
+.demo button:disabled {
+  opacity: .5;
+  background: rgba(240, 231, 204, 0.5);
+  cursor: default;
+}
+.demo button:focus:disabled, .demo button:hover:disabled, .demo button:active:disabled {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-image: none;
+}
+
 button {
   margin: 0;
   padding: 0;

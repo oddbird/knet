@@ -23,6 +23,7 @@ $steps: teacher-login learner-login topic-select learning-session results profil
   counter-reset: demo;
 
   button, .next-button { @extend %button; }
+  button:disabled { @extend %button-disabled }
   .next-button { background-color: color($green lightest); }
   .label { @include trailer(0); }
   label { cursor: pointer; }
