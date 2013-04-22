@@ -23,7 +23,7 @@ var KNET = (function (KNET, $) {
 
     KNET.inputTeacherName = function () {
         var teacherNameInput = $('#teacher-name');
-        var teacherNameButton = container.find('.teacher-login-content .next-button');
+        var teacherNameButton = container.find('label[for="learner-login-toggle"]');
         var teacherName = $('header .meta .teacher span');
         var learnerName = $('header .meta .learner span');
         var addTeacherName = function () {
@@ -36,7 +36,7 @@ var KNET = (function (KNET, $) {
 
         teacherNameInput.keydown(function (e) {
             if (e.keyCode === KNET.keycodes.ENTER) {
-                addTeacherName();
+                teacherNameButton.first().click();
             }
         });
 
