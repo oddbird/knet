@@ -49,12 +49,15 @@ var KNET = (function (KNET, $) {
         var timer = container.find('.learning-session-content .timer');
         var timerStartSel = 'label[for="learning-session-toggle"]';
         var timerStopSel = 'label[for="results-toggle"]';
+        var addStopHandler = function () {
+            container.one('click', timerStopSel, function () {
+                timer.stopwatch('stop');
+            });
+        };
 
         container.one('click', timerStartSel, function () {
             timer.stopwatch().stopwatch('start');
-        });
-        container.one('click', timerStopSel, function () {
-            timer.stopwatch('stop');
+            addStopHandler();
         });
     };
 
@@ -80,9 +83,21 @@ var KNET = (function (KNET, $) {
         var topicSel = 'input[type="radio"][name="select-topic"]';
         var topicInputs = container.find(topicSel);
         var targets = container.find('.selected-topic');
+        var resultsTopics = container.find('.results-table tr');
         var updateTopic = function () {
-            var text = topicInputs.filter(':checked').siblings('label').find('.topic').text();
+            var selectedTopic = topicInputs.filter(':checked');
+            var id = selectedTopic.get(0).id;
+            var text = container.find('label[for="' + id + '"]').find('.topic').text();
+            var thisResult = resultsTopics.removeClass('yay').filter(function () {
+                return $(this).data('id') === id;
+            }).addClass('yay');
             targets.text(text);
+            resultsTopics.find('.after').each(function () {
+                var el = $(this);
+                el.text(el.data('orig'));
+            });
+            var count = parseInt(thisResult.find('.after').text(), 10);
+            thisResult.find('.after').text(++count);
         };
 
         container.on('change', topicSel, function () {
