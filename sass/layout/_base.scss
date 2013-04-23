@@ -33,12 +33,11 @@
     @include transition(opacity 300ms);
     opacity: 1;
     margin-left: 1em;
-    &.empty { opacity: 0; }
+    &.empty { display: none; }
   }
 }
 
 [role="main"] {
   @include container;
-  @include leader(3);
-  padding: 0 1em;
+  padding: rhythm(3) 1em;
 }

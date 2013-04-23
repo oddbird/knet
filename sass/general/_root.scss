@@ -13,7 +13,11 @@
 html {
   @include sans;
   color: $base;
-  background: white;
+  background: color($cyan light,.25);
+}
+
+html, body {
+  height: 100%;
 }
 
 // ----------------------------------------------------------------------------
