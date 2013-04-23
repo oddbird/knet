@@ -61,9 +61,11 @@ var KNET = (function (KNET, $) {
         var timer = container.find('.learning-session-content .timer');
         var timerStartSel = 'label[for="learning-session-toggle"]';
         var timerStopSel = 'label[for="results-toggle"]';
+        var sessionTime = container.find('.session-time');
         var addStopHandler = function () {
             container.one('click', timerStopSel, function () {
                 timer.stopwatch('stop');
+                sessionTime.text(timer.text());
             });
         };
 
