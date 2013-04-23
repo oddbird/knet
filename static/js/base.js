@@ -24,12 +24,13 @@ var KNET = (function (KNET, $) {
     KNET.inputTeacherName = function () {
         var teacherNameInput = $('#teacher-name');
         var teacherNameButton = container.find('label[for="learner-login-toggle"]');
-        var teacherName = $('header .meta .teacher span');
-        var learnerName = $('header .meta .learner span');
+        var headerTeacherName = $('header .meta .teacher-name');
+        var profileTeacherName = container.find('.teacher-name');
         var addTeacherName = function () {
             if (teacherNameInput.val() !== '') {
                 var name = teacherNameInput.val().toString();
-                teacherName.text(name).closest('.vcard').removeClass('empty');
+                headerTeacherName.text(name).closest('.vcard').removeClass('empty');
+                profileTeacherName.text(name);
                 teacherNameInput.val('');
             }
         };
@@ -42,6 +43,17 @@ var KNET = (function (KNET, $) {
 
         teacherNameButton.click(function (e) {
             addTeacherName();
+        });
+    };
+
+    KNET.selectLearnerName = function () {
+        var labelSel = 'label[for="topic-select-toggle"]';
+        var headerLearnerName = $('header .meta .learner-name');
+        var profileLearnerName = container.find('.learner-name');
+
+        container.one('click', labelSel, function () {
+            headerLearnerName.text('Peter K').closest('.vcard').removeClass('empty');
+            profileLearnerName.text('Peter K');
         });
     };
 
@@ -109,6 +121,7 @@ var KNET = (function (KNET, $) {
 
     $(function () {
         KNET.inputTeacherName();
+        KNET.selectLearnerName();
         KNET.initializeTimer();
         KNET.initFeedbackButtons();
         KNET.selectTopic();
