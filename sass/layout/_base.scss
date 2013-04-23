@@ -5,7 +5,7 @@
   @include pie-clearfix;
   @include trailing-border(1px,.5);
   @include padding-leader(.5);
-  @include background(white linear-gradient(to top, color(lightest), color(lightest,0)));
+  @include background(color(white,.95) linear-gradient(to top, color(lightest,.75), color(lightest,0)));
   position: fixed;
   top: 0;
   left: 0;
@@ -22,10 +22,10 @@
     margin-left: -1em;
     text-align: right;
   }
-  .logo, .pagetitle, .vcard {
+  .company, .pagetitle, .vcard {
     display: inline-block;
   }
-  .logo {
+  .company {
     @include after(":");
     font-weight: bold;
   }
@@ -40,4 +40,13 @@
 [role="main"] {
   @include container;
   padding: rhythm(3) 1em;
+}
+
+.logo {
+  @include replace-text('wordmark.svg');
+  @include background-size;
+  @include fluid-ratio(728.665 / 270.667);
+}
+.tagline {
+  text-align: right;
 }

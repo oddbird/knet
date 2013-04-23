@@ -16,13 +16,27 @@ $steps: teacher-login learner-login topic-select learning-session results profil
   max-height: 80em;
   overflow: visible;
 }
-%active-tab-title { font-weight: bold; }
+%active-tab-title {
+  @include trailer(1);
+  display: inline-block;
+  font-weight: bold;
+}
 
 .demo {
   @extend %type;
   min-height: 100%;
-  background: color(white,.25);
   counter-reset: demo;
+
+  .intro {
+    @include rhythm-margins(2);
+    @include serif;
+    @include adjust-font-size-to($medpx);
+    @include arrow(bottom center rhythm(.5) $orange);
+    @include rhythm-borders(2px,2);
+    @include border-radius(.25em);
+    border-color: $orange;
+    background: color(white,.75);
+  }
 
   button, .next-button { @extend %button; }
   button:disabled { @extend %button-disabled }
@@ -52,14 +66,15 @@ $steps: teacher-login learner-login topic-select learning-session results profil
 
 .step {
   @include pie-clearfix;
-  @include leader;
+  @include leader(.5);
+  @include leading-border(2px,.5);
+  @include pad(1,1);
   position: relative;
+  border-top: 2px dotted color($blue,.25);
   counter-increment: demo;
 
   h2 {
-    @include leading-border(2px,.5);
-    @include trailer(.5);
-    border-top: 2px dotted color($blue,.25);
+    margin: 0 0 - columns(1,8);
     color: color($accent);
     @include before(unquote('counter(demo) " : "')) {
       color: color(light);
@@ -103,11 +118,11 @@ $steps: teacher-login learner-login topic-select learning-session results profil
 }
 
 .learner-feedback {
-  @include span-columns(4);
+  @include span-columns(4,8);
 }
 
 .teacher-feedback {
-  @include span-columns(4 omega);
+  @include span-columns(4 omega,8);
 }
 
 .feedback-item {
@@ -140,12 +155,12 @@ $steps: teacher-login learner-login topic-select learning-session results profil
 // --------
 
 .learner-profile {
-  @include span-columns(4);
+  @include span-columns(4,8);
   @include trailer;
 }
 
 .teacher-profile {
-  @include span-columns(4 omega);
+  @include span-columns(4 omega,8);
   @include trailer;
 }
 

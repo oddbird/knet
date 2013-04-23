@@ -2,12 +2,5 @@
 // =======
 
 .landing {
-  .logo {
-    @include replace-text('logo.jpg');
-    @include background-size;
-    height: image-height('logo.jpg');
-  }
-  .tagline {
-    text-align: right;
-  }
+  max-width: 60em;
 }
