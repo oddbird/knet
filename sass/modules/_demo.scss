@@ -10,7 +10,7 @@ $steps: teacher-login learner-login topic-select learning-session results profil
   overflow: hidden;
 }
 %show-tab-content {
-  @include transition(all 200ms linear);
+  @include transition(all .5s linear);
   @include trailer(1);
   opacity: 1;
   max-height: 80em;

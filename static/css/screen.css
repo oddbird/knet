@@ -423,7 +423,7 @@ button {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/wordmark.svg?1366750206');
+  background-image: url('../images/wordmark.svg?1366751994');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   -webkit-background-size: 100% auto;
@@ -462,10 +462,10 @@ button {
 }
 
 .demo [id*="teacher-login"]:checked ~ .step [class*="teacher-login"], .demo [id*="learner-login"]:checked ~ .step [class*="learner-login"], .demo [id*="topic-select"]:checked ~ .step [class*="topic-select"], .demo [id*="learning-session"]:checked ~ .step [class*="learning-session"], .demo [id*="results"]:checked ~ .step [class*="results"], .demo [id*="profiles"]:checked ~ .step [class*="profiles"] {
-  -webkit-transition: all 200ms linear;
-  -moz-transition: all 200ms linear;
-  -o-transition: all 200ms linear;
-  transition: all 200ms linear;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
   opacity: 1;
