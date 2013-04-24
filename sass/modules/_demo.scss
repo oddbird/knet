@@ -44,6 +44,12 @@ $steps: teacher-login learner-login topic-select learning-session results profil
   .label { @include trailer(0); }
   label { cursor: pointer; }
 
+  img {
+    @include trailer;
+    max-width: 100%;
+    border: 1px solid $base;
+  }
+
   @include tabs($steps, '.step h2' '.step');
 }
 

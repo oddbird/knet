@@ -529,6 +529,12 @@ button {
 .demo label {
   cursor: pointer;
 }
+.demo img {
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+  max-width: 100%;
+  border: 1px solid #005e5e;
+}
 
 .instructions {
   margin-top: 23px;
