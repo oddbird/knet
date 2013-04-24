@@ -457,6 +457,10 @@ button {
   max-width: 60em;
 }
 
+.demo [id*="teacher-login"], .demo [id*="learner-login"], .demo [id*="topic-select"], .demo [id*="learning-session"], .demo [id*="results"], .demo [id*="profiles"] {
+  top: auto;
+}
+
 .demo [class*="teacher-login"], .demo [class*="learner-login"], .demo [class*="topic-select"], .demo [class*="learning-session"], .demo [class*="results"], .demo [class*="profiles"] {
   margin-bottom: 0px;
   margin-bottom: 0rem;

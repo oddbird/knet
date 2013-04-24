@@ -3,6 +3,8 @@
 
 $steps: teacher-login learner-login topic-select learning-session results profiles;
 
+%hide-tab-toggle { top: auto; }
+
 %hide-tab-content {
   @include trailer(0);
   opacity: 0;
