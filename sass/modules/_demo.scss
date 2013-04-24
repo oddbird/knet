@@ -144,7 +144,7 @@ $steps: teacher-login learner-login topic-select learning-session results profil
 // -------
 
 .results-table {
-  @include rhythm-margins(1);
+  @include trailer(1);
   @include h-borders(1px,.5);
   width: 100%;
   th { font-weight: bold; }
@@ -154,6 +154,10 @@ $steps: teacher-login learner-login topic-select learning-session results profil
   .yay {
     color: color($green dark);
     .after { font-weight: bold; }
+  }
+
+  &.soft {
+    th + th { width: 21%; }
   }
 }
 

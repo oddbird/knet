@@ -216,6 +216,10 @@ a:focus, a:hover, a:active {
   margin-bottom: 0.63889rem;
   text-transform: uppercase;
 }
+.demo h4 {
+  margin-top: 23px;
+  margin-top: 1.27778rem;
+}
 .demo h4, .demo strong {
   font-weight: bold;
 }
@@ -674,8 +678,6 @@ button {
 }
 
 .results-table {
-  margin-top: 23px;
-  margin-top: 1.27778rem;
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
   border-top-width: 1px;
@@ -701,6 +703,9 @@ button {
 }
 .results-table .yay .after {
   font-weight: bold;
+}
+.results-table.soft th + th {
+  width: 21%;
 }
 
 .learner-profile {

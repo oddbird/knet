@@ -41,6 +41,8 @@ a {
     text-transform: uppercase;
   }
 
+  h4 { @include leader; }
+
   h4, strong { font-weight: bold; }
   em { font-style: italic; }
 
