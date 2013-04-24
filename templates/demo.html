@@ -103,28 +103,28 @@
       <div class="learner-feedback">
         <h3>Learner Feedback</h3>
         <div class="feedback-item positive">
-          <button class="explained">Explained it well</button>
-          <span class="explained-count">0</span>
+          <button data-id="explained">Explained it well</button>
+          <span class="count">0</span>
         </div>
         <div class="feedback-item positive">
-          <button class="answered">Answered my question</button>
-          <span class="answered-count">0</span>
+          <button data-id="answered">Answered my question</button>
+          <span class="count">0</span>
         </div>
         <div class="feedback-item positive">
-          <button class="connected">Connected with me</button>
-          <span class="connected-count">0</span>
+          <button data-id="connected">Connected with me</button>
+          <span class="count">0</span>
         </div>
         <div class="feedback-item negative">
-          <button class="tooquick negative">Moved too quickly</button>
-          <span class="tooquick-count">0</span>
+          <button data-id="tooquick">Moved too quickly</button>
+          <span class="count">0</span>
         </div>
         <div class="feedback-item negative">
-          <button class="oblivious">Didn't check in to see if I got it</button>
-          <span class="oblivious-count">0</span>
+          <button data-id="oblivious">Didn't check in to see if I got it</button>
+          <span class="count">0</span>
         </div>
         <div class="feedback-item negative">
-          <button class="didnotconnect">Didn't connect with me</button>
-          <span class="didnotconnect-count">0</span>
+          <button data-id="didnotconnect">Didn't connect with me</button>
+          <span class="count">0</span>
         </div>
         <p class="instructions">
           Learner Feedback Buttons to track teacher performance.
@@ -135,16 +135,16 @@
       <div class="teacher-feedback">
         <h3>Teacher Feedback</h3>
         <div class="feedback-item positive">
-          <button class="grit">Grit</button>
-          <span class="grit-count">0</span>
+          <button data-id="grit">Grit</button>
+          <span class="count">0</span>
         </div>
         <div class="feedback-item positive">
-          <button class="optimism">Optimism</button>
-          <span class="optimism-count">0</span>
+          <button data-id="optimism">Optimism</button>
+          <span class="count">0</span>
         </div>
         <div class="feedback-item positive">
-          <button class="curiosity">Curiosity</button>
-          <span class="curiosity-count">0</span>
+          <button data-id="curiosity">Curiosity</button>
+          <span class="count">0</span>
         </div>
         <p class="instructions">
           Teacher Feedback buttons to track learner performance.
@@ -170,7 +170,8 @@
       <h3 class="selected-topic"></h3>
       Session time: <span class="session-time">00:00:00</span>
 
-      <table class="results-table">
+      <table class="results-table hard">
+        <h4>Hard Data</h4>
         <thead>
           <th>Skill</th>
           <th>Before</th>
@@ -188,6 +189,57 @@
           <td class="before">0</td>
           <td class="after" data-orig="0">0</td>
           <td>11</td>
+        </tr>
+      </table>
+
+      <table class="results-table soft">
+        <h4>Soft Data</h4>
+        <thead>
+          <th>Learner Feedback</th>
+          <th>Change</th>
+        </thead>
+        <tr>
+          <td>Explained it well</td>
+          <td class="explained">0</td>
+        </tr>
+        <tr>
+          <td>Answered my question</td>
+          <td class="answered">0</td>
+        </tr>
+        <tr>
+          <td>Connected with me</td>
+          <td class="connected">0</td>
+        </tr>
+        <tr>
+          <td>Moved too quickly</td>
+          <td class="tooquick">0</td>
+        </tr>
+        <tr>
+          <td>Didn't check in to see if I got it</td>
+          <td class="oblivious">0</td>
+        </tr>
+        <tr>
+          <td>Didn't connect with me</td>
+          <td class="didnotconnect">0</td>
+        </tr>
+      </table>
+
+      <table class="results-table soft">
+        <thead>
+          <th>Teacher Feedback</th>
+          <th>Change</th>
+        </thead>
+        <tr>
+          <td>Grit</td>
+          <td class="grit">0</td>
+        </tr>
+        <tr>
+          <td>Optimism</td>
+          <td class="optimism">0</td>
+        </tr>
+        <tr>
+          <td>Curiosity</td>
+          <td class="curiosity">0</td>
         </tr>
       </table>
 

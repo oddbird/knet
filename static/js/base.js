@@ -80,13 +80,16 @@ var KNET = (function (KNET, $) {
 
         feedbackButtons.each(function () {
             var button = $(this);
-            var counter = button.siblings('span');
+            var counter = button.siblings('.count');
+            var id = button.data('id');
+            var results = container.find('.results-table.soft .' + id);
 
             button.on('click.feedback', function () {
                 var count = parseInt(counter.text(), 10) + 1;
                 counter.text('+' + count);
+                results.text('+' + count);
                 if (count === 5) {
-                    button.off('click.countdown');
+                    button.off('click.feedback');
                     button.attr('disabled', 'disabled');
                 }
             });
@@ -97,7 +100,7 @@ var KNET = (function (KNET, $) {
         var topicSel = 'input[type="radio"][name="select-topic"]';
         var topicInputs = container.find(topicSel);
         var targets = container.find('.selected-topic');
-        var resultsTopics = container.find('.results-table tr');
+        var resultsTopics = container.find('.results-table.hard tr');
         var updateTopic = function () {
             var selectedTopic = topicInputs.filter(':checked');
             var id = selectedTopic.get(0).id;
