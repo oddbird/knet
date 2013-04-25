@@ -1,4 +1,4 @@
-.demo [id*="teacher-login"], .demo [id*="learner-login"], .demo [id*="topic-select"], .demo [id*="learning-session"], .demo [id*="results"], .demo [id*="profiles"] {
+.demo [id*="teacher-login"], .demo [id*="learner-login"], .demo [id*="topic-select"], .demo [id*="learning-session"], .demo [id*="results"], .demo [id*="profiles"], .demo [id*="relationships"] {
   position: absolute;
   top: -9999px;
   left: -9999px;
@@ -457,11 +457,11 @@ button {
   max-width: 60em;
 }
 
-.demo [id*="teacher-login"], .demo [id*="learner-login"], .demo [id*="topic-select"], .demo [id*="learning-session"], .demo [id*="results"], .demo [id*="profiles"] {
+.demo [id*="teacher-login"], .demo [id*="learner-login"], .demo [id*="topic-select"], .demo [id*="learning-session"], .demo [id*="results"], .demo [id*="profiles"], .demo [id*="relationships"] {
   top: auto;
 }
 
-.demo [class*="teacher-login"], .demo [class*="learner-login"], .demo [class*="topic-select"], .demo [class*="learning-session"], .demo [class*="results"], .demo [class*="profiles"] {
+.demo [class*="teacher-login"], .demo [class*="learner-login"], .demo [class*="topic-select"], .demo [class*="learning-session"], .demo [class*="results"], .demo [class*="profiles"], .demo [class*="relationships"] {
   margin-bottom: 0px;
   margin-bottom: 0rem;
   opacity: 0;
@@ -469,7 +469,7 @@ button {
   overflow: hidden;
 }
 
-.demo [id*="teacher-login"]:checked ~ .step [class*="teacher-login"], .demo [id*="learner-login"]:checked ~ .step [class*="learner-login"], .demo [id*="topic-select"]:checked ~ .step [class*="topic-select"], .demo [id*="learning-session"]:checked ~ .step [class*="learning-session"], .demo [id*="results"]:checked ~ .step [class*="results"], .demo [id*="profiles"]:checked ~ .step [class*="profiles"] {
+.demo [id*="teacher-login"]:checked ~ .step [class*="teacher-login"], .demo [id*="learner-login"]:checked ~ .step [class*="learner-login"], .demo [id*="topic-select"]:checked ~ .step [class*="topic-select"], .demo [id*="learning-session"]:checked ~ .step [class*="learning-session"], .demo [id*="results"]:checked ~ .step [class*="results"], .demo [id*="profiles"]:checked ~ .step [class*="profiles"], .demo [id*="relationships"]:checked ~ .step [class*="relationships"] {
   -webkit-transition: all 0.5s linear;
   -moz-transition: all 0.5s linear;
   -o-transition: all 0.5s linear;
@@ -481,7 +481,7 @@ button {
   overflow: visible;
 }
 
-.demo [id*="teacher-login"]:checked ~ .step h2 [for*="teacher-login"], .demo [id*="learner-login"]:checked ~ .step h2 [for*="learner-login"], .demo [id*="topic-select"]:checked ~ .step h2 [for*="topic-select"], .demo [id*="learning-session"]:checked ~ .step h2 [for*="learning-session"], .demo [id*="results"]:checked ~ .step h2 [for*="results"], .demo [id*="profiles"]:checked ~ .step h2 [for*="profiles"] {
+.demo [id*="teacher-login"]:checked ~ .step h2 [for*="teacher-login"], .demo [id*="learner-login"]:checked ~ .step h2 [for*="learner-login"], .demo [id*="topic-select"]:checked ~ .step h2 [for*="topic-select"], .demo [id*="learning-session"]:checked ~ .step h2 [for*="learning-session"], .demo [id*="results"]:checked ~ .step h2 [for*="results"], .demo [id*="profiles"]:checked ~ .step h2 [for*="profiles"], .demo [id*="relationships"]:checked ~ .step h2 [for*="relationships"] {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
   display: inline-block;
@@ -681,7 +681,7 @@ button {
   line-height: 1.91667rem;
 }
 
-.results-table {
+.results-table, .relationships-table {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
   border-top-width: 1px;
@@ -696,19 +696,19 @@ button {
   padding-bottom: 0.58333rem;
   width: 100%;
 }
-.results-table th {
+.results-table th, .relationships-table th {
   font-weight: bold;
 }
-.results-table th, .results-table td {
+.results-table th, .results-table td, .relationships-table th, .relationships-table td {
   padding: 0.31944rem;
 }
-.results-table .yay {
+.results-table .yay, .relationships-table .yay {
   color: #31a600;
 }
-.results-table .yay .after {
+.results-table .yay .after, .relationships-table .yay .after {
   font-weight: bold;
 }
-.results-table.soft th + th {
+.results-table.soft th + th, .relationships-table.soft th + th {
   width: 21%;
 }
 

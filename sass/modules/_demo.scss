@@ -1,7 +1,7 @@
 // Demo
 // ====
 
-$steps: teacher-login learner-login topic-select learning-session results profiles;
+$steps: teacher-login learner-login topic-select learning-session results profiles relationships;
 
 %hide-tab-toggle { top: auto; }
 
@@ -145,7 +145,7 @@ $steps: teacher-login learner-login topic-select learning-session results profil
 // Results
 // -------
 
-.results-table {
+.results-table, .relationships-table {
   @include trailer(1);
   @include h-borders(1px,.5);
   width: 100%;
