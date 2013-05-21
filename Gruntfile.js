@@ -15,7 +15,7 @@ module.exports = function (grunt) {
                 jshintrc: '.jshintrc'
             },
             gruntfile: ['Gruntfile.js'],
-            js: ['<%= vars.src_js_dir %><%= vars.src_js %>']
+            js: ['<%= vars.src_js_dir %><%= vars.src_js %>', '<%= vars.src_js_dir %>demo/<%= vars.src_js %>']
         },
         watch: {
             gruntfile: {
