@@ -2,42 +2,43 @@
 
 {% block body %}
 <div class="landing" role="main">
-  <h1 class="logo">The K Network.</h1>
-  <p class="tagline">exploring what's possible in the world of teaching and learning</p>
+  <header>
+    <h1 class="title">The K Network.</h1>
+    <p class="tagline">exploring what's possible in the world of teaching and learning</p>
+  </header>
 
-  <div>
-    <p>
-      Stories from your students
-      Collected over time
-      To inspire you and the people around you
+  <div class="call-to-action">
+    <p class="intro">
+      Stories from your students,
+      collected over time
+      to inspire you and the people around you.
     </p>
-  </div>
 
-  <div>
-    <form method="POST">
-      <input type="email" id="email" required />
-      <label for="email">Sign up to be notified when we launch</label>
+    <form class="signup" method="POST">
+      <label for="email">Sign up for updates when we launch</label>
+      <input type="email" id="email" placeholder="email@example.com" required />
       <button type"submit">Sign up</button>
     <form>
   </div>
 
-  <div>
-    <h3>Great teachers:</h3>
-    <ul>
-      <li>Form bonds with students</li>
-      <li>Change student mindsets</li>
-      <li>Help students take control of their own education</li>
-    </ul>
-    <p>
-      When you contribute to the life of a student,
-      that student has a story to share
-      about how their life has been changed for the better.
-    </p>
-    <p>
-      Sign up for your own personal page,
-      to collect inspiring student stories throughout your career.
-    </p>
+  <div class="desc">
+    <div class="metrics">
+      <h2>Great teachers:</h2>
+      <ol>
+        <li>Form bonds with students</li>
+        <li>Change student mindsets</li>
+        <li>Help students take control of their own education</li>
+      </ol>
+    </div>
+    <div class="outro">
+      <p>
+        When you contribute to the life of a student,
+        that student has a story to share
+        about how their life has been changed for the better.
+        Sign up for your own personal page,
+        to collect inspiring student stories throughout your career.
+      </p>
+    </div>
   </div>
-
 </div>
 {% endblock %}

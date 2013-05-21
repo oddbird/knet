@@ -49,6 +49,7 @@ a {
   p, ul, ol, pre { @include trailer; }
 
   ul { list-style: disc; }
+  ol { list-style: decimal; }
 
   code, .code {
     @include mono;

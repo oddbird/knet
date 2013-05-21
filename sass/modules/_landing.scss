@@ -3,4 +3,66 @@
 
 .landing {
   max-width: 60em;
+  header { @include gone; }
+}
+
+.call-to-action {
+  @include pad(5,0);
+  @include padding-leader(2);
+  @include trailer(2);
+  @include background(image-url('wordmark.svg') no-repeat scroll bottom);
+  @include background-size(contain);
+  padding-bottom: 15%;
+}
+
+.intro {
+  @include serif;
+  @include adjust-font-size-to($medpx + $xxxsmallpx);
+  @include trailer;
+}
+
+.signup {
+  @include pie-clearfix;
+  @include trailer;
+  label { font-style: italic; }
+  input { @include span-columns(3,5); }
+  button {
+    @extend %button;
+    @include span-columns(2 omega,5);
+    @include serif;
+    background-color: color(lightest $green);
+    border-color: color(light $alt);
+    font-weight: bold;
+  }
+}
+
+.desc {
+  @include pie-clearfix;
+  @include rhythm-borders(1px,1);
+  @include bleed(rhythm(2));
+  @include box-shadow(inset 0 0 3px $base);
+  background: color(lighter $base,.25);
+
+  h2 {
+    @include serif;
+    @include adjust-font-size-to($medpx);
+    @include trailer(.5);
+    font-weight: bold;
+  }
+
+  ol {
+    padding-left: rhythm(1);
+    list-style: decimal;
+  }
+
+  p { @include trailer; }
+}
+
+.metrics {
+  @include span-columns(5);
+}
+
+.outro {
+  @include span-columns(5 omega);
+  @include padding-leader(.5);
 }
