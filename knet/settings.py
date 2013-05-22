@@ -126,7 +126,15 @@ STATIC_ROOT = env(
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 INSTALLED_APPS += ['pipeline']
-STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
+PIPELINE_ENABLED = env(
+    'KNET_PIPELINE_ENABLED', coerce=bool, default={'dev': False, 'prod': True})
+
+STATICFILES_STORAGE = {
+    'prod': 'pipeline.storage.PipelineCachedStorage',
+    'dev': 'pipeline.storage.PipelineStorage',
+    }[MODE]
+
 PIPELINE_CSS_COMPRESSOR = 'knet.assets.css.RCSSMinCompressor'
 PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.slimit.SlimItCompressor'
 
