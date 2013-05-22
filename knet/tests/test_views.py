@@ -14,7 +14,18 @@ def test_submit_lead(client):
 
     resp.mustcontain('Thanks for your interest')
     leads = list(Lead.objects.all())
+    # @@@ assert len(leads) == 1
     assert leads[0].email == 'some@example.com'
+
+
+def test_submit_lead_error(client):
+    """Get an error message if lead submitted."""
+    form = client.get('/').forms[0]
+    form['email'] = ''
+    resp = form.submit()
+
+    resp.mustcontain('look like an email')
+    # @@@ assert not Lead.objects.exists()
 
 
 def test_submit_lead_ajax(no_csrf_client):
@@ -23,6 +34,7 @@ def test_submit_lead_ajax(no_csrf_client):
         '/', {'email': 'some@example.com'}, ajax=True)
 
     leads = list(Lead.objects.all())
+    # @@@ assert len(leads) == 1
     assert leads[0].email == 'some@example.com'
 
     assert set(resp.json.keys()) == {'messages', 'html'}
