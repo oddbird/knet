@@ -98,7 +98,7 @@ INSTALLED_APPS = [
 
 AUTH_USER_MODEL = 'accounts.Profile'
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE_CLASSES = [
     'django.middleware.gzip.GZipMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -107,7 +107,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
+]
 
 ROOT_URLCONF = 'knet.urls'
 
@@ -187,3 +187,11 @@ PIPELINE_JS = {
 
 # Pipeline doesn't need to wrap JS in an anonymous function for us
 PIPELINE_DISABLE_WRAPPER = True
+
+INSTALLED_APPS += ['messages_ui']
+MIDDLEWARE_CLASSES.insert(
+    MIDDLEWARE_CLASSES.index(
+        'django.contrib.messages.middleware.MessageMiddleware'
+        ) + 1,
+    'messages_ui.middleware.AjaxMessagesMiddleware',
+    )
