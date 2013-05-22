@@ -1,0 +1,7 @@
+[run]
+branch = True
+omit =
+  */migrations/*
+  knet/settings.py
+  knet/wsgi.py
+  knet/tests/*

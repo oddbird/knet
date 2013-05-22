@@ -84,15 +84,23 @@ DATABASES = {
 INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.staticfiles',
+    'django.contrib.auth',
+    'django.contrib.admin',
+    'django.contrib.contenttypes',
     'south',
     'djangosecure',
+    'knet.accounts',
+    'knet.landing',
 ]
+
+AUTH_USER_MODEL = 'accounts.Profile'
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.gzip.GZipMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )

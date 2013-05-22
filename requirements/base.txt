@@ -5,6 +5,8 @@ South==0.7.6.hg1206
 
 django-secure==1.0
 
+django-floppyforms==1.1
+
 django-pipeline==1.3.9.obc1
 futures==2.1.3
 slimit==0.8.1
