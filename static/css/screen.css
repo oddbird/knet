@@ -519,6 +519,28 @@ button {
   font-weight: bold;
 }
 
+.message {
+  margin-bottom: 12px;
+  margin-bottom: 0.63889rem;
+  border-width: 1px;
+  border-width: 0.05556rem;
+  border-style: solid;
+  padding: 11px;
+  padding: 0.58333rem;
+  position: relative;
+  color: #e5e5e5;
+  border-color: #005e5e;
+}
+.message.success {
+  background: #257c00;
+}
+.message.error {
+  background: #880018;
+}
+.message .close {
+  display: none;
+}
+
 .desc {
   border-width: 1px;
   border-width: 0.05556rem;

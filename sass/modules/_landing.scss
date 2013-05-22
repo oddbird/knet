@@ -36,6 +36,29 @@
   }
 }
 
+.message {
+  @include trailer(.5);
+  @include rhythm-borders(1px,.5);
+  position: relative;
+  color: color(lightest);
+  border-color: $base;
+
+  &.success { background: color(darker $green); }
+  &.error { background: color(darker $red); }
+
+  .close {
+    display: none;
+    // @extend %icon-replace;
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // display: inline-block;
+    // color: color(lightest, .5);
+    // #{$focus} { color: $red; }
+    // @include before('x') { font-family: inherit; };
+  }
+}
+
 .desc {
   @include pie-clearfix;
   @include rhythm-borders(1px,1);
