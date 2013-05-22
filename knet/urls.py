@@ -5,7 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     '',
-    url(r'^$', 'knet.views.home', name='home'),
+    url(r'^$', 'knet.landing.views.landing', name='landing'),
     url(r'^demo/$', 'knet.views.demo', name='demo'),
     url(r'^admin/', include(admin.site.urls)),
 )
