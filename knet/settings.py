@@ -195,3 +195,31 @@ MIDDLEWARE_CLASSES.insert(
         ) + 1,
     'messages_ui.middleware.AjaxMessagesMiddleware',
     )
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+        },
+        'null': {
+            'class': 'django.utils.log.NullHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+        },
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'py.warnings': {
+            'handlers': ['console'],
+        },
+    }
+}
