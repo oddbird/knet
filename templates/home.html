@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
 {% block body %}
-{% include "messages_ui/_messages.html" %}
-
 <div class="landing" role="main">
   <header>
     <h1 class="title">The K Network.</h1>
@@ -12,31 +10,28 @@
   <div class="call-to-action">
     <p class="intro">
       Stories from your students,
-      collected over time
+      collected over time,
       to inspire you and the people around you.
     </p>
 
+    {% include "messages_ui/_messages.html" %}
     {% include "landing/_form.html" %}
   </div>
 
   <div class="desc">
-    <div class="metrics">
-      <h2>Great teachers:</h2>
-      <ol>
-        <li>Form bonds with students</li>
-        <li>Change student mindsets</li>
-        <li>Help students take control of their own education</li>
-      </ol>
-    </div>
-    <div class="outro">
-      <p>
-        When you contribute to the life of a student,
-        that student has a story to share
-        about how their life has been changed for the better.
-        Sign up for your own personal page,
-        to collect inspiring student stories throughout your career.
-      </p>
-    </div>
+    <p>
+      Great teachers do more than "teach to the test."
+      You've had an impact on every student
+      who has walked through your classroom&nbsp;door.
+    </p>
+    <p>
+      Let students and parents share those stories with&nbsp;you.
+    </p>
+    <p>
+      We'll collect them on your public KNetwork profile.
+      Use it to build your career,
+      or remind yourself why you began&nbsp;teaching.
+    </p>
   </div>
 </div>
 {% endblock %}

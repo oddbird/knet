@@ -7,28 +7,43 @@
 }
 
 .call-to-action {
-  @include pad(5,0);
-  @include padding-leader(2);
-  @include trailer(2);
-  @include background(image-url('wordmark.svg') no-repeat scroll bottom);
+  @include background(image-url('wordmark.svg') no-repeat scroll top);
   @include background-size(contain);
-  padding-bottom: 15%;
+  padding-top: 45%;
+
+  @include breakpoint(40em) {
+    @include prefix(5);
+    @include padding-leader(1);
+    @include trailer(2);
+    background-position: bottom;
+    padding-bottom: 10%;
+  }
 }
 
 .intro {
   @include serif;
-  @include adjust-font-size-to($medpx + $xxxsmallpx);
+  @include adjust-font-size-to($medpx);
   @include trailer;
+
+  @include breakpoint(40em) {
+    @include adjust-font-size-to($medpx + $xxxsmallpx);
+    @include trailer(2);
+  }
 }
 
 .signup {
   @include pie-clearfix;
-  @include trailer;
-  label { font-style: italic; }
+  @include trailer(1);
+  label {
+    @include adjust-font-size-to($smallpx);
+    display: block;
+    font-weight: bold;
+  }
   input { @include span-columns(3,5); }
   button {
     @extend %button;
     @include span-columns(2 omega,5);
+    @include adjust-font-size-to($smallpx);
     @include serif;
     background-color: color(lightest $green);
     border-color: color(light $alt);
@@ -37,7 +52,7 @@
 }
 
 .message {
-  @include trailer(.5);
+  @include trailer;
   @include rhythm-borders(1px,.5);
   position: relative;
   color: color(lightest);
@@ -47,38 +62,23 @@
   &.error { background: color(darker $red); }
 
   .close {
-    display: none;
-    // @extend %icon-replace;
-    // position: absolute;
-    // top: 0;
-    // right: 0;
-    // display: inline-block;
-    // color: color(lightest, .5);
-    // #{$focus} { color: $red; }
-    // @include before('x') { font-family: inherit; };
+    @extend %icon-replace;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    color: color(lightest, .5);
+    #{$focus} { color: white; }
+    @include before('x') { font-family: inherit; };
   }
 }
 
 .desc {
-  @include pie-clearfix;
-  @include rhythm-borders(1px,1);
-  @include bleed(rhythm(2));
-  @include box-shadow(inset 0 0 3px $base);
-  background: color(lighter $base,.25);
-
-  h2 {
-    @include serif;
-    @include adjust-font-size-to($medpx);
-    @include trailer(.5);
-    font-weight: bold;
-  }
-
-  ol {
-    padding-left: rhythm(1);
-    list-style: decimal;
-  }
-
   p { @include trailer; }
+
+  @include breakpoint(40em) {
+    @include pre(5);
+  }
 }
 
 .metrics {

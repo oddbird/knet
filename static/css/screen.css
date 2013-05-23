@@ -264,10 +264,22 @@ a:focus, a:hover, a:active {
 }
 
 /* Use the following CSS code if you want to have a class per icon */
-[data-icon]:before {
+.message .close:before, [data-icon]:before {
   font-family: 'knet';
   font-style: normal;
   speak: none;
+}
+
+.message .close {
+  position: relative;
+  min-width: 1em;
+  text-indent: -9999px;
+}
+.message .close:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-indent: 0;
 }
 
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
@@ -420,7 +432,7 @@ button {
   padding-right: 0;
   margin-left: auto;
   margin-right: auto;
-  padding: 3.83333rem 1em;
+  padding: 1.27778rem 1em;
 }
 [role="main"]:after {
   content: "";
@@ -468,28 +480,43 @@ button {
 }
 
 .call-to-action {
-  padding-left: 51.02041%;
-  padding-right: 0%;
-  padding-top: 46px;
-  padding-top: 2.55556rem;
-  margin-bottom: 46px;
-  margin-bottom: 2.55556rem;
-  background: url('../images/wordmark.svg?1366751994') no-repeat scroll bottom;
+  background: url('../images/wordmark.svg?1366751994') no-repeat scroll top;
   -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;
   background-size: contain;
-  padding-bottom: 15%;
+  padding-top: 45%;
+}
+@media (min-width: 40em) {
+  .call-to-action {
+    padding-left: 51.02041%;
+    padding-top: 23px;
+    padding-top: 1.27778rem;
+    margin-bottom: 46px;
+    margin-bottom: 2.55556rem;
+    background-position: bottom;
+    padding-bottom: 10%;
+  }
 }
 
 .intro {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 32px;
-  font-size: 1.77778rem;
-  line-height: 46px;
-  line-height: 2.55556rem;
+  font-size: 23px;
+  font-size: 1.27778rem;
+  line-height: 35px;
+  line-height: 1.91667rem;
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+}
+@media (min-width: 40em) {
+  .intro {
+    font-size: 32px;
+    font-size: 1.77778rem;
+    line-height: 46px;
+    line-height: 2.55556rem;
+    margin-bottom: 46px;
+    margin-bottom: 2.55556rem;
+  }
 }
 
 .signup {
@@ -502,7 +529,12 @@ button {
   clear: both;
 }
 .signup label {
-  font-style: italic;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  display: block;
+  font-weight: bold;
 }
 .signup input {
   width: 58.33333%;
@@ -513,6 +545,10 @@ button {
   width: 37.5%;
   float: right;
   margin-right: 0;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
   background-color: #d8f5cc;
   border-color: #33a7a7;
@@ -520,8 +556,8 @@ button {
 }
 
 .message {
-  margin-bottom: 12px;
-  margin-bottom: 0.63889rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -538,49 +574,28 @@ button {
   background: #880018;
 }
 .message .close {
-  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  color: rgba(229, 229, 229, 0.5);
+}
+.message .close:focus, .message .close:hover, .message .close:active {
+  color: white;
+}
+.message .close:before {
+  content: "x";
+  font-family: inherit;
 }
 
-.desc {
-  border-width: 1px;
-  border-width: 0.05556rem;
-  border-style: solid;
-  padding: 22px;
-  padding: 1.22222rem;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  margin-left: -2.55556rem;
-  padding-left: 2.55556rem;
-  margin-right: -2.55556rem;
-  padding-right: 2.55556rem;
-  -webkit-box-shadow: inset 0 0 3px #005e5e;
-  -moz-box-shadow: inset 0 0 3px #005e5e;
-  box-shadow: inset 0 0 3px #005e5e;
-  background: rgba(102, 158, 158, 0.25);
-}
-.desc:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.desc h2 {
-  font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 23px;
-  font-size: 1.27778rem;
-  line-height: 35px;
-  line-height: 1.91667rem;
-  margin-bottom: 12px;
-  margin-bottom: 0.63889rem;
-  font-weight: bold;
-}
-.desc ol {
-  padding-left: 1.27778rem;
-  list-style: decimal;
-}
 .desc p {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+}
+@media (min-width: 40em) {
+  .desc {
+    margin-left: 51.02041%;
+  }
 }
 
 .metrics {
