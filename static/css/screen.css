@@ -481,11 +481,10 @@ button {
 
 .call-to-action {
   padding-left: 51.02041%;
-  padding-right: 0%;
   padding-top: 23px;
   padding-top: 1.27778rem;
-  margin-bottom: 69px;
-  margin-bottom: 3.83333rem;
+  margin-bottom: 46px;
+  margin-bottom: 2.55556rem;
   background: url('../images/wordmark.svg?1366751994') no-repeat scroll bottom;
   -webkit-background-size: contain;
   -moz-background-size: contain;
@@ -565,41 +564,7 @@ button {
 }
 
 .desc {
-  border-width: 1px;
-  border-width: 0.05556rem;
-  border-style: solid;
-  padding: 22px;
-  padding: 1.22222rem;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  margin-left: -2.55556rem;
-  padding-left: 2.55556rem;
-  margin-right: -2.55556rem;
-  padding-right: 2.55556rem;
-  -webkit-box-shadow: inset 0 0 3px #005e5e;
-  -moz-box-shadow: inset 0 0 3px #005e5e;
-  box-shadow: inset 0 0 3px #005e5e;
-  background: rgba(102, 158, 158, 0.25);
-}
-.desc:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.desc h2 {
-  font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 23px;
-  font-size: 1.27778rem;
-  line-height: 35px;
-  line-height: 1.91667rem;
-  margin-bottom: 12px;
-  margin-bottom: 0.63889rem;
-  font-weight: bold;
-}
-.desc ol {
-  padding-left: 1.27778rem;
-  list-style: decimal;
+  margin-left: 51.02041%;
 }
 .desc p {
   margin-bottom: 23px;
