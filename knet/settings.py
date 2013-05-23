@@ -96,7 +96,7 @@ INSTALLED_APPS = [
     'knet.landing',
 ]
 
-AUTH_USER_MODEL = 'accounts.Profile'
+AUTH_USER_MODEL = 'accounts.User'
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.gzip.GZipMiddleware',
