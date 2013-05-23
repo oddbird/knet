@@ -179,7 +179,12 @@ PIPELINE_JS = {
     'plugins': {
         'source_filenames': [
             'js/libs/jquery-2.0.0.js',
+            'js/libs/handlebars.runtime.js',
+            'js/plugins/jquery.ba-dotimeout.js',
             'js/plugins/jquery.stopwatch.js',
+            'js/plugins/jquery.form.js',
+            'messages_ui/jquery.messages-ui.js',
+            'messages_ui/message.js',
             ],
         'output_filename': 'js/plugins.min.js',
         },
