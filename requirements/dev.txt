@@ -7,7 +7,7 @@ pytest==2.3.4
 pytest-cov==1.6
 pytest-django==2.3.0
 
-django-webtest==1.6.1
+django-webtest==1.6.1.obc1
 WebTest==2.0.5
 WebOb==1.2.3
 waitress==0.8.2
