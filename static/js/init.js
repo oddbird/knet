@@ -4,7 +4,10 @@ var KNET = (function (KNET, $) {
 
     $(function () {
         // plugins
-        $('#messages').messages({handleAjax: true});
+        $('#messages').messages({
+            handleAjax: true,
+            transientDelay: 5000
+        });
 
         // demo/demo.js
         if ($('.demo').length) {
