@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
 {% block body %}
-{% include "messages_ui/_messages.html" %}
-
 <div class="landing" role="main">
   <header>
     <h1 class="title">The K Network.</h1>
@@ -12,10 +10,11 @@
   <div class="call-to-action">
     <p class="intro">
       Stories from your students,
-      collected over time
+      collected over time,
       to inspire you and the people around you.
     </p>
 
+    {% include "messages_ui/_messages.html" %}
     {% include "landing/_form.html" %}
   </div>
 

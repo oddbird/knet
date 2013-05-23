@@ -8,22 +8,22 @@
 
 .call-to-action {
   @include pad(5,0);
-  @include padding-leader(2);
-  @include trailer(2);
+  @include padding-leader(1);
+  @include trailer(3);
   @include background(image-url('wordmark.svg') no-repeat scroll bottom);
   @include background-size(contain);
-  padding-bottom: 15%;
+  padding-bottom: 10%;
 }
 
 .intro {
   @include serif;
   @include adjust-font-size-to($medpx + $xxxsmallpx);
-  @include trailer;
+  @include trailer(2);
 }
 
 .signup {
   @include pie-clearfix;
-  @include trailer;
+  @include trailer(2);
   label { font-style: italic; }
   input { @include span-columns(3,5); }
   button {
@@ -37,7 +37,7 @@
 }
 
 .message {
-  @include trailer(.5);
+  @include trailer;
   @include rhythm-borders(1px,.5);
   position: relative;
   color: color(lightest);
@@ -47,15 +47,14 @@
   &.error { background: color(darker $red); }
 
   .close {
-    display: none;
-    // @extend %icon-replace;
-    // position: absolute;
-    // top: 0;
-    // right: 0;
-    // display: inline-block;
-    // color: color(lightest, .5);
-    // #{$focus} { color: $red; }
-    // @include before('x') { font-family: inherit; };
+    @extend %icon-replace;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    color: color(lightest, .5);
+    #{$focus} { color: white; }
+    @include before('x') { font-family: inherit; };
   }
 }
 

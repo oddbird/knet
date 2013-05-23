@@ -264,10 +264,22 @@ a:focus, a:hover, a:active {
 }
 
 /* Use the following CSS code if you want to have a class per icon */
-[data-icon]:before {
+.message .close:before, [data-icon]:before {
   font-family: 'knet';
   font-style: normal;
   speak: none;
+}
+
+.message .close {
+  position: relative;
+  min-width: 1em;
+  text-indent: -9999px;
+}
+.message .close:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-indent: 0;
 }
 
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
@@ -420,7 +432,7 @@ button {
   padding-right: 0;
   margin-left: auto;
   margin-right: auto;
-  padding: 3.83333rem 1em;
+  padding: 1.27778rem 1em;
 }
 [role="main"]:after {
   content: "";
@@ -470,16 +482,16 @@ button {
 .call-to-action {
   padding-left: 51.02041%;
   padding-right: 0%;
-  padding-top: 46px;
-  padding-top: 2.55556rem;
-  margin-bottom: 46px;
-  margin-bottom: 2.55556rem;
+  padding-top: 23px;
+  padding-top: 1.27778rem;
+  margin-bottom: 69px;
+  margin-bottom: 3.83333rem;
   background: url('../images/wordmark.svg?1366751994') no-repeat scroll bottom;
   -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;
   background-size: contain;
-  padding-bottom: 15%;
+  padding-bottom: 10%;
 }
 
 .intro {
@@ -488,13 +500,13 @@ button {
   font-size: 1.77778rem;
   line-height: 46px;
   line-height: 2.55556rem;
-  margin-bottom: 23px;
-  margin-bottom: 1.27778rem;
+  margin-bottom: 46px;
+  margin-bottom: 2.55556rem;
 }
 
 .signup {
-  margin-bottom: 23px;
-  margin-bottom: 1.27778rem;
+  margin-bottom: 46px;
+  margin-bottom: 2.55556rem;
 }
 .signup:after {
   content: "";
@@ -520,8 +532,8 @@ button {
 }
 
 .message {
-  margin-bottom: 12px;
-  margin-bottom: 0.63889rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -538,7 +550,18 @@ button {
   background: #880018;
 }
 .message .close {
-  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  color: rgba(229, 229, 229, 0.5);
+}
+.message .close:focus, .message .close:hover, .message .close:active {
+  color: white;
+}
+.message .close:before {
+  content: "x";
+  font-family: inherit;
 }
 
 .desc {
