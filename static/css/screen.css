@@ -480,32 +480,48 @@ button {
 }
 
 .call-to-action {
-  padding-left: 51.02041%;
-  padding-top: 23px;
-  padding-top: 1.27778rem;
-  margin-bottom: 46px;
-  margin-bottom: 2.55556rem;
-  background: url('../images/wordmark.svg?1366751994') no-repeat scroll bottom;
+  background: url('../images/wordmark.svg?1366751994') no-repeat scroll top;
   -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;
   background-size: contain;
-  padding-bottom: 10%;
+  padding-top: 45%;
+}
+@media (min-width: 40em) {
+  .call-to-action {
+    padding-left: 51.02041%;
+    padding-top: 23px;
+    padding-top: 1.27778rem;
+    margin-bottom: 46px;
+    margin-bottom: 2.55556rem;
+    background-position: bottom;
+    padding-bottom: 10%;
+  }
 }
 
 .intro {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 32px;
-  font-size: 1.77778rem;
-  line-height: 46px;
-  line-height: 2.55556rem;
-  margin-bottom: 46px;
-  margin-bottom: 2.55556rem;
+  font-size: 23px;
+  font-size: 1.27778rem;
+  line-height: 35px;
+  line-height: 1.91667rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+}
+@media (min-width: 40em) {
+  .intro {
+    font-size: 32px;
+    font-size: 1.77778rem;
+    line-height: 46px;
+    line-height: 2.55556rem;
+    margin-bottom: 46px;
+    margin-bottom: 2.55556rem;
+  }
 }
 
 .signup {
-  margin-bottom: 46px;
-  margin-bottom: 2.55556rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
 }
 .signup:after {
   content: "";
@@ -513,7 +529,12 @@ button {
   clear: both;
 }
 .signup label {
-  font-style: italic;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  display: block;
+  font-weight: bold;
 }
 .signup input {
   width: 58.33333%;
@@ -524,6 +545,10 @@ button {
   width: 37.5%;
   float: right;
   margin-right: 0;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
   background-color: #d8f5cc;
   border-color: #33a7a7;
@@ -563,12 +588,14 @@ button {
   font-family: inherit;
 }
 
-.desc {
-  margin-left: 51.02041%;
-}
 .desc p {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+}
+@media (min-width: 40em) {
+  .desc {
+    margin-left: 51.02041%;
+  }
 }
 
 .metrics {

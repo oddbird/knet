@@ -7,28 +7,43 @@
 }
 
 .call-to-action {
-  @include prefix(5);
-  @include padding-leader(1);
-  @include trailer(2);
-  @include background(image-url('wordmark.svg') no-repeat scroll bottom);
+  @include background(image-url('wordmark.svg') no-repeat scroll top);
   @include background-size(contain);
-  padding-bottom: 10%;
+  padding-top: 45%;
+
+  @include breakpoint(40em) {
+    @include prefix(5);
+    @include padding-leader(1);
+    @include trailer(2);
+    background-position: bottom;
+    padding-bottom: 10%;
+  }
 }
 
 .intro {
   @include serif;
-  @include adjust-font-size-to($medpx + $xxxsmallpx);
-  @include trailer(2);
+  @include adjust-font-size-to($medpx);
+  @include trailer;
+
+  @include breakpoint(40em) {
+    @include adjust-font-size-to($medpx + $xxxsmallpx);
+    @include trailer(2);
+  }
 }
 
 .signup {
   @include pie-clearfix;
-  @include trailer(2);
-  label { font-style: italic; }
+  @include trailer(1);
+  label {
+    @include adjust-font-size-to($smallpx);
+    display: block;
+    font-weight: bold;
+  }
   input { @include span-columns(3,5); }
   button {
     @extend %button;
     @include span-columns(2 omega,5);
+    @include adjust-font-size-to($smallpx);
     @include serif;
     background-color: color(lightest $green);
     border-color: color(light $alt);
@@ -59,9 +74,11 @@
 }
 
 .desc {
-  @include pre(5);
-
   p { @include trailer; }
+
+  @include breakpoint(40em) {
+    @include pre(5);
+  }
 }
 
 .metrics {
