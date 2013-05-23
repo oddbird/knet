@@ -1,5 +1,5 @@
 """Landing page models."""
-from django.conf import settings
+from django.contrib import auth
 from django.db import models
 from django.utils.timezone import now
 
@@ -8,7 +8,7 @@ class Lead(models.Model):
     """Someone who signs up for more info at the landing page."""
     email = models.EmailField()
     following_up = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
+        auth.get_user_model(),
         blank=True,
         null=True,
         limit_choices_to={'is_staff': True},
