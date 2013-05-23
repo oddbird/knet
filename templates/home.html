@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
 {% block body %}
+{% include "messages_ui/_messages.html" %}
+
 <div class="landing" role="main">
   <header>
     <h1 class="title">The K Network.</h1>
@@ -13,15 +15,6 @@
       collected over time
       to inspire you and the people around you.
     </p>
-
-    <ul id="messages">
-      {% for message in messages %}
-      <li class="message{% if message.tags %} {{ message.tags }}{% endif %}">
-        <p class="body">{{ message|safe }}</p>
-        <a href="#" class="close">close</a>
-      </li>
-      {% endfor %}
-    </ul>
 
     {% include "landing/_form.html" %}
   </div>
