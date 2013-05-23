@@ -67,6 +67,7 @@
     top: 0;
     right: 0;
     display: inline-block;
+    width: 1em;
     color: color(lightest, .5);
     #{$focus} { color: white; }
     @include before('x') { font-family: inherit; };

@@ -578,6 +578,7 @@ button {
   top: 0;
   right: 0;
   display: inline-block;
+  width: 1em;
   color: rgba(229, 229, 229, 0.5);
 }
 .message .close:focus, .message .close:hover, .message .close:active {
