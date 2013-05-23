@@ -21,6 +21,11 @@ def landing(request):
                 request, "Thanks for your interest; we'll be in touch soon!")
             if not request.is_ajax():
                 return redirect("landing")
+        else:
+            # provide form errors as user messages instead of form errors
+            for fieldname, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, error)
     else:
         form = LeadForm()
 
