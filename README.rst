@@ -13,25 +13,34 @@ In order to run K Network (or its tests), you'll need a PostgreSQL
 database. By default, K Network will look for a PostgreSQL database
 named "knet" on localhost.
 
-You may need to create a ``knet/settings/local.py`` file with some
-details of your local configuration.  See
-``knet/settings/local.sample.py`` for a sample that can be copied to
-``knet/settings/local.py`` and modified.
-
 Once this configuration is done, you should be able to run ``./manage.py
 syncdb --migrate``, then ``./manage.py runserver`` and access the site
 in your browser at ``http://localhost:8000``.
 
-You can run the tests with ``py.test``, or the `Selenium`_ tests with
-``py.test knet/tests/selenium``.
+You can run the tests with ``py.test``.
 
-.. _virtualenv: http://www.virtualenv.org
-.. _Selenium: http://seleniumhq.org
+Local development on this project requires `Node.js`_ >= 0.8.0 for JS linting
+and tests. To install the necessary Node dependencies, first ``npm install -g
+grunt-cli`` (once per system), then ``npm install`` (whenever ``package.json``
+changes).
+
+``grunt dev`` will watch for changes to local js files and automatically
+perform an appropriate selection of the following tasks whenever changes are
+detected to files in the ``static/js/``, and ``jstests/`` directories:
+
+* validate JS with `JSHint`_
+* run the JS unit tests
+
+Refer to the Gruntfile.js source and `Grunt`_ documentation for more info.
 
 To install the necessary Ruby gems for Compass/Sass development (only
 necessary if you plan to modify Sass files and re-generate CSS), install
 Bundler (``gem install bundler``) and then run ``bundle install``.
 
+.. _virtualenv: http://www.virtualenv.org
+.. _Node.js: http://nodejs.org
+.. _JSHint: http://www.jshint.com
+.. _Grunt: http://gruntjs.com/
 
 Deployment
 ----------
