@@ -28,7 +28,7 @@
         raises(block, [expected], [message])
     */
 
-    module('landing', {
+    module('landingForm', {
         setup: function () {
             this.container = $('#qunit-fixture');
             this.formSel = '.test-form';
