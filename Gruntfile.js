@@ -42,15 +42,15 @@ module.exports = function (grunt) {
         },
         watch: {
             gruntfile: {
-                files: '<%= jshint.gruntfile %>',
+                files: '<%= jshint.gruntfile.src %>',
                 tasks: ['jshint:gruntfile']
             },
             test: {
-                files: ['<% vars.js_tests_dir %>**/*'],
+                files: ['<%= vars.js_tests_dir %>**/*'],
                 tasks: ['jshint:test', 'qunit']
             },
             js: {
-                files: '<%= jshint.js %>',
+                files: '<%= jshint.src.src %>',
                 tasks: ['jshint:src']
             }
         }
