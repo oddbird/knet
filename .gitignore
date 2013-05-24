@@ -12,3 +12,4 @@ chromedriver.log
 .coverage
 node_modules/
 jscov/
+jscov_temp/
