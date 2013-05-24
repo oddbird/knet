@@ -11,3 +11,4 @@ logfile
 chromedriver.log
 .coverage
 node_modules/grunt-qunit-istanbul/temp/
+jscov/
