@@ -14,7 +14,6 @@
   @include breakpoint(40em) {
     @include prefix(5);
     @include padding-leader(1);
-    @include trailer(2);
     background-position: bottom;
     padding-bottom: 10%;
   }
@@ -72,6 +71,14 @@
     #{$focus} { color: white; }
     @include before('x') { font-family: inherit; };
   }
+}
+
+.landing-tagline {
+  @extend .tagline;
+  @include trailer;
+
+  display: none;
+  @include breakpoint(40em) { display: block; }
 }
 
 .desc {

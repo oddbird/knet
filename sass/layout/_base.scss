@@ -48,5 +48,8 @@
   @include fluid-ratio(728.665 / 270.667);
 }
 .tagline {
+  @include adjust-font-size-to($smallpx);
+  @include serif;
+  font-weight: bold;
   text-align: right;
 }

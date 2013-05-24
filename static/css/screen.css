@@ -175,6 +175,9 @@ html {
 html, body {
   height: 100%;
   width: 100%;
+}
+
+body {
   overflow-x: hidden;
 }
 
@@ -466,7 +469,13 @@ button {
   padding: 0;
 }
 
-.tagline {
+.tagline, .landing-tagline {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: bold;
   text-align: right;
 }
 
@@ -492,8 +501,6 @@ button {
     padding-left: 51.02041%;
     padding-top: 23px;
     padding-top: 1.27778rem;
-    margin-bottom: 46px;
-    margin-bottom: 2.55556rem;
     background-position: bottom;
     padding-bottom: 10%;
   }
@@ -587,6 +594,17 @@ button {
 .message .close:before {
   content: "x";
   font-family: inherit;
+}
+
+.landing-tagline {
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+  display: none;
+}
+@media (min-width: 40em) {
+  .landing-tagline {
+    display: block;
+  }
 }
 
 .desc p {
