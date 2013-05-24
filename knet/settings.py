@@ -163,6 +163,7 @@ PIPELINE_JS = {
     'main': {
         'source_filenames': [
             'js/base.js',
+            'js/landing.js',
             'js/demo/demo.js',
             'js/init.js',
             ],

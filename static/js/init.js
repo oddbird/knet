@@ -18,7 +18,7 @@ var KNET = (function (KNET, $) {
             KNET.selectTopic();
         }
 
-        // base.js
+        // landing.js
         KNET.landingForm('form.signup');
     });
 

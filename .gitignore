@@ -10,5 +10,4 @@ __pycache__
 logfile
 chromedriver.log
 .coverage
-celerybeat-schedule
-uploads/*
+node_modules/grunt-qunit-istanbul/temp/
