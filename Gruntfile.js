@@ -21,7 +21,7 @@ module.exports = function (grunt) {
                     htmlReport: 'jscov/'
                 }
             },
-            files: ['<% vars.js_tests_dir %>html/*.html']
+            files: ['<%= vars.js_tests_dir %>html/*.html']
         },
         jshint: {
             options: {
