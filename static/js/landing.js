@@ -5,14 +5,7 @@ var KNET = (function (KNET, $) {
     KNET.landingForm = function (formSel) {
         var form = $(formSel);
         if (form.length) {
-            form.ajaxForm({
-                resetForm: true
-                // success: function (response, status, xhr, form) {
-                //     // console.log('success');
-                // },
-                // target: form,
-                // replaceTarget: true
-            });
+            form.ajaxForm({resetForm: true});
         }
     };
 
