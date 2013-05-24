@@ -2,11 +2,13 @@
 // =======
 
 .landing {
+  @include padding-leader(2);
   max-width: 60em;
   header { @include gone; }
 }
 
 .call-to-action {
+  @include trailer(1);
   @include background(image-url('wordmark.svg') no-repeat scroll top);
   @include background-size(contain);
   padding-top: 45%;
@@ -14,6 +16,7 @@
   @include breakpoint(40em) {
     @include prefix(5);
     @include padding-leader(1);
+    @include trailer(2);
     background-position: bottom;
     padding-bottom: 10%;
   }
@@ -23,9 +26,10 @@
   @include serif;
   @include adjust-font-size-to($medpx);
   @include trailer;
+  color: $red;
 
   @include breakpoint(40em) {
-    @include adjust-font-size-to($medpx + $xxxsmallpx);
+    @include adjust-font-size-to($largepx);
     @include trailer(2);
   }
 }
@@ -44,9 +48,18 @@
     @include span-columns(2 omega,5);
     @include adjust-font-size-to($smallpx);
     @include serif;
-    background-color: color(lightest $green);
-    border-color: color(light $alt);
+    color: white;
+    text-shadow: color(darker $green,.75) 0 1px 0;
+    background-color: color(dark $green);
+    border-color: color(darker $green);
     font-weight: bold;
+  }
+  @include breakpoint(40em) {
+    @include trailer(2);
+    button {
+      @include adjust-font-size-to($normpx);
+      margin-top: -1px;
+    }
   }
 }
 
@@ -73,27 +86,33 @@
   }
 }
 
-.landing-tagline {
-  @extend .tagline;
-  @include trailer;
-
-  display: none;
-  @include breakpoint(40em) { display: block; }
-}
-
 .desc {
-  p { @include trailer; }
+  @include clearfix;
+  @include h-borders(2px,1);
+  @include bleed(rhythm(1));
+  border-style: dashed;
+  border-color: color(dark $blue,.25);
+
+  h2 {
+    @include serif;
+    font-weight: bold;
+  }
+  p {
+    @include adjust-font-size-to($smallpx);
+    @include trailer;
+  }
 
   @include breakpoint(40em) {
-    @include pre(5);
+    @include h-borders(2px,2);
+    border-style: dashed;
   }
 }
 
-.metrics {
-  @include span-columns(5);
-}
+@include breakpoint(40em) {
+  .feature {
+    @include span-columns(3,9);
+    @include nth-omega(3n);
 
-.outro {
-  @include span-columns(5 omega);
-  @include padding-leader(.5);
+    p { margin: 0; }
+  }
 }

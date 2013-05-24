@@ -447,7 +447,7 @@ button {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/wordmark.svg?1366751994');
+  background-image: url('../images/wordmark.svg?1369432201');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   -webkit-background-size: 100% auto;
@@ -469,7 +469,7 @@ button {
   padding: 0;
 }
 
-.tagline, .landing-tagline {
+.tagline {
   font-size: 14px;
   font-size: 0.77778rem;
   line-height: 23px;
@@ -480,6 +480,8 @@ button {
 }
 
 .landing {
+  padding-top: 46px;
+  padding-top: 2.55556rem;
   max-width: 60em;
 }
 .landing header {
@@ -489,7 +491,9 @@ button {
 }
 
 .call-to-action {
-  background: url('../images/wordmark.svg?1366751994') no-repeat scroll top;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+  background: url('../images/wordmark.svg?1369432201') no-repeat scroll top;
   -webkit-background-size: contain;
   -moz-background-size: contain;
   -o-background-size: contain;
@@ -501,6 +505,8 @@ button {
     padding-left: 51.02041%;
     padding-top: 23px;
     padding-top: 1.27778rem;
+    margin-bottom: 46px;
+    margin-bottom: 2.55556rem;
     background-position: bottom;
     padding-bottom: 10%;
   }
@@ -514,11 +520,12 @@ button {
   line-height: 1.91667rem;
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+  color: #e30028;
 }
 @media (min-width: 40em) {
   .intro {
-    font-size: 32px;
-    font-size: 1.77778rem;
+    font-size: 35px;
+    font-size: 1.94444rem;
     line-height: 46px;
     line-height: 2.55556rem;
     margin-bottom: 46px;
@@ -557,9 +564,24 @@ button {
   line-height: 23px;
   line-height: 1.27778rem;
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  background-color: #d8f5cc;
-  border-color: #33a7a7;
+  color: white;
+  text-shadow: rgba(37, 124, 0, 0.75) 0 1px 0;
+  background-color: #31a600;
+  border-color: #257c00;
   font-weight: bold;
+}
+@media (min-width: 40em) {
+  .signup {
+    margin-bottom: 46px;
+    margin-bottom: 2.55556rem;
+  }
+  .signup button {
+    font-size: 18px;
+    font-size: 1rem;
+    line-height: 23px;
+    line-height: 1.27778rem;
+    margin-top: -1px;
+  }
 }
 
 .message {
@@ -596,41 +618,70 @@ button {
   font-family: inherit;
 }
 
-.landing-tagline {
-  margin-bottom: 23px;
-  margin-bottom: 1.27778rem;
-  display: none;
+.desc {
+  overflow: hidden;
+  border-top-width: 2px;
+  border-top-width: 0.11111rem;
+  border-top-style: solid;
+  padding-top: 21px;
+  padding-top: 1.16667rem;
+  border-bottom-width: 2px;
+  border-bottom-width: 0.11111rem;
+  border-bottom-style: solid;
+  padding-bottom: 21px;
+  padding-bottom: 1.16667rem;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin-left: -1.27778rem;
+  padding-left: 1.27778rem;
+  margin-right: -1.27778rem;
+  padding-right: 1.27778rem;
+  border-style: dashed;
+  border-color: rgba(0, 116, 116, 0.25);
 }
-@media (min-width: 40em) {
-  .landing-tagline {
-    display: block;
-  }
+.desc h2 {
+  font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
-
 .desc p {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
 }
 @media (min-width: 40em) {
   .desc {
-    margin-left: 51.02041%;
+    border-top-width: 2px;
+    border-top-width: 0.11111rem;
+    border-top-style: solid;
+    padding-top: 44px;
+    padding-top: 2.44444rem;
+    border-bottom-width: 2px;
+    border-bottom-width: 0.11111rem;
+    border-bottom-style: solid;
+    padding-bottom: 44px;
+    padding-bottom: 2.44444rem;
+    border-style: dashed;
   }
 }
 
-.metrics {
-  width: 48.97959%;
-  float: left;
-  margin-right: 2.04082%;
+@media (min-width: 40em) {
+  .feature {
+    width: 31.81818%;
+    float: left;
+    margin-right: 2.27273%;
+  }
+  .feature:nth-child(3n) {
+    float: right;
+    margin-right: 0;
+  }
+  .feature p {
+    margin: 0;
+  }
 }
-
-.outro {
-  width: 48.97959%;
-  float: right;
-  margin-right: 0;
-  padding-top: 12px;
-  padding-top: 0.63889rem;
-}
-
 .demo [id*="teacher-login"], .demo [id*="learner-login"], .demo [id*="topic-select"], .demo [id*="learning-session"], .demo [id*="results"], .demo [id*="profiles"], .demo [id*="relationships"] {
   top: auto;
 }
