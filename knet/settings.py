@@ -164,7 +164,7 @@ PIPELINE_JS = {
         'source_filenames': [
             'js/base.js',
             'js/landing.js',
-            'js/demo/demo.js',
+            'js/demo.js',
             'js/init.js',
             ],
         'output_filename': 'js/main.min.js',
@@ -179,7 +179,7 @@ PIPELINE_JS = {
         },
     'plugins': {
         'source_filenames': [
-            'js/libs/jquery-2.0.0.js',
+            'js/libs/jquery.js',
             'js/libs/handlebars.runtime.js',
             'js/plugins/jquery.ba-dotimeout.js',
             'js/plugins/jquery.stopwatch.js',

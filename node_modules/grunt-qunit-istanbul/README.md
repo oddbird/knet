@@ -83,6 +83,34 @@ If you're running your qunit tests with the help of a webserver,
 you have to point the coverage inspector to the physical path that
 is the base url of the qunit page you're running
 
+#### linesThresholdPct
+Type: `number`
+Optional
+
+Lines coverage percentage threshold to evaluate when running the build. If the actual
+coverage percentage is less than this value, the build will fail.
+
+#### statementsThresholdPct
+Type: `number`
+Optional
+
+Statements coverage percentage threshold to evaluate when running the build. If the actual
+coverage percentage is less than this value, the build will fail.
+
+#### functionsThresholdPct
+Type: `number`
+Optional
+
+Functions coverage percentage threshold to evaluate when running the build. If the actual
+coverage percentage is less than this value, the build will fail.
+
+#### branchesThresholdPct
+Type: `number`
+Optional
+
+Branches coverage percentage threshold to evaluate when running the build. If the actual
+coverage percentage is less than this value, the build will fail.
+
 ### Usage
 
 ```
@@ -93,7 +121,8 @@ is the base url of the qunit page you're running
           src: ['src/js/**/*.js'],
           instrumentedFiles: 'temp/',
           htmlReport: 'report/coverage',
-          coberturaReport: 'report/'
+          coberturaReport: 'report/',
+          linesThresholdPct: 85
         }
       },
       all: ['test/**/*.html']
@@ -102,7 +131,7 @@ is the base url of the qunit page you're running
 
 ### Warning
 There is currently a failure in the phantomjs npm module.
-If you're running into an "Phantom not found error", please check [this issue](https://github.com/Obvious/phantomjs/issues/15) 
+If you're running into an "Phantom not found error", please check [this issue](https://github.com/Obvious/phantomjs/issues/15)
 
 
 ---

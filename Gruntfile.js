@@ -13,10 +13,7 @@ module.exports = function (grunt) {
         qunit: {
             options: {
                 coverage: {
-                    src: [
-                        '<%= vars.src_js_dir %>*.js',
-                        '<%= vars.src_js_dir %>demo/*.js'
-                    ],
+                    src: ['<%= jshint.src.src %>'],
                     instrumentedFiles: 'jscov_temp/',
                     htmlReport: 'jscov/'
                 }
@@ -31,10 +28,7 @@ module.exports = function (grunt) {
                 src: ['Gruntfile.js']
             },
             src: {
-                src: [
-                    '<%= vars.src_js_dir %>*.js',
-                    '<%= vars.src_js_dir %>demo/*.js'
-                ]
+                src: ['<%= vars.src_js_dir %>*.js']
             },
             test: {
                 src: ['<% vars.js_tests_dir %>*.js']
@@ -42,7 +36,7 @@ module.exports = function (grunt) {
         },
         watch: {
             gruntfile: {
-                files: '<%= jshint.gruntfile.src %>',
+                files: ['<%= jshint.gruntfile.src %>'],
                 tasks: ['jshint:gruntfile']
             },
             test: {
@@ -50,7 +44,7 @@ module.exports = function (grunt) {
                 tasks: ['jshint:test', 'qunit']
             },
             js: {
-                files: '<%= jshint.src.src %>',
+                files: ['<%= jshint.src.src %>'],
                 tasks: ['jshint:src', 'qunit']
             }
         }

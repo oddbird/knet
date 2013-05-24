@@ -9,7 +9,7 @@ var KNET = (function (KNET, $) {
             transientDelay: 5000
         });
 
-        // demo/demo.js
+        // demo.js
         if ($('.demo').length) {
             KNET.inputTeacherName();
             KNET.selectLearnerName();
