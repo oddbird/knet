@@ -26,6 +26,7 @@ $steps: teacher-login learner-login topic-select learning-session results profil
 
 .demo {
   @extend %type;
+  @include padding-leader(3);
   min-height: 100%;
   counter-reset: demo;
 

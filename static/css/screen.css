@@ -645,6 +645,8 @@ button {
 }
 
 .demo {
+  padding-top: 69px;
+  padding-top: 3.83333rem;
   min-height: 100%;
   counter-reset: demo;
 }
