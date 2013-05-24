@@ -16,6 +16,16 @@ var KNET = (function (KNET, $) {
         }
     };
 
+    KNET.clearOnFormSubmit = function (formSel, messagesSel) {
+        var form = $(formSel);
+        var messages = $(messagesSel);
+
+        form.on('submit', function () {
+            messages.empty();
+            return true;
+        });
+    };
+
     return KNET;
 
 }(KNET || {}, jQuery));

@@ -20,6 +20,7 @@ var KNET = (function (KNET, $) {
 
         // landing.js
         KNET.landingForm('form.signup');
+        KNET.clearOnFormSubmit('form.signup', '#messages');
     });
 
     return KNET;

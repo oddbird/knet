@@ -29,18 +29,26 @@
 
     module('landing', {
         setup: function () {
-            this.containerSel = '#qunit-fixture';
-            this.container = $(this.containerSel);
+            this.container = $('#qunit-fixture');
+            this.messages = $('<ul id="messages" />').appendTo(this.container);
+            this.messageSel = '#messages';
+            this.form = $('<form class="lead-form"></form>').appendTo(this.container);
+            this.formSel = '.lead-form';
+            this.button = $('<button type="submit"></button>').appendTo(this.form);
         },
         teardown: function () {
             this.container.empty().off('click change');
         }
     });
 
-    test('test description', function () {
+    test('messages are removed when form is submitted', function () {
         expect(1);
 
-        strictEqual(1, 1, 'Math works.');
+        $('<li class="message" />').appendTo(this.messages);
+        KNET.clearOnFormSubmit(this.formSel, this.messageSel);
+        this.button.trigger('click');
+
+        strictEqual(this.messages.children().length, 0, 'messages cleared on form submit');
     });
 
 }(KNET, jQuery));
