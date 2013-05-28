@@ -1,18 +1,32 @@
-// ---------------------------------------------------------------------------
-// Imports
+// Fonts
+// =====
 
-@import "fonts/font-license";
-@import "fonts/cambridge-round";
-@import "fonts/square-serif";
-// @import "fonts/icomoon";
+// Cambridge Round
+@include font('CambridgeRound' 'cambridge_round-webfont');
+@include font('CambridgeRound' 'cambridge_round_bold-webfont' bold);
+@include font('CambridgeRound' 'cambridge_round_it-webfont' italic);
 
-//-----------------------------------------------------------------------------
-// Settings
+// Cambridge Round Condensed
+@include font('CambridgeRoundCond' 'cambridge_round_cond-webfont');
+@include font('CambridgeRoundCond' 'cambridge_round_bold_cond-webfont' bold);
+@include font('CambridgeRoundCond' 'cambridge_round_cond_it-webfont' italic);
+
+// Square Serif
+@include font('SquareSerif' 'SquareSerif-Book-webfont');
+@include font('SquareSerif' 'SquareSerif-Bold-webfont' bold);
+
+// Stacks
+// ------
+
+$sans-stack : 'CambridgeRound', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+$cond-stack : 'CambridgeRoundCond', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+$serif-stack : 'SquareSerif', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 $mono-stack : Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
 
-//-----------------------------------------------------------------------------
 // Mixins
+// ------
 
 @mixin serif { font-family: $serif-stack; }
 @mixin sans { font-family: $sans-stack; }

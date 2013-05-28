@@ -1,12 +1,12 @@
 GIT
   remote: git://github.com/chriseppstein/compass
-  revision: deddb27e01f42fc82e24cd4ac7f9502c16aeae1a
+  revision: 2cbd800cd18564402c5e9f5c20f2bf752c536481
   branch: master
   specs:
-    compass (0.13.alpha.4.deddb27)
+    compass (0.13.alpha.4.2cbd800)
       chunky_png (~> 1.2)
       listen (~> 1.0.0)
-      sass (~> 3.2.5)
+      sass (>= 3.2.5, < 3.4)
 
 GIT
   remote: git://github.com/ericam/accoutrement
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/ericam/susy
-  revision: e8c43289f2db03290089f459680e93a3ae506550
+  revision: c7e8ed8471eb384812873a3abee1687c68b166c3
   branch: master
   specs:
     susy (1.0.8)
@@ -56,9 +56,7 @@ PLATFORMS
 DEPENDENCIES
   accoutrement!
   breakpoint (~> 2.0.2)
-  chunky_png (~> 1.2.8)
   compass!
   modular-scale (~> 1.0.6)
-  rb-fsevent (~> 0.9.3)
   sass (~> 3.2.7)
   susy!
