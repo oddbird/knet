@@ -1,6 +1,8 @@
 // Demo
 // ====
 
+@import "site";
+
 $steps: teacher-login learner-login topic-select learning-session results profiles relationships;
 
 %hide-tab-toggle { top: auto; }

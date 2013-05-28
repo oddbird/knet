@@ -1,13 +1,18 @@
 {% extends "base.html" %}
+{% load compressed %}
+
+{% block styles %}
+{% compressed_css "landing" %}
+{% endblock styles %}
 
 {% block body %}
 <div class="landing" role="main">
   <header>
-    <h1 class="title">The K Network.</h1>
-    <p class="tagline">Exploring what's possible in the world of teaching and learning</p>
+    <h1 class="logo">The K Network.</h1>
+    <p class="tagline">Exploring what's possible in the world of teaching and learning.</p>
   </header>
 
-  <div class="call-to-action">
+  <div class="call-to-action" data-tagline="Exploring what's possible in the world of teaching and learning.">
     <p class="intro">
       You change lives.<br />
       Let us record your impact,

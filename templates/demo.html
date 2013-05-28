@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load compressed %}
+
+{% block styles %}
+{% compressed_css "demo" %}
+{% endblock styles %}
 
 {% block body %}
 <header role="banner">

@@ -1,0 +1,27 @@
+// Logo
+// ====
+
+%logo {
+  @include fluid-ratio(1200 / 443.5);
+  @include background(image-url('wordmark.svg') no-repeat scroll top);
+  @include background-size;
+}
+
+%tagline {
+  @include adjust-font-size-to($smallpx);
+  @include serif;
+  font-weight: bold;
+
+  @include breakpoint(30em) { text-align: right; }
+}
+
+.logo {
+  @extend %logo;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+.tagline {
+  @extend %tagline;
+  @include trailer;
+}

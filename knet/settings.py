@@ -157,6 +157,18 @@ PIPELINE_CSS = {
             ],
         'output_filename': 'css/screen.min.css',
         },
+    'landing': {
+        'source_filenames': [
+            'css/landing.css',
+            ],
+        'output_filename': 'css/landing.min.css',
+        },
+    'demo': {
+        'source_filenames': [
+            'css/demo.css',
+            ],
+        'output_filename': 'css/demo.min.css',
+        },
     }
 
 PIPELINE_JS = {

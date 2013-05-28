@@ -1,4 +1,4 @@
-// Layout
+// Banner
 // ======
 
 [role="banner"] {
@@ -35,21 +35,4 @@
     margin-left: 1em;
     &.empty { display: none; }
   }
-}
-
-[role="main"] {
-  @include container;
-  padding: rhythm(1) 1em;
-}
-
-.logo {
-  @include replace-text('wordmark.svg');
-  @include background-size;
-  @include fluid-ratio(728.665 / 270.667);
-}
-.tagline {
-  @include adjust-font-size-to($smallpx);
-  @include serif;
-  font-weight: bold;
-  text-align: right;
 }

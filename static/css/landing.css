@@ -159,15 +159,62 @@ a:focus, a:hover, a:active {
 }
 
 /* Use the following CSS code if you want to have a class per icon */
-[data-icon]:before {
+.message .close:before, [data-icon]:before {
   font-family: 'knet';
   font-style: normal;
   speak: none;
 }
 
+.message .close {
+  position: relative;
+  min-width: 1em;
+  text-indent: -9999px;
+}
+.message .close:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-indent: 0;
+}
+
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
   content: attr(data-icon);
+}
+
+.signup button {
+  border-width: 1px;
+  border-width: 0.05556rem;
+  border-style: solid;
+  padding: 5px;
+  padding: 0.26389rem;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -moz-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -o-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: linear-gradient(to bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  display: inline-block;
+  padding-left: 0.63889rem;
+  padding-right: 0.63889rem;
+  cursor: pointer;
+}
+
+.signup button:hover, .signup button:focus {
+  -webkit-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
+  -moz-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
+  box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
+}
+
+.signup button:active {
+  -webkit-box-shadow: #005e5e 0 0 0.31944rem inset;
+  -moz-box-shadow: #005e5e 0 0 0.31944rem inset;
+  box-shadow: #005e5e 0 0 0.31944rem inset;
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -moz-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -o-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: linear-gradient(to top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
 }
 
 button {
@@ -276,7 +323,7 @@ button {
   clear: both;
 }
 
-.logo {
+.logo, .call-to-action:after {
   position: relative;
   height: 0;
   padding-top: 36.95833%;
@@ -287,7 +334,7 @@ button {
   -o-background-size: 100% auto;
   background-size: 100% auto;
 }
-.logo > * {
+.logo > *, .call-to-action:after > * {
   display: block;
   position: absolute;
   width: 100%;
@@ -297,7 +344,7 @@ button {
   padding: 0;
 }
 
-.tagline {
+.tagline, .call-to-action:after {
   font-size: 14px;
   font-size: 0.77778rem;
   line-height: 23px;
@@ -306,7 +353,7 @@ button {
   font-weight: bold;
 }
 @media (min-width: 30em) {
-  .tagline {
+  .tagline, .call-to-action:after {
     text-align: right;
   }
 }
@@ -319,4 +366,209 @@ button {
 .tagline {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+}
+
+.landing {
+  max-width: 60em;
+}
+@media (min-width: 40em) {
+  .landing header {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+}
+
+.call-to-action {
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+}
+.call-to-action:after {
+  content: attr(data-tagline);
+  margin-top: -26%;
+  display: none;
+}
+@media (min-width: 40em) {
+  .call-to-action:after {
+    display: block;
+  }
+}
+@media (min-width: 40em) {
+  .call-to-action {
+    margin-bottom: 69px;
+    margin-bottom: 3.83333rem;
+  }
+}
+
+.intro, .signup, .message {
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+}
+@media (min-width: 40em) {
+  .intro, .signup, .message {
+    margin-left: 51.02041%;
+  }
+}
+
+.intro {
+  font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 23px;
+  font-size: 1.27778rem;
+  line-height: 35px;
+  line-height: 1.91667rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+  color: #e30028;
+}
+@media (min-width: 40em) {
+  .intro {
+    font-size: 35px;
+    font-size: 1.94444rem;
+    line-height: 46px;
+    line-height: 2.55556rem;
+    margin-bottom: 46px;
+    margin-bottom: 2.55556rem;
+  }
+}
+
+.signup:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.signup label {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  display: block;
+  font-weight: bold;
+}
+.signup input {
+  width: 58.33333%;
+  float: left;
+  margin-right: 4.16667%;
+}
+.signup button {
+  width: 37.5%;
+  float: right;
+  margin-right: 0;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: white;
+  text-shadow: rgba(37, 124, 0, 0.75) 0 1px 0;
+  background-color: #31a600;
+  border-color: #257c00;
+  font-weight: bold;
+}
+@media (min-width: 40em) {
+  .signup button {
+    font-size: 18px;
+    font-size: 1rem;
+    line-height: 23px;
+    line-height: 1.27778rem;
+    margin-top: -1px;
+  }
+}
+
+.message {
+  border-width: 1px;
+  border-width: 0.05556rem;
+  border-style: solid;
+  padding: 11px;
+  padding: 0.58333rem;
+  position: relative;
+  color: #e5e5e5;
+  border-color: #005e5e;
+}
+.message.success {
+  background: #257c00;
+}
+.message.error {
+  background: #880018;
+}
+.message .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  width: 1em;
+  color: rgba(229, 229, 229, 0.5);
+}
+.message .close:focus, .message .close:hover, .message .close:active {
+  color: white;
+}
+.message .close:before {
+  content: "x";
+  font-family: inherit;
+}
+
+.desc {
+  overflow: hidden;
+  border-top-width: 2px;
+  border-top-width: 0.11111rem;
+  border-top-style: solid;
+  padding-top: 21px;
+  padding-top: 1.16667rem;
+  border-bottom-width: 2px;
+  border-bottom-width: 0.11111rem;
+  border-bottom-style: solid;
+  padding-bottom: 21px;
+  padding-bottom: 1.16667rem;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin-left: -1.27778rem;
+  padding-left: 1.27778rem;
+  margin-right: -1.27778rem;
+  padding-right: 1.27778rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+  border-style: dashed;
+  border-color: rgba(0, 116, 116, 0.25);
+}
+.desc h2 {
+  font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+.desc p {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+}
+@media (min-width: 40em) {
+  .desc {
+    border-top-width: 2px;
+    border-top-width: 0.11111rem;
+    border-top-style: solid;
+    padding-top: 44px;
+    padding-top: 2.44444rem;
+    border-bottom-width: 2px;
+    border-bottom-width: 0.11111rem;
+    border-bottom-style: solid;
+    padding-bottom: 44px;
+    padding-bottom: 2.44444rem;
+    border-style: dashed;
+  }
+}
+
+@media (min-width: 40em) {
+  .feature {
+    width: 31.81818%;
+    float: left;
+    margin-right: 2.27273%;
+  }
+  .feature:nth-child(3n) {
+    float: right;
+    margin-right: 0;
+  }
+  .feature p {
+    margin: 0;
+  }
 }
