@@ -403,6 +403,8 @@ button {
 .intro, .signup, .message {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+  position: relative;
+  z-index: 20;
 }
 @media (min-width: 40em) {
   .intro, .signup, .message {

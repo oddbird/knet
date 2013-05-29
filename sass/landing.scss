@@ -32,6 +32,9 @@ $landing-break: 40em;
 
 %intro-section {
   @include trailer(1);
+  position: relative;
+  z-index: 20;
+
   @include breakpoint($landing-break) { @include pre(5); }
 }
 
