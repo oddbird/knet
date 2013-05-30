@@ -223,7 +223,7 @@ button {
   cursor: pointer;
 }
 
-.primary-action, [for^=mark-private-], .delete-story {
+.primary-action, .story-status, .delete-story {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -242,13 +242,13 @@ button {
   cursor: pointer;
 }
 
-.primary-action:hover, [for^=mark-private-]:hover, .delete-story:hover, .primary-action:focus, [for^=mark-private-]:focus, .delete-story:focus {
+.primary-action:hover, .story-status:hover, .delete-story:hover, .primary-action:focus, .story-status:focus, .delete-story:focus {
   -webkit-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   -moz-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
 }
 
-.primary-action:active, [for^=mark-private-]:active, .delete-story:active {
+.primary-action:active, .story-status:active, .delete-story:active {
   -webkit-box-shadow: #005e5e 0 0 0.31944rem inset;
   -moz-box-shadow: #005e5e 0 0 0.31944rem inset;
   box-shadow: #005e5e 0 0 0.31944rem inset;
@@ -398,7 +398,7 @@ label {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
 }
-[id^=mark-private-]:checked + .story {
+.story.private {
   color: #669e9e;
 }
 
@@ -413,9 +413,4 @@ label {
 
 .story-actions {
   text-align: right;
-}
-
-[id^=mark-private-] {
-  position: absolute;
-  left: -9999px;
 }

@@ -1,5 +1,4 @@
-<input type="checkbox" id="mark-private-{{ story_id }}">
-<article class="story">
+<article class="story {{ story_status }}">
   <div class="story-body">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -13,7 +12,11 @@
 
   {# if user == teacher #}
   <div class="story-actions">
-    <label for="mark-private-{{ story_id }}">Private</label>
+    {% if story_status == 'public' %}
+      <button class="story-status to-private">Private</label>
+    {% else %}
+      <button class="story-status to-public">Public</label>
+    {% endif %}
     <button class="delete-story">Delete</button>
   </div>
 </article>
