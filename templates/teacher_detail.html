@@ -2,7 +2,26 @@
 
 {% block main %}
 <article class="teacher-detail">
-  <h1 class="teacher-name">{ Teacher Name }</h1>
+
+  {# Teacher Info #}
+  <header class="teacher-info">
+    <h1 class="teacher-name">{ Teacher Name }</h1>
+    <ul class="teacher-data">
+      <li class="school">
+        <b class="type">School:</b>
+        <span class="value">{ School }</span>
+      </li>
+      <li class="membership">
+        <b class="type">Member Since:</b>
+        <span class="value">{ Date }</span>
+      </li>
+    </ul>
+    <p class="teacher-bio">{ Short bio }</p>
+  </header>
+
+  {# Story Form #}
+  <input type="checkbox" id="story-form-toggle" checked/>
+  <label for="story-form-toggle">Hide Form</label>
 
   <form class="story-form">
     <div class="formfield body-field">
@@ -14,17 +33,20 @@
       <label for="private-field" class="form-type">Keep this story private</label>
     </div>
     <div class="formfield name-field optional">
-      <label for="name-field">Name</label>
-      <input type="text" id="name-field" name="name" />
+      <label for="name-field" class="form-type">Name</label>
+      <input type="text" id="name-field" name="name" class="form-value" />
     </div>
     <div class="formfield email-field optional">
-      <label for="email-field">Email</label>
-      <input type="email" id="email-field" name="email" />
+      <label for="email-field" class="form-type">Email</label>
+      <input type="email" id="email-field" name="email" class="form-value" />
     </div>
 
     <div class="form-actions">
       <button class="primary-action">Send</button>
     </div>
   </form>
+
+  {# Stories #}
+  <section class="teacher-stories"></section>
 </article>
 {% endblock %}
