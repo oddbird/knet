@@ -1,3 +1,4 @@
+<input type="checkbox" id="private-{{ story_id }}">
 <article class="story">
   <div class="story-body">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -12,10 +13,7 @@
 
   {# if user == teacher #}
   <div class="story-actions">
-    <div class="publish-story">
-      <input type="checkbox" id="publish-{{ story_id }}" name="publish" value="publish">
-      <label for="publish-{{ story_id }}">Publish</label>
-    </div>
+    <label for="private-{{ story_id }}">Private</label>
     <button class="delete-story">Delete</button>
   </div>
 </article>

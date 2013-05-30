@@ -220,9 +220,10 @@ button {
   vertical-align: baseline;
   background: none;
   color: inherit;
+  cursor: pointer;
 }
 
-.primary-action {
+.primary-action, [for^="private-"], .delete-story {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -241,13 +242,13 @@ button {
   cursor: pointer;
 }
 
-.primary-action:hover, .primary-action:focus {
+.primary-action:hover, [for^="private-"]:hover, .delete-story:hover, .primary-action:focus, [for^="private-"]:focus, .delete-story:focus {
   -webkit-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   -moz-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
 }
 
-.primary-action:active {
+.primary-action:active, [for^="private-"]:active, .delete-story:active {
   -webkit-box-shadow: #005e5e 0 0 0.31944rem inset;
   -moz-box-shadow: #005e5e 0 0 0.31944rem inset;
   box-shadow: #005e5e 0 0 0.31944rem inset;
@@ -293,6 +294,10 @@ button {
 textarea {
   min-height: 4.47222rem;
   resize: vertical;
+}
+
+label {
+  cursor: pointer;
 }
 
 [role="banner"] {
@@ -387,10 +392,14 @@ textarea {
 }
 
 .story {
+  overflow: hidden;
   margin-top: 23px;
   margin-top: 1.27778rem;
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+}
+[id^="private-"]:checked + .story {
+  color: #669e9e;
 }
 
 .story-info {
@@ -404,4 +413,9 @@ textarea {
 
 .story-actions {
   text-align: right;
+}
+
+[id^="private-"] {
+  position: absolute;
+  left: -9999px;
 }

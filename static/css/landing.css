@@ -191,6 +191,7 @@ button {
   vertical-align: baseline;
   background: none;
   color: inherit;
+  cursor: pointer;
 }
 
 .primary-action, .signup button {
@@ -264,6 +265,10 @@ button {
 textarea {
   min-height: 4.47222rem;
   resize: vertical;
+}
+
+label {
+  cursor: pointer;
 }
 
 [role="banner"] {

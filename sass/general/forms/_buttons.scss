@@ -6,6 +6,7 @@
   @include reset-font;
   background: none;
   color: inherit;
+  cursor: pointer;
 }
 
 button { @include reset-button; }

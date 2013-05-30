@@ -2,8 +2,16 @@
 // =====
 
 .story {
-  @include rhythm-margins();
+  @include clearfix;
+  @include rhythm-margins;
+
+  [id^="private-"]:checked + & {
+    color: color($base lighter);
+  }
 }
+
+// Story Info
+// ----------
 
 .story-info {
   float: left;
@@ -15,6 +23,22 @@
   }
 }
 
+// Story Actions
+// -------------
+
 .story-actions {
   text-align: right;
+}
+
+[id^="private-"] {
+  position: absolute;
+  left: -9999px;
+}
+
+[for^="private-"] {
+  @extend %button;
+}
+
+.delete-story {
+  @extend %button;
 }
