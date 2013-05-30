@@ -1,11 +1,15 @@
 // Story
 // =====
 
+$private-selector   : 'mark-private-';
+$id-private         : '[id^=#{$private-selector}]';
+$for-private        : '[for^=#{$private-selector}]';
+
 .story {
   @include clearfix;
   @include rhythm-margins;
 
-  [id^="private-"]:checked + & {
+  #{$id-private}:checked + & {
     color: color($base lighter);
   }
 }
@@ -30,12 +34,12 @@
   text-align: right;
 }
 
-[id^="private-"] {
+#{$id-private} {
   position: absolute;
   left: -9999px;
 }
 
-[for^="private-"] {
+#{$for-private} {
   @extend %button;
 }
 

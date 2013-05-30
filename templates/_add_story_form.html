@@ -1,0 +1,22 @@
+<form class="add-story-form">
+  <div class="formfield body-field">
+    <label for="body-field" class="form-type">Leave a story for { Teacher Name }</label>
+    <textarea name="body" id="body-field" class="form-value" required></textarea>
+  </div>
+  <div class="formfield private-field">
+    <input type="checkbox" name="private" id="private-field" value="private" class="form-value" />
+    <label for="private-field" class="form-type">Keep this story private</label>
+  </div>
+  <div class="formfield name-field optional">
+    <label for="name-field" class="form-type">Name</label>
+    <input type="text" id="name-field" name="name" class="form-value" />
+  </div>
+  <div class="formfield email-field optional">
+    <label for="email-field" class="form-type">Email</label>
+    <input type="email" id="email-field" name="email" class="form-value" />
+  </div>
+
+  <div class="form-actions">
+    <button class="primary-action">Send</button>
+  </div>
+</form>
