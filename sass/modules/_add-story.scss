@@ -1,0 +1,6 @@
+// Add Story
+// =========
+
+.add-story-form {
+  [id="story-form-toggle"]:checked ~ & { @extend %toggle-content-hidden; }
+}

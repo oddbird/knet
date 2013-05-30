@@ -33,6 +33,29 @@
   }
 }
 
+// Headers
+// -------
+
+%demo-headers {
+  h2 {
+    @include serif;
+    @include adjust-font-size-to($xlargepx);
+    a {
+      #{$link} { color: color($alt dark); }
+      #{$focus} { color: color($accent dark); }
+    }
+  }
+
+  h3 {
+    @include trailer(.5);
+    text-transform: uppercase;
+  }
+
+  h4 {
+    @include leader;
+    font-weight: bold;
+  }
+}
 
 // Patterns
 // --------
@@ -65,6 +88,7 @@ $steps: teacher-login learner-login topic-select learning-session results profil
 
 .demo {
   @extend %type;
+  @extend %demo-headers;
   @include padding-leader(3);
   min-height: 100%;
   counter-reset: demo;

@@ -1,0 +1,10 @@
+// Teacher Detail
+// ==============
+
+.teacher-detail {
+  @extend %type;
+}
+
+.teacher-info {
+  @extend %headers;
+}

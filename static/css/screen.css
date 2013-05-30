@@ -158,6 +158,47 @@ a:focus, a:hover, a:active {
   left: -9999px;
 }
 
+.teacher-info h1 {
+  font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 44px;
+  font-size: 2.44444rem;
+  line-height: 58px;
+  line-height: 3.19444rem;
+}
+.teacher-info h1 a:link, .teacher-info h1 a:visited {
+  color: #007474;
+}
+.teacher-info h1 a:focus, .teacher-info h1 a:hover, .teacher-info h1 a:active {
+  color: #760014;
+}
+.teacher-info h2 {
+  margin-bottom: 12px;
+  margin-bottom: 0.63889rem;
+  text-transform: uppercase;
+}
+.teacher-info h3 {
+  margin-top: 23px;
+  margin-top: 1.27778rem;
+  font-weight: bold;
+}
+
+.teacher-detail strong {
+  font-weight: bold;
+}
+.teacher-detail em {
+  font-style: italic;
+}
+.teacher-detail p, .teacher-detail ul, .teacher-detail ol, .teacher-detail pre {
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+}
+.teacher-detail ul {
+  list-style: disc;
+}
+.teacher-detail ol {
+  list-style: decimal;
+}
+
 /* Use the following CSS code if you want to have a class per icon */
 [data-icon]:before {
   font-family: 'knet';
@@ -181,6 +222,45 @@ button {
   color: inherit;
 }
 
+.primary-action {
+  border-width: 1px;
+  border-width: 0.05556rem;
+  border-style: solid;
+  padding: 5px;
+  padding: 0.26389rem;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -moz-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -o-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: linear-gradient(to bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  display: inline-block;
+  padding-left: 0.63889rem;
+  padding-right: 0.63889rem;
+  cursor: pointer;
+}
+
+.primary-action:hover, .primary-action:focus {
+  -webkit-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
+  -moz-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
+  box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
+}
+
+.primary-action:active {
+  -webkit-box-shadow: #005e5e 0 0 0.31944rem inset;
+  -moz-box-shadow: #005e5e 0 0 0.31944rem inset;
+  box-shadow: #005e5e 0 0 0.31944rem inset;
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -moz-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -o-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: linear-gradient(to top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+}
+
+.form-actions {
+  text-align: right;
+}
+
 .formfield {
   margin-bottom: 12px;
   margin-bottom: 0.63889rem;
@@ -191,7 +271,7 @@ button {
   clear: both;
 }
 
-[type="text"], [type="email"], [type="password"] {
+[type="text"], [type="email"], [type="password"], textarea {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -204,7 +284,15 @@ button {
   display: block;
   width: 100%;
   border-color: #b2b2b2;
+}
+
+[type="text"], [type="email"], [type="password"] {
   height: 1.91667rem;
+}
+
+textarea {
+  min-height: 4.47222rem;
+  resize: vertical;
 }
 
 [role="banner"] {
@@ -247,6 +335,10 @@ button {
   content: "";
   display: table;
   clear: both;
+}
+
+[id="story-form-toggle"]:checked ~ .add-story-form {
+  display: none;
 }
 
 .logo {
@@ -292,4 +384,24 @@ button {
 .tagline {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+}
+
+.story {
+  margin-top: 23px;
+  margin-top: 1.27778rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+}
+
+.story-info {
+  float: left;
+  width: 50%;
+}
+.story-info:last-child {
+  float: none;
+  width: auto;
+}
+
+.story-actions {
+  text-align: right;
 }

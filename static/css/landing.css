@@ -182,7 +182,18 @@ a:focus, a:hover, a:active {
   content: attr(data-icon);
 }
 
-.signup button {
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: none;
+  color: inherit;
+}
+
+.primary-action, .signup button {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -201,13 +212,13 @@ a:focus, a:hover, a:active {
   cursor: pointer;
 }
 
-.signup button:hover, .signup button:focus {
+.primary-action:hover, .signup button:hover, .primary-action:focus, .signup button:focus {
   -webkit-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   -moz-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
 }
 
-.signup button:active {
+.primary-action:active, .signup button:active {
   -webkit-box-shadow: #005e5e 0 0 0.31944rem inset;
   -moz-box-shadow: #005e5e 0 0 0.31944rem inset;
   box-shadow: #005e5e 0 0 0.31944rem inset;
@@ -217,15 +228,8 @@ a:focus, a:hover, a:active {
   background-image: linear-gradient(to top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
 }
 
-button {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: none;
-  color: inherit;
+.form-actions {
+  text-align: right;
 }
 
 .formfield {
@@ -238,7 +242,7 @@ button {
   clear: both;
 }
 
-[type="text"], [type="email"], [type="password"] {
+[type="text"], [type="email"], [type="password"], textarea {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -251,7 +255,15 @@ button {
   display: block;
   width: 100%;
   border-color: #b2b2b2;
+}
+
+[type="text"], [type="email"], [type="password"] {
   height: 1.91667rem;
+}
+
+textarea {
+  min-height: 4.47222rem;
+  resize: vertical;
 }
 
 [role="banner"] {

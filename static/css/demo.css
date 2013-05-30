@@ -164,29 +164,7 @@ a:focus, a:hover, a:active {
   left: -9999px;
 }
 
-.demo h2 {
-  font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 44px;
-  font-size: 2.44444rem;
-  line-height: 58px;
-  line-height: 3.19444rem;
-}
-.demo h2 a:link, .demo h2 a:visited {
-  color: #007474;
-}
-.demo h2 a:focus, .demo h2 a:hover, .demo h2 a:active {
-  color: #760014;
-}
-.demo h3 {
-  margin-bottom: 12px;
-  margin-bottom: 0.63889rem;
-  text-transform: uppercase;
-}
-.demo h4 {
-  margin-top: 23px;
-  margin-top: 1.27778rem;
-}
-.demo h4, .demo strong {
+.demo strong {
   font-weight: bold;
 }
 .demo em {
@@ -202,30 +180,6 @@ a:focus, a:hover, a:active {
 .demo ol {
   list-style: decimal;
 }
-.demo code, .demo .code {
-  font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
-  font-size: 12px;
-  font-size: 0.66667rem;
-  line-height: 23px;
-  line-height: 1.27778rem;
-}
-.demo code {
-  display: inline-block;
-  padding: 0 .5em;
-  background: rgba(0, 87, 87, 0.125);
-}
-.demo .code {
-  line-height: 17px;
-  line-height: 0.95833rem;
-  margin-bottom: 23px;
-  margin-bottom: 1.27778rem;
-  -webkit-box-shadow: #005e5e 0 0 0.25em inset;
-  -moz-box-shadow: #005e5e 0 0 0.25em inset;
-  box-shadow: #005e5e 0 0 0.25em inset;
-  overflow: auto;
-  padding: 0.63889rem 0.95833rem;
-  border-left: 0.31944rem solid rgba(0, 28, 28, 0.25);
-}
 
 /* Use the following CSS code if you want to have a class per icon */
 [data-icon]:before {
@@ -239,7 +193,18 @@ a:focus, a:hover, a:active {
   content: attr(data-icon);
 }
 
-.demo button, .demo .next-button {
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: none;
+  color: inherit;
+}
+
+.primary-action, .demo button, .demo .next-button {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -258,13 +223,13 @@ a:focus, a:hover, a:active {
   cursor: pointer;
 }
 
-.demo button:hover, .demo .next-button:hover, .demo button:focus, .demo .next-button:focus {
+.primary-action:hover, .demo button:hover, .demo .next-button:hover, .primary-action:focus, .demo button:focus, .demo .next-button:focus {
   -webkit-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   -moz-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
 }
 
-.demo button:active, .demo .next-button:active {
+.primary-action:active, .demo button:active, .demo .next-button:active {
   -webkit-box-shadow: #005e5e 0 0 0.31944rem inset;
   -moz-box-shadow: #005e5e 0 0 0.31944rem inset;
   box-shadow: #005e5e 0 0 0.31944rem inset;
@@ -286,15 +251,8 @@ a:focus, a:hover, a:active {
   background-image: none;
 }
 
-button {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: none;
-  color: inherit;
+.form-actions {
+  text-align: right;
 }
 
 .formfield {
@@ -307,7 +265,7 @@ button {
   clear: both;
 }
 
-[type="text"], [type="email"], [type="password"] {
+[type="text"], [type="email"], [type="password"], textarea {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -320,7 +278,15 @@ button {
   display: block;
   width: 100%;
   border-color: #b2b2b2;
+}
+
+[type="text"], [type="email"], [type="password"] {
   height: 1.91667rem;
+}
+
+textarea {
+  min-height: 4.47222rem;
+  resize: vertical;
 }
 
 [role="banner"] {
@@ -444,6 +410,30 @@ button {
 }
 [role="banner"] .meta .vcard.empty {
   display: none;
+}
+
+.demo h2 {
+  font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 44px;
+  font-size: 2.44444rem;
+  line-height: 58px;
+  line-height: 3.19444rem;
+}
+.demo h2 a:link, .demo h2 a:visited {
+  color: #007474;
+}
+.demo h2 a:focus, .demo h2 a:hover, .demo h2 a:active {
+  color: #760014;
+}
+.demo h3 {
+  margin-bottom: 12px;
+  margin-bottom: 0.63889rem;
+  text-transform: uppercase;
+}
+.demo h4 {
+  margin-top: 23px;
+  margin-top: 1.27778rem;
+  font-weight: bold;
 }
 
 .demo [id*="teacher-login"], .demo [id*="learner-login"], .demo [id*="topic-select"], .demo [id*="learning-session"], .demo [id*="results"], .demo [id*="profiles"], .demo [id*="relationships"] {

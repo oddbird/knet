@@ -8,6 +8,11 @@
   color: inherit;
 }
 
+button { @include reset-button; }
+
+// Button Styles
+// -------------
+
 $button-gradient: color($base,0) 40%, color(lightest,.25);
 
 %button-base {
@@ -58,4 +63,9 @@ $button-gradient: color($base,0) 40%, color(lightest,.25);
   padding-right: rhythm(1);
 }
 
-button { @include reset-button; }
+// Defaults
+// --------
+
+.form-actions { text-align: right; }
+
+.primary-action { @extend %button; }
