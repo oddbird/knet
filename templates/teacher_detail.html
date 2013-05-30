@@ -47,6 +47,9 @@
   </form>
 
   {# Stories #}
-  <section class="teacher-stories"></section>
+  <section class="teacher-stories">
+    {% include "_story.html" with story_id=1 %}
+    {% include "_story.html" with story_id=2 %}
+  </section>
 </article>
 {% endblock %}
