@@ -1,12 +1,12 @@
-{% extends "base.html" %}
+{% extends "base_site.html" %}
 {% load compressed %}
 
 {% block styles %}
 {% compressed_css "landing" %}
 {% endblock styles %}
 
-{% block body %}
-<div class="landing" role="main">
+{% block main %}
+<div class="landing">
   <header>
     <h1 class="logo">The K Network.</h1>
     <p class="tagline">Exploring what's possible in the world of teaching and learning.</p>

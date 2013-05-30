@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body %}
+<header role="banner">
+  <h1 class="brand vcard">
+    <a href="/" rel="home" class="fn org">The K Network</a>
+  </h1>
+  {% block banner %}{% endblock %}
+</header>
+
+<div role="main">
+  {% block main %}{% endblock %}
+</div>
+{% endblock %}

@@ -274,34 +274,12 @@ button {
   display: table;
   clear: both;
 }
-[role="banner"] .branding, [role="banner"] .meta {
-  float: left;
-  width: 50%;
-}
-[role="banner"] .meta {
-  float: right;
-  margin-left: -1em;
-  text-align: right;
-}
-[role="banner"] .company, [role="banner"] .pagetitle, [role="banner"] .vcard {
-  display: inline-block;
-}
-[role="banner"] .company {
+[role="banner"] .org:link, [role="banner"] .org:visited {
   font-weight: bold;
+  color: #005e5e;
 }
-[role="banner"] .company:after {
-  content: ":";
-}
-[role="banner"] .vcard {
-  -webkit-transition: opacity 300ms;
-  -moz-transition: opacity 300ms;
-  -o-transition: opacity 300ms;
-  transition: opacity 300ms;
-  opacity: 1;
-  margin-left: 1em;
-}
-[role="banner"] .vcard.empty {
-  display: none;
+[role="banner"] .org:focus, [role="banner"] .org:hover, [role="banner"] .org:active {
+  color: #94001a;
 }
 
 [role="main"] {

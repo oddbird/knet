@@ -324,14 +324,6 @@ button {
 }
 
 [role="banner"] {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 900;
-}
-
-[role="banner"] {
   border-bottom-width: 1px;
   border-bottom-width: 0.05556rem;
   border-bottom-style: solid;
@@ -351,34 +343,20 @@ button {
   display: table;
   clear: both;
 }
-[role="banner"] .branding, [role="banner"] .meta {
-  float: left;
-  width: 50%;
-}
-[role="banner"] .meta {
-  float: right;
-  margin-left: -1em;
-  text-align: right;
-}
-[role="banner"] .company, [role="banner"] .pagetitle, [role="banner"] .vcard {
-  display: inline-block;
-}
-[role="banner"] .company {
+[role="banner"] .org:link, [role="banner"] .org:visited {
   font-weight: bold;
+  color: #005e5e;
 }
-[role="banner"] .company:after {
-  content: ":";
+[role="banner"] .org:focus, [role="banner"] .org:hover, [role="banner"] .org:active {
+  color: #94001a;
 }
-[role="banner"] .vcard {
-  -webkit-transition: opacity 300ms;
-  -moz-transition: opacity 300ms;
-  -o-transition: opacity 300ms;
-  transition: opacity 300ms;
-  opacity: 1;
-  margin-left: 1em;
-}
-[role="banner"] .vcard.empty {
-  display: none;
+
+[role="banner"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
 }
 
 [role="main"] {
@@ -438,6 +416,34 @@ button {
 .tagline {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+}
+
+[role="banner"] .brand, [role="banner"] .meta {
+  float: left;
+  width: 50%;
+}
+[role="banner"] .vcard {
+  display: inline-block;
+}
+[role="banner"] .org:after {
+  content: ": What's Possible";
+  font-weight: normal;
+}
+[role="banner"] .meta {
+  float: right;
+  margin-left: -1em;
+  text-align: right;
+}
+[role="banner"] .meta .vcard {
+  -webkit-transition: opacity 300ms;
+  -moz-transition: opacity 300ms;
+  -o-transition: opacity 300ms;
+  transition: opacity 300ms;
+  opacity: 1;
+  margin-left: 1em;
+}
+[role="banner"] .meta .vcard.empty {
+  display: none;
 }
 
 .demo [id*="teacher-login"], .demo [id*="learner-login"], .demo [id*="topic-select"], .demo [id*="learning-session"], .demo [id*="results"], .demo [id*="profiles"], .demo [id*="relationships"] {
