@@ -1,18 +1,21 @@
 // Banner
 // ======
 
+%fixed-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+}
+
 [role="banner"] {
   @include pie-clearfix;
   @include trailing-border(1px,.5);
   @include padding-leader(.5);
   @include background(color(white,.95) linear-gradient(to top, color(lightest,.75), color(lightest,0)));
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding-left: rhythm(.5);
-  padding-right: rhythm(.5);
-  z-index: 900;
+  padding-left: 1em;
+  padding-right: 1em;
   .branding, .meta {
     float: left;
     width: 50%;

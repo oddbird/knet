@@ -219,13 +219,8 @@ button {
   background: rgba(255, 255, 255, 0.95) -moz-linear-gradient(bottom, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
   background: rgba(255, 255, 255, 0.95) -o-linear-gradient(bottom, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
   background: rgba(255, 255, 255, 0.95) linear-gradient(to top, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding-left: 0.63889rem;
-  padding-right: 0.63889rem;
-  z-index: 900;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 [role="banner"]:after {
   content: "";

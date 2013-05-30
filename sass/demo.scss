@@ -3,6 +3,14 @@
 
 @import "site";
 
+// Layout
+// ------
+
+[role="banner"] { @extend %fixed-banner; }
+
+// Patterns
+// --------
+
 $steps: teacher-login learner-login topic-select learning-session results profiles relationships;
 
 %hide-tab-toggle { top: auto; }
@@ -26,22 +34,14 @@ $steps: teacher-login learner-login topic-select learning-session results profil
   font-weight: bold;
 }
 
+// General
+// -------
+
 .demo {
   @extend %type;
   @include padding-leader(3);
   min-height: 100%;
   counter-reset: demo;
-
-  .intro {
-    @include rhythm-margins(2);
-    @include serif;
-    @include adjust-font-size-to($medpx);
-    @include arrow(bottom center rhythm(.5) $orange);
-    @include rhythm-borders(2px,2);
-    @include border-radius(.25em);
-    border-color: $orange;
-    background: color(white,.75);
-  }
 
   button, .next-button { @extend %button; }
   button:disabled { @extend %button-disabled }
@@ -56,6 +56,20 @@ $steps: teacher-login learner-login topic-select learning-session results profil
   }
 
   @include tabs($steps, '.step h2' '.step');
+}
+
+// Intro
+// -----
+
+.intro {
+  @include rhythm-margins(2);
+  @include serif;
+  @include adjust-font-size-to($medpx);
+  @include arrow(bottom center rhythm(.5) $orange);
+  @include rhythm-borders(2px,2);
+  @include border-radius(.25em);
+  border-color: $orange;
+  background: color(white,.75);
 }
 
 // Instructions

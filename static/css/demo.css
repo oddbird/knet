@@ -324,6 +324,14 @@ button {
 }
 
 [role="banner"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+}
+
+[role="banner"] {
   border-bottom-width: 1px;
   border-bottom-width: 0.05556rem;
   border-bottom-style: solid;
@@ -335,13 +343,8 @@ button {
   background: rgba(255, 255, 255, 0.95) -moz-linear-gradient(bottom, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
   background: rgba(255, 255, 255, 0.95) -o-linear-gradient(bottom, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
   background: rgba(255, 255, 255, 0.95) linear-gradient(to top, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding-left: 0.63889rem;
-  padding-right: 0.63889rem;
-  z-index: 900;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 [role="banner"]:after {
   content: "";
@@ -474,7 +477,24 @@ button {
   min-height: 100%;
   counter-reset: demo;
 }
-.demo .intro {
+.demo .next-button {
+  background-color: #d8f5cc;
+}
+.demo .label {
+  margin-bottom: 0px;
+  margin-bottom: 0rem;
+}
+.demo label {
+  cursor: pointer;
+}
+.demo img {
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+  max-width: 100%;
+  border: 1px solid #005e5e;
+}
+
+.intro {
   margin-top: 46px;
   margin-top: 2.55556rem;
   margin-bottom: 46px;
@@ -496,7 +516,7 @@ button {
   border-color: #f26e00;
   background: rgba(255, 255, 255, 0.75);
 }
-.demo .intro:before {
+.intro:before {
   content: " ";
   position: absolute;
   height: 0;
@@ -508,22 +528,6 @@ button {
   border-width: 0.63889rem;
   left: 50%;
   margin-left: -0.63889rem;
-}
-.demo .next-button {
-  background-color: #d8f5cc;
-}
-.demo .label {
-  margin-bottom: 0px;
-  margin-bottom: 0rem;
-}
-.demo label {
-  cursor: pointer;
-}
-.demo img {
-  margin-bottom: 23px;
-  margin-bottom: 1.27778rem;
-  max-width: 100%;
-  border: 1px solid #005e5e;
 }
 
 .instructions {
