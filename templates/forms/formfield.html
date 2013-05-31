@@ -6,7 +6,7 @@
     {{ field|add_class:classes }}
     {% if field|is_checkbox %}{% include "forms/label.html" %}{% endif %}
 
-    {% if help_text %}<p class="form-help">{{ help_text }}</p>{% endif %}
     {% include "forms/errors.html" with errors=field.errors %}
+    {% if help_text %}<p class="form-help">{{ help_text }}</p>{% endif %}
   </fieldset>
 {% endwith %}
