@@ -1,6 +1,10 @@
 // Inputs
 // ------
 
+%reset-textbox {
+  @include reset-box-model;
+}
+
 %textbox {
   @include rhythm-borders(1px,.25);
   @include adjust-font-size-to($xsmallpx);
@@ -20,14 +24,17 @@
   resize: vertical;
 }
 
-[type="text"], [type="email"], [type="password"] {
+[type="text"], [type="email"], [type="password"], [type="url"] {
+  @extend %reset-textbox;
   @extend %input;
 }
 
 textarea {
+  @extend %reset-textbox;
   @extend %textarea;
 }
 
 label {
+  display: inline-block;
   cursor: pointer;
 }

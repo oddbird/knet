@@ -14,11 +14,19 @@ button { @include reset-button; }
 // Button Styles
 // -------------
 
+$button-border-width: 1px;
+$button-border-rhythm: .125;
+$button-primary-rhythm: .25;
+$button-border-radius: .25rem;
 $button-gradient: color($base,0) 40%, color(lightest,.25);
 
+@mixin inset-button {
+  @include box-shadow(color($base darkest,.5) 0 0 .25rem inset);
+}
+
 %button-base {
-  @include rhythm-borders(1px,.25);
-  @include border-radius;
+  @include rhythm-borders($button-border-width,$button-border-rhythm);
+  @include border-radius($button-border-radius);
   @include background-image(linear-gradient(to bottom, $button-gradient...));
   display: inline-block;
   padding-left: rhythm(.5);
@@ -31,7 +39,7 @@ $button-gradient: color($base,0) 40%, color(lightest,.25);
 }
 
 %button-base-active {
-  @include box-shadow($base 0 0 rhythm(.25) inset);
+  @include inset-button;
   @include background-image(linear-gradient(to top, $button-gradient...));
 }
 
@@ -39,6 +47,16 @@ $button-gradient: color($base,0) 40%, color(lightest,.25);
   @extend %button-base;
   &:hover, &:focus { @extend %button-base-focus; }
   &:active { @extend %button-base-active; }
+}
+
+%primary-button {
+  @extend %button;
+  @include rhythm-borders($button-border-width, $button-primary-rhythm);
+  padding-left: rhythm();
+  padding-right: rhythm();
+  background-color: color($green lighter);
+
+  @include after(' »');
 }
 
 %button-active {
@@ -69,4 +87,4 @@ $button-gradient: color($base,0) 40%, color(lightest,.25);
 
 .form-actions { text-align: right; }
 
-.primary-action { @extend %button; }
+.primary-action { @extend %primary-button; }

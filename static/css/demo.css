@@ -209,11 +209,11 @@ button {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
-  padding: 5px;
-  padding: 0.26389rem;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  padding: 2px;
+  padding: 0.10417rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  border-radius: 0.25rem;
   background-image: -webkit-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
   background-image: -moz-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
   background-image: -o-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
@@ -231,13 +231,27 @@ button {
 }
 
 .primary-action:active, .demo button:active, .demo .next-button:active {
-  -webkit-box-shadow: #005e5e 0 0 0.31944rem inset;
-  -moz-box-shadow: #005e5e 0 0 0.31944rem inset;
-  box-shadow: #005e5e 0 0 0.31944rem inset;
+  -webkit-box-shadow: rgba(0, 18, 18, 0.5) 0 0 0.25rem inset;
+  -moz-box-shadow: rgba(0, 18, 18, 0.5) 0 0 0.25rem inset;
+  box-shadow: rgba(0, 18, 18, 0.5) 0 0 0.25rem inset;
   background-image: -webkit-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
   background-image: -moz-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
   background-image: -o-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
   background-image: linear-gradient(to top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+}
+
+.primary-action {
+  border-width: 1px;
+  border-width: 0.05556rem;
+  border-style: solid;
+  padding: 5px;
+  padding: 0.26389rem;
+  padding-left: 1.27778rem;
+  padding-right: 1.27778rem;
+  background-color: #8be266;
+}
+.primary-action:after {
+  content: " »";
 }
 
 .demo button:disabled {
@@ -266,7 +280,13 @@ button {
   clear: both;
 }
 
-[type="text"], [type="email"], [type="password"], textarea {
+[type="text"], [type="email"], [type="password"], [type="url"], textarea {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+[type="text"], [type="email"], [type="password"], [type="url"], textarea {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -281,7 +301,7 @@ button {
   border-color: #b2b2b2;
 }
 
-[type="text"], [type="email"], [type="password"] {
+[type="text"], [type="email"], [type="password"], [type="url"] {
   height: 1.91667rem;
 }
 
@@ -291,6 +311,7 @@ textarea {
 }
 
 label {
+  display: inline-block;
   cursor: pointer;
 }
 

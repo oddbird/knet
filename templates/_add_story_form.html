@@ -2,11 +2,24 @@
   {% csrf_token %}
   {% include "forms/errors.html" with errors=form.non_field_errors %}
 
-  {% with label="Leave a story for "|add:teacher.get_name %}
-  {% with help_text="Write a thank-you note, or post a <a href='http://youtube.com/'>youtube</a> link for video stories." %}
-  {% include "forms/formfield.html" with field=form.body label=label help_text=help_text %}
-  {% endwith %}
-  {% endwith %}
+  <fieldset class="form-group story-body-group">
+    <input type="radio" name="bodytype" value="text" class="tab-value" id="toggle-body-field" checked/>
+    <input type="radio" name="bodytype" value="video" class="tab-value" id="toggle-video-field" />
+
+    <div class="tab-options">
+      <label for="toggle-body-field" class="tab-type">Text</label>
+      <label for="toggle-video-field" class="tab-type">Video</label>
+    </div>
+
+    {% with label="Leave a story for "|add:teacher.get_name %}
+    {% include "forms/formfield.html" with field=form.body label=label help_text=help_text %}
+
+    <fieldset class="formfield video-field">
+      <label for="id_video" class="form-type">{{ label }}</label>
+      <input type="url" name="video" id="id_video" placeholder="http://youtube.com/..." class="form-value" />
+    </fieldset>
+    {% endwith %}
+  </fieldset>
 
   {% include "forms/formfield.html" with field=form.private label="Keep this story private" %}
   {% include "forms/formfield.html" with field=form.submitter_name label="Name" %}
