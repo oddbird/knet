@@ -91,9 +91,11 @@ INSTALLED_APPS = [
     'south',
     'djangosecure',
     'floppyforms',
+    'form_utils',
     'widget_tweaks',
     'knet.accounts',
     'knet.landing',
+    'knet.stories',
     ]
 
 AUTH_USER_MODEL = 'accounts.User'

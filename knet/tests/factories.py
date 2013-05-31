@@ -14,9 +14,9 @@ class UserFactory(factory.Factory):
     def _prepare(cls, create, **kwargs):
         """Special handling for ``set_password`` method."""
         password = kwargs.pop("password", None)
-        user = super(UserFactory, cls)._prepare(create, **kwargs)
+        user = super(UserFactory, cls)._prepare(False, **kwargs)
         if password:
             user.set_password(password)
-            if create:
-                user.save()
+        if create:
+            user.save()
         return user
