@@ -6,6 +6,7 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         vars: {
+            src_py_dir: 'knet/',
             src_js_dir: 'static/js/',
             js_tests_dir: 'jstests/'
         },
@@ -34,12 +35,24 @@ module.exports = function (grunt) {
                 src: ['<% vars.js_tests_dir %>*.js']
             }
         },
+        shell: {
+            pytest: {
+                command: 'py.test',
+                options: {
+                    stdout: true
+                }
+            }
+        },
         watch: {
             gruntfile: {
                 files: ['<%= jshint.gruntfile.src %>'],
                 tasks: ['jshint:gruntfile']
             },
-            test: {
+            pytest: {
+                files: ['<%= vars.src_py_dir %>**/*.py'],
+                tasks: ['pytest']
+            },
+            jstest: {
                 files: ['<%= vars.js_tests_dir %>**/*'],
                 tasks: ['jshint:test', 'qunit']
             },
@@ -51,12 +64,15 @@ module.exports = function (grunt) {
     });
 
     // Default task
-    grunt.registerTask('default', ['jshint', 'qunit']);
+    grunt.registerTask('default', ['jshint', 'qunit', 'pytest']);
 
     grunt.registerTask('dev', ['default', 'watch']);
+
+    grunt.registerTask('pytest', ['shell:pytest']);
 
     // Plugin tasks
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-qunit-istanbul');
+    grunt.loadNpmTasks('grunt-shell');
 };

@@ -5,6 +5,7 @@
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.4.3",
     "grunt-contrib-jshint": "~0.4.3",
-    "grunt-qunit-istanbul": "git://github.com/oddbird/grunt-qunit-istanbul.git#just-write-report-once"
+    "grunt-qunit-istanbul": "git://github.com/oddbird/grunt-qunit-istanbul.git#just-write-report-once",
+    "grunt-shell": "~0.2.2"
   }
 }
