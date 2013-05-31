@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
 {% block body %}
+{% block top %}{% include "messages_ui/_messages.html" %}{% endblock %}
+
 <header role="banner">
   <h1 class="brand vcard">
     <a href="/" rel="home" class="fn org">The K Network</a>
