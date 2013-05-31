@@ -3,7 +3,7 @@ from django.db import transaction
 from django.shortcuts import get_object_or_404, redirect, render
 
 from ..accounts.models import User
-from .forms import StoryForm
+from ..stories.forms import StoryForm
 
 
 def teacher_detail(request, teacher_id):
