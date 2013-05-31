@@ -3,7 +3,9 @@
   {% include "forms/errors.html" with errors=form.non_field_errors %}
 
   {% with label="Leave a story for "|add:teacher.get_name %}
-  {% include "forms/formfield.html" with field=form.body label=label %}
+  {% with help_text="Write a thank-you note, or post a <a href='http://youtube.com/'>youtube</a> link for video stories." %}
+  {% include "forms/formfield.html" with field=form.body label=label help_text=help_text %}
+  {% endwith %}
   {% endwith %}
 
   {% include "forms/formfield.html" with field=form.private label="Keep this story private" %}
