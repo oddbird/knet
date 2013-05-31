@@ -1,10 +1,13 @@
-{% load floppyforms %}
-
 <form class="add-story-form" method="POST">
   {% csrf_token %}
-  {% form form %}
-
+  {% include "forms/errors.html" with errors=form.non_field_errors %}
+  {% with label="Leave a story for "|add:teacher.get_full_name %}
+  {% include "forms/div.html" with field=form.body label=label %}
+  {% endwith %}
+  {% include "forms/div.html" with field=form.private label="Keep this story private" %}
+  {% include "forms/div.html" with field=form.submitter_name label="Name" %}
+  {% include "forms/div.html" with field=form.submitter_email label="Email" %}
   <div class="form-actions">
-    <button class="primary-action">Send</button>
+    <button class="primary-action" type="submit" name="submit">Send</button>
   </div>
 </form>

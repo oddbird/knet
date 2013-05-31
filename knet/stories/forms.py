@@ -19,10 +19,6 @@ class StoryForm(forms.ModelForm):
     def __init__(self, *args, **kw):
         self.teacher = args[0]
         super(StoryForm, self).__init__(*args[1:], **kw)
-        self.fields['body'].label = "Leave a story for {}".format(self.teacher)
-        self.fields['private'].label = "Keep this story private"
-        self.fields['submitter_name'].label = "Name"
-        self.fields['submitter_email'].label = "Email"
 
 
     def save(self, commit=True):
