@@ -1,0 +1,12 @@
+{% load widget_tweaks form_utils %}
+
+{% with classes=classes|add:" form-value" label=label|default:field.label help_text=help_text|default:field.help_text %}
+  <fieldset class="formfield {{ field.html_name }}-field{% if field|optional %} optional{% endif %}{% if field.errors %} errors{% endif %}{% if field|is_checkbox %} check{% endif %}{% if field|is_radio %} radio{% endif %}">
+    {% if not field|is_checkbox %}{% include "forms/label.html" %}{% endif %}
+    {{ field|add_class:classes }}
+    {% if field|is_checkbox %}{% include "forms/label.html" %}{% endif %}
+
+    {% if help_text %}<p class="form-help">{{ help_text }}</p>{% endif %}
+    {% include "forms/errors.html" with errors=field.errors %}
+  </fieldset>
+{% endwith %}
