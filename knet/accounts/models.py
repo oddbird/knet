@@ -5,6 +5,7 @@ from django.db import models
 
 class User(AbstractUser):
     name = models.TextField(blank=True)
+    bio = models.TextField(blank=True)
 
 
     def __str__(self):

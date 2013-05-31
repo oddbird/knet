@@ -93,8 +93,9 @@ INSTALLED_APPS = [
     'floppyforms',
     'form_utils',
     'widget_tweaks',
-    'knet.accounts',
     'knet.landing',
+    'knet.accounts',
+    'knet.teachers',
     'knet.stories',
     ]
 

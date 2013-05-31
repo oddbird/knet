@@ -5,7 +5,7 @@
 
   {# Teacher Info #}
   <header class="teacher-info">
-    <h1 class="teacher-name">{ Teacher Name }</h1>
+    <h1 class="teacher-name">{{ teacher }}</h1>
     <ul class="teacher-data">
       <li class="school">
         <b class="type">School:</b>
@@ -13,7 +13,7 @@
       </li>
       <li class="membership">
         <b class="type">Member Since:</b>
-        <span class="value">{ Date }</span>
+        <span class="value">{{ teacher.date_joined|date }}</span>
       </li>
     </ul>
     <p class="teacher-bio">{ Short bio }</p>
