@@ -1,22 +1,24 @@
 {% extends "base_site.html" %}
 
-{% block main %}
+{% block main %}{% with profile=teacher.teacher_profile %}
 <article class="teacher-detail">
 
   {# Teacher Info #}
   <header class="teacher-info">
     <h1 class="teacher-name">{{ teacher }}</h1>
     <ul class="teacher-data">
+      {% if profile.school %}
       <li class="school">
         <b class="type">School:</b>
-        <span class="value">{ School }</span>
+        <span class="value">{{ profile.school }}</span>
       </li>
+      {% endif %}
       <li class="membership">
         <b class="type">Member Since:</b>
         <span class="value">{{ teacher.date_joined|date }}</span>
       </li>
     </ul>
-    <p class="teacher-bio">{ Short bio }</p>
+    <p class="teacher-bio">{{ teacher.bio }}</p>
   </header>
 
   {# Story Form #}
@@ -31,4 +33,4 @@
     {% include "_story.html" with story_status='private' %}
   </section>
 </article>
-{% endblock %}
+{% endwith %}{% endblock %}
