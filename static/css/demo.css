@@ -280,6 +280,14 @@ button {
   clear: both;
 }
 
+.form-help {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  color: #337e7e;
+}
+
 [type="text"], [type="email"], [type="password"], [type="url"], textarea {
   margin: 0;
   padding: 0;

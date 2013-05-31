@@ -188,20 +188,20 @@ a:focus, a:hover, a:active {
   font-weight: bold;
 }
 
-.teacher-detail strong {
+.teacher-info strong {
   font-weight: bold;
 }
-.teacher-detail em {
+.teacher-info em {
   font-style: italic;
 }
-.teacher-detail p, .teacher-detail ul, .teacher-detail ol, .teacher-detail pre {
+.teacher-info p, .teacher-info ul, .teacher-info ol, .teacher-info pre {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
 }
-.teacher-detail ul {
+.teacher-info ul {
   list-style: disc;
 }
-.teacher-detail ol {
+.teacher-info ol {
   list-style: decimal;
 }
 
@@ -290,6 +290,14 @@ button {
   content: "";
   display: table;
   clear: both;
+}
+
+.form-help {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  color: #337e7e;
 }
 
 [type="text"], [type="email"], [type="password"], [type="url"], textarea {

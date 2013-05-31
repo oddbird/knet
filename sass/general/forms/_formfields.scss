@@ -5,3 +5,8 @@
   @include pie-clearfix;
   @include trailer(.5);
 }
+
+.form-help {
+  @include adjust-font-size-to($smallpx);
+  color: color($base light);
+}
