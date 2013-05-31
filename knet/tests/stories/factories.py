@@ -2,11 +2,11 @@ import factory
 
 from knet.stories import models
 
-from ..factories import UserFactory
+from ..factories import UserFactory, KNetModelFactory
 
 
 
-class StoryFactory(factory.Factory):
+class StoryFactory(KNetModelFactory):
     FACTORY_FOR = models.Story
 
     teacher = factory.SubFactory(UserFactory)

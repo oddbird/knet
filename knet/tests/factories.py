@@ -4,7 +4,18 @@ from knet.accounts import models
 
 
 
-class UserFactory(factory.Factory):
+class KNetModelFactory(factory.DjangoModelFactory):
+    """We don't want to go to the database to get the next sequence value."""
+    ABSTRACT_FACTORY = True
+
+    @classmethod
+    def _setup_next_sequence(cls):
+        """Set up an initial sequence value for Sequence attributes."""
+        return 0
+
+
+
+class UserFactory(KNetModelFactory):
     FACTORY_FOR = models.User
 
     username = factory.Sequence(lambda n: "test{0}".format(n))
