@@ -1,7 +1,7 @@
 <form class="add-story-form" method="POST">
   {% csrf_token %}
   {% include "forms/errors.html" with errors=form.non_field_errors %}
-  {% with label="Leave a story for "|add:teacher.get_full_name %}
+  {% with label="Leave a story for "|add:teacher.get_name %}
   {% include "forms/div.html" with field=form.body label=label %}
   {% endwith %}
   {% include "forms/div.html" with field=form.private label="Keep this story private" %}
