@@ -39,7 +39,8 @@ module.exports = function (grunt) {
             pytest: {
                 command: 'py.test',
                 options: {
-                    stdout: true
+                    stdout: true,
+                    failOnError: true
                 }
             }
         },
