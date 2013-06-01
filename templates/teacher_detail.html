@@ -29,8 +29,9 @@
 
   {# Stories #}
   <section class="teacher-stories">
-    {% include "_story.html" with story_status='public' %}
-    {% include "_story.html" with story_status='private' %}
+    {% for story in teacher.stories.all %}
+    {% include "_story.html" %}
+    {% endfor %}
   </section>
 </article>
 {% endwith %}{% endblock %}

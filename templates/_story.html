@@ -1,22 +1,21 @@
-<article class="story {{ story_status }}">
+<article class="story {{ story.published|yesno:'public,private' }}">
   <div class="story-body">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+    {{ story.body }}
   </div>
 
   <header class="story-info">
-    <h1 class="author-name">{ Author Name }</h1>
-    <time class="pubdate" pubdate>{ pubdate }</time>
+    <h1 class="author-name">{{ story.submitter_name }}</h1>
+    <time class="pubdate" pubdate>{{ story.created|date:'F j, Y h:i a' }}</time>
   </header>
 
-  {# if user == teacher #}
+  {# @@@ if user == teacher #}
   <div class="story-actions">
-    {% if story_status == 'public' %}
+    {% if story.published %}
       <button class="story-status to-private">Make Private</label>
-    {% else %}
+    {% elif not story.private %}
       <button class="story-status to-public">Make Public</label>
     {% endif %}
     <button class="delete-story">Delete</button>
   </div>
+  {# endif #}
 </article>

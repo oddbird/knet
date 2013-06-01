@@ -7,7 +7,7 @@ from ..accounts.models import User
 
 class Story(models.Model):
     """A story from a student about the impact a teacher had on them."""
-    teacher = models.ForeignKey(User)
+    teacher = models.ForeignKey(User, related_name='stories')
     body = models.TextField()
     # submitter requested that this story remain private
     private = models.BooleanField(default=False)
