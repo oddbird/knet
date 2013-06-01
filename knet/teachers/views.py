@@ -6,9 +6,9 @@ from .models import TeacherProfile
 from ..stories.forms import StoryForm
 
 
-def teacher_detail(request, teacher_profile_id):
+def teacher_detail(request, username):
     teacher_profile = get_object_or_404(
-        TeacherProfile.objects.select_related('user'), id=teacher_profile_id)
+        TeacherProfile.objects.select_related('user'), user__username=username)
     teacher = teacher_profile.user
     if request.method == 'POST':
         form = StoryForm(teacher, request.POST)
@@ -16,8 +16,7 @@ def teacher_detail(request, teacher_profile_id):
             with transaction.atomic():
                 form.save()
             messages.success(request, "Thanks for submitting your story!")
-            return redirect(
-                'teacher_detail', teacher_profile_id=teacher_profile_id)
+            return redirect('teacher_detail', username=username)
     else:
         form = StoryForm(teacher)
 
