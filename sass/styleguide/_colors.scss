@@ -14,14 +14,21 @@
     @each $color in $debug-colors {
       $name: nth($color,1);
       $value: nth($color,2);
+      $hue: round(hue($value));
+      $saturation: round(saturation($value));
+      $lightness: round(lightness($value));
       &:nth-child(#{$i}) {
         @include background(palette($value));
-        @include before($name);
+        @include text-shadow(color(contrast(contrast($value)),.5) 0 1px 0);
         display: block;
         color: contrast($value);
         border-color: $value;
-      }
 
+        @include before('#{$name}') { font-weight: bold; }
+        @include after(' :: hsl(#{$hue}, #{$saturation}, #{$lightness})') {
+          text-transform: none;
+        }
+      }
       $i: $i + 1;
     }
   }
