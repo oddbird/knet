@@ -24,12 +24,13 @@ and tests. To install the necessary Node dependencies, first ``npm install -g
 grunt-cli`` (once per system), then ``npm install`` (whenever ``package.json``
 changes).
 
-``grunt dev`` will watch for changes to local js files and automatically
-perform an appropriate selection of the following tasks whenever changes are
-detected to files in the ``static/js/``, and ``jstests/`` directories:
+``grunt dev`` will watch for changes to local files and automatically perform
+an appropriate selection of the following tasks whenever changes are detected
+to files in the ``static/js/``, ``jstests/``, and ``knet/`` directories:
 
 * validate JS with `JSHint`_
 * run the JS unit tests
+* run the Python tests
 
 Refer to the Gruntfile.js source and `Grunt`_ documentation for more info.
 
