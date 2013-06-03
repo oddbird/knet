@@ -166,8 +166,8 @@ a:focus, a:hover, a:active {
 
 .teacher-info h1 {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 44px;
-  font-size: 2.44444rem;
+  font-size: 43px;
+  font-size: 2.38889rem;
   line-height: 58px;
   line-height: 3.19444rem;
 }
@@ -566,6 +566,47 @@ body {
   padding-right: 0.5em;
 }
 
+.demo, .markup, .sass, .docs {
+  border-width: 1px;
+  border-width: 0.05556rem;
+  border-style: solid;
+  padding: 22px;
+  padding: 1.22222rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  border-radius: 0.25em;
+  -webkit-box-shadow: inset #999999 0 0 3px;
+  -moz-box-shadow: inset #999999 0 0 3px;
+  box-shadow: inset #999999 0 0 3px;
+  position: relative;
+  background: rgba(229, 229, 229, 0.5);
+  overflow: hidden;
+}
+.demo:before, .markup:before, .sass:before, .docs:before {
+  content: attr(data-name) " Pattern";
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  -moz-border-radius-topright: 0.25em;
+  -webkit-border-top-right-radius: 0.25em;
+  border-top-right-radius: 0.25em;
+  -moz-border-radius-bottomright: 0.25em;
+  -webkit-border-bottom-right-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
+  display: inline-block;
+  position: relative;
+  top: -0.63889rem;
+  left: -1.27778rem;
+  padding: 0.15972rem 1.27778rem 0;
+  color: #dbdbdb;
+  background: #94001a;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
 .pattern {
   border-bottom-width: 1px;
   border-bottom-width: 0.05556rem;
@@ -583,21 +624,31 @@ body {
   font-weight: bold;
 }
 
-.demo {
-  border-width: 1px;
-  border-width: 0.05556rem;
-  border-style: solid;
-  padding: 22px;
-  padding: 1.22222rem;
-  margin-bottom: 23px;
-  margin-bottom: 1.27778rem;
-  -webkit-border-radius: 0.25em;
-  -moz-border-radius: 0.25em;
-  border-radius: 0.25em;
-  -webkit-box-shadow: inset #999999 0 0 3px;
-  -moz-box-shadow: inset #999999 0 0 3px;
-  box-shadow: inset #999999 0 0 3px;
-  background: rgba(229, 229, 229, 0.5);
+.demo:before {
+  content: attr(data-name) " Demo";
+}
+
+.markup {
+  width: 48%;
+  float: left;
+}
+.markup:before {
+  content: attr(data-name) " Markup";
+}
+
+.sass {
+  width: 48%;
+  float: right;
+}
+.sass:before {
+  content: attr(data-name) " Sass";
+}
+
+.docs {
+  clear: both;
+}
+.docs:before {
+  content: attr(data-name) " Docs";
 }
 
 .size-demo div {
@@ -617,11 +668,11 @@ body {
   font-weight: bold;
 }
 .size-demo div:nth-child(1):after {
-  content: "7px";
-  font-size: 7px;
-  font-size: 0.38889rem;
-  line-height: 12px;
-  line-height: 0.63889rem;
+  content: "8px";
+  font-size: 8px;
+  font-size: 0.44444rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
 }
 .size-demo div:nth-child(2) {
   display: block;
@@ -637,9 +688,9 @@ body {
   font-weight: bold;
 }
 .size-demo div:nth-child(2):after {
-  content: "9px";
-  font-size: 9px;
-  font-size: 0.5rem;
+  content: "10px";
+  font-size: 10px;
+  font-size: 0.55556rem;
   line-height: 23px;
   line-height: 1.27778rem;
 }
@@ -647,7 +698,7 @@ body {
   display: block;
 }
 .size-demo div:nth-child(3):before {
-  content: "$xsmallpx : ms(-2) : ";
+  content: "$xsmallpx : ms(-3) : ";
   font-size: 14px;
   font-size: 0.77778rem;
   line-height: 23px;
@@ -738,9 +789,9 @@ body {
   font-weight: bold;
 }
 .size-demo div:nth-child(7):after {
-  content: "35px";
-  font-size: 35px;
-  font-size: 1.94444rem;
+  content: "32px";
+  font-size: 32px;
+  font-size: 1.77778rem;
   line-height: 46px;
   line-height: 2.55556rem;
 }
@@ -758,9 +809,9 @@ body {
   font-weight: bold;
 }
 .size-demo div:nth-child(8):after {
-  content: "44px";
-  font-size: 44px;
-  font-size: 2.44444rem;
+  content: "43px";
+  font-size: 43px;
+  font-size: 2.38889rem;
   line-height: 58px;
   line-height: 3.19444rem;
 }
@@ -778,11 +829,11 @@ body {
   font-weight: bold;
 }
 .size-demo div:nth-child(9):after {
-  content: "107px";
-  font-size: 107px;
-  font-size: 5.94444rem;
-  line-height: 115px;
-  line-height: 6.38889rem;
+  content: "86px";
+  font-size: 86px;
+  font-size: 4.77778rem;
+  line-height: 92px;
+  line-height: 5.11111rem;
 }
 .size-demo div:nth-child(10) {
   display: block;
@@ -798,11 +849,11 @@ body {
   font-weight: bold;
 }
 .size-demo div:nth-child(10):after {
-  content: "205px";
-  font-size: 205px;
-  font-size: 11.38889rem;
-  line-height: 219px;
-  line-height: 12.13889rem;
+  content: "135px";
+  font-size: 135px;
+  font-size: 7.5rem;
+  line-height: 150px;
+  line-height: 8.30556rem;
 }
 
 .color-demo {

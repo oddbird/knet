@@ -442,8 +442,8 @@ label {
 }
 @media (min-width: 40em) {
   .intro {
-    font-size: 35px;
-    font-size: 1.94444rem;
+    font-size: 32px;
+    font-size: 1.77778rem;
     line-height: 46px;
     line-height: 2.55556rem;
     margin-bottom: 46px;

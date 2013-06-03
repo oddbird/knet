@@ -43,6 +43,33 @@ body {
   @include span(last 75%)
 }
 
+// Blocks
+// ------
+
+%sg-block {
+  @include rhythm-borders(1px,1);
+  @include trailer;
+  @include border-radius(.25em);
+  @include box-shadow(inset color(light) 0 0 3px);
+  position: relative;
+  background: color(lightest,.5);
+  overflow: hidden;
+
+  @include before(attr(data-name) ' Pattern') {
+    @include adjust-font-size-to($smallpx);
+    @include border-right-radius(.25em);
+    display: inline-block;
+    position: relative;
+    top: rhythm(-.5);
+    left: rhythm(-1);
+    padding: rhythm(.125) rhythm(1) 0;
+    color: contrast($accent);
+    background: $accent;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+}
+
 // Pattern
 // -------
 
@@ -58,10 +85,25 @@ body {
 }
 
 .demo {
-  @include rhythm-borders(1px,1);
-  @include trailer;
-  @include border-radius(.25em);
-  @include box-shadow(inset color(light) 0 0 3px);
-  background: color(lightest,.5);
+  @extend %sg-block;
+  @include before(attr(data-name) ' Demo');
 }
 
+.markup {
+  @extend %sg-block;
+  @include span(48% no-gutters);
+  @include before(attr(data-name) ' Markup');
+}
+
+.sass {
+  @extend %sg-block;
+  @include span(last 48% no-gutters);
+  @include before(attr(data-name) ' Sass');
+}
+
+.docs {
+  @extend %sg-block;
+  clear: both;
+
+  @include before(attr(data-name) ' Docs');
+}

@@ -2,14 +2,14 @@
 // =====
 
 $base-size    : 18px;
-$ratio        : major-third() fifth();
+$ratio        : major-third() fourth();
 
 // Scale
 // -----
 
 $xxxsmallpx   : ms(-6);
 $xxsmallpx    : ms(-4);
-$xsmallpx     : ms(-2);
+$xsmallpx     : ms(-3);
 $smallpx      : ms(-1);
 
 $normpx       : $base-size;
@@ -26,7 +26,7 @@ $xxxlargepx   : ms(16);
 $debug: append($debug, sizes);
 $debug-sizes: '$xxxsmallpx : ms(-6) '   $xxxsmallpx,
               '$xxsmallpx : ms(-4) '    $xxsmallpx,
-              '$xsmallpx : ms(-2) '     $xsmallpx,
+              '$xsmallpx : ms(-3) '     $xsmallpx,
               '$smallpx : ms(-1) '      $smallpx,
               '$normpx : $base-size '   $normpx,
               '$medpx : ms(1) '         $medpx,
