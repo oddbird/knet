@@ -9,11 +9,12 @@
     @each $size in $debug-sizes {
       &:nth-child(#{$i}) {
         display: block;
-        @if nth($size,1) == '$normpx' { color: $accent; }
+        @if nth($size,2) == $normpx { color: $accent; }
 
         @include before("#{unquote(nth($size,1))}: ") {
+          @include adjust-font-size-to($smallpx);
           display: inline-block;
-          min-width: 8em;
+          min-width: 12em;
           font-weight: bold;
         }
         @include after("#{nth($size,2)}") {

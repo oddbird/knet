@@ -607,9 +607,13 @@ body {
   display: block;
 }
 .size-demo div:nth-child(1):before {
-  content: "$xxxsmallpx: ";
+  content: "$xxxsmallpx : ms(-6) : ";
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   display: inline-block;
-  min-width: 8em;
+  min-width: 12em;
   font-weight: bold;
 }
 .size-demo div:nth-child(1):after {
@@ -623,9 +627,13 @@ body {
   display: block;
 }
 .size-demo div:nth-child(2):before {
-  content: "$xxsmallpx: ";
+  content: "$xxsmallpx : ms(-4) : ";
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   display: inline-block;
-  min-width: 8em;
+  min-width: 12em;
   font-weight: bold;
 }
 .size-demo div:nth-child(2):after {
@@ -639,9 +647,13 @@ body {
   display: block;
 }
 .size-demo div:nth-child(3):before {
-  content: "$xsmallpx: ";
+  content: "$xsmallpx : ms(-2) : ";
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   display: inline-block;
-  min-width: 8em;
+  min-width: 12em;
   font-weight: bold;
 }
 .size-demo div:nth-child(3):after {
@@ -655,9 +667,13 @@ body {
   display: block;
 }
 .size-demo div:nth-child(4):before {
-  content: "$smallpx: ";
+  content: "$smallpx : ms(-1) : ";
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   display: inline-block;
-  min-width: 8em;
+  min-width: 12em;
   font-weight: bold;
 }
 .size-demo div:nth-child(4):after {
@@ -672,9 +688,13 @@ body {
   color: #94001a;
 }
 .size-demo div:nth-child(5):before {
-  content: "$normpx: ";
+  content: "$normpx : $base-size : ";
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   display: inline-block;
-  min-width: 8em;
+  min-width: 12em;
   font-weight: bold;
 }
 .size-demo div:nth-child(5):after {
@@ -688,9 +708,13 @@ body {
   display: block;
 }
 .size-demo div:nth-child(6):before {
-  content: "$medpx: ";
+  content: "$medpx : ms(1) : ";
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   display: inline-block;
-  min-width: 8em;
+  min-width: 12em;
   font-weight: bold;
 }
 .size-demo div:nth-child(6):after {
@@ -704,9 +728,13 @@ body {
   display: block;
 }
 .size-demo div:nth-child(7):before {
-  content: "$largepx: ";
+  content: "$largepx : ms(4) : ";
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   display: inline-block;
-  min-width: 8em;
+  min-width: 12em;
   font-weight: bold;
 }
 .size-demo div:nth-child(7):after {
@@ -720,9 +748,13 @@ body {
   display: block;
 }
 .size-demo div:nth-child(8):before {
-  content: "$xlargepx: ";
+  content: "$xlargepx : ms(6) : ";
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   display: inline-block;
-  min-width: 8em;
+  min-width: 12em;
   font-weight: bold;
 }
 .size-demo div:nth-child(8):after {
@@ -736,9 +768,13 @@ body {
   display: block;
 }
 .size-demo div:nth-child(9):before {
-  content: "$xxlargepx: ";
+  content: "$xxlargepx : ms(12) : ";
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   display: inline-block;
-  min-width: 8em;
+  min-width: 12em;
   font-weight: bold;
 }
 .size-demo div:nth-child(9):after {
@@ -752,9 +788,13 @@ body {
   display: block;
 }
 .size-demo div:nth-child(10):before {
-  content: "$xxxlargepx: ";
+  content: "$xxxlargepx : ms(16) : ";
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   display: inline-block;
-  min-width: 8em;
+  min-width: 12em;
   font-weight: bold;
 }
 .size-demo div:nth-child(10):after {
