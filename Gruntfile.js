@@ -7,6 +7,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         vars: {
             src_py_dir: 'knet/',
+            src_templates_dir: 'templates/',
             src_js_dir: 'static/js/',
             js_tests_dir: 'jstests/'
         },
@@ -50,7 +51,7 @@ module.exports = function (grunt) {
                 tasks: ['jshint:gruntfile']
             },
             pytest: {
-                files: ['<%= vars.src_py_dir %>**/*.py'],
+                files: ['<%= vars.src_py_dir %>**/*.py', '<%= vars.src_templates_dir %>**/*.html'],
                 tasks: ['pytest']
             },
             jstest: {
