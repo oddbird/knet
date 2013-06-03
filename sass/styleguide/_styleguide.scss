@@ -5,6 +5,7 @@
 
 html {
   @include pie-clearfix;
+  font-family: sans-serif;
   color: color(darker);
   background: color(white);
 }
