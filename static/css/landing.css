@@ -330,8 +330,6 @@ label {
 
 [role="main"] {
   max-width: 49em;
-  padding-left: 0;
-  padding-right: 0;
   margin-left: auto;
   margin-right: auto;
   padding: 1.27778rem 1em;
@@ -427,7 +425,7 @@ label {
 }
 @media (min-width: 40em) {
   .intro, .signup, .message {
-    margin-left: 51.02041%;
+    margin-left: 53.14626%;
   }
 }
 
@@ -473,7 +471,6 @@ label {
 .signup button {
   width: 37.5%;
   float: right;
-  margin-right: 0;
   font-size: 14px;
   font-size: 0.77778rem;
   line-height: 23px;
@@ -539,15 +536,11 @@ label {
   border-bottom-style: solid;
   padding-bottom: 21px;
   padding-bottom: 1.16667rem;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  margin-left: -1.27778rem;
-  padding-left: 1.27778rem;
-  margin-right: -1.27778rem;
-  padding-right: 1.27778rem;
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+  margin: 0 -1.27778rem;
+  padding-left: 1.27778rem;
+  padding-right: 1.27778rem;
   border-style: dashed;
   border-color: rgba(0, 116, 116, 0.25);
 }

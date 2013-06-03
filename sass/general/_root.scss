@@ -2,7 +2,8 @@
 // ====
 
 @include establish-baseline;
-@include border-box-sizing;
+
+* { @include box-sizing(border-box); }
 
 html {
   @include sans;

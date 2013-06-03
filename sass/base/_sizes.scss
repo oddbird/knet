@@ -1,16 +1,42 @@
-// ---------------------------------------------------------------------------
-// Size Settings
+// Sizes
+// =====
 
 $base-size    : 18px;
 $ratio        : major-third() fifth();
 
+// Scale
+// -----
+
+$xxxsmallpx   : ms(-6);
+$xxsmallpx    : ms(-4);
+$xsmallpx     : ms(-2);
+$smallpx      : ms(-1);
+
 $normpx       : $base-size;
 $medpx        : ms(1);
-$smallpx      : ms(-1);
-$xsmallpx     : ms(-2);
-$xxsmallpx    : ms(-3);
-$xxxsmallpx   : ms(-4);
+
 $largepx      : ms(4);
 $xlargepx     : ms(6);
 $xxlargepx    : ms(12);
 $xxxlargepx   : ms(16);
+
+// Debug
+// -----
+
+$debug: append($debug, sizes);
+$debug-sizes: '$xxxsmallpx' $xxxsmallpx,
+              '$xxsmallpx' $xxsmallpx,
+              '$xsmallpx' $xsmallpx,
+              '$smallpx' $smallpx,
+              '$normpx' $normpx,
+              '$medpx' $medpx,
+              '$largepx' $largepx,
+              '$xlargepx' $xlargepx,
+              '$xxlargepx' $xxlargepx,
+              '$xxxlargepx' $xxxlargepx;
+
+@mixin debug-sizes {
+  @debug '# Sizes';
+
+  @each $size in $debug-sizes { @debug '#{nth($size,1)}: #{nth($size,2)}'; }
+}

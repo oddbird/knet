@@ -1,0 +1,88 @@
+// Styleguide
+// ==========
+
+@include set-grid(12 (4em 1em) show inside);
+
+html {
+  @include pie-clearfix;
+  color: color(darker);
+  background: color(white);
+}
+
+body {
+  padding: 1em;
+}
+
+// Header
+// ------
+
+.sg-title {
+  @include span(100%);
+  @include trailing-border(1px,.5);
+  @include trailer;
+  font-weight: bold;
+}
+
+// Nav
+// ---
+
+.sg-nav {
+  @include span(25%);
+  @include adjust-font-size-to($smallpx);
+}
+
+.sg-nav-title {
+  font-weight: bold;
+}
+
+// Body
+// ----
+
+.sg-body {
+  @include span(last 75%)
+}
+
+// Pattern
+// -------
+
+@mixin checkerboard($size: rhythm(1)) {
+  @include background-image(
+    linear-gradient(45deg,
+      color(lightest, .25) 25%,
+      color(lightest,0) 25%
+    ),
+    linear-gradient(-45deg,
+      color(lightest, .25) 25%,
+      color(lightest,0) 25%
+    ),
+    linear-gradient(45deg,
+      color(lightest,0) 75%,
+      color(lightest, .25) 75%
+    ),
+    linear-gradient(-45deg,
+      color(lightest,0) 75%,
+      color(lightest, .25) 75%
+    )
+  );
+  @include background-size($size $size);
+  background-attachment: fixed;
+}
+
+.pattern {
+  @include trailing-border(1px,1);
+  @include trailer;
+  border-color: color(lighter);
+}
+
+.pattern-title {
+  @include trailer;
+  font-weight: bold;
+}
+
+.demo {
+  @include rhythm-borders(1px,1);
+  @include trailer;
+  @include border-radius(.25em);
+  @include checkerboard;
+}
+

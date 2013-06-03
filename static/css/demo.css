@@ -361,8 +361,6 @@ label {
 
 [role="main"] {
   max-width: 49em;
-  padding-left: 0;
-  padding-right: 0;
   margin-left: auto;
   margin-right: auto;
   padding: 1.27778rem 1em;
@@ -602,9 +600,9 @@ label {
   border-top-style: solid;
   padding-top: 10px;
   padding-top: 0.52778rem;
-  padding-left: 10.20408%;
-  padding-right: 10.20408%;
   position: relative;
+  padding-left: 8.16327%;
+  padding-right: 8.16327%;
   border-top: 2px dotted rgba(0, 145, 145, 0.25);
   counter-increment: demo;
 }
@@ -636,7 +634,7 @@ label {
 }
 .collaborate .work {
   float: left;
-  width: 51.02041%;
+  width: space(5);
   padding: 7.66667rem 1.27778rem;
   border-right: 1px solid;
   text-align: center;
@@ -675,7 +673,6 @@ label {
 .teacher-feedback {
   width: 48.71795%;
   float: right;
-  margin-right: 0;
 }
 
 .feedback-item {
@@ -739,7 +736,6 @@ label {
 .teacher-profile {
   width: 48.71795%;
   float: right;
-  margin-right: 0;
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
 }

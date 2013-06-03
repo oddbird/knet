@@ -1,0 +1,28 @@
+// Size Style Guide
+// ================
+
+.size-demo {
+  div {
+    display: none;
+
+    $i: 1;
+    @each $size in $debug-sizes {
+      &:nth-child(#{$i}) {
+        display: block;
+        @if nth($size,1) == '$normpx' { color: $accent; }
+
+        @include before("#{unquote(nth($size,1))}: ") {
+          display: inline-block;
+          min-width: 8em;
+          font-weight: bold;
+        }
+        @include after("#{nth($size,2)}") {
+          @include adjust-font-size-to(nth($size,2));
+        }
+      }
+
+      $i: $i + 1;
+    }
+
+  }
+}

@@ -20,3 +20,24 @@ $accent   : $maroon;
 $contrasted-dark-default  : $base;
 $contrasted-light-default : color($base lightest);
 
+// Debug
+// -----
+
+$debug: append($debug, colors);
+$debug-colors:  '$yellow'   $yellow,
+                '$orange'   $orange,
+                '$red'      $red,
+                '$pink'     $pink,
+                '$maroon'   $maroon,
+                '$blue'     $blue,
+                '$cyan'     $cyan,
+                '$green'    $green,
+                '$base'     $base,
+                '$alt'      $alt,
+                '$accent'   $accent;
+
+@mixin debug-colors {
+  @debug '# Colors';
+
+  @each $color in $debug-colors { @debug '#{nth($color,1)}: #{nth($color,2)}'; }
+}

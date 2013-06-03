@@ -35,7 +35,7 @@ $landing-break: 40em;
   position: relative;
   z-index: 20;
 
-  @include breakpoint($landing-break) { @include pre(5); }
+  @include breakpoint($landing-break) { margin-left: outer-span(5); }
 }
 
 .intro {
@@ -59,10 +59,10 @@ $landing-break: 40em;
     display: block;
     font-weight: bold;
   }
-  input { @include span-columns(3,5); }
+  input { @include span(3 of 5); }
   button {
     @extend %button;
-    @include span-columns(2 omega,5);
+    @include span(last 2 of 5);
     @include adjust-font-size-to($smallpx);
     @include serif;
     color: white;
@@ -105,8 +105,10 @@ $landing-break: 40em;
 .desc {
   @include clearfix;
   @include h-borders(2px,1);
-  @include bleed(rhythm(1));
   @include trailer;
+  margin: 0 rhythm(-1);
+  padding-left: rhythm(1);
+  padding-right: rhythm(1);
   border-style: dashed;
   border-color: color(dark $blue,.25);
 
@@ -127,7 +129,7 @@ $landing-break: 40em;
 
 @include breakpoint($landing-break) {
   .feature {
-    @include span-columns(3,9);
+    @include span(3 of 9);
     @include nth-omega(3n);
 
     p { margin: 0; }
