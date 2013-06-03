@@ -45,29 +45,6 @@ body {
 // Pattern
 // -------
 
-@mixin checkerboard($size: rhythm(1)) {
-  @include background-image(
-    linear-gradient(45deg,
-      color(lightest, .25) 25%,
-      color(lightest,0) 25%
-    ),
-    linear-gradient(-45deg,
-      color(lightest, .25) 25%,
-      color(lightest,0) 25%
-    ),
-    linear-gradient(45deg,
-      color(lightest,0) 75%,
-      color(lightest, .25) 75%
-    ),
-    linear-gradient(-45deg,
-      color(lightest,0) 75%,
-      color(lightest, .25) 75%
-    )
-  );
-  @include background-size($size $size);
-  background-attachment: fixed;
-}
-
 .pattern {
   @include trailing-border(1px,1);
   @include trailer;
@@ -83,6 +60,7 @@ body {
   @include rhythm-borders(1px,1);
   @include trailer;
   @include border-radius(.25em);
-  @include checkerboard;
+  @include box-shadow(inset color(light) 0 0 3px);
+  background: color(lightest,.5);
 }
 
