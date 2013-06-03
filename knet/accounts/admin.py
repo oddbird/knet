@@ -17,7 +17,8 @@ class UserChangeForm(BaseUserChangeForm):
 
 class UserAdmin(BaseUserAdmin):
     fieldsets = copy(BaseUserAdmin.fieldsets)
-    fieldsets[1][1]['fields'] = ['name', 'first_name', 'last_name', 'email']
+    fieldsets[1][1]['fields'] = [
+        'name', 'bio', 'first_name', 'last_name', 'email']
     list_display = ['username', 'email', 'name', 'is_staff']
     search_fields = ['username', 'name', 'first_name', 'last_name', 'email']
 
