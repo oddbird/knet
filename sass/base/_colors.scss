@@ -17,7 +17,7 @@ $base     : color(darker);
 $alt      : color($blue darker);
 $accent   : $maroon;
 
-$contrasted-dark-default  : $base;
+$contrasted-dark-default  : color($base darkest);
 $contrasted-light-default : color($base lightest);
 
 // Debug
