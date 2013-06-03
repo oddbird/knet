@@ -129,7 +129,7 @@ html {
 
 html {
   font-family: "CambridgeRound", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  color: #005e5e;
+  color: #4c4c4c;
   background: rgba(123, 211, 211, 0.25);
 }
 
@@ -146,7 +146,7 @@ a:hover, a:active {
   outline: none;
 }
 a:link, a:visited {
-  color: #009191;
+  color: #005757;
   text-decoration: none;
 }
 a:focus, a:hover, a:active {
@@ -214,10 +214,10 @@ button {
   -webkit-border-radius: 0.25rem;
   -moz-border-radius: 0.25rem;
   border-radius: 0.25rem;
-  background-image: -webkit-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: -moz-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: -o-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: linear-gradient(to bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -webkit-linear-gradient(top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -moz-linear-gradient(top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -o-linear-gradient(top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: linear-gradient(to bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
   display: inline-block;
   padding-left: 0.63889rem;
   padding-right: 0.63889rem;
@@ -231,13 +231,13 @@ button {
 }
 
 .primary-action:active, .demo button:active, .demo .next-button:active {
-  -webkit-box-shadow: rgba(0, 18, 18, 0.5) 0 0 0.25rem inset;
-  -moz-box-shadow: rgba(0, 18, 18, 0.5) 0 0 0.25rem inset;
-  box-shadow: rgba(0, 18, 18, 0.5) 0 0 0.25rem inset;
-  background-image: -webkit-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: -moz-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: -o-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: linear-gradient(to top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  -webkit-box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
+  -moz-box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
+  box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
+  background-image: -webkit-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -moz-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -o-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: linear-gradient(to top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
 }
 
 .primary-action {
@@ -285,7 +285,7 @@ button {
   font-size: 0.77778rem;
   line-height: 23px;
   line-height: 1.27778rem;
-  color: #337e7e;
+  color: #6f6f6f;
 }
 
 [type="text"], [type="email"], [type="password"], [type="url"], textarea {
@@ -345,7 +345,7 @@ label {
 }
 [role="banner"] .org:link, [role="banner"] .org:visited {
   font-weight: bold;
-  color: #005e5e;
+  color: #4c4c4c;
 }
 [role="banner"] .org:focus, [role="banner"] .org:hover, [role="banner"] .org:active {
   color: #94001a;
@@ -398,6 +398,7 @@ label {
   line-height: 23px;
   line-height: 1.27778rem;
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: #005757;
   font-weight: bold;
 }
 @media (min-width: 30em) {
@@ -452,7 +453,7 @@ label {
   line-height: 3.19444rem;
 }
 .demo h2 a:link, .demo h2 a:visited {
-  color: #007474;
+  color: #004545;
 }
 .demo h2 a:focus, .demo h2 a:hover, .demo h2 a:active {
   color: #760014;
@@ -519,7 +520,7 @@ label {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
   max-width: 100%;
-  border: 1px solid #005e5e;
+  border: 1px solid #4c4c4c;
 }
 
 .intro {

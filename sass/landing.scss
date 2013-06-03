@@ -114,6 +114,7 @@ $landing-break: 40em;
 
   h2 {
     @include serif;
+    color: $alt;
     font-weight: bold;
   }
   p {

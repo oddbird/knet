@@ -10,6 +10,7 @@
 %tagline {
   @include adjust-font-size-to($smallpx);
   @include serif;
+  color: $alt;
   font-weight: bold;
 
   @include breakpoint(30em) { text-align: right; }

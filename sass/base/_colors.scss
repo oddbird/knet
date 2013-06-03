@@ -13,8 +13,8 @@ $green    : #3ed000;
 // ---------------------------------------------------------------------------
 // Color System
 
-$base     : #005e5e;
-$alt      : $blue;
+$base     : color(darker);
+$alt      : color($blue darker);
 $accent   : $maroon;
 
 $contrasted-dark-default  : $base;
