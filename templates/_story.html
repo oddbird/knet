@@ -1,6 +1,7 @@
+{% load markup %}
 <article class="story {{ story.published|yesno:'public,private' }}">
   <div class="story-body">
-    {{ story.body }}
+    {{ story.body|markdown }}
   </div>
 
   <header class="story-info">
