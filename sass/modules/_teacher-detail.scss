@@ -15,8 +15,7 @@
 }
 
 [for="story-form-toggle"] {
-  @extend %icon-replace;
-  @extend %icon-bubble-heart;
+  @include icon-replace(bubble-heart);
   @include leader(.5);
   @include adjust-font-size-to($main-title-size);
   float: right;

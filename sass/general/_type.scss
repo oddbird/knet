@@ -35,7 +35,7 @@ $main-title-size: $xxlargepx;
 
 %headers {
   h1 {
-    @extend main-title;
+    @extend %main-title;
     a {
       #{$link} { color: color($alt dark); }
       #{$focus} { color: color($accent dark); }

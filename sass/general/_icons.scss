@@ -10,3 +10,22 @@
     content: nth($icon,2);
   }
 }
+
+@mixin icon($name) {
+  @extend %icon;
+  @extend %icon-#{$name};
+
+  &:before {
+    @content;
+  }
+}
+
+@mixin icon-replace($name, $width: null) {
+  @extend %icon-replace;
+  @extend %icon-#{$name};
+  min-width: $width;
+
+  &:before {
+    @content;
+  }
+}
