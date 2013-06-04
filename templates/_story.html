@@ -1,4 +1,5 @@
 {% load markup %}
+{% if story.published or teacher == user %}
 <article class="story {{ story.published|yesno:'public,private' }}">
   <div class="story-body">
     {{ story.body|markdown }}
@@ -10,13 +11,14 @@
   </header>
 
   {% if user == teacher %}
-  <div class="story-actions">
-    {% if story.published %}
-      <button class="story-status lock" title="Make this story private">lock</button>
-    {% elif not story.private %}
-      <button class="story-status unlock" title="Make this story public">unlock</button>
-    {% endif %}
-    <button class="delete-story">Delete</button>
-  </div>
+    <div class="story-actions">
+      {% if story.published %}
+        <button class="story-status lock" title="Make this story private">lock</button>
+      {% elif not story.private %}
+        <button class="story-status unlock" title="Make this story public">unlock</button>
+      {% endif %}
+      <button class="delete-story">Delete</button>
+    </div>
   {% endif %}
 </article>
+{% endif %}
