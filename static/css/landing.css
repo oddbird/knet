@@ -158,14 +158,26 @@ a:focus, a:hover, a:active {
   left: -9999px;
 }
 
-/* Use the following CSS code if you want to have a class per icon */
+@font-face {
+  font-family: "knet";
+  src: url('../fonts/knet.woff') format('woff'), url('../fonts/knet.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .message .close:before, [data-icon]:before {
-  font-family: 'knet';
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  font-family: "knet";
   font-style: normal;
   speak: none;
 }
 
 .message .close {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
   position: relative;
   min-width: 1em;
   text-indent: -9999px;
@@ -174,10 +186,11 @@ a:focus, a:hover, a:active {
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   text-indent: 0;
+  text-align: center;
 }
 
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
   content: attr(data-icon);
 }

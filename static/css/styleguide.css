@@ -205,16 +205,48 @@ a:focus, a:hover, a:active {
   list-style: decimal;
 }
 
-/* Use the following CSS code if you want to have a class per icon */
-[data-icon]:before {
-  font-family: 'knet';
+@font-face {
+  font-family: "knet";
+  src: url('../fonts/knet.woff') format('woff'), url('../fonts/knet.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icons-demo div:nth-child(1):before, .icons-demo div:nth-child(2):before, .icons-demo div:nth-child(3):before, .icons-demo div:nth-child(4):before, .icons-demo div:nth-child(5):before, .icons-demo div:nth-child(6):before, [data-icon]:before {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  font-family: "knet";
   font-style: normal;
   speak: none;
 }
 
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
   content: attr(data-icon);
+}
+
+.icons-demo div:nth-child(1):before {
+  content: "\e000";
+}
+
+.icons-demo div:nth-child(2):before {
+  content: "\e001";
+}
+
+.icons-demo div:nth-child(3):before {
+  content: "\e002";
+}
+
+.icons-demo div:nth-child(4):before {
+  content: "\e003";
+}
+
+.icons-demo div:nth-child(5):before {
+  content: "\e004";
+}
+
+.icons-demo div:nth-child(6):before {
+  content: "\e005";
 }
 
 button {
@@ -693,6 +725,12 @@ body {
   content: attr(data-name) " Docs";
 }
 
+.demo-content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .size-demo div {
   display: none;
 }
@@ -1067,4 +1105,135 @@ body {
 .color-demo div:nth-child(11):before {
   content: "$accent";
   font-weight: bold;
+}
+
+.icons-demo div {
+  font-size: 32px;
+  font-size: 1.77778rem;
+  line-height: 46px;
+  line-height: 2.55556rem;
+  display: none;
+}
+.icons-demo div:first-child {
+  clear: both;
+}
+.icons-demo div:nth-child(1) {
+  display: block;
+  float: left;
+  margin-right: 2.55556rem;
+}
+.icons-demo div:nth-child(1):focus, .icons-demo div:nth-child(1):hover, .icons-demo div:nth-child(1):active {
+  color: #94001a;
+}
+.icons-demo div:nth-child(1):before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .4em;
+}
+.icons-demo div:nth-child(1):after {
+  content: "menu";
+  font-size: 18px;
+  font-size: 1rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+}
+.icons-demo div:nth-child(2) {
+  display: block;
+  float: left;
+  margin-right: 2.55556rem;
+}
+.icons-demo div:nth-child(2):focus, .icons-demo div:nth-child(2):hover, .icons-demo div:nth-child(2):active {
+  color: #94001a;
+}
+.icons-demo div:nth-child(2):before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .4em;
+}
+.icons-demo div:nth-child(2):after {
+  content: "lock";
+  font-size: 18px;
+  font-size: 1rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+}
+.icons-demo div:nth-child(3) {
+  display: block;
+  float: left;
+  margin-right: 2.55556rem;
+}
+.icons-demo div:nth-child(3):focus, .icons-demo div:nth-child(3):hover, .icons-demo div:nth-child(3):active {
+  color: #94001a;
+}
+.icons-demo div:nth-child(3):before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .4em;
+}
+.icons-demo div:nth-child(3):after {
+  content: "unlocked";
+  font-size: 18px;
+  font-size: 1rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+}
+.icons-demo div:nth-child(4) {
+  display: block;
+  float: left;
+  margin-right: 2.55556rem;
+}
+.icons-demo div:nth-child(4):focus, .icons-demo div:nth-child(4):hover, .icons-demo div:nth-child(4):active {
+  color: #94001a;
+}
+.icons-demo div:nth-child(4):before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .4em;
+}
+.icons-demo div:nth-child(4):after {
+  content: "bubble-plus";
+  font-size: 18px;
+  font-size: 1rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+}
+.icons-demo div:nth-child(5) {
+  display: block;
+  float: left;
+  margin-right: 2.55556rem;
+}
+.icons-demo div:nth-child(5):focus, .icons-demo div:nth-child(5):hover, .icons-demo div:nth-child(5):active {
+  color: #94001a;
+}
+.icons-demo div:nth-child(5):before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .4em;
+}
+.icons-demo div:nth-child(5):after {
+  content: "remove";
+  font-size: 18px;
+  font-size: 1rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+}
+.icons-demo div:nth-child(6) {
+  display: block;
+  float: left;
+  margin-right: 2.55556rem;
+}
+.icons-demo div:nth-child(6):focus, .icons-demo div:nth-child(6):hover, .icons-demo div:nth-child(6):active {
+  color: #94001a;
+}
+.icons-demo div:nth-child(6):before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .4em;
+}
+.icons-demo div:nth-child(6):after {
+  content: "bubble-heart";
+  font-size: 18px;
+  font-size: 1rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
 }

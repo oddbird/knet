@@ -1,13 +1,15 @@
 <article class="pattern" id="{{ pattern_name }}-pattern">
   <h1 class="pattern-title">{{ pattern_name }}</h1>
 
-  <div class="demo {{ pattern_name }}-demo" data-name="{{ pattern_name }}">
-    {% block demo %}
-    <div></div><div></div><div></div><div></div><div></div>
-    <div></div><div></div><div></div><div></div><div></div>
-    <div></div><div></div><div></div><div></div><div></div>
-    <div></div><div></div><div></div><div></div><div></div>
-    {% endblock %}
+  <div class="demo" data-name="{{ pattern_name }}">
+    <div class="demo-content {{ pattern_name }}-demo">
+      {% block demo %}
+      <div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div>
+      {% endblock %}
+    </div>
   </div>
 
   {% block markup-section %}

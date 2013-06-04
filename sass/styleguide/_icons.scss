@@ -1,0 +1,35 @@
+// Icon Style Guide
+// ================
+
+.icons-demo {
+  div {
+    @include adjust-font-size-to($largepx);
+    display: none;
+
+    &:first-child { clear: both; }
+
+    $i: 1;
+    @each $icon in $debug-icons {
+      $name: nth($icon,1);
+      &:nth-child(#{$i}) {
+        @extend %icon;
+        @extend %icon-#{$name};
+        display: block;
+        float: left;
+        margin-right: rhythm(2);
+
+        #{$focus} { color: $accent; }
+
+        &:before {
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: .4em;
+        }
+        @include after($name) {
+          @include adjust-font-size-to($normpx);
+        }
+      }
+      $i: $i + 1;
+    }
+  }
+}

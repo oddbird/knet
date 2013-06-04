@@ -1,0 +1,24 @@
+// Icons
+// =====
+
+$icon-menu          : 'menu'          '\e000';
+$icon-lock          : 'lock'          '\e001';
+$icon-unlocked      : 'unlocked'      '\e002';
+$icon-bubble-plus   : 'bubble-plus'   '\e003';
+$icon-remove        : 'remove'        '\e004';
+$icon-bubble-heart  : 'bubble-heart'  '\e005';
+
+// Debug
+$debug: append($debug, icons);
+
+$debug-icons: $icon-menu
+              $icon-lock
+              $icon-unlocked
+              $icon-bubble-plus
+              $icon-remove
+              $icon-bubble-heart;
+
+@mixin debug-icons {
+  @debug '# Icons';
+  @each $icon in $debug-icons { @debug '"#{nth($icon,2)}" - #{nth($icon,1)}'; }
+}

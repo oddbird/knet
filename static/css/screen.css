@@ -205,14 +205,22 @@ a:focus, a:hover, a:active {
   list-style: decimal;
 }
 
-/* Use the following CSS code if you want to have a class per icon */
+@font-face {
+  font-family: "knet";
+  src: url('../fonts/knet.woff') format('woff'), url('../fonts/knet.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 [data-icon]:before {
-  font-family: 'knet';
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  font-family: "knet";
   font-style: normal;
   speak: none;
 }
 
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
   content: attr(data-icon);
 }

@@ -129,3 +129,8 @@ body {
   @extend %doc-type;
   @include before(attr(data-name) ' Docs');
 }
+
+// Demos
+// -----
+
+.demo-content { @include pie-clearfix; }
