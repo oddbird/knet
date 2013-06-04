@@ -36,6 +36,7 @@ def oauth(request):
     user.backend = settings.AUTHENTICATION_BACKENDS[0]
     auth.login(request, user)
 
+    # @@@ should perhaps keep you on same page you came from instead
     return redirect('teacher_detail', username=user.username)
 
 
