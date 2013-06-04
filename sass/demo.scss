@@ -6,6 +6,8 @@
 // Layout
 // ------
 
+html { background: color($cyan light,.25); }
+
 [role="banner"] {
   @extend %fixed-banner;
 

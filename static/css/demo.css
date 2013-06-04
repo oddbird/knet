@@ -130,7 +130,7 @@ html {
 html {
   font-family: "CambridgeRound", "Helvetica Neue", Arial, Helvetica, sans-serif;
   color: #4c4c4c;
-  background: rgba(123, 211, 211, 0.25);
+  background: rgba(229, 229, 229, 0.25);
 }
 
 html, body {
@@ -423,6 +423,10 @@ label {
 .tagline {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+}
+
+html {
+  background: rgba(123, 211, 211, 0.25);
 }
 
 [role="banner"] .brand, [role="banner"] .meta {
