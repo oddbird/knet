@@ -25,9 +25,6 @@
         border-color: $value;
 
         @include before('#{$name}') { font-weight: bold; }
-        @include after(' :: hsl(#{$hue}, #{$saturation}, #{$lightness})') {
-          text-transform: none;
-        }
       }
       $i: $i + 1;
     }

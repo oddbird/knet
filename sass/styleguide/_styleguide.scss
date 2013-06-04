@@ -68,20 +68,33 @@ body {
     font-weight: bold;
     text-transform: capitalize;
   }
+
+  &:nth-child(3) { @include span(49% no-gutters); }
+  &:nth-child(4) { @include span(last 49% no-gutters); }
+  &:nth-child(5) { clear: both; }
+}
+
+.code {
+  @include adjust-font-size-to($xsmallpx, .75);
+  font-family: monospace, sans-serif;
+  overflow-x: auto;
 }
 
 // Pattern
 // -------
 
 .pattern {
+  @include pie-clearfix;
   @include trailing-border(1px,1);
   @include trailer;
   border-color: color(lighter);
 }
 
 .pattern-title {
-  @include trailer;
+  @include adjust-font-size-to($largepx);
+  @include trailer(.5);
   font-weight: bold;
+  text-transform: capitalize;
 }
 
 .demo {
@@ -91,19 +104,15 @@ body {
 
 .markup {
   @extend %sg-block;
-  @include span(48% no-gutters);
   @include before(attr(data-name) ' Markup');
 }
 
 .sass {
   @extend %sg-block;
-  @include span(last 48% no-gutters);
   @include before(attr(data-name) ' Sass');
 }
 
 .docs {
   @extend %sg-block;
-  clear: both;
-
   @include before(attr(data-name) ' Docs');
 }

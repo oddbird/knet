@@ -24,16 +24,16 @@ $xxxlargepx   : ms(16);
 // -----
 
 $debug: append($debug, sizes);
-$debug-sizes: '$xxxsmallpx : ms(-6) '   $xxxsmallpx,
-              '$xxsmallpx : ms(-4) '    $xxsmallpx,
-              '$xsmallpx : ms(-3) '     $xsmallpx,
-              '$smallpx : ms(-1) '      $smallpx,
-              '$normpx : $base-size '   $normpx,
-              '$medpx : ms(1) '         $medpx,
-              '$largepx : ms(4) '       $largepx,
-              '$xlargepx : ms(6) '      $xlargepx,
-              '$xxlargepx : ms(12) '    $xxlargepx,
-              '$xxxlargepx : ms(16) '   $xxxlargepx;
+$debug-sizes: '$xxxsmallpx'   $xxxsmallpx,
+              '$xxsmallpx'    $xxsmallpx,
+              '$xsmallpx'     $xsmallpx,
+              '$smallpx'      $smallpx,
+              '$normpx'       $normpx,
+              '$medpx'        $medpx,
+              '$largepx'      $largepx,
+              '$xlargepx'     $xlargepx,
+              '$xxlargepx'    $xxlargepx,
+              '$xxxlargepx'   $xxxlargepx;
 
 @mixin debug-sizes {
   @debug '# Sizes';

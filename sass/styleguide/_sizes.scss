@@ -14,7 +14,7 @@
         @include before("#{unquote(nth($size,1))}: ") {
           @include adjust-font-size-to($smallpx);
           display: inline-block;
-          min-width: 12em;
+          min-width: 8em;
           font-weight: bold;
         }
         @include after("#{nth($size,2)}") {

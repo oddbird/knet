@@ -10,20 +10,23 @@
     {% endblock %}
   </div>
 
+  {% block markup-section %}
   <div class="markup {{ pattern_name }}-markup" data-name="{{ pattern_name }}">
-  {% block markup %}
-  {% endblock %}
+  <pre class="code">{% block markup %}{% endblock %}</pre>
   </div>
+  {% endblock %}
 
+  {% block sass-section %}
   <div class="sass {{ pattern_name }}-sass" data-name="{{ pattern_name }}">
-  {% block sass %}
-  {% endblock %}
+  <pre class="code">{% block sass %}{% endblock %}</pre>
   </div>
+  {% endblock %}
 
+  {% block docs-section %}
   <div class="docs {{ pattern_name }}-docs" data-name="{{ pattern_name }}">
-  {% block docs %}
-  {% endblock %}
+  {% block docs %}{% endblock %}
   </div>
+  {% endblock %}
 
 </article>
 
