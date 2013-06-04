@@ -80,6 +80,18 @@ body {
   overflow-x: auto;
 }
 
+// Doc Type
+// --------
+
+%doc-type {
+  @include adjust-font-size-to($smallpx);
+  h2 { font-weight: bold; }
+  p, ul, ol { @include trailer; }
+  ul, ol { padding-left: rhythm(1); }
+  ul { list-style-type: disc; }
+  ol { list-style-type: decimal; }
+}
+
 // Pattern
 // -------
 
@@ -114,5 +126,6 @@ body {
 
 .docs {
   @extend %sg-block;
+  @extend %doc-type;
   @include before(attr(data-name) ' Docs');
 }

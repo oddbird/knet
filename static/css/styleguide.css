@@ -627,6 +627,29 @@ body {
   overflow-x: auto;
 }
 
+.docs {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+}
+.docs h2 {
+  font-weight: bold;
+}
+.docs p, .docs ul, .docs ol {
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+}
+.docs ul, .docs ol {
+  padding-left: 1.27778rem;
+}
+.docs ul {
+  list-style-type: disc;
+}
+.docs ol {
+  list-style-type: decimal;
+}
+
 .pattern {
   border-bottom-width: 1px;
   border-bottom-width: 0.05556rem;
