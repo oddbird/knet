@@ -1,7 +1,37 @@
 // Teacher Detail
 // ==============
 
-.teacher-info {
-  @extend %headers;
-  @extend %type;
+.teacher-detail {
+  position: relative;
 }
+
+.teacher-info {
+  @include trailing-border(1px, .5);
+  border-color: color(lighter);
+}
+
+.teacher-name {
+  @extend %main-title;
+}
+
+[for="story-form-toggle"] {
+  @extend %icon-replace;
+  @extend %icon-bubble-heart;
+  @include leader(.5);
+  @include adjust-font-size-to($main-title-size);
+  float: right;
+  margin-left: rhythm(1);
+  color: $alt;
+
+  #{$focus} { color: $accent; }
+}
+
+.teacher-data {
+  color: color(light);
+
+  .data-item {
+    display: inline-block;
+    margin-right: rhythm(1);
+  }
+}
+

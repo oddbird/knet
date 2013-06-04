@@ -146,7 +146,7 @@ a:hover, a:active {
   outline: none;
 }
 a:link, a:visited {
-  color: #005757;
+  color: #007474;
   text-decoration: none;
 }
 a:focus, a:hover, a:active {
@@ -406,7 +406,7 @@ label {
   line-height: 23px;
   line-height: 1.27778rem;
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  color: #005757;
+  color: #007474;
   font-weight: bold;
 }
 @media (min-width: 30em) {
@@ -465,7 +465,7 @@ html {
   line-height: 3.19444rem;
 }
 .demo h2 a:link, .demo h2 a:visited {
-  color: #004545;
+  color: #005c5c;
 }
 .demo h2 a:focus, .demo h2 a:hover, .demo h2 a:active {
   color: #760014;

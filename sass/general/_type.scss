@@ -26,10 +26,16 @@ a {
 // Headers
 // -------
 
+$main-title-size: $xxlargepx;
+
+%main-title {
+  @include serif;
+  @include adjust-font-size-to($main-title-size);
+}
+
 %headers {
   h1 {
-    @include serif;
-    @include adjust-font-size-to($xlargepx);
+    @extend main-title;
     a {
       #{$link} { color: color($alt dark); }
       #{$focus} { color: color($accent dark); }

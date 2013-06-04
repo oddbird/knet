@@ -146,7 +146,7 @@ a:hover, a:active {
   outline: none;
 }
 a:link, a:visited {
-  color: #005757;
+  color: #007474;
   text-decoration: none;
 }
 a:focus, a:hover, a:active {
@@ -164,45 +164,12 @@ a:focus, a:hover, a:active {
   left: -9999px;
 }
 
-.teacher-info h1 {
+.teacher-name {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 43px;
-  font-size: 2.38889rem;
-  line-height: 58px;
-  line-height: 3.19444rem;
-}
-.teacher-info h1 a:link, .teacher-info h1 a:visited {
-  color: #004545;
-}
-.teacher-info h1 a:focus, .teacher-info h1 a:hover, .teacher-info h1 a:active {
-  color: #760014;
-}
-.teacher-info h2 {
-  margin-bottom: 12px;
-  margin-bottom: 0.63889rem;
-  text-transform: uppercase;
-}
-.teacher-info h3 {
-  margin-top: 23px;
-  margin-top: 1.27778rem;
-  font-weight: bold;
-}
-
-.teacher-info strong {
-  font-weight: bold;
-}
-.teacher-info em {
-  font-style: italic;
-}
-.teacher-info p, .teacher-info ul, .teacher-info ol, .teacher-info pre {
-  margin-bottom: 23px;
-  margin-bottom: 1.27778rem;
-}
-.teacher-info ul {
-  list-style: disc;
-}
-.teacher-info ol {
-  list-style: decimal;
+  font-size: 86px;
+  font-size: 4.77778rem;
+  line-height: 92px;
+  line-height: 5.11111rem;
 }
 
 @font-face {
@@ -212,7 +179,7 @@ a:focus, a:hover, a:active {
   font-style: normal;
 }
 
-[data-icon]:before {
+[for="story-form-toggle"]:before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -221,8 +188,29 @@ a:focus, a:hover, a:active {
   speak: none;
 }
 
+[for="story-form-toggle"] {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  position: relative;
+  min-width: 1em;
+  text-indent: -9999px;
+}
+[for="story-form-toggle"]:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-indent: 0;
+  text-align: center;
+}
+
 [data-icon]:before {
   content: attr(data-icon);
+}
+
+[for="story-form-toggle"]:before {
+  content: "\e005";
 }
 
 button {
@@ -449,7 +437,7 @@ label {
   line-height: 23px;
   line-height: 1.27778rem;
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  color: #005757;
+  color: #007474;
   font-weight: bold;
 }
 @media (min-width: 30em) {
@@ -466,6 +454,55 @@ label {
 .tagline {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+}
+
+.teacher-detail {
+  position: relative;
+}
+
+.teacher-info {
+  border-bottom-width: 1px;
+  border-bottom-width: 0.05556rem;
+  border-bottom-style: solid;
+  padding-bottom: 11px;
+  padding-bottom: 0.58333rem;
+  border-color: #b2b2b2;
+}
+
+[for="story-form-toggle"] {
+  margin-top: 12px;
+  margin-top: 0.63889rem;
+  font-size: 86px;
+  font-size: 4.77778rem;
+  line-height: 92px;
+  line-height: 5.11111rem;
+  float: right;
+  margin-left: 1.27778rem;
+  color: #007474;
+}
+[for="story-form-toggle"]:focus, [for="story-form-toggle"]:hover, [for="story-form-toggle"]:active {
+  color: #94001a;
+}
+
+.teacher-data {
+  color: #999999;
+}
+.teacher-data .data-item {
+  display: inline-block;
+  margin-right: 1.27778rem;
+}
+
+.add-story-form {
+  padding-top: 12px;
+  padding-top: 0.63889rem;
+  border-bottom-width: 1px;
+  border-bottom-width: 0.05556rem;
+  border-bottom-style: solid;
+  padding-bottom: 22px;
+  padding-bottom: 1.22222rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+  border-color: #999999;
 }
 
 .story-body-group [class*="body-field"], .story-body-group [class*="video-field"] {
@@ -487,6 +524,12 @@ label {
   padding-top: 0.15972rem;
   padding-bottom: 3px;
   padding-bottom: 0.15972rem;
+}
+
+[id="story-form-toggle"] {
+  position: absolute;
+  left: -9999px;
+  opacity: .01;
 }
 
 .story {

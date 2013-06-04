@@ -2,7 +2,10 @@
 // =========
 
 .add-story-form {
-  [id="story-form-toggle"]:checked ~ & { @extend %toggle-content-hidden; }
+  @include padding-leader(.5);
+  @include trailing-border(1px);
+  @include trailer;
+  border-color: color(light);
 }
 
 .story-body-group {
@@ -21,4 +24,15 @@
   .formfield { clear: both; }
 
   .form-type { @include rhythm-padding($button-border-rhythm); }
+}
+
+// Toggle
+// ------
+
+[id="story-form-toggle"] {
+  position: absolute;
+  left: -9999px;
+  opacity: .01;
+
+  &:checked ~ .add-story-form { @extend %toggle-content-hidden; }
 }

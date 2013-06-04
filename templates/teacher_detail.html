@@ -7,16 +7,17 @@
 
   {# Teacher Info #}
   <header class="teacher-info">
+    <label for="story-form-toggle">Hide Form</label>
     <h1 class="teacher-name">{{ teacher }}</h1>
+
     <ul class="teacher-data">
       {% if profile.school %}
-      <li class="school">
-        <b class="type">School:</b>
+      <li class=" data-item school">
         <span class="value">{{ profile.school }}</span>
       </li>
       {% endif %}
-      <li class="membership">
-        <b class="type">KNet Member Since:</b>
+      <li class=" data-item membership">
+        <b class="type">Network Member Since</b>
         <span class="value">{{ teacher.date_joined|date }}</span>
       </li>
     </ul>
@@ -25,7 +26,6 @@
 
   {# Story Form #}
   <input type="checkbox" id="story-form-toggle" checked/>
-  <label for="story-form-toggle">Hide Form</label>
 
   {% include "_add_story_form.html" %}
 
