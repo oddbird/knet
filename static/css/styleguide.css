@@ -558,18 +558,68 @@ label {
   margin-top: 1.27778rem;
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+  width: 48.97959%;
+  float: left;
+  margin-right: 2.04082%;
 }
-.story.private {
-  color: #939393;
+.story:nth-child(2n + 1) {
+  margin-left: 0;
+}
+.story:nth-child(2n) {
+  float: right;
+  margin-right: 0;
+}
+
+.story-body {
+  margin-bottom: 12px;
+  margin-bottom: 0.63889rem;
+  border-width: 2px;
+  border-width: 0.11111rem;
+  border-style: solid;
+  padding: 21px;
+  padding: 1.16667rem;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  border-radius: 0.25em;
+  position: relative;
+  border-color: #007474;
+}
+.story-body:before {
+  content: " ";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border: solid transparent;
+  pointer-events: none;
+  top: 100%;
+  border-top-color: #007474;
+  border-width: 0.63889rem;
+  left: 0.31944rem;
 }
 
 .story-info {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   float: left;
   width: 50%;
 }
 .story-info:last-child {
   float: none;
   width: auto;
+}
+
+.author-name, .pubdate {
+  display: inline-block;
+}
+
+.author-name {
+  font-weight: bold;
+}
+
+.pubdate {
+  color: #999999;
 }
 
 .story-actions {

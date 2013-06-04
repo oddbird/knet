@@ -4,14 +4,25 @@
 .story {
   @include clearfix;
   @include rhythm-margins;
+  @include gallery(5);
+}
 
-  &.private { color: color($base lighter); }
+// Story Body
+// ----------
+
+.story-body {
+  @include trailer(.5);
+  @include rhythm-borders(2px,1);
+  @include border-radius(.25em);
+  @include arrow(bottom rhythm(.25) rhythm(.5) $alt);
+  border-color: $alt;
 }
 
 // Story Info
 // ----------
 
 .story-info {
+  @include adjust-font-size-to($smallpx);
   float: left;
   width: 50%;
 
@@ -20,6 +31,10 @@
     width: auto;
   }
 }
+
+.author-name, .pubdate { display: inline-block; }
+.author-name { font-weight: bold; }
+.pubdate { color: color(light); }
 
 // Story Actions
 // -------------
