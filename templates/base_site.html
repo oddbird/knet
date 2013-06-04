@@ -6,6 +6,12 @@
 <header role="banner">
   <h1 class="brand vcard">
     <a href="/" rel="home" class="fn org">The K Network</a>
+    {% if user.is_authenticated %}
+      <form class="logout-form" method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" name="logout">Log out</button>
+      </form>
+    {% endif %}
   </h1>
   {% block banner %}{% endblock %}
 </header>
