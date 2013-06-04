@@ -9,14 +9,14 @@
     <time class="pubdate" pubdate>{{ story.created|date:'F j, Y h:i a' }}</time>
   </header>
 
-  {# @@@ if user == teacher #}
+  {% if user == teacher %}
   <div class="story-actions">
     {% if story.published %}
-      <button class="story-status to-private">Make Private</label>
+      <button class="story-status to-private">Make Private</button>
     {% elif not story.private %}
-      <button class="story-status to-public">Make Public</label>
+      <button class="story-status to-public">Make Public</button>
     {% endif %}
     <button class="delete-story">Delete</button>
   </div>
-  {# endif #}
+  {% endif %}
 </article>
