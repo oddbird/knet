@@ -78,6 +78,8 @@ DATABASES = {
         )
 }
 
+BASE_URL = env('KNET_BASE_URL', default={'dev': 'http://knet.hexxie.com:8000'})
+
 
 # Application definition
 
@@ -129,6 +131,18 @@ ROOT_URLCONF = 'knet.urls'
 TEMPLATE_DIRS = os.path.join(BASE_DIR, 'templates')
 
 WSGI_APPLICATION = 'knet.wsgi.application'
+
+# Authentication
+
+OAUTH_PROVIDER = env(
+    'KNET_OAUTH_PROVIDER',
+    default={
+        'dev': 'oauth2.dummy.DummyOAuth',
+        'prod': 'oauth2.facebook.FacebookOAuth',
+        },
+    )
+OAUTH_CLIENT_ID = env('KNET_OAUTH_CLIENT_ID', default={'dev': ''})
+OAUTH_CLIENT_SECRET = env('KNET_OAUTH_CLIENT_SECRET', default={'dev': ''})
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/

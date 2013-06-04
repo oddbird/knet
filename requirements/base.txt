@@ -19,3 +19,6 @@ ply==3.4
 rcssmin==1.0.2
 
 markdown2==2.1.0
+
+oauth2lib==0.1
+requests==1.2.3

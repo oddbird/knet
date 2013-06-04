@@ -17,5 +17,6 @@ urlpatterns = patterns(
         TemplateView.as_view(template_name='styleguide/styleguide.html'),
         name='styleguide',
         ),
+    url(r'^accounts/', include('knet.accounts.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
