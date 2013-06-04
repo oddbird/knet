@@ -2,6 +2,7 @@ from django.core.urlresolvers import reverse
 from django.test.utils import override_settings
 from oauth2 import OAuthError
 
+from ..factories import UserFactory
 from ..utils import redirects_to
 
 
@@ -50,3 +51,11 @@ def test_oauth_error(client):
     assert redirects_to(resp) == reverse('landing')
 
     resp.follow().mustcontain('something bad happens!')
+
+
+def test_logout(client):
+    """GET to logout view returns a confirmation; submitting logs out."""
+    u = UserFactory()
+    resp = client.get(reverse('logout'), user=u, status=200).forms[0].submit()
+
+    assert redirects_to(resp) == reverse('landing')

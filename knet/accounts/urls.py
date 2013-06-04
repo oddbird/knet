@@ -1,9 +1,10 @@
 from django.conf.urls import patterns, url
 
-from .views import oauth
+from . import views
 
 
 urlpatterns = patterns(
     '',
-    url(r'^oauth/$', oauth, name='oauth'),
+    url(r'^oauth/$', views.oauth, name='oauth'),
+    url(r'^logout/$', views.logout, name='logout'),
 )

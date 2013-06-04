@@ -1,0 +1,10 @@
+{% extends "base_site.html" %}
+
+{% block main %}
+Confirm that you want to log out:
+
+<form class="logout-form" method="POST">
+  {% csrf_token %}
+  <button type="submit" name="logout">Log out</button>
+</form>
+{% endblock %}

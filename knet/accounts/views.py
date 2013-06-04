@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.contrib import auth, messages
 from django.db import transaction
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from oauth2 import OAuthError
 
 from ..teachers.models import TeacherProfile
@@ -37,3 +37,14 @@ def oauth(request):
     auth.login(request, user)
 
     return redirect('teacher_detail', username=user.username)
+
+
+
+def logout(request):
+    """Log out on POST; request confirmation on GET."""
+    if request.method == 'POST':
+        auth.logout(request)
+
+        return redirect('landing')
+
+    return render(request, 'accounts/logout.html')
