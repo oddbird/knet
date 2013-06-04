@@ -12,9 +12,9 @@
   {% if user == teacher %}
   <div class="story-actions">
     {% if story.published %}
-      <button class="story-status to-private">Make Private</button>
+      <button class="story-status lock" title="Make this story private">lock</button>
     {% elif not story.private %}
-      <button class="story-status to-public">Make Public</button>
+      <button class="story-status unlock" title="Make this story public">unlock</button>
     {% endif %}
     <button class="delete-story">Delete</button>
   </div>

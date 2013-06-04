@@ -4,7 +4,20 @@
 .story {
   @include clearfix;
   @include rhythm-margins;
-  @include gallery(5);
+  @include gallery(5 isolate);
+  position: relative;
+
+  &.private {
+    @include icon(lock) {
+      @include border-radius(.25em);
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 .125em 0 .5em;
+      background: $red;
+      color: white;
+    }
+  }
 }
 
 // Story Body
@@ -16,6 +29,11 @@
   @include border-radius(.25em);
   @include arrow(bottom rhythm(.25) rhythm(.5) $alt);
   border-color: $alt;
+
+  .private & {
+    border-color: $red;
+    &:before { border-top-color: $red; }
+  }
 }
 
 // Story Info
@@ -44,9 +62,18 @@
 }
 
 .story-status {
-  @extend %button;
+  &.unlock {
+    @include icon-replace(lock);
+    #{$focus} { @include icon(unlocked); }
+  }
+  &.lock {
+    @include icon-replace(unlocked);
+    #{$focus} { @include icon(lock); }
+  }
 }
 
 .delete-story {
-  @extend %button;
+  @include icon-replace(remove);
+
+  #{$focus} { color: $red; }
 }
