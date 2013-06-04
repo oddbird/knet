@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load accounts %}
+
 {% block body %}
 {% block top %}{% include "messages_ui/_messages.html" %}{% endblock %}
 
@@ -11,6 +13,8 @@
         {% csrf_token %}
         <button type="submit" name="logout">Log out</button>
       </form>
+    {% else %}
+      <a href="{% oauth_authorize_url %}">Login with Facebook</a>
     {% endif %}
   </h1>
   {% block banner %}{% endblock %}

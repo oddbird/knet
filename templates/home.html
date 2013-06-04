@@ -1,5 +1,5 @@
 {% extends "base_site.html" %}
-{% load compressed accounts %}
+{% load compressed %}
 
 {% block styles %}
 {% compressed_css "landing" %}
@@ -57,6 +57,5 @@
     </div>
 
   </div>
-  <a href="{% oauth_authorize_url %}">Login with Facebook</a>
 </div>
 {% endblock %}
