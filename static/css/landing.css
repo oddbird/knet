@@ -165,7 +165,7 @@ a:focus, a:hover, a:active {
   font-style: normal;
 }
 
-.user-nav [name="logout"]:before, #messages .close:before, .message .close:before, .user-nav .fb-login:before, .announce:before, .message:before, [data-icon]:before {
+.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -174,7 +174,7 @@ a:focus, a:hover, a:active {
   speak: none;
 }
 
-.user-nav [name="logout"], #messages .close, .message .close {
+.user-nav [name="logout"], #messages .close {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -182,7 +182,7 @@ a:focus, a:hover, a:active {
   min-width: 1em;
   text-indent: -9999px;
 }
-.user-nav [name="logout"]:before, #messages .close:before, .message .close:before {
+.user-nav [name="logout"]:before, #messages .close:before {
   position: absolute;
   top: 0;
   left: 0;
@@ -579,19 +579,47 @@ label {
 }
 
 .announce, .message {
+  color: #e5e5e5;
   background: #009191;
+}
+.announce .close:link, .message .close:link, .announce .close:visited, .message .close:visited {
+  color: rgba(229, 229, 229, 0.75);
+}
+.announce .close:focus, .message .close:focus, .announce .close:hover, .message .close:hover, .announce .close:active, .message .close:active {
+  color: #e5e5e5;
 }
 
 .message.success {
+  color: #4c4c4c;
   background: #3ed000;
+}
+.message.success .close:link, .message.success .close:visited {
+  color: rgba(76, 76, 76, 0.75);
+}
+.message.success .close:focus, .message.success .close:hover, .message.success .close:active {
+  color: #4c4c4c;
 }
 
 .message.warning {
+  color: #4c4c4c;
   background: #f2ac00;
+}
+.message.warning .close:link, .message.warning .close:visited {
+  color: rgba(76, 76, 76, 0.75);
+}
+.message.warning .close:focus, .message.warning .close:hover, .message.warning .close:active {
+  color: #4c4c4c;
 }
 
 .message.error {
+  color: #e5e5e5;
   background: #e30028;
+}
+.message.error .close:link, .message.error .close:visited {
+  color: rgba(229, 229, 229, 0.75);
+}
+.message.error .close:focus, .message.error .close:hover, .message.error .close:active {
+  color: #e5e5e5;
 }
 
 .logo, .call-to-action:after {
@@ -680,14 +708,14 @@ html {
   }
 }
 
-.intro, .signup, .message {
+.intro, .signup {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
   position: relative;
   z-index: 20;
 }
 @media (min-width: 40em) {
-  .intro, .signup, .message {
+  .intro, .signup {
     margin-left: 53.14626%;
   }
 }
@@ -753,38 +781,6 @@ html {
     line-height: 1.27778rem;
     margin-top: -1px;
   }
-}
-
-.message {
-  border-width: 1px;
-  border-width: 0.05556rem;
-  border-style: solid;
-  padding: 11px;
-  padding: 0.58333rem;
-  position: relative;
-  color: #e5e5e5;
-  border-color: #4c4c4c;
-}
-.message.success {
-  background: #257c00;
-}
-.message.error {
-  background: #880018;
-}
-.message .close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: inline-block;
-  width: 1em;
-  color: rgba(229, 229, 229, 0.5);
-}
-.message .close:focus, .message .close:hover, .message .close:active {
-  color: white;
-}
-.message .close:before {
-  content: "x";
-  font-family: inherit;
 }
 
 .desc {

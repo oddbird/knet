@@ -83,8 +83,14 @@ $announce-padding: .75;
 // Types
 
 @mixin announce-style($c: $blue, $i: info) {
+  $contrast: contrast($c, $base color(lightest));
   @include icon($i);
+  color: $contrast;
   background: $c;
+  .close {
+    #{$link} { color: color($contrast, .75); }
+    #{$focus} { color: $contrast; }
+  }
 }
 
 %info-announce {

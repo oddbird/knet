@@ -656,19 +656,47 @@ label {
 }
 
 .announce, .message {
+  color: #e5e5e5;
   background: #009191;
+}
+.announce .close:link, .message .close:link, .announce .close:visited, .message .close:visited {
+  color: rgba(229, 229, 229, 0.75);
+}
+.announce .close:focus, .message .close:focus, .announce .close:hover, .message .close:hover, .announce .close:active, .message .close:active {
+  color: #e5e5e5;
 }
 
 .message.success {
+  color: #4c4c4c;
   background: #3ed000;
+}
+.message.success .close:link, .message.success .close:visited {
+  color: rgba(76, 76, 76, 0.75);
+}
+.message.success .close:focus, .message.success .close:hover, .message.success .close:active {
+  color: #4c4c4c;
 }
 
 .message.warning {
+  color: #4c4c4c;
   background: #f2ac00;
+}
+.message.warning .close:link, .message.warning .close:visited {
+  color: rgba(76, 76, 76, 0.75);
+}
+.message.warning .close:focus, .message.warning .close:hover, .message.warning .close:active {
+  color: #4c4c4c;
 }
 
 .message.error {
+  color: #e5e5e5;
   background: #e30028;
+}
+.message.error .close:link, .message.error .close:visited {
+  color: rgba(229, 229, 229, 0.75);
+}
+.message.error .close:focus, .message.error .close:hover, .message.error .close:active {
+  color: #e5e5e5;
 }
 
 .logo {

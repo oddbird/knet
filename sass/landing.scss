@@ -81,29 +81,6 @@ html { background: color($cyan light,.25); }
   }
 }
 
-.message {
-  @extend %intro-section;
-  @include rhythm-borders(1px,.5);
-  position: relative;
-  color: color(lightest);
-  border-color: $base;
-
-  &.success { background: color(darker $green); }
-  &.error { background: color(darker $red); }
-
-  .close {
-    @extend %icon-replace;
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: inline-block;
-    width: 1em;
-    color: color(lightest, .5);
-    #{$focus} { color: white; }
-    @include before('x') { font-family: inherit; };
-  }
-}
-
 .desc {
   @include clearfix;
   @include h-borders(2px,1);
