@@ -1,4 +1,5 @@
 from django.core.urlresolvers import reverse
+import pytest
 
 from knet.stories.models import Story
 from ..factories import UserFactory
@@ -65,6 +66,21 @@ def test_delete_story(client):
 
 
 
+def test_delete_story_ajax(no_csrf_client):
+    """Can delete a story on my profile page via ajax."""
+    tp = TeacherProfileFactory.create()
+    s = StoryFactory.create(teacher=tp.user)
+    url = reverse('teacher_detail', kwargs={'username': s.teacher.username})
+
+    resp = no_csrf_client.post(
+        url, {'delete-story': s.id}, user=s.teacher, status=200, ajax=True)
+
+    assert resp.json['success'] == True
+    assert resp.json['messages'][0]['message'] == "Story deleted."
+    assert is_deleted(s)
+
+
+
 def test_publish_story(client):
     """Can publish a story on my profile page."""
     tp = TeacherProfileFactory.create()
@@ -75,6 +91,21 @@ def test_publish_story(client):
     resp = form.submit('publish-story', status=302)
 
     assert redirects_to(resp) == url
+    assert refresh(s).published
+
+
+
+def test_publish_story_ajax(no_csrf_client):
+    """Can publish a story on my profile page via ajax."""
+    tp = TeacherProfileFactory.create()
+    s = StoryFactory.create(teacher=tp.user, private=False, published=False)
+    url = reverse('teacher_detail', kwargs={'username': s.teacher.username})
+
+    resp = no_csrf_client.post(
+        url, {'publish-story': s.id}, user=s.teacher, status=200, ajax=True)
+
+    assert resp.json['success'] == True
+    assert 'html' in resp.json
     assert refresh(s).published
 
 
@@ -90,3 +121,32 @@ def test_hide_story(client):
 
     assert redirects_to(resp) == url
     assert not refresh(s).published
+
+
+
+def test_hide_story_ajax(no_csrf_client):
+    """Can hide a story on my profile page via ajax."""
+    tp = TeacherProfileFactory.create()
+    s = StoryFactory.create(teacher=tp.user, private=False, published=True)
+    url = reverse('teacher_detail', kwargs={'username': s.teacher.username})
+
+    resp = no_csrf_client.post(
+        url, {'hide-story': s.id}, user=s.teacher, status=200, ajax=True)
+
+    assert resp.json['success'] == True
+    assert 'html' in resp.json
+    assert not refresh(s).published
+
+
+
+@pytest.mark.parametrize('action', ['publish-story', 'hide-story'])
+def test_bad_story_id(no_csrf_client, action):
+    """Bad story id just returns success: False."""
+    tp = TeacherProfileFactory.create()
+    url = reverse('teacher_detail', kwargs={'username': tp.user.username})
+
+    resp = no_csrf_client.post(
+        url, {action: '7'}, user=tp.user, status=200, ajax=True)
+
+    assert resp.json['success'] == False
+    assert 'html' not in resp.json
