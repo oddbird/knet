@@ -37,6 +37,8 @@
   <section class="teacher-stories">
     {% for story in teacher.stories.all %}
     {% include "_story.html" %}
+    {% empty %}
+    <p>No stories yet!</p>
     {% endfor %}
   </section>
 </article>
