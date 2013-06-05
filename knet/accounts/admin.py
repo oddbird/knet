@@ -3,16 +3,27 @@ from copy import copy
 
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from django.contrib.auth.forms import UserChangeForm as BaseUserChangeForm
+from django.contrib.auth import forms as authforms
 import floppyforms as forms
 
 from .models import User
 
 
-class UserChangeForm(BaseUserChangeForm):
+class UserChangeForm(authforms.UserChangeForm):
     class Meta:
         model = User
         widgets = {'name': forms.TextInput}
+
+
+class UserCreationForm(authforms.UserCreationForm):
+    class Meta:
+        model = User
+
+
+    def clean_username(self):
+        # The superclass version of this hardcodes auth.User model.
+        # We don't need the nicer error, default ORM unique validation is fine.
+        return self.cleaned_data["username"]
 
 
 class UserAdmin(BaseUserAdmin):
@@ -23,6 +34,7 @@ class UserAdmin(BaseUserAdmin):
     search_fields = ['username', 'name', 'first_name', 'last_name', 'email']
 
     form = UserChangeForm
+    add_form = UserCreationForm
 
 
 admin.site.register(User, UserAdmin)
