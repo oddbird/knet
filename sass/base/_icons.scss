@@ -12,6 +12,8 @@ $icon-info            : "\e008";
 $icon-checkmark       : "\e009";
 $icon-warning         : "\e00a";
 $icon-close           : "\e00b";
+$icon-enter           : "\e003";
+$icon-exit            : "\e00c";
 
 // Debug
 $debug: append($debug, icons);
@@ -26,7 +28,9 @@ $debug-icons: 'menu'            $icon-menu,
               'info'            $icon-info,
               'checkmark'       $icon-checkmark,
               'warning'         $icon-warning,
-              'close'           $icon-close;
+              'close'           $icon-close,
+              'enter'           $icon-enter,
+              'exit'            $icon-exit;
 
 @mixin debug-icons {
   @debug '# Icons';

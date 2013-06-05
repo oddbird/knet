@@ -8,17 +8,22 @@
 <header role="banner">
   <h1 class="brand vcard">
     <a href="/" rel="home" class="fn org">The K Network</a>
+  </h1>
+
+  {% block banner %}
+  <nav class="user-nav">
     {% if user.is_authenticated %}
+      <p class="user-name">{{ user }}</p>
       <form class="logout-form" method="POST" action="{% url 'logout' %}">
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ request.path }}">
-        <button type="submit" name="logout">Log out</button>
+        <button type="submit" name="logout" title="logout">Log out</button>
       </form>
     {% else %}
-      <a href="{% oauth_authorize_url %}">Login with Facebook</a>
+      <a href="{% oauth_authorize_url %}" class="fb-login">Login with Facebook</a>
     {% endif %}
-  </h1>
-  {% block banner %}{% endblock %}
+  </nav>
+  {% endblock %}
 </header>
 
 <div role="main">

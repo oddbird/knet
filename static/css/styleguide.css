@@ -174,12 +174,12 @@ a:focus, a:hover, a:active {
 
 @font-face {
   font-family: "knet";
-  src: url('../fonts/knet.woff?1370481628') format("woff"), url('../fonts/knet.ttf?1370481628') format("truetype");
+  src: url('../fonts/knet.woff?1370488090') format("woff"), url('../fonts/knet.ttf?1370488090') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-#messages .close:before, .toggle-addstory-main:before, .toggle-addstory-body:before, .story-status.unlock:before, .story-status.lock:before, .delete-story:before, .announce:before, .message:before, .story.private:before, .icons-demo div:nth-child(1):before, .icons-demo div:nth-child(2):before, .icons-demo div:nth-child(3):before, .icons-demo div:nth-child(4):before, .icons-demo div:nth-child(5):before, .icons-demo div:nth-child(6):before, .icons-demo div:nth-child(7):before, .icons-demo div:nth-child(8):before, .icons-demo div:nth-child(9):before, .icons-demo div:nth-child(10):before, .icons-demo div:nth-child(11):before, [data-icon]:before {
+.user-nav [name="logout"]:before, #messages .close:before, .toggle-addstory-main:before, .toggle-addstory-body:before, .story-status.unlock:before, .story-status.lock:before, .delete-story:before, .user-nav .fb-login:before, .announce:before, .message:before, .story.private:before, .icons-demo div:nth-child(1):before, .icons-demo div:nth-child(2):before, .icons-demo div:nth-child(3):before, .icons-demo div:nth-child(4):before, .icons-demo div:nth-child(5):before, .icons-demo div:nth-child(6):before, .icons-demo div:nth-child(7):before, .icons-demo div:nth-child(8):before, .icons-demo div:nth-child(9):before, .icons-demo div:nth-child(10):before, .icons-demo div:nth-child(11):before, .icons-demo div:nth-child(12):before, .icons-demo div:nth-child(13):before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -188,7 +188,7 @@ a:focus, a:hover, a:active {
   speak: none;
 }
 
-#messages .close, .toggle-addstory-main, .toggle-addstory-body, .story-status.unlock, .story-status.lock, .delete-story {
+.user-nav [name="logout"], #messages .close, .toggle-addstory-main, .toggle-addstory-body, .story-status.unlock, .story-status.lock, .delete-story {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -196,7 +196,7 @@ a:focus, a:hover, a:active {
   min-width: 1em;
   text-indent: -9999px;
 }
-#messages .close:before, .toggle-addstory-main:before, .toggle-addstory-body:before, .story-status.unlock:before, .story-status.lock:before, .delete-story:before {
+.user-nav [name="logout"]:before, #messages .close:before, .toggle-addstory-main:before, .toggle-addstory-body:before, .story-status.unlock:before, .story-status.lock:before, .delete-story:before {
   position: absolute;
   top: 0;
   left: 0;
@@ -233,7 +233,7 @@ a:focus, a:hover, a:active {
   content: "\e006";
 }
 
-.icons-demo div:nth-child(7):before {
+.user-nav .fb-login:before, .icons-demo div:nth-child(7):before {
   content: "\e007";
 }
 
@@ -251,6 +251,14 @@ a:focus, a:hover, a:active {
 
 .message.error:before, .icons-demo div:nth-child(11):before {
   content: "\e00b";
+}
+
+.icons-demo div:nth-child(12):before {
+  content: "\e003";
+}
+
+.user-nav [name="logout"]:before, .icons-demo div:nth-child(13):before {
+  content: "\e00c";
 }
 
 button {
@@ -431,6 +439,29 @@ label {
   color: #4c4c4c;
 }
 [role="banner"] .org:focus, [role="banner"] .org:hover, [role="banner"] .org:active {
+  color: #94001a;
+}
+
+.brand {
+  width: 40%;
+  float: left;
+}
+
+.user-nav {
+  width: 60%;
+  float: left;
+  text-align: right;
+}
+.user-nav .fb-login:before {
+  padding-right: 0.31944rem;
+}
+.user-nav .user-name, .user-nav .logout-form {
+  display: inline-block;
+}
+.user-nav [name="logout"] {
+  padding: 0 0.31944rem;
+}
+.user-nav [name="logout"]:focus, .user-nav [name="logout"]:hover, .user-nav [name="logout"]:active {
   color: #94001a;
 }
 
@@ -1684,6 +1715,46 @@ body {
 }
 .icons-demo div:nth-child(11):after {
   content: "close";
+  font-size: 18px;
+  font-size: 1rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+}
+.icons-demo div:nth-child(12) {
+  display: block;
+  float: left;
+  margin-right: 2.55556rem;
+}
+.icons-demo div:nth-child(12):focus, .icons-demo div:nth-child(12):hover, .icons-demo div:nth-child(12):active {
+  color: #94001a;
+}
+.icons-demo div:nth-child(12):before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .4em;
+}
+.icons-demo div:nth-child(12):after {
+  content: "enter";
+  font-size: 18px;
+  font-size: 1rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+}
+.icons-demo div:nth-child(13) {
+  display: block;
+  float: left;
+  margin-right: 2.55556rem;
+}
+.icons-demo div:nth-child(13):focus, .icons-demo div:nth-child(13):hover, .icons-demo div:nth-child(13):active {
+  color: #94001a;
+}
+.icons-demo div:nth-child(13):before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .4em;
+}
+.icons-demo div:nth-child(13):after {
+  content: "exit";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;

@@ -18,6 +18,25 @@
   }
 }
 
+.brand { @include span(40% no-gutters); }
+
+.user-nav {
+  @include span(60% no-gutters);
+  text-align: right;
+
+  .fb-login {
+    @include icon(facebook) { padding-right: rhythm(.25); }
+  }
+  .user-name, .logout-form { display: inline-block; }
+
+  [name="logout"] {
+    @include icon-replace(exit);
+    padding: 0 rhythm(.25);
+    #{$focus} { color: $accent; }
+  }
+}
+
+
 // Fixed Banner
 
 %fixed-banner {
