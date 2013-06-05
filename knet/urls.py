@@ -12,7 +12,7 @@ urlpatterns = patterns(
     '',
     url(r'^$', landing, name='landing'),
     url(r'^demo/$', demo, name='demo'),
-    url(r'^teacher/(?P<username>\w+)/$', teacher_detail, name='teacher_detail'),
+    url(r'^teacher/(?P<username>.+)/$', teacher_detail, name='teacher_detail'),
     url(r'^styleguide/$',
         TemplateView.as_view(template_name='styleguide/styleguide.html'),
         name='styleguide',
