@@ -14,17 +14,6 @@
   @extend %main-title;
 }
 
-[for="story-form-toggle"] {
-  @include icon-replace(bubble-heart);
-  @include leader(.5);
-  @include adjust-font-size-to($main-title-size);
-  float: right;
-  margin-left: rhythm(1);
-  color: $alt;
-
-  #{$focus} { color: $accent; }
-}
-
 .teacher-data {
   color: color(light);
 
@@ -34,3 +23,21 @@
   }
 }
 
+// Toggles
+// -------
+
+%toggle-addstory {
+  @include icon-replace(bubble-heart);
+}
+
+.toggle-addstory-main {
+  @extend %toggle-addstory;
+  @include leader(.5);
+  @include adjust-font-size-to($main-title-size);
+  float: right;
+  margin-left: rhythm(1);
+  min-height: px-to-rhythm($main-title-size);
+  color: $alt;
+
+  #{$focus} { color: $accent; }
+}

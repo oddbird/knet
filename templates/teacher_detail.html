@@ -8,7 +8,7 @@
   {# Teacher Info #}
   <header class="teacher-info">
     {% if teacher != user %} {# no leaving stories for yourself! #}
-      <label for="story-form-toggle">Hide Form</label>
+      <label for="story-form-toggle" class="toggle-addstory-main">Hide Form</label>
     {% endif %}
     <h1 class="teacher-name">{{ teacher }}</h1>
 
@@ -38,7 +38,14 @@
     {% for story in teacher.stories.all %}
     {% include "_story.html" %}
     {% empty %}
-    <p>No stories yet!</p>
+    <div class="no-stories-message">
+      {% if teacher == user %}
+        <p>You have no stories.</p>
+      {% else %}
+        <label for="story-form-toggle" class="toggle-addstory-body"></label>
+        <p>Be the first to leave a story for {{ teacher }}.</p>
+      {% endif %}
+    </div>
     {% endfor %}
   </section>
 </article>

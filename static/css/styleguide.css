@@ -179,7 +179,7 @@ a:focus, a:hover, a:active {
   font-style: normal;
 }
 
-#messages .close:before, [for="story-form-toggle"]:before, .story-status.unlock:before, .story-status.lock:before, .delete-story:before, .announce:before, .message:before, .story.private:before, .icons-demo div:nth-child(1):before, .icons-demo div:nth-child(2):before, .icons-demo div:nth-child(3):before, .icons-demo div:nth-child(4):before, .icons-demo div:nth-child(5):before, .icons-demo div:nth-child(6):before, .icons-demo div:nth-child(7):before, .icons-demo div:nth-child(8):before, .icons-demo div:nth-child(9):before, .icons-demo div:nth-child(10):before, .icons-demo div:nth-child(11):before, [data-icon]:before {
+#messages .close:before, .toggle-addstory-main:before, .toggle-addstory-body:before, .story-status.unlock:before, .story-status.lock:before, .delete-story:before, .announce:before, .message:before, .story.private:before, .icons-demo div:nth-child(1):before, .icons-demo div:nth-child(2):before, .icons-demo div:nth-child(3):before, .icons-demo div:nth-child(4):before, .icons-demo div:nth-child(5):before, .icons-demo div:nth-child(6):before, .icons-demo div:nth-child(7):before, .icons-demo div:nth-child(8):before, .icons-demo div:nth-child(9):before, .icons-demo div:nth-child(10):before, .icons-demo div:nth-child(11):before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -188,7 +188,7 @@ a:focus, a:hover, a:active {
   speak: none;
 }
 
-#messages .close, [for="story-form-toggle"], .story-status.unlock, .story-status.lock, .delete-story {
+#messages .close, .toggle-addstory-main, .toggle-addstory-body, .story-status.unlock, .story-status.lock, .delete-story {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -196,7 +196,7 @@ a:focus, a:hover, a:active {
   min-width: 1em;
   text-indent: -9999px;
 }
-#messages .close:before, [for="story-form-toggle"]:before, .story-status.unlock:before, .story-status.lock:before, .delete-story:before {
+#messages .close:before, .toggle-addstory-main:before, .toggle-addstory-body:before, .story-status.unlock:before, .story-status.lock:before, .delete-story:before {
   position: absolute;
   top: 0;
   left: 0;
@@ -225,7 +225,7 @@ a:focus, a:hover, a:active {
   content: "\e004";
 }
 
-[for="story-form-toggle"]:before, .icons-demo div:nth-child(5):before {
+.toggle-addstory-main:before, .toggle-addstory-body:before, .icons-demo div:nth-child(5):before {
   content: "\e005";
 }
 
@@ -703,7 +703,15 @@ label {
   border-color: #b2b2b2;
 }
 
-[for="story-form-toggle"] {
+.teacher-data {
+  color: #999999;
+}
+.teacher-data .data-item {
+  display: inline-block;
+  margin-right: 1.27778rem;
+}
+
+.toggle-addstory-main {
   margin-top: 12px;
   margin-top: 0.63889rem;
   font-size: 86px;
@@ -712,18 +720,11 @@ label {
   line-height: 5.11111rem;
   float: right;
   margin-left: 1.27778rem;
+  min-height: 5.11111rem;
   color: #007474;
 }
-[for="story-form-toggle"]:focus, [for="story-form-toggle"]:hover, [for="story-form-toggle"]:active {
+.toggle-addstory-main:focus, .toggle-addstory-main:hover, .toggle-addstory-main:active {
   color: #94001a;
-}
-
-.teacher-data {
-  color: #999999;
-}
-.teacher-data .data-item {
-  display: inline-block;
-  margin-right: 1.27778rem;
 }
 
 .add-story-form {
@@ -764,6 +765,33 @@ label {
   position: absolute;
   left: -9999px;
   opacity: .01;
+}
+
+.no-stories-message {
+  font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  padding-top: 46px;
+  padding-top: 2.55556rem;
+  padding-bottom: 46px;
+  padding-bottom: 2.55556rem;
+  font-size: 32px;
+  font-size: 1.77778rem;
+  line-height: 46px;
+  line-height: 2.55556rem;
+  color: #b2b2b2;
+  text-align: center;
+}
+
+.toggle-addstory-body {
+  margin-top: 23px;
+  margin-top: 1.27778rem;
+  font-size: 135px;
+  font-size: 7.5rem;
+  line-height: 150px;
+  line-height: 8.30556rem;
+  min-height: 7.66667rem;
+}
+.toggle-addstory-body:focus, .toggle-addstory-body:hover, .toggle-addstory-body:active {
+  color: #007474;
 }
 
 .story {

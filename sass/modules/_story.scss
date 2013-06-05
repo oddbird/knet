@@ -1,5 +1,26 @@
+// Stories
+// =======
+
+.no-stories-message {
+  @include serif;
+  @include rhythm-padding(2);
+  @include adjust-font-size-to($largepx);
+  color: color(lighter);
+  text-align: center;
+}
+
+.toggle-addstory-body {
+  @extend %toggle-addstory;
+  @include leader;
+  @include adjust-font-size-to($xxxlargepx);
+  min-height: px-to-rhythm($xxxlargepx);
+
+  #{$focus} { color: $alt; }
+}
+
+
 // Story
-// =====
+// -----
 
 .story {
   @include clearfix;
