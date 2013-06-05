@@ -23,3 +23,8 @@ def innerhtml(element):
 def is_deleted(instance):
     """Return ``True`` if given model instance has been deleted in the db."""
     return not type(instance)._base_manager.filter(pk=instance.pk).exists()
+
+
+def refresh(instance):
+    """Refresh given model instance from the database."""
+    return type(instance)._base_manager.get(pk=instance.pk)

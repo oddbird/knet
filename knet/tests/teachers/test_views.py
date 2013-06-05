@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 from knet.stories.models import Story
 from ..factories import UserFactory
 from ..stories.factories import StoryFactory
-from ..utils import redirects_to, is_deleted
+from ..utils import redirects_to, is_deleted, refresh
 from .factories import TeacherProfileFactory
 
 
@@ -50,6 +50,7 @@ def test_404_on_non_teacher_user(client):
     client.get(url, status=404)
 
 
+
 def test_delete_story(client):
     """Can delete a story on my profile page."""
     tp = TeacherProfileFactory.create()
@@ -61,3 +62,31 @@ def test_delete_story(client):
 
     assert redirects_to(resp) == url
     assert is_deleted(s)
+
+
+
+def test_publish_story(client):
+    """Can publish a story on my profile page."""
+    tp = TeacherProfileFactory.create()
+    s = StoryFactory.create(teacher=tp.user, private=False, published=False)
+    url = reverse('teacher_detail', kwargs={'username': s.teacher.username})
+    form = client.get(url, user=s.teacher, status=200).forms[1]
+
+    resp = form.submit('publish-story', status=302)
+
+    assert redirects_to(resp) == url
+    assert refresh(s).published
+
+
+
+def test_hide_story(client):
+    """Can hide a story on my profile page."""
+    tp = TeacherProfileFactory.create()
+    s = StoryFactory.create(teacher=tp.user, private=False, published=True)
+    url = reverse('teacher_detail', kwargs={'username': s.teacher.username})
+    form = client.get(url, user=s.teacher, status=200).forms[1]
+
+    resp = form.submit('hide-story', status=302)
+
+    assert redirects_to(resp) == url
+    assert not refresh(s).published

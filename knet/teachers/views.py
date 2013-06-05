@@ -18,6 +18,21 @@ def teacher_detail(request, username):
                 teacher.stories.filter(pk=request.POST['delete-story']).delete()
             messages.success(request, "Story deleted.")
             return redirect_response
+        elif 'publish-story' in request.POST:
+            with transaction.atomic():
+                teacher.stories.filter(
+                    pk=request.POST['publish-story'],
+                    private=False,
+                    published=False,
+                    ).update(published=True)
+            return redirect_response
+        elif 'hide-story' in request.POST:
+            with transaction.atomic():
+                teacher.stories.filter(
+                    pk=request.POST['hide-story'],
+                    published=True,
+                    ).update(published=False)
+            return redirect_response
 
         form = StoryForm(teacher, request.POST)
         if form.is_valid():
