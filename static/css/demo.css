@@ -62,56 +62,56 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 @font-face {
   font-family: "CambridgeRound";
-  src: url('../fonts/cambridge_round-webfont.woff') format('woff'), url('../fonts/cambridge_round-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round-webfont.woff?1342738619') format("woff"), url('../fonts/cambridge_round-webfont.ttf?1358363476') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRound";
-  src: url('../fonts/cambridge_round_bold-webfont.woff') format('woff'), url('../fonts/cambridge_round_bold-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round_bold-webfont.woff?1342738619') format("woff"), url('../fonts/cambridge_round_bold-webfont.ttf?1358363476') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRound";
-  src: url('../fonts/cambridge_round_it-webfont.woff') format('woff'), url('../fonts/cambridge_round_it-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round_it-webfont.woff?1342738619') format("woff"), url('../fonts/cambridge_round_it-webfont.ttf?1358363477') format("truetype");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "CambridgeRoundCond";
-  src: url('../fonts/cambridge_round_cond-webfont.woff') format('woff'), url('../fonts/cambridge_round_cond-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round_cond-webfont.woff?1351286140') format("woff"), url('../fonts/cambridge_round_cond-webfont.ttf?1358363477') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRoundCond";
-  src: url('../fonts/cambridge_round_bold_cond-webfont.woff') format('woff'), url('../fonts/cambridge_round_bold_cond-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round_bold_cond-webfont.woff?1351286140') format("woff"), url('../fonts/cambridge_round_bold_cond-webfont.ttf?1358363476') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRoundCond";
-  src: url('../fonts/cambridge_round_cond_it-webfont.woff') format('woff'), url('../fonts/cambridge_round_cond_it-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round_cond_it-webfont.woff?1351286140') format("woff"), url('../fonts/cambridge_round_cond_it-webfont.ttf?1358363477') format("truetype");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "SquareSerif";
-  src: url('../fonts/SquareSerif-Book-webfont.woff') format('woff'), url('../fonts/SquareSerif-Book-webfont.ttf') format('truetype');
+  src: url('../fonts/SquareSerif-Book-webfont.woff?1342738619') format("woff"), url('../fonts/SquareSerif-Book-webfont.ttf?1358363476') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SquareSerif";
-  src: url('../fonts/SquareSerif-Bold-webfont.woff') format('woff'), url('../fonts/SquareSerif-Bold-webfont.ttf') format('truetype');
+  src: url('../fonts/SquareSerif-Bold-webfont.woff?1342738619') format("woff"), url('../fonts/SquareSerif-Bold-webfont.ttf?1358363476') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
@@ -183,12 +183,12 @@ a:focus, a:hover, a:active {
 
 @font-face {
   font-family: "knet";
-  src: url('../fonts/knet.woff') format('woff'), url('../fonts/knet.ttf') format('truetype');
+  src: url('../fonts/knet.woff?1370481628') format("woff"), url('../fonts/knet.ttf?1370481628') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-[data-icon]:before {
+#messages .close:before, .announce:before, .message:before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -197,8 +197,45 @@ a:focus, a:hover, a:active {
   speak: none;
 }
 
+#messages .close {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  position: relative;
+  min-width: 1em;
+  text-indent: -9999px;
+}
+#messages .close:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-indent: 0;
+  text-align: center;
+}
+
 [data-icon]:before {
   content: attr(data-icon);
+}
+
+#messages .close:before {
+  content: "\e006";
+}
+
+.announce:before, .message:before {
+  content: "\e008";
+}
+
+.message.success:before {
+  content: "\e009";
+}
+
+.message.warning:before {
+  content: "\e00a";
+}
+
+.message.error:before {
+  content: "\e00b";
 }
 
 button {
@@ -379,6 +416,196 @@ label {
   clear: both;
 }
 
+@-moz-keyframes announce-in {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-12.77778rem);
+    transform: translateY(-12.77778rem);
+  }
+
+  100% {
+    opacity: 0.95;
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes announce-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-12.77778rem);
+    transform: translateY(-12.77778rem);
+  }
+
+  100% {
+    opacity: 0.95;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-o-keyframes announce-in {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(-12.77778rem);
+    transform: translateY(-12.77778rem);
+  }
+
+  100% {
+    opacity: 0.95;
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes announce-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-12.77778rem);
+  }
+
+  100% {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+}
+
+@-moz-keyframes announce-out {
+  0% {
+    opacity: 0.95;
+    -moz-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -moz-transform: translateX(38.33333rem);
+    transform: translateX(38.33333rem);
+  }
+}
+
+@-webkit-keyframes announce-out {
+  0% {
+    opacity: 0.95;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(38.33333rem);
+    transform: translateX(38.33333rem);
+  }
+}
+
+@-o-keyframes announce-out {
+  0% {
+    opacity: 0.95;
+    -o-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -o-transform: translateX(38.33333rem);
+    transform: translateX(38.33333rem);
+  }
+}
+
+@keyframes announce-out {
+  0% {
+    opacity: 0.95;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(38.33333rem);
+  }
+}
+
+#messages {
+  position: fixed;
+  top: 0.63889rem;
+  right: 0.63889rem;
+  width: 80%;
+  max-width: 20em;
+  z-index: 999;
+}
+#messages .close {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  position: absolute;
+  right: .125rem;
+  top: 0;
+}
+
+.announce, .message {
+  font-size: 23px;
+  font-size: 1.27778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  -webkit-animation: announce-in 1s ease backwards;
+  -moz-animation: announce-in 1s ease backwards;
+  -o-animation: announce-in 1s ease backwards;
+  animation: announce-in 1s ease backwards;
+  border-width: 1px;
+  border-width: 0.05556rem;
+  border-style: solid;
+  padding: 16px;
+  padding: 0.90278rem;
+  overflow: hidden;
+  opacity: 0.95;
+  -webkit-box-shadow: #4c4c4c 0 0 0.31944rem;
+  -moz-box-shadow: #4c4c4c 0 0 0.31944rem;
+  box-shadow: #4c4c4c 0 0 0.31944rem;
+  position: relative;
+}
+.announce:before, .message:before {
+  position: absolute;
+  top: 0.95833rem;
+  left: 0.95833rem;
+}
+.announce .body, .message .body {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  margin: 0 0.31944rem 0 1.91667rem;
+}
+.announce .body a:link, .message .body a:link, .announce .body a:visited, .message .body a:visited {
+  color: #007474;
+  text-decoration: underline;
+}
+.announce .body a:focus, .message .body a:focus, .announce .body a:hover, .message .body a:hover, .announce .body a:active, .message .body a:active {
+  color: #e9ccd1;
+}
+
+.closed.announce, .closed.message, .message.closed-timeout {
+  -webkit-animation: announce-out 800ms ease forwards;
+  -moz-animation: announce-out 800ms ease forwards;
+  -o-animation: announce-out 800ms ease forwards;
+  animation: announce-out 800ms ease forwards;
+}
+
+.announce, .message {
+  background: #009191;
+}
+
+.message.success {
+  background: #3ed000;
+}
+
+.message.warning {
+  background: #f2ac00;
+}
+
+.message.error {
+  background: #e30028;
+}
+
 .logo {
   position: relative;
   height: 0;
@@ -423,6 +650,10 @@ label {
 .tagline {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+}
+
+.js .message.js-warning {
+  display: none;
 }
 
 html {

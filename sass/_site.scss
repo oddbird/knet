@@ -40,8 +40,14 @@
 // --------
 
 @import "patterns/toggle-content";
+@import "patterns/announcements";
 
 // Modules
 // -------
 
 @import "modules/logo";
+
+// Plugins
+// -------
+
+@import "plugins/messages"

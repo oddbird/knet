@@ -1,22 +1,32 @@
 // Icons
 // =====
 
-$icon-menu          : '\e000';
-$icon-lock          : '\e001';
-$icon-unlocked      : '\e002';
-$icon-bubble-plus   : '\e003';
-$icon-remove        : '\e004';
-$icon-bubble-heart  : '\e005';
+$icon-menu            : "\e000";
+$icon-lock            : "\e001";
+$icon-unlocked        : "\e002";
+$icon-remove          : "\e004";
+$icon-bubble-heart    : "\e005";
+$icon-cancel-circle   : "\e006";
+$icon-facebook        : "\e007";
+$icon-info            : "\e008";
+$icon-checkmark       : "\e009";
+$icon-warning         : "\e00a";
+$icon-close           : "\e00b";
 
 // Debug
 $debug: append($debug, icons);
 
-$debug-icons: 'menu'          $icon-menu,
-              'lock'          $icon-lock,
-              'unlocked'      $icon-unlocked,
-              'bubble-plus'   $icon-bubble-plus,
-              'remove'        $icon-remove,
-              'bubble-heart'  $icon-bubble-heart;
+$debug-icons: 'menu'            $icon-menu,
+              'lock'            $icon-lock,
+              'unlocked'        $icon-unlocked,
+              'remove'          $icon-remove,
+              'bubble-heart'    $icon-bubble-heart,
+              'cancel-circle'   $icon-cancel-circle,
+              'facebook'        $icon-facebook,
+              'info'            $icon-info,
+              'checkmark'       $icon-checkmark,
+              'warning'         $icon-warning,
+              'close'           $icon-close;
 
 @mixin debug-icons {
   @debug '# Icons';
