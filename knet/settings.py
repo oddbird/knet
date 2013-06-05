@@ -80,6 +80,16 @@ DATABASES = {
 
 BASE_URL = env('KNET_BASE_URL', default={'dev': 'http://knet.hexxie.com:8000'})
 
+SECURE_FRAME_DENY = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+
+USE_SSL = env('KNET_USE_SSL', bool, default=False)
+
+SESSION_COOKIE_SECURE = USE_SSL
+SECURE_SSL_REDIRECT = USE_SSL
+SECURE_HSTS_SECONDS = env('KNET_HSTS_SECONDS', int, default=0)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 # Application definition
 
@@ -105,6 +115,7 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'accounts.User'
 
 MIDDLEWARE_CLASSES = [
+    'djangosecure.middleware.SecurityMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
