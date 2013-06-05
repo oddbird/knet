@@ -18,3 +18,8 @@ def render_to_soup(*args, **kwargs):
 def innerhtml(element):
     """Return whitespace-stripped inner HTML of a BeautifulSoup element."""
     return element.decode_contents().strip()
+
+
+def is_deleted(instance):
+    """Return ``True`` if given model instance has been deleted in the db."""
+    return not type(instance)._base_manager.filter(pk=instance.pk).exists()

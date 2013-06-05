@@ -2,7 +2,8 @@ from django.core.urlresolvers import reverse
 
 from knet.stories.models import Story
 from ..factories import UserFactory
-from ..utils import redirects_to
+from ..stories.factories import StoryFactory
+from ..utils import redirects_to, is_deleted
 from .factories import TeacherProfileFactory
 
 
@@ -44,6 +45,19 @@ def test_404_on_nonexistent_teacher(client):
 
 def test_404_on_non_teacher_user(client):
     """404 is returned for a user with no teacher profile."""
-    u = UserFactory()
+    u = UserFactory.create()
     url = reverse('teacher_detail', kwargs={'username': u.username})
     client.get(url, status=404)
+
+
+def test_delete_story(client):
+    """Can delete a story on my profile page."""
+    tp = TeacherProfileFactory.create()
+    s = StoryFactory.create(teacher=tp.user)
+    url = reverse('teacher_detail', kwargs={'username': s.teacher.username})
+    form = client.get(url, user=s.teacher, status=200).forms[1]
+
+    resp = form.submit('delete-story', status=302)
+
+    assert redirects_to(resp) == url
+    assert is_deleted(s)

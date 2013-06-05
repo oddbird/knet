@@ -12,12 +12,15 @@
 
   {% if user == teacher %}
     <div class="story-actions">
-      {% if story.published %}
-        <button class="story-status lock" title="Make this story private">lock</button>
-      {% elif not story.private %}
-        <button class="story-status unlock" title="Make this story public">unlock</button>
-      {% endif %}
-      <button class="delete-story">Delete</button>
+      <form method="POST">
+        {% csrf_token %}
+        {% if story.published %}
+          <button name="hide-story" value="{{ story.id }}" class="story-status lock" title="Make this story private">lock</button>
+        {% elif not story.private %}
+          <button name="publish-story" value="{{ story.id }}" class="story-status unlock" title="Make this story public">unlock</button>
+        {% endif %}
+        <button name="delete-story" value="{{ story.id }}" class="delete-story">Delete</button>
+      </form>
     </div>
   {% endif %}
 </article>

@@ -56,6 +56,6 @@ def test_oauth_error(client):
 def test_logout(client):
     """GET to logout view returns a confirmation; submitting logs out."""
     u = UserFactory()
-    resp = client.get(reverse('logout'), user=u, status=200).forms[0].submit()
+    resp = client.get(reverse('logout'), user=u, status=200).forms[1].submit()
 
     assert redirects_to(resp) == reverse('landing')
