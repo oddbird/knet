@@ -160,7 +160,7 @@ a:focus, a:hover, a:active {
 
 @font-face {
   font-family: "knet";
-  src: url('../fonts/knet.woff?1370488090') format("woff"), url('../fonts/knet.ttf?1370488090') format("truetype");
+  src: url('../fonts/knet.woff?1370583578') format("woff"), url('../fonts/knet.ttf?1370583578') format("truetype");
   font-weight: normal;
   font-style: normal;
 }

@@ -22,27 +22,49 @@
 // Story
 // -----
 
+%story-status {
+  @include adjust-font-size-to($smallpx);
+  @include border-radius(.25em);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 .5em;
+}
+
+@mixin story-status-icon(
+  $icon,
+  $color: $alt
+) {
+  @include icon($icon) {
+    @extend %story-status;
+    background: $color;
+    color: contrast($color, white color(darkest));
+  }
+}
+
 .story {
-  @include clearfix;
+  @include pie-clearfix;
   @include rhythm-margins;
   @include gallery(5 isolate);
   position: relative;
 
-  &.private {
-    @include icon(lock) {
-      @include border-radius(.25em);
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding: 0 .125em 0 .5em;
-      background: $red;
-      color: white;
-    }
-  }
+  &.hidden { @include story-status-icon(eye-blocked, $yellow); }
+  &.private { @include story-status-icon(lock, $red); }
+  &.hidden.private { @include before($icon-lock); }
 }
 
 // Story Body
 // ----------
+
+@mixin story-body-status(
+  $status,
+  $color
+) {
+  .#{$status} & {
+    border-color: $color;
+    &:before { border-top-color: $color; }
+  }
+}
 
 .story-body {
   @include trailer(.5);
@@ -51,10 +73,8 @@
   @include arrow(bottom rhythm(.25) rhythm(.5) $alt);
   border-color: $alt;
 
-  .private & {
-    border-color: $red;
-    &:before { border-top-color: $red; }
-  }
+  @include story-body-status('hidden', $yellow);
+  @include story-body-status('private', $red);
 }
 
 // Story Info
@@ -82,26 +102,33 @@
   text-align: right;
 }
 
-.story-status {
-  &.unlock {
-    @include icon-replace(lock);
-    #{$focus} { @include icon(unlocked); }
-  }
-  &.lock {
-    @include icon-replace(unlocked);
-    #{$focus} { @include icon(lock); }
-  }
+%story-action {
+  padding: 0 rhythm(.25);
+  color: color(light);
 }
 
 .story-private-notice {
-  @include icon(lock);
   @include adjust-font-size-to($smallpx);
   display: inline-block;
-  padding: 0 rhythm(.5);
   color: color(lighter);
+
+  @include icon(lock) { padding-right: .4em; }
+}
+
+.story-status {
+  @extend %story-action;
+  @include icon-replace(eye);
+
+  #{$focus} { color: $alt; }
+
+  &.hide {
+    @include before($icon-eye-blocked);
+    #{$focus} { color: $yellow; }
+  }
 }
 
 .delete-story {
+  @extend %story-action;
   @include icon-replace(remove);
 
   #{$focus} { color: $red; }

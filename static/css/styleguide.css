@@ -174,12 +174,12 @@ a:focus, a:hover, a:active {
 
 @font-face {
   font-family: "knet";
-  src: url('../fonts/knet.woff?1370488090') format("woff"), url('../fonts/knet.ttf?1370488090') format("truetype");
+  src: url('../fonts/knet.woff?1370583578') format("woff"), url('../fonts/knet.ttf?1370583578') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-.user-nav [name="logout"]:before, #messages .close:before, .toggle-addstory-main:before, .toggle-addstory-body:before, .story-status.unlock:before, .story-status.lock:before, .delete-story:before, .user-nav .fb-login:before, .announce:before, .message:before, .story.private:before, .story-private-notice:before, .icons-demo div:nth-child(1):before, .icons-demo div:nth-child(2):before, .icons-demo div:nth-child(3):before, .icons-demo div:nth-child(4):before, .icons-demo div:nth-child(5):before, .icons-demo div:nth-child(6):before, .icons-demo div:nth-child(7):before, .icons-demo div:nth-child(8):before, .icons-demo div:nth-child(9):before, .icons-demo div:nth-child(10):before, .icons-demo div:nth-child(11):before, .icons-demo div:nth-child(12):before, .icons-demo div:nth-child(13):before, [data-icon]:before {
+.user-nav [name="logout"]:before, #messages .close:before, .toggle-addstory-main:before, .toggle-addstory-body:before, .story-status:before, .delete-story:before, .user-nav .fb-login:before, .announce:before, .message:before, .story.hidden:before, .story.private:before, .story-private-notice:before, .icons-demo div:nth-child(1):before, .icons-demo div:nth-child(2):before, .icons-demo div:nth-child(3):before, .icons-demo div:nth-child(4):before, .icons-demo div:nth-child(5):before, .icons-demo div:nth-child(6):before, .icons-demo div:nth-child(7):before, .icons-demo div:nth-child(8):before, .icons-demo div:nth-child(9):before, .icons-demo div:nth-child(10):before, .icons-demo div:nth-child(11):before, .icons-demo div:nth-child(12):before, .icons-demo div:nth-child(13):before, .icons-demo div:nth-child(14):before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -188,7 +188,7 @@ a:focus, a:hover, a:active {
   speak: none;
 }
 
-.user-nav [name="logout"], #messages .close, .toggle-addstory-main, .toggle-addstory-body, .story-status.unlock, .story-status.lock, .delete-story {
+.user-nav [name="logout"], #messages .close, .toggle-addstory-main, .toggle-addstory-body, .story-status, .delete-story {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -196,7 +196,7 @@ a:focus, a:hover, a:active {
   min-width: 1em;
   text-indent: -9999px;
 }
-.user-nav [name="logout"]:before, #messages .close:before, .toggle-addstory-main:before, .toggle-addstory-body:before, .story-status.unlock:before, .story-status.lock:before, .delete-story:before {
+.user-nav [name="logout"]:before, #messages .close:before, .toggle-addstory-main:before, .toggle-addstory-body:before, .story-status:before, .delete-story:before {
   position: absolute;
   top: 0;
   left: 0;
@@ -213,52 +213,56 @@ a:focus, a:hover, a:active {
   content: "\e000";
 }
 
-.story.private:before, .story-status.unlock:before, .story-status.lock:focus:before, .story-status.lock:hover:before, .story-status.lock:active:before, .story-private-notice:before, .icons-demo div:nth-child(2):before {
-  content: "\e001";
-}
-
-.story-status.unlock:focus:before, .story-status.unlock:hover:before, .story-status.unlock:active:before, .story-status.lock:before, .icons-demo div:nth-child(3):before {
-  content: "\e002";
-}
-
-.delete-story:before, .icons-demo div:nth-child(4):before {
+.delete-story:before, .icons-demo div:nth-child(2):before {
   content: "\e004";
 }
 
-.toggle-addstory-main:before, .toggle-addstory-body:before, .icons-demo div:nth-child(5):before {
+.toggle-addstory-main:before, .toggle-addstory-body:before, .icons-demo div:nth-child(3):before {
   content: "\e005";
 }
 
-#messages .close:before, .icons-demo div:nth-child(6):before {
+#messages .close:before, .icons-demo div:nth-child(4):before {
   content: "\e006";
 }
 
-.user-nav .fb-login:before, .icons-demo div:nth-child(7):before {
+.user-nav .fb-login:before, .icons-demo div:nth-child(5):before {
   content: "\e007";
 }
 
-.announce:before, .message:before, .icons-demo div:nth-child(8):before {
+.announce:before, .message:before, .icons-demo div:nth-child(6):before {
   content: "\e008";
 }
 
-.message.success:before, .icons-demo div:nth-child(9):before {
+.message.success:before, .icons-demo div:nth-child(7):before {
   content: "\e009";
 }
 
-.message.warning:before, .icons-demo div:nth-child(10):before {
+.message.warning:before, .icons-demo div:nth-child(8):before {
   content: "\e00a";
 }
 
-.message.error:before, .icons-demo div:nth-child(11):before {
+.message.error:before, .icons-demo div:nth-child(9):before {
   content: "\e00b";
 }
 
-.icons-demo div:nth-child(12):before {
+.icons-demo div:nth-child(10):before {
   content: "\e003";
 }
 
-.user-nav [name="logout"]:before, .icons-demo div:nth-child(13):before {
+.user-nav [name="logout"]:before, .icons-demo div:nth-child(11):before {
   content: "\e00c";
+}
+
+.story.private:before, .story-private-notice:before, .icons-demo div:nth-child(12):before {
+  content: "\e001";
+}
+
+.story-status:before, .icons-demo div:nth-child(13):before {
+  content: "\e002";
+}
+
+.story.hidden:before, .icons-demo div:nth-child(14):before {
+  content: "\e00d";
 }
 
 button {
@@ -855,8 +859,21 @@ label {
   color: #007474;
 }
 
+.story.hidden:before, .story.private:before {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  border-radius: 0.25em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 .5em;
+}
+
 .story {
-  overflow: hidden;
   margin-top: 23px;
   margin-top: 1.27778rem;
   margin-bottom: 23px;
@@ -866,22 +883,27 @@ label {
   margin-right: -100%;
   position: relative;
 }
+.story:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 .story:nth-child(2n + 1) {
   clear: left;
 }
 .story:nth-child(2n + 2) {
   margin-left: 51.02041%;
 }
+.story.hidden:before {
+  background: #f2ac00;
+  color: #191919;
+}
 .story.private:before {
-  -webkit-border-radius: 0.25em;
-  -moz-border-radius: 0.25em;
-  border-radius: 0.25em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 0 .125em 0 .5em;
   background: #e30028;
   color: white;
+}
+.story.hidden.private:before {
+  content: "\e001";
 }
 
 .story-body {
@@ -909,6 +931,12 @@ label {
   border-top-color: #007474;
   border-width: 0.63889rem;
   left: 0.31944rem;
+}
+.hidden .story-body {
+  border-color: #f2ac00;
+}
+.hidden .story-body:before {
+  border-top-color: #f2ac00;
 }
 .private .story-body {
   border-color: #e30028;
@@ -946,14 +974,31 @@ label {
   text-align: right;
 }
 
+.story-status, .delete-story {
+  padding: 0 0.31944rem;
+  color: #999999;
+}
+
 .story-private-notice {
   font-size: 14px;
   font-size: 0.77778rem;
   line-height: 23px;
   line-height: 1.27778rem;
   display: inline-block;
-  padding: 0 0.63889rem;
   color: #b2b2b2;
+}
+.story-private-notice:before {
+  padding-right: .4em;
+}
+
+.story-status:focus, .story-status:hover, .story-status:active {
+  color: #007474;
+}
+.story-status.hide:before {
+  content: "\e00d";
+}
+.story-status.hide:focus, .story-status.hide:hover, .story-status.hide:active {
+  color: #f2ac00;
 }
 
 .delete-story:focus, .delete-story:hover, .delete-story:active {
@@ -1574,7 +1619,7 @@ body {
   margin-right: .4em;
 }
 .icons-demo div:nth-child(2):after {
-  content: "lock";
+  content: "remove";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;
@@ -1594,7 +1639,7 @@ body {
   margin-right: .4em;
 }
 .icons-demo div:nth-child(3):after {
-  content: "unlocked";
+  content: "bubble-heart";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;
@@ -1614,7 +1659,7 @@ body {
   margin-right: .4em;
 }
 .icons-demo div:nth-child(4):after {
-  content: "remove";
+  content: "cancel-circle";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;
@@ -1634,7 +1679,7 @@ body {
   margin-right: .4em;
 }
 .icons-demo div:nth-child(5):after {
-  content: "bubble-heart";
+  content: "facebook";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;
@@ -1654,7 +1699,7 @@ body {
   margin-right: .4em;
 }
 .icons-demo div:nth-child(6):after {
-  content: "cancel-circle";
+  content: "info";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;
@@ -1674,7 +1719,7 @@ body {
   margin-right: .4em;
 }
 .icons-demo div:nth-child(7):after {
-  content: "facebook";
+  content: "checkmark";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;
@@ -1694,7 +1739,7 @@ body {
   margin-right: .4em;
 }
 .icons-demo div:nth-child(8):after {
-  content: "info";
+  content: "warning";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;
@@ -1714,7 +1759,7 @@ body {
   margin-right: .4em;
 }
 .icons-demo div:nth-child(9):after {
-  content: "checkmark";
+  content: "close";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;
@@ -1734,7 +1779,7 @@ body {
   margin-right: .4em;
 }
 .icons-demo div:nth-child(10):after {
-  content: "warning";
+  content: "enter";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;
@@ -1754,7 +1799,7 @@ body {
   margin-right: .4em;
 }
 .icons-demo div:nth-child(11):after {
-  content: "close";
+  content: "exit";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;
@@ -1774,7 +1819,7 @@ body {
   margin-right: .4em;
 }
 .icons-demo div:nth-child(12):after {
-  content: "enter";
+  content: "lock";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;
@@ -1794,7 +1839,27 @@ body {
   margin-right: .4em;
 }
 .icons-demo div:nth-child(13):after {
-  content: "exit";
+  content: "eye";
+  font-size: 18px;
+  font-size: 1rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+}
+.icons-demo div:nth-child(14) {
+  display: block;
+  float: left;
+  margin-right: 2.55556rem;
+}
+.icons-demo div:nth-child(14):focus, .icons-demo div:nth-child(14):hover, .icons-demo div:nth-child(14):active {
+  color: #94001a;
+}
+.icons-demo div:nth-child(14):before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .4em;
+}
+.icons-demo div:nth-child(14):after {
+  content: "eye-blocked";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;
