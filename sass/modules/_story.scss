@@ -49,7 +49,7 @@
   position: relative;
 
   &.hidden { @include story-status-icon(eye-blocked, $yellow); }
-  &.private { @include story-status-icon(lock, $red); }
+  &.private { @include story-status-icon(lock, color(lighter)); }
   &.hidden.private { @include before($icon-lock); }
 }
 
@@ -74,7 +74,7 @@
   border-color: $alt;
 
   @include story-body-status('hidden', $yellow);
-  @include story-body-status('private', $red);
+  @include story-body-status('private', color(lighter));
 }
 
 // Story Info
