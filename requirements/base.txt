@@ -1,5 +1,7 @@
 Django==1.6a1
 
+pytz==2013b
+
 psycopg2==2.5
 South==0.8.1.hg1228
 

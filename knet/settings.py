@@ -165,7 +165,7 @@ OAUTH_CLIENT_SECRET = env('KNET_OAUTH_CLIENT_SECRET', default={'dev': ''})
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'US/Eastern'
 
 USE_I18N = True
 
