@@ -30,7 +30,7 @@ module.exports = function (grunt) {
                 src: ['Gruntfile.js']
             },
             src: {
-                src: ['<%= vars.src_js_dir %>*.js']
+                src: ['<%= vars.src_js_dir %>*.js', '<%= vars.src_js_dir %>app/*.js']
             },
             test: {
                 src: ['<% vars.js_tests_dir %>*.js']

@@ -28,6 +28,9 @@ var KNET = (function (KNET, $) {
 
         // landing.js
         KNET.landingForm('form.signup', '#messages');
+
+        // stories.js
+        KNET.removeStory('.story .story-actions .delete-story', '.teacher-detail');
     });
 
     return KNET;
