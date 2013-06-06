@@ -13,7 +13,7 @@
   {% block banner %}
   <nav class="user-nav">
     {% if user.is_authenticated %}
-      <p class="user-name">{{ user }}</p>
+      <p class="user-name"><a href="{% url 'teacher_detail' username=user.username %}">{{ user }}</a></p>
       <form class="logout-form" method="POST" action="{% url 'logout' %}">
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ request.path }}">
