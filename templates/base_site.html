@@ -20,7 +20,9 @@
         <button type="submit" name="logout" title="logout">Log out</button>
       </form>
     {% else %}
-      <a href="{% oauth_authorize_url %}" class="fb-login">Login with Facebook</a>
+      {% if ENABLE_LOGIN %}
+        <a href="{% oauth_authorize_url %}" class="fb-login">Login with Facebook</a>
+      {% endif %}
     {% endif %}
   </nav>
   {% endblock %}

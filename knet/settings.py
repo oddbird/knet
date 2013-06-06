@@ -93,6 +93,8 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 if USE_SSL:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+ENABLE_LOGIN = env('KNET_ENABLE_LOGIN', bool, default=True)
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -137,7 +139,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.tz',
     'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
-    'knet.context_processors.services',
+    'knet.context_processors.settings',
     ]
 
 ROOT_URLCONF = 'knet.urls'
