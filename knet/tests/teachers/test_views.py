@@ -76,6 +76,7 @@ def test_delete_story_ajax(no_csrf_client):
         url, {'delete-story': s.id}, user=u, status=200, ajax=True)
 
     assert resp.json['success'] == True
+    assert len(resp.json['messages']) == 1
     assert resp.json['messages'][0]['message'] == "Story deleted."
     assert is_deleted(s)
 

@@ -32,7 +32,7 @@ def _response(request, teacher, story=None, success=True):
                 {'story': story, 'teacher': teacher, 'user': request.user},
                 context_instance=RequestContext(request),
                 )
-        else:
+        elif not success:
             messages.error(request, "That story has been removed.")
         return HttpResponse(
             json.dumps(data), content_type="application/json")
