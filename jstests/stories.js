@@ -28,6 +28,60 @@
         raises(block, [expected], [message])
     */
 
+    module('ajaxStoryActions', {
+        setup: function () {
+            this.containerSel = '#qunit-fixture';
+            this.container = $(this.containerSel);
+            this.buttonSel = '.test-trigger';
+            this.button = $('<button name="test-key" value="test-val" class="test-trigger">Test Button</button>');
+            this.container.find('form').append(this.button);
+            this.xhr = sinon.useFakeXMLHttpRequest();
+            var requests = this.requests = [];
+            this.xhr.onCreate = function (req) {
+                requests.push(req);
+            };
+        },
+        teardown: function () {
+            this.xhr.restore();
+            this.container.off('click');
+        }
+    });
+
+    test('form submits via ajax', function () {
+        expect(3);
+
+        KNET.ajaxStoryActions(this.buttonSel, this.containerSel);
+        this.button.click();
+
+        strictEqual(this.requests.length, 1, 'one xhr request was sent');
+        strictEqual(this.requests[0].method, 'POST', 'xhr was sent with method POST');
+        strictEqual(this.requests[0].requestBody, 'test-key=test-val', 'xhr was sent with button value in requestBody');
+    });
+
+    test('callback is called when request returns successfully', function () {
+        expect(3);
+
+        var callbackSpy = this.spy();
+        KNET.ajaxStoryActions(this.buttonSel, this.containerSel, callbackSpy);
+        this.button.click();
+        this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
+
+        ok(callbackSpy.calledOnce, 'callbackSpy() was called once');
+        ok(callbackSpy.calledWith({success: true}), 'callbackSpy() is passed the xhr response');
+        strictEqual(callbackSpy.args[0][1].get(0), this.button.closest('form').get(0), 'callbackSpy() is passed the form');
+    });
+
+    test('callback is not called if xhr request returns without success: true', function () {
+        expect(1);
+
+        var callbackSpy = this.spy();
+        KNET.ajaxStoryActions(this.buttonSel, this.containerSel, callbackSpy);
+        this.button.click();
+        this.requests[0].respond(200);
+
+        ok(!callbackSpy.called, 'callbackSpy() was not called');
+    });
+
     module('removeStory', {
         setup: function () {
             this.containerSel = '#qunit-fixture';
@@ -42,18 +96,8 @@
         },
         teardown: function () {
             this.xhr.restore();
+            this.container.off('click');
         }
-    });
-
-    test('form submits via ajax', function () {
-        expect(3);
-
-        KNET.removeStory(this.removeButtonSel, this.containerSel);
-        this.removeButton.click();
-
-        strictEqual(this.requests.length, 1, 'one xhr request was sent');
-        strictEqual(this.requests[0].method, 'POST', 'xhr was sent with method POST');
-        strictEqual(this.requests[0].requestBody, 'delete-story=1', 'xhr was sent with button value in requestBody');
     });
 
     test('story is removed after form is successfully submitted', function () {
@@ -61,25 +105,52 @@
 
         KNET.removeStory(this.removeButtonSel, this.containerSel);
 
-        strictEqual(this.container.children().length, 1);
+        strictEqual(this.container.children().length, 1, 'one story exists');
 
         this.removeButton.click();
         this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
 
-        strictEqual(this.container.children().length, 0);
+        strictEqual(this.container.children().length, 0, 'no stories exist');
     });
 
-    test('story is not removed if xhr request returns without success: true', function () {
-        expect(2);
+    module('changeStoryStatus', {
+        setup: function () {
+            this.containerSel = '#qunit-fixture';
+            this.container = $(this.containerSel);
+            this.statusButtonSel = '.story-status';
+            this.statusButton = this.container.find(this.statusButtonSel);
+            this.xhr = sinon.useFakeXMLHttpRequest();
+            var requests = this.requests = [];
+            this.xhr.onCreate = function (req) {
+                requests.push(req);
+            };
+        },
+        teardown: function () {
+            this.xhr.restore();
+            this.container.off('click');
+        }
+    });
 
-        KNET.removeStory(this.removeButtonSel, this.containerSel);
+    test('story is replaced after form is successfully submitted', function () {
+        expect(1);
 
-        strictEqual(this.container.children().length, 1);
+        var responseHTML = '<div>New Test Story</div>';
+        KNET.changeStoryStatus(this.statusButtonSel, this.containerSel);
+        this.statusButton.click();
+        this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true, "html": "' + responseHTML + '"}');
 
-        this.removeButton.click();
-        this.requests[0].respond(200);
+        strictEqual(this.container.html().trim(), responseHTML, 'story has been replaced by response.html');
+    });
 
-        strictEqual(this.container.children().length, 1);
+    test('story is not replaced if xhr request returns without response.html', function () {
+        expect(1);
+
+        var html = this.container.html();
+        KNET.changeStoryStatus(this.statusButtonSel, this.containerSel);
+        this.statusButton.click();
+        this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
+
+        strictEqual(this.container.html(), html, 'story html has not changed');
     });
 
 }(KNET, jQuery));

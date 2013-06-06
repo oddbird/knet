@@ -28,6 +28,16 @@ var KNET = (function (KNET, $) {
         KNET.ajaxStoryActions(triggerSel, containerSel, callback);
     };
 
+    KNET.changeStoryStatus = function (triggerSel, containerSel) {
+        var callback = function (response, form) {
+            if (response.html && response.html.length) {
+                var newStory = $.parseHTML(response.html);
+                form.closest('.story').replaceWith(newStory);
+            }
+        };
+        KNET.ajaxStoryActions(triggerSel, containerSel, callback);
+    };
+
     return KNET;
 
 }(KNET || {}, jQuery));

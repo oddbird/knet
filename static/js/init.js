@@ -31,6 +31,7 @@ var KNET = (function (KNET, $) {
 
         // stories.js
         KNET.removeStory('.story .story-actions .delete-story', '.teacher-detail');
+        KNET.changeStoryStatus('.story .story-actions .story-status', '.teacher-detail');
     });
 
     return KNET;
