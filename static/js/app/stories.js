@@ -23,7 +23,8 @@ var KNET = (function (KNET, $) {
 
     KNET.removeStory = function (triggerSel, containerSel) {
         var callback = function (response, form) {
-            form.closest('.story').remove();
+            var story = form.closest('.story');
+            $.when(story.fadeOut()).done(function () { story.remove(); });
         };
         KNET.ajaxStoryActions(triggerSel, containerSel, callback);
     };

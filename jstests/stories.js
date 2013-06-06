@@ -103,6 +103,7 @@
     test('story is removed after form is successfully submitted', function () {
         expect(2);
 
+        $.fx.off = true;
         KNET.removeStory(this.removeButtonSel, this.containerSel);
 
         strictEqual(this.container.children().length, 1, 'one story exists');
@@ -111,6 +112,8 @@
         this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
 
         strictEqual(this.container.children().length, 0, 'no stories exist');
+
+        $.fx.off = false;
     });
 
     module('changeStoryStatus', {
