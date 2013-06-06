@@ -125,3 +125,5 @@ def test_bad_story_id(no_csrf_client, action):
 
     assert resp.json['success'] == False
     assert 'html' not in resp.json
+    assert resp.json['messages'][0] == {
+        'message': "That story has been removed.", 'level': 40, 'tags': 'error'}
