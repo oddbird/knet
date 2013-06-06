@@ -30,7 +30,7 @@
 
     module('ajaxStoryActions', {
         setup: function () {
-            this.containerSel = '#qunit-fixture';
+            this.containerSel = '.teacher-stories';
             this.container = $(this.containerSel);
             this.buttonSel = '.test-trigger';
             this.button = $('<button name="test-key" value="test-val" class="test-trigger">Test Button</button>');
@@ -84,7 +84,7 @@
 
     module('removeStory', {
         setup: function () {
-            this.containerSel = '#qunit-fixture';
+            this.containerSel = '.teacher-stories';
             this.container = $(this.containerSel);
             this.removeButtonSel = '.delete-story';
             this.removeButton = this.container.find(this.removeButtonSel);
@@ -141,7 +141,7 @@
 
     module('changeStoryStatus', {
         setup: function () {
-            this.containerSel = '#qunit-fixture';
+            this.containerSel = '.teacher-stories';
             this.container = $(this.containerSel);
             this.statusButtonSel = '.story-status';
             this.statusButton = this.container.find(this.statusButtonSel);
@@ -177,6 +177,98 @@
         this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
 
         strictEqual(this.container.html(), html, 'story html has not changed');
+    });
+
+    module('addStory', {
+        setup: function () {
+            this.containerSel = '.add-story';
+            this.container = $(this.containerSel);
+            this.formSel = '.add-story-form';
+            this.form = this.container.find(this.formSel);
+            this.formToggleSel = '#story-form-toggle';
+            this.formToggle = this.container.find(this.formToggleSel);
+            this.bodyInput = this.form.find('#id_body');
+            this.nameInput = this.form.find('#id_submitter_name');
+            this.emailInput = this.form.find('#id_submitter_email');
+            this.privateInput = this.form.find('#id_private');
+            this.xhr = sinon.useFakeXMLHttpRequest();
+            var requests = this.requests = [];
+            this.xhr.onCreate = function (req) {
+                requests.push(req);
+            };
+            KNET.addStory(this.formSel, this.formToggleSel);
+        },
+        teardown: function () {
+            this.xhr.restore();
+        }
+    });
+
+    test('form submits via ajax', function () {
+        expect(3);
+
+        this.bodyInput.val('Test Story');
+        this.nameInput.val('Test Submitter');
+        this.emailInput.val('test@test.test');
+        this.privateInput.prop('checked', true);
+        this.form.trigger('submit');
+
+        strictEqual(this.requests.length, 1, 'one xhr request was sent');
+        strictEqual(this.requests[0].method, 'POST', 'xhr was sent with method POST');
+        strictEqual(this.requests[0].requestBody, this.form.formSerialize(), 'xhr is sent with serialized form data');
+    });
+
+    test('form is reset when submitted successfully', function () {
+        expect(4);
+
+        this.bodyInput.val('Test Story');
+        this.nameInput.val('Test Submitter');
+        this.emailInput.val('test@test.test');
+        this.privateInput.prop('checked', true);
+        this.form.trigger('submit');
+        this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
+
+        strictEqual(this.bodyInput.val(), '', 'Body has been reset.');
+        strictEqual(this.nameInput.val(), '', 'Name has been reset.');
+        strictEqual(this.emailInput.val(), '', 'Email has been reset.');
+        strictEqual(this.privateInput.prop('checked'), false, 'Private checkbox has been reset.');
+    });
+
+    test('form is not reset if xhr request returns without success: true', function () {
+        expect(4);
+
+        this.bodyInput.val('Test Story');
+        this.nameInput.val('Test Submitter');
+        this.emailInput.val('test@test.test');
+        this.privateInput.prop('checked', true);
+        this.form.trigger('submit');
+        this.requests[0].respond(200);
+
+        strictEqual(this.bodyInput.val(), 'Test Story', 'Body has not been reset.');
+        strictEqual(this.nameInput.val(), 'Test Submitter', 'Name has not been reset.');
+        strictEqual(this.emailInput.val(), 'test@test.test', 'Email has not been reset.');
+        strictEqual(this.privateInput.prop('checked'), true, 'Private checkbox has not been reset.');
+    });
+
+    test('form is hidden when submitted successfully', function () {
+        expect(1);
+
+        this.formToggle.prop('checked', false);
+        this.bodyInput.val('Test Story');
+        this.form.trigger('submit');
+        this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
+
+        ok(this.formToggle.prop('checked'), 'form is hidden');
+    });
+
+    test('form is not hidden if xhr request returns without success: true', function () {
+        expect(1);
+
+        this.formToggle.prop('checked', false);
+        this.bodyInput.val('Test Story');
+        this.form.trigger('submit');
+        this.requests[0].respond(200);
+
+        ok(!this.formToggle.prop('checked'), 'form is still open');
     });
 
 }(KNET, jQuery));

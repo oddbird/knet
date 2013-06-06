@@ -46,6 +46,18 @@ var KNET = (function (KNET, $) {
         KNET.ajaxStoryActions(triggerSel, containerSel, callback);
     };
 
+    KNET.addStory = function (formSel, formToggleSel) {
+        var form = $(formSel);
+        form.ajaxForm({
+            success: function (response) {
+                if (response && response.success) {
+                    form.get(0).reset();
+                    $(formToggleSel).prop('checked', true);
+                }
+            }
+        });
+    };
+
     return KNET;
 
 }(KNET || {}, jQuery));

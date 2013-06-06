@@ -29,21 +29,48 @@
   <h2 id="qunit-userAgent"></h2>
   <ol id="qunit-tests"></ol>
   <div id="qunit-fixture">
-    <article class="story private">
-      <div class="story-body">
-        <p>A Test Story</p>
-      </div>
-      <header class="story-info">
-        <h1 class="author-name">A Test Student</h1>
-        <time class="pubdate" pubdate>June 3, 2013 07:58 p.m.</time>
-      </header>
-      <div class="story-actions">
-        <form method="POST">
-          <button name="publish-story" value="1" class="story-status unlock" title="Make this story public">unlock</button>
-          <button name="delete-story" value="1" class="delete-story">Delete</button>
-        </form>
-      </div>
-    </article>
+    <div class="teacher-stories">
+      <article class="story private">
+        <div class="story-body">
+          <p>A Test Story</p>
+        </div>
+        <header class="story-info">
+          <h1 class="author-name">A Test Student</h1>
+          <time class="pubdate" pubdate>June 3, 2013 07:58 p.m.</time>
+        </header>
+        <div class="story-actions">
+          <form method="POST">
+            <button name="publish-story" value="1" class="story-status unlock" title="Make this story public">unlock</button>
+            <button name="delete-story" value="1" class="delete-story">Delete</button>
+          </form>
+        </div>
+      </article>
+    </div>
+    <div class="add-story">
+      <input type="checkbox" id="story-form-toggle" checked>
+      <form class="add-story-form" method="POST">
+        <fieldset class="formfield body-field">
+          <label for="id_body" class="form-type">Leave a story</label>
+          <textarea name="body" required id="id_body" rows="10" cols="40" class="form-value"></textarea>
+          <p class="form-help">You can include video by pasting in a <a href="http://youtube.com/">youtube</a> link.</p>
+        </fieldset>
+        <fieldset class="formfield private-field optional check">
+          <input type="checkbox" name="private" class="form-value" id="id_private">
+          <label for="id_private" class="form-type">Keep this story private</label>
+        </fieldset>
+        <fieldset class="formfield submitter_name-field optional">
+          <label for="id_submitter_name" class="form-type">Name</label>
+          <input type="text" name="submitter_name" class="form-value" id="id_submitter_name">
+        </fieldset>
+        <fieldset class="formfield submitter_email-field optional">
+          <label for="id_submitter_email" class="form-type">Email</label>
+          <input type="email" name="submitter_email" class="form-value" id="id_submitter_email">
+        </fieldset>
+        <div class="form-actions">
+          <button class="primary-action" type="submit" name="submit">Send</button>
+        </div>
+      </form>
+    </div>
   </div>
 </body>
 </html>
