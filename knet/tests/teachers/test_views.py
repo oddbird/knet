@@ -1,11 +1,11 @@
 from django.core.urlresolvers import reverse
 import pytest
 
-from knet.stories.models import Story
+from knet.teachers.models import Story
+
 from ..factories import UserFactory
-from ..stories.factories import StoryFactory
 from ..utils import redirects_to, is_deleted, refresh
-from .factories import TeacherProfileFactory
+from .factories import TeacherProfileFactory, StoryFactory
 
 
 

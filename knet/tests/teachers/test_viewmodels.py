@@ -1,7 +1,6 @@
 from knet.teachers.viewmodels import ViewTeacher
 
-from ..stories.factories import StoryFactory
-from .factories import TeacherProfileFactory
+from .factories import TeacherProfileFactory, StoryFactory
 
 
 

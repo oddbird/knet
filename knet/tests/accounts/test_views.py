@@ -24,7 +24,7 @@ def test_oauth(client):
         'teacher_detail', kwargs={'username': 'oauthuser'})
 
 
-class ErrorProvider(object):
+class ErrorProvider:
     def __init__(self, *a, **kw):
         pass
 

@@ -1,6 +1,6 @@
-from knet.stories.forms import StoryForm
+from knet.teachers.forms import StoryForm
 
-from ..teachers.factories import TeacherProfileFactory
+from .factories import TeacherProfileFactory
 
 
 

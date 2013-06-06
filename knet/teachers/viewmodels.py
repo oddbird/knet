@@ -1,4 +1,4 @@
-class ViewTeacher(object):
+class ViewTeacher:
     """View model for a ``TeacherProfile`` and associated ``User``."""
     def __init__(self, teacher_profile):
         self._profile = teacher_profile

@@ -1,4 +1,4 @@
-from knet.stories.templatetags.stories import stories_visible_to
+from knet.teachers.templatetags.stories import stories_visible_to
 from knet.teachers.viewmodels import ViewTeacher
 
 from ...factories import UserFactory

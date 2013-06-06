@@ -1,10 +1,9 @@
-from knet.stories.forms import StoryForm
+from knet.teachers.forms import StoryForm
 from knet.teachers.viewmodels import ViewTeacher
 
 from ..factories import UserFactory
-from ..stories.factories import StoryFactory
 from ..utils import render_to_soup, innerhtml
-from .factories import TeacherProfileFactory
+from .factories import TeacherProfileFactory, StoryFactory
 
 
 
