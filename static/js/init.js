@@ -30,8 +30,8 @@ var KNET = (function (KNET, $) {
         KNET.landingForm('form.signup', '#messages');
 
         // stories.js
-        KNET.removeStory('.story .story-actions .delete-story', '.teacher-detail');
-        KNET.changeStoryStatus('.story .story-actions .story-status', '.teacher-detail');
+        KNET.removeStory('.story .story-actions .delete-story', '.teacher-stories');
+        KNET.changeStoryStatus('.story .story-actions .story-status', '.teacher-stories');
     });
 
     return KNET;

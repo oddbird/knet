@@ -24,7 +24,14 @@ var KNET = (function (KNET, $) {
     KNET.removeStory = function (triggerSel, containerSel) {
         var callback = function (response, form) {
             var story = form.closest('.story');
-            $.when(story.fadeOut()).done(function () { story.remove(); });
+            var container = $(containerSel);
+            $.when(story.fadeOut()).done(function () {
+                story.remove();
+                if (!container.children('.story').length) {
+                    var noStoriesMsg = KNET.tpl('no_stories_msg');
+                    container.html(noStoriesMsg);
+                }
+            });
         };
         KNET.ajaxStoryActions(triggerSel, containerSel, callback);
     };

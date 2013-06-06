@@ -106,12 +106,35 @@
         $.fx.off = true;
         KNET.removeStory(this.removeButtonSel, this.containerSel);
 
-        strictEqual(this.container.children().length, 1, 'one story exists');
+        strictEqual(this.container.children('.story').length, 1, 'one story exists');
 
         this.removeButton.click();
         this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
 
-        strictEqual(this.container.children().length, 0, 'no stories exist');
+        strictEqual(this.container.children('.story').length, 0, 'no stories exist');
+
+        $.fx.off = false;
+    });
+
+    test('"no stories" msg is added after last story is removed', function () {
+        expect(4);
+
+        $.fx.off = true;
+        KNET.removeStory(this.removeButtonSel, this.containerSel);
+        this.container.find('.story').clone().appendTo(this.container);
+
+        strictEqual(this.container.children('.story').length, 2, 'two stories exists');
+
+        this.removeButton.click();
+        this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
+
+        strictEqual(this.container.children('.story').length, 1, 'one story exists');
+
+        this.container.find(this.removeButtonSel).click();
+        this.requests[1].respond(200, {'content-type': 'application/json'}, '{"success": true}');
+
+        strictEqual(this.container.children('.story').length, 0, 'no stories exist');
+        strictEqual(this.container.html(), KNET.tpl('no_stories_msg').get(0).outerHTML, '"no stories" msg exists');
 
         $.fx.off = false;
     });
