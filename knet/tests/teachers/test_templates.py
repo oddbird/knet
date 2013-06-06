@@ -12,7 +12,7 @@ def test_bio_rendered_with_markdown():
     tp = TeacherProfileFactory.build(user__bio="Some *text*")
     bio = render_to_soup(
         'teacher_detail.html',
-        {'teacher': tp.user, 'form': StoryForm(tp.user)},
+        {'teacher': tp.user, 'form': StoryForm(tp)},
         ).find('div', 'teacher-bio')
 
     assert innerhtml(bio) == '<p>Some <em>text</em></p>'
@@ -32,7 +32,7 @@ def test_only_published_stories_shown():
     s = StoryFactory.build(published=False)
     u = UserFactory.build(id=1)
     soup = render_to_soup(
-        '_story.html', {'story': s, 'teacher': s.teacher, 'user': u})
+        '_story.html', {'story': s, 'teacher': s.profile.user, 'user': u})
 
     assert str(soup).strip() == ''
 
@@ -41,7 +41,9 @@ def test_unpublished_story_shown_to_me():
     """I can see unpublished stories on my own profile."""
     s = StoryFactory.build(published=False)
     soup = render_to_soup(
-        '_story.html', {'story': s, 'teacher': s.teacher, 'user': s.teacher})
+        '_story.html',
+        {'story': s, 'teacher': s.profile.user, 'user': s.profile.user},
+        )
 
     assert len(soup.findAll('article', 'story')) == 1
 
@@ -51,6 +53,6 @@ def test_no_story_controls_on_someone_elses_profile():
     s = StoryFactory.build(private=False, published=True)
     u = UserFactory.build(id=1)
     soup = render_to_soup(
-        '_story.html', {'story': s, 'teacher': s.teacher, 'user': u})
+        '_story.html', {'story': s, 'teacher': s.profile.user, 'user': u})
 
     assert len(soup.findAll('button')) == 0

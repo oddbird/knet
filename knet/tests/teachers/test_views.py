@@ -11,8 +11,8 @@ from .factories import TeacherProfileFactory
 
 def test_submit_story_anonymously(client):
     """User can submit a story anonymously on the teacher profile page."""
-    teacher = TeacherProfileFactory.create()
-    url = reverse('teacher_detail', kwargs={'username': teacher.user.username})
+    profile = TeacherProfileFactory.create()
+    url = reverse('teacher_detail', kwargs={'username': profile.user.username})
     form = client.get(url).forms[0]
     form['body'] = "It was a dark and stormy night."
     resp = form.submit()
@@ -26,8 +26,8 @@ def test_submit_story_anonymously(client):
 
 def test_submit_story_requires_body(client):
     """User can submit a story anonymously on the teacher profile page."""
-    teacher = TeacherProfileFactory.create()
-    url = reverse('teacher_detail', kwargs={'username': teacher.user.username})
+    profile = TeacherProfileFactory.create()
+    url = reverse('teacher_detail', kwargs={'username': profile.user.username})
     form = client.get(url).forms[0]
     resp = form.submit()
 
@@ -54,10 +54,10 @@ def test_404_on_non_teacher_user(client):
 
 def test_delete_story(client):
     """Can delete a story on my profile page."""
-    tp = TeacherProfileFactory.create()
-    s = StoryFactory.create(teacher=tp.user)
-    url = reverse('teacher_detail', kwargs={'username': s.teacher.username})
-    form = client.get(url, user=s.teacher, status=200).forms[1]
+    s = StoryFactory.create()
+    u = s.profile.user
+    url = reverse('teacher_detail', kwargs={'username': u.username})
+    form = client.get(url, user=u, status=200).forms[1]
 
     resp = form.submit('delete-story', status=302)
 
@@ -68,12 +68,12 @@ def test_delete_story(client):
 
 def test_delete_story_ajax(no_csrf_client):
     """Can delete a story on my profile page via ajax."""
-    tp = TeacherProfileFactory.create()
-    s = StoryFactory.create(teacher=tp.user)
-    url = reverse('teacher_detail', kwargs={'username': s.teacher.username})
+    s = StoryFactory.create()
+    u = s.profile.user
+    url = reverse('teacher_detail', kwargs={'username': u.username})
 
     resp = no_csrf_client.post(
-        url, {'delete-story': s.id}, user=s.teacher, status=200, ajax=True)
+        url, {'delete-story': s.id}, user=u, status=200, ajax=True)
 
     assert resp.json['success'] == True
     assert resp.json['messages'][0]['message'] == "Story deleted."
@@ -83,10 +83,10 @@ def test_delete_story_ajax(no_csrf_client):
 
 def test_publish_story(client):
     """Can publish a story on my profile page."""
-    tp = TeacherProfileFactory.create()
-    s = StoryFactory.create(teacher=tp.user, private=False, published=False)
-    url = reverse('teacher_detail', kwargs={'username': s.teacher.username})
-    form = client.get(url, user=s.teacher, status=200).forms[1]
+    s = StoryFactory.create(private=False, published=False)
+    u = s.profile.user
+    url = reverse('teacher_detail', kwargs={'username': u.username})
+    form = client.get(url, user=u, status=200).forms[1]
 
     resp = form.submit('publish-story', status=302)
 
@@ -97,12 +97,12 @@ def test_publish_story(client):
 
 def test_publish_story_ajax(no_csrf_client):
     """Can publish a story on my profile page via ajax."""
-    tp = TeacherProfileFactory.create()
-    s = StoryFactory.create(teacher=tp.user, private=False, published=False)
-    url = reverse('teacher_detail', kwargs={'username': s.teacher.username})
+    s = StoryFactory.create(private=False, published=False)
+    u = s.profile.user
+    url = reverse('teacher_detail', kwargs={'username': u.username})
 
     resp = no_csrf_client.post(
-        url, {'publish-story': s.id}, user=s.teacher, status=200, ajax=True)
+        url, {'publish-story': s.id}, user=u, status=200, ajax=True)
 
     assert resp.json['success'] == True
     assert 'html' in resp.json
@@ -112,10 +112,10 @@ def test_publish_story_ajax(no_csrf_client):
 
 def test_hide_story(client):
     """Can hide a story on my profile page."""
-    tp = TeacherProfileFactory.create()
-    s = StoryFactory.create(teacher=tp.user, private=False, published=True)
-    url = reverse('teacher_detail', kwargs={'username': s.teacher.username})
-    form = client.get(url, user=s.teacher, status=200).forms[1]
+    s = StoryFactory.create(private=False, published=True)
+    u = s.profile.user
+    url = reverse('teacher_detail', kwargs={'username': u.username})
+    form = client.get(url, user=u, status=200).forms[1]
 
     resp = form.submit('hide-story', status=302)
 
@@ -126,12 +126,12 @@ def test_hide_story(client):
 
 def test_hide_story_ajax(no_csrf_client):
     """Can hide a story on my profile page via ajax."""
-    tp = TeacherProfileFactory.create()
-    s = StoryFactory.create(teacher=tp.user, private=False, published=True)
-    url = reverse('teacher_detail', kwargs={'username': s.teacher.username})
+    s = StoryFactory.create(private=False, published=True)
+    u = s.profile.user
+    url = reverse('teacher_detail', kwargs={'username': u.username})
 
     resp = no_csrf_client.post(
-        url, {'hide-story': s.id}, user=s.teacher, status=200, ajax=True)
+        url, {'hide-story': s.id}, user=u, status=200, ajax=True)
 
     assert resp.json['success'] == True
     assert 'html' in resp.json

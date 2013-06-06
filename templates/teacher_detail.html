@@ -35,7 +35,7 @@
 
   {# Stories #}
   <section class="teacher-stories">
-    {% for story in teacher.stories.all %}
+    {% for story in profile.stories.all %}
     {% include "_story.html" %}
     {% empty %}
     <div class="no-stories-message">

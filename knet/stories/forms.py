@@ -16,15 +16,21 @@ class StoryForm(forms.ModelForm):
             }
 
 
-    def __init__(self, *args, **kw):
-        self.teacher = args[0]
-        super(StoryForm, self).__init__(*args[1:], **kw)
+    def __init__(self, profile, *args, **kw):
+        """
+        Accept ``profile`` argument in addition to normal ``ModelForm`` args.
+
+        ``profile`` should be a ``TeacherProfile`` instance.
+
+        """
+        self.profile = profile
+        super(StoryForm, self).__init__(*args, **kw)
 
 
     def save(self, commit=True):
         """Save the story for the appropriate teacher."""
         story = super(StoryForm, self).save(commit=False)
-        story.teacher = self.teacher
+        story.profile = self.profile
         if commit:
             story.save()
         return story

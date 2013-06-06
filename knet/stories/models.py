@@ -2,12 +2,12 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils import text, timezone
 
-from ..accounts.models import User
+from ..teachers.models import TeacherProfile
 
 
 class Story(models.Model):
     """A story from a student about the impact a teacher had on them."""
-    teacher = models.ForeignKey(User, related_name='stories')
+    profile = models.ForeignKey(TeacherProfile, related_name='stories')
     body = models.TextField()
     # submitter requested that this story remain private
     private = models.BooleanField(default=False)

@@ -44,13 +44,14 @@ def teacher_detail(request, username):
 
         if 'delete-story' in request.POST:
             with transaction.atomic():
-                teacher.stories.filter(pk=request.POST['delete-story']).delete()
+                teacher_profile.stories.filter(
+                    pk=request.POST['delete-story']).delete()
             messages.success(request, "Story deleted.")
             return _response(request, teacher)
         elif 'publish-story' in request.POST:
             with transaction.atomic():
                 story = get_or_none(
-                    teacher.stories.select_for_update(),
+                    teacher_profile.stories.select_for_update(),
                     pk=request.POST['publish-story'],
                     private=False,
                     published=False,
@@ -62,7 +63,7 @@ def teacher_detail(request, username):
         elif 'hide-story' in request.POST:
             with transaction.atomic():
                 story = get_or_none(
-                    teacher.stories.select_for_update(),
+                    teacher_profile.stories.select_for_update(),
                     pk=request.POST['hide-story'],
                     published=True,
                     )
@@ -71,14 +72,14 @@ def teacher_detail(request, username):
                     story.save()
             return _response(request, teacher, story, success=story is not None)
 
-        form = StoryForm(teacher, request.POST)
+        form = StoryForm(teacher_profile, request.POST)
         if form.is_valid():
             with transaction.atomic():
                 form.save()
             messages.success(request, "Thanks for submitting your story!")
             return _response(request, teacher)
     else:
-        form = StoryForm(teacher)
+        form = StoryForm(teacher_profile)
 
     return render(
         request, 'teacher_detail.html', {'form': form, 'teacher': teacher})
