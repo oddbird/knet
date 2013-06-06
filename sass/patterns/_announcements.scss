@@ -43,8 +43,10 @@ $announce-h-position: right;
     @include adjust-font-size-to($smallpx);
     @include icon-replace(cancel-circle);
     position: absolute;
+    display: inline-block;
     right: .125rem;
     top: 0;
+    width: 1em;
   }
 }
 

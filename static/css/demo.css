@@ -569,8 +569,10 @@ label {
   line-height: 23px;
   line-height: 1.27778rem;
   position: absolute;
+  display: inline-block;
   right: .125rem;
   top: 0;
+  width: 1em;
 }
 
 .announce, .message {
