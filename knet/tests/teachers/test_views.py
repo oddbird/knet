@@ -109,7 +109,7 @@ def test_publish_or_hide_story_ajax(no_csrf_client, action):
         url, {action: s.id}, user=u, status=200, ajax=True)
 
     assert resp.json['success'] == True
-    assert 'html' in resp.json
+    assert 'csrfmiddlewaretoken' in resp.json['html']
     assert refresh(s).published == (not initially_published)
 
 

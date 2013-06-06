@@ -6,6 +6,7 @@ from django.db import transaction
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
+from django.template import RequestContext
 
 from .forms import StoryForm
 from .models import TeacherProfile
@@ -29,6 +30,7 @@ def _response(request, teacher, story=None, success=True):
             data['html'] = render_to_string(
                 '_story.html',
                 {'story': story, 'teacher': teacher, 'user': request.user},
+                context_instance=RequestContext(request),
                 )
         return HttpResponse(
             json.dumps(data), content_type="application/json")
@@ -40,19 +42,19 @@ def _response(request, teacher, story=None, success=True):
 def teacher_detail(request, username):
     teacher_profile = get_object_or_404(
         TeacherProfile.objects.select_related('user'), user__username=username)
-    teacher = teacher_profile.user
+    teacher = ViewTeacher(teacher_profile)
     if request.method == 'POST':
 
         if 'delete-story' in request.POST:
             with transaction.atomic():
-                teacher_profile.stories.filter(
+                teacher.stories().filter(
                     pk=request.POST['delete-story']).delete()
             messages.success(request, "Story deleted.")
             return _response(request, teacher)
         elif 'publish-story' in request.POST:
             with transaction.atomic():
                 story = get_or_none(
-                    teacher_profile.stories.select_for_update(),
+                    teacher.stories().select_for_update(),
                     pk=request.POST['publish-story'],
                     private=False,
                     )
@@ -63,7 +65,7 @@ def teacher_detail(request, username):
         elif 'hide-story' in request.POST:
             with transaction.atomic():
                 story = get_or_none(
-                    teacher_profile.stories.select_for_update(),
+                    teacher.stories().select_for_update(),
                     pk=request.POST['hide-story'],
                     )
                 if story:
@@ -83,5 +85,5 @@ def teacher_detail(request, username):
     return render(
         request,
         'teacher_detail.html',
-        {'form': form, 'teacher': ViewTeacher(teacher_profile)},
+        {'form': form, 'teacher': teacher},
         )
