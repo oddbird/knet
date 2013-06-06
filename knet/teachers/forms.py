@@ -25,6 +25,10 @@ class StoryForm(forms.ModelForm):
         """
         self.profile = profile
         super(StoryForm, self).__init__(*args, **kw)
+        self.fields['body'].error_messages['required'] = (
+            "You seem to have left your story blank.")
+        self.fields['submitter_email'].error_messages['invalid'] = (
+            "That doesn't look like an email address; double-check it?")
 
 
     def save(self, commit=True):

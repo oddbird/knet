@@ -33,7 +33,59 @@ def test_submit_story_requires_body(client):
 
     assert resp.status_code == 200
     assert Story.objects.count() == 0
-    resp.mustcontain("field is required")
+    resp.mustcontain("left your story blank")
+
+
+
+def test_submit_story_ajax(no_csrf_client):
+    """User can submit a story via AJAX."""
+    profile = TeacherProfileFactory.create()
+    url = reverse('teacher_detail', kwargs={'username': profile.user.username})
+    resp = no_csrf_client.post(
+        url, {'body': "It was a dark and stormy night."}, status=200, ajax=True)
+
+    assert resp.json['success']
+    assert resp.json['messages'] == [{
+            'level': 25,
+            'tags': 'success',
+            'message': "Thanks for submitting your story!",
+            }]
+    s = Story.objects.get()
+    assert s.body == "It was a dark and stormy night."
+
+
+
+def test_submit_story_ajax_requires_body(no_csrf_client):
+    """Error if story submitted via ajax with no body."""
+    profile = TeacherProfileFactory.create()
+    url = reverse('teacher_detail', kwargs={'username': profile.user.username})
+    resp = no_csrf_client.post(url, {'body': ""}, status=200, ajax=True)
+
+    assert not resp.json['success']
+    assert resp.json['messages'] == [{
+            'level': 40,
+            'tags': 'error',
+            'message': "You seem to have left your story blank.",
+            }]
+    assert not Story.objects.count()
+
+
+
+def test_submit_story_ajax_invalid_email(no_csrf_client):
+    """Error if story submitted via ajax with invalid email address."""
+    profile = TeacherProfileFactory.create()
+    url = reverse('teacher_detail', kwargs={'username': profile.user.username})
+    resp = no_csrf_client.post(
+        url, {'body': "Foo", 'submitter_email': "bar"}, status=200, ajax=True)
+
+    assert not resp.json['success']
+    assert resp.json['messages'] == [{
+            'level': 40,
+            'tags': 'error',
+            'message':
+                "That doesn't look like an email address; double-check it?",
+            }]
+    assert not Story.objects.count()
 
 
 

@@ -32,8 +32,6 @@ def _response(request, teacher, story=None, success=True):
                 {'story': story, 'teacher': teacher, 'user': request.user},
                 context_instance=RequestContext(request),
                 )
-        elif not success:
-            messages.error(request, "That story has been removed.")
         return HttpResponse(
             json.dumps(data), content_type="application/json")
     else:
@@ -63,6 +61,8 @@ def teacher_detail(request, username):
                 if story:
                     story.published = True
                     story.save()
+                else:
+                    messages.error(request, "That story has been removed.")
             return _response(request, teacher, story, success=story is not None)
         elif 'hide-story' in request.POST:
             with transaction.atomic():
@@ -73,6 +73,8 @@ def teacher_detail(request, username):
                 if story:
                     story.published = False
                     story.save()
+                else:
+                    messages.error(request, "That story has been removed.")
             return _response(request, teacher, story, success=story is not None)
 
         form = StoryForm(teacher_profile, request.POST)
@@ -81,6 +83,12 @@ def teacher_detail(request, username):
                 form.save()
             messages.success(request, "Thanks for submitting your story!")
             return _response(request, teacher)
+        elif request.is_ajax():
+            # provide form errors as user messages instead of form errors
+            for fieldname, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, error)
+            return _response(request, teacher, success=False)
     else:
         form = StoryForm(teacher_profile)
 
