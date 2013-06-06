@@ -55,7 +55,6 @@ def teacher_detail(request, username):
                     teacher_profile.stories.select_for_update(),
                     pk=request.POST['publish-story'],
                     private=False,
-                    published=False,
                     )
                 if story:
                     story.published = True
@@ -66,7 +65,6 @@ def teacher_detail(request, username):
                 story = get_or_none(
                     teacher_profile.stories.select_for_update(),
                     pk=request.POST['hide-story'],
-                    published=True,
                     )
                 if story:
                     story.published = False

@@ -81,61 +81,36 @@ def test_delete_story_ajax(no_csrf_client):
 
 
 
-def test_publish_story(client):
-    """Can publish a story on my profile page."""
-    s = StoryFactory.create(private=False, published=False)
+@pytest.mark.parametrize('action', ['publish-story', 'hide-story'])
+def test_publish_or_hide_story(client, action):
+    """Can publish/hide a story on my profile page."""
+    initially_published = (action == 'hide-story')
+    s = StoryFactory.create(private=False, published=initially_published)
     u = s.profile.user
     url = reverse('teacher_detail', kwargs={'username': u.username})
     form = client.get(url, user=u, status=200).forms[1]
 
-    resp = form.submit('publish-story', status=302)
+    resp = form.submit(action, status=302)
 
     assert redirects_to(resp) == url
-    assert refresh(s).published
+    assert refresh(s).published == (not initially_published)
 
 
 
-def test_publish_story_ajax(no_csrf_client):
+@pytest.mark.parametrize('action', ['publish-story', 'hide-story'])
+def test_publish_or_hide_story_ajax(no_csrf_client, action):
     """Can publish a story on my profile page via ajax."""
-    s = StoryFactory.create(private=False, published=False)
+    initially_published = (action == 'hide-story')
+    s = StoryFactory.create(private=False, published=initially_published)
     u = s.profile.user
     url = reverse('teacher_detail', kwargs={'username': u.username})
 
     resp = no_csrf_client.post(
-        url, {'publish-story': s.id}, user=u, status=200, ajax=True)
+        url, {action: s.id}, user=u, status=200, ajax=True)
 
     assert resp.json['success'] == True
     assert 'html' in resp.json
-    assert refresh(s).published
-
-
-
-def test_hide_story(client):
-    """Can hide a story on my profile page."""
-    s = StoryFactory.create(private=False, published=True)
-    u = s.profile.user
-    url = reverse('teacher_detail', kwargs={'username': u.username})
-    form = client.get(url, user=u, status=200).forms[1]
-
-    resp = form.submit('hide-story', status=302)
-
-    assert redirects_to(resp) == url
-    assert not refresh(s).published
-
-
-
-def test_hide_story_ajax(no_csrf_client):
-    """Can hide a story on my profile page via ajax."""
-    s = StoryFactory.create(private=False, published=True)
-    u = s.profile.user
-    url = reverse('teacher_detail', kwargs={'username': u.username})
-
-    resp = no_csrf_client.post(
-        url, {'hide-story': s.id}, user=u, status=200, ajax=True)
-
-    assert resp.json['success'] == True
-    assert 'html' in resp.json
-    assert not refresh(s).published
+    assert refresh(s).published == (not initially_published)
 
 
 
