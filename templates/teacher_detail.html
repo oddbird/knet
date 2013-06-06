@@ -1,21 +1,21 @@
 {% extends "base_site.html" %}
 
-{% load markup %}
+{% load markup stories %}
 
-{% block main %}{% with profile=teacher.teacher_profile %}
+{% block main %}
 <article class="teacher-detail">
 
   {# Teacher Info #}
   <header class="teacher-info">
-    {% if teacher != user %} {# no leaving stories for yourself! #}
+    {% if teacher.user != user %} {# no leaving stories for yourself! #}
       <label for="story-form-toggle" class="toggle-addstory-main">Hide Form</label>
     {% endif %}
     <h1 class="teacher-name">{{ teacher }}</h1>
 
     <ul class="teacher-data">
-      {% if profile.school %}
+      {% if teacher.school %}
       <li class=" data-item school">
-        <span class="value">{{ profile.school }}</span>
+        <span class="value">{{ teacher.school }}</span>
       </li>
       {% endif %}
       <li class=" data-item membership">
@@ -27,7 +27,7 @@
   </header>
 
   {# Story Form #}
-  {% if teacher != user %} {# no leaving stories for yourself! #}
+  {% if user != teacher.user %} {# no leaving stories for yourself! #}
   <input type="checkbox" id="story-form-toggle" checked/>
 
   {% include "_add_story_form.html" %}
@@ -35,11 +35,11 @@
 
   {# Stories #}
   <section class="teacher-stories">
-    {% for story in profile.stories.all %}
+    {% for story in teacher|stories_visible_to:user %}
     {% include "_story.html" %}
     {% empty %}
     <div class="no-stories-message">
-      {% if teacher == user %}
+      {% if user == teacher.user %}
         <p>You have no stories.</p>
       {% else %}
         <label for="story-form-toggle" class="toggle-addstory-body"></label>
@@ -49,4 +49,4 @@
     {% endfor %}
   </section>
 </article>
-{% endwith %}{% endblock %}
+{% endblock %}

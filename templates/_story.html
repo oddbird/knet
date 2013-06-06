@@ -1,5 +1,4 @@
 {% load markup %}
-{% if story.published or teacher == user %}
 <article class="story {{ story.published|yesno:'public,private' }}">
   <div class="story-body">
     {{ story.body|markdown }}
@@ -10,7 +9,7 @@
     <time class="pubdate" pubdate>{{ story.created|date:'F j, Y h:i a' }}</time>
   </header>
 
-  {% if user == teacher %}
+  {% if user == teacher.user %}
     <div class="story-actions">
       <form method="POST">
         {% csrf_token %}
@@ -24,4 +23,3 @@
     </div>
   {% endif %}
 </article>
-{% endif %}

@@ -8,6 +8,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 
 from .models import TeacherProfile
+from .viewmodels import ViewTeacher
 from ..stories.forms import StoryForm
 
 
@@ -82,4 +83,7 @@ def teacher_detail(request, username):
         form = StoryForm(teacher_profile)
 
     return render(
-        request, 'teacher_detail.html', {'form': form, 'teacher': teacher})
+        request,
+        'teacher_detail.html',
+        {'form': form, 'teacher': ViewTeacher(teacher_profile)},
+        )
