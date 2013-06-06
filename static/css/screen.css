@@ -179,7 +179,7 @@ a:focus, a:hover, a:active {
   font-style: normal;
 }
 
-.user-nav [name="logout"]:before, #messages .close:before, .toggle-addstory-main:before, .toggle-addstory-body:before, .story-status.unlock:before, .story-status.lock:before, .delete-story:before, .user-nav .fb-login:before, .announce:before, .message:before, .story.private:before, [data-icon]:before {
+.user-nav [name="logout"]:before, #messages .close:before, .toggle-addstory-main:before, .toggle-addstory-body:before, .story-status.unlock:before, .story-status.lock:before, .delete-story:before, .user-nav .fb-login:before, .announce:before, .message:before, .story.private:before, .story-private-notice:before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -209,7 +209,7 @@ a:focus, a:hover, a:active {
   content: attr(data-icon);
 }
 
-.story.private:before, .story-status.unlock:before, .story-status.lock:focus:before, .story-status.lock:hover:before, .story-status.lock:active:before {
+.story.private:before, .story-status.unlock:before, .story-status.lock:focus:before, .story-status.lock:hover:before, .story-status.lock:active:before, .story-private-notice:before {
   content: "\e001";
 }
 
@@ -934,6 +934,16 @@ label {
 
 .story-actions {
   text-align: right;
+}
+
+.story-private-notice {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  display: inline-block;
+  padding: 0 0.63889rem;
+  color: #b2b2b2;
 }
 
 .delete-story:focus, .delete-story:hover, .delete-story:active {

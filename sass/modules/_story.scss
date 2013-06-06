@@ -93,6 +93,14 @@
   }
 }
 
+.story-private-notice {
+  @include icon(lock);
+  @include adjust-font-size-to($smallpx);
+  display: inline-block;
+  padding: 0 rhythm(.5);
+  color: color(lighter);
+}
+
 .delete-story {
   @include icon-replace(remove);
 
