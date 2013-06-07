@@ -222,6 +222,7 @@ PIPELINE_JS = {
             'js/base.js',
             'js/jstemplates.js',
             'js/app/handlebars_setup.js',
+            'js/app/ajax_setup.js',
             'js/landing.js',
             'js/demo.js',
             'js/app/stories.js',
