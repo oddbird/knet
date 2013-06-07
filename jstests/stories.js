@@ -325,8 +325,8 @@
 
         this.container.empty();
         this.container.data({
-            'teacher': 'test',
-            'user': 'test'
+            'teacher': 1,
+            'user': 1
         });
         KNET.updateNoStoriesMsg(this.storySel, this.msgSel, this.containerSel);
 
@@ -338,8 +338,8 @@
 
         this.container.empty();
         this.container.data({
-            'teacher': 'test',
-            'user': 'different',
+            'teacher': 1,
+            'user': 2,
             'teacher-name': 'tester'
         });
         var data = {

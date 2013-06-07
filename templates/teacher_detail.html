@@ -34,7 +34,7 @@
   {% endif %}
 
   {# Stories #}
-  <section class="teacher-stories" data-teacher="{{ teacher.user }}" data-teacher-name="{{ teacher }}" data-user="{{ user }}">
+  <section class="teacher-stories" data-teacher="{{ teacher.user.id }}" data-teacher-name="{{ teacher }}" data-user="{{ user.id }}">
     {% for story in teacher|stories_visible_to:user %}
     {% include "_story.html" %}
     {# if empty, msg inserted via js #}
