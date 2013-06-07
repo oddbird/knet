@@ -6,7 +6,58 @@
 // Layout
 // ------
 
-[role="banner"] { @extend %fixed-banner; }
+html { background: color($cyan light,.25); }
+
+[role="banner"] {
+  @extend %fixed-banner;
+
+  .brand, .meta {
+    float: left;
+    width: 50%;
+  }
+  .vcard {
+    display: inline-block;
+  }
+  .org {
+    @include after(": What's Possible") { font-weight: normal; }
+  }
+
+  .meta {
+    float: right;
+    margin-left: -1em;
+    text-align: right;
+    .vcard {
+      @include transition(opacity 300ms);
+      opacity: 1;
+      margin-left: 1em;
+      &.empty { display: none; }
+    }
+  }
+}
+
+// Headers
+// -------
+
+%demo-headers {
+  h2 {
+    @include serif;
+    @include adjust-font-size-to($xlargepx);
+    a {
+      #{$link} { color: color($alt dark); }
+      #{$focus} { color: color($accent dark); }
+    }
+  }
+
+  h3 {
+    @include trailer(.5);
+    text-transform: uppercase;
+  }
+
+  h4 {
+    @include leader;
+    font-weight: bold;
+  }
+}
 
 // Patterns
 // --------
@@ -39,6 +90,7 @@ $steps: teacher-login learner-login topic-select learning-session results profil
 
 .demo {
   @extend %type;
+  @extend %demo-headers;
   @include padding-leader(3);
   min-height: 100%;
   counter-reset: demo;
@@ -93,13 +145,14 @@ $steps: teacher-login learner-login topic-select learning-session results profil
   @include pie-clearfix;
   @include leader(.5);
   @include leading-border(2px,.5);
-  @include pad(1,1);
   position: relative;
+  padding-left: span(1);
+  padding-right: span(1);
   border-top: 2px dotted color($blue,.25);
   counter-increment: demo;
 
   h2 {
-    margin: 0 0 - columns(1,8);
+    margin: 0 0 - span(1 of 8);
     color: color($accent);
     @include before(unquote('counter(demo) " : "')) {
       color: color(light);
@@ -126,7 +179,7 @@ $steps: teacher-login learner-login topic-select learning-session results profil
   }
   .session {
     float: right;
-    width: columns(3);
+    width: span(3);
     height: 100%;
     margin-left: -1em;
     padding: rhythm(.5);
@@ -143,11 +196,11 @@ $steps: teacher-login learner-login topic-select learning-session results profil
 }
 
 .learner-feedback {
-  @include span-columns(4,8);
+  @include span(4 of 8);
 }
 
 .teacher-feedback {
-  @include span-columns(4 omega,8);
+  @include span(last 4 of 8);
 }
 
 .feedback-item {
@@ -184,12 +237,12 @@ $steps: teacher-login learner-login topic-select learning-session results profil
 // --------
 
 .learner-profile {
-  @include span-columns(4,8);
+  @include span(4 of 8);
   @include trailer;
 }
 
 .teacher-profile {
-  @include span-columns(4 omega,8);
+  @include span(last 4 of 8);
   @include trailer;
 }
 

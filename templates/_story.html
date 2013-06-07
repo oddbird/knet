@@ -1,0 +1,27 @@
+{% load markup %}
+<article class="story {{ story.published|yesno:'published,hidden' }} {{ story.private|yesno:'private,public' }}">
+  <div class="story-body">
+    {{ story.body|markdown }}
+  </div>
+
+  <header class="story-info">
+    <h1 class="author-name">{{ story.submitter_name }}</h1>
+    <time class="pubdate" pubdate>{{ story.created|date:'F j, Y g:i a e' }}</time>
+  </header>
+
+  {% if user == teacher.user %}
+    <div class="story-actions">
+      <form method="POST">
+        {% csrf_token %}
+        {% if story.published %}
+          <button type="submit" name="hide-story" value="{{ story.id }}" class="story-status hide" title="Hide this story">hide</button>
+        {% elif story.private %}
+          <p class="story-private-notice" title="This is a private note, just for you.">private</p>
+        {% else %}
+          <button type="submit" name="publish-story" value="{{ story.id }}" class="story-status publish" title="Publish this story">publish</button>
+        {% endif %}
+        <button type="submit" name="delete-story" value="{{ story.id }}" class="delete-story" title="Delete this story.">Delete</button>
+      </form>
+    </div>
+  {% endif %}
+</article>

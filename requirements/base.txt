@@ -1,5 +1,7 @@
 Django==1.6a1
 
+pytz==2013b
+
 psycopg2==2.5
 South==0.8.1.hg1228
 
@@ -10,8 +12,17 @@ django-widget-tweaks==1.3
 
 django-messages-ui==0.2.6
 
+django-form-utils==0.2.0.post96
+
 django-pipeline==1.3.9.obc1
 futures==2.1.3
 slimit==0.8.1
 ply==3.4
 rcssmin==1.0.2
+
+markdown2==2.1.0
+
+oauth2lib==0.1
+requests==1.2.3
+
+micawber==0.2.6

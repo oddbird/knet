@@ -1,0 +1,29 @@
+// Colors Style Guide
+// ==================
+
+.color-demo {
+  @include adjust-font-size-to($xsmallpx);
+  text-transform: uppercase;
+
+  div {
+    @include rhythm-borders(3px,.5);
+    display: none;
+    text-align: center;
+
+    $i: 1;
+    @each $color in $debug-colors {
+      $name: nth($color,1);
+      $value: nth($color,2);
+      &:nth-child(#{$i}) {
+        @include background(palette($value));
+        @include text-shadow(color(contrast(contrast($value)),.5) 0 1px 0);
+        display: block;
+        color: contrast($value);
+        border-color: $value;
+
+        @include before('#{$name}') { font-weight: bold; }
+      }
+      $i: $i + 1;
+    }
+  }
+}

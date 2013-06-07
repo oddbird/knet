@@ -78,6 +78,8 @@ DATABASES = {
         )
 }
 
+BASE_URL = env('KNET_BASE_URL', default={'dev': 'http://knet.hexxie.com:8000'})
+
 SECURE_FRAME_DENY = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
@@ -91,6 +93,8 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 if USE_SSL:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+ENABLE_LOGIN = env('KNET_ENABLE_LOGIN', bool, default=True)
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -103,9 +107,13 @@ INSTALLED_APPS = [
     'south',
     'djangosecure',
     'floppyforms',
+    'form_utils',
     'widget_tweaks',
-    'knet.accounts',
+    'knet',
     'knet.landing',
+    'knet.accounts',
+    'knet.teachers',
+    'knet.stories',
     ]
 
 AUTH_USER_MODEL = 'accounts.User'
@@ -129,8 +137,9 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.core.context_processors.tz',
+    'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
-    'knet.context_processors.services',
+    'knet.context_processors.settings',
     ]
 
 ROOT_URLCONF = 'knet.urls'
@@ -139,12 +148,24 @@ TEMPLATE_DIRS = os.path.join(BASE_DIR, 'templates')
 
 WSGI_APPLICATION = 'knet.wsgi.application'
 
+# Authentication
+
+OAUTH_PROVIDER = env(
+    'KNET_OAUTH_PROVIDER',
+    default={
+        'dev': 'oauth2.dummy.DummyOAuth',
+        'prod': 'oauth2.facebook.FacebookOAuth',
+        },
+    )
+OAUTH_CLIENT_ID = env('KNET_OAUTH_CLIENT_ID', default={'dev': ''})
+OAUTH_CLIENT_SECRET = env('KNET_OAUTH_CLIENT_SECRET', default={'dev': ''})
+
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'US/Eastern'
 
 USE_I18N = True
 
@@ -199,8 +220,11 @@ PIPELINE_JS = {
     'main': {
         'source_filenames': [
             'js/base.js',
+            'js/jstemplates.js',
+            'js/app/handlebars_setup.js',
             'js/landing.js',
             'js/demo.js',
+            'js/app/stories.js',
             'js/init.js',
             ],
         'output_filename': 'js/main.min.js',

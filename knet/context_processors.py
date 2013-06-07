@@ -1,6 +1,7 @@
-from django.conf import settings
+from django.conf import settings as s
 
-def services(request):
+def settings(request):
     return {
-        'GOOGLE_ANALYTICS_ID': getattr(settings, 'GOOGLE_ANALYTICS_ID', ''),
+        'GOOGLE_ANALYTICS_ID': s.GOOGLE_ANALYTICS_ID,
+        'ENABLE_LOGIN': s.ENABLE_LOGIN,
         }

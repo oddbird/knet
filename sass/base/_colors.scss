@@ -1,5 +1,5 @@
-// ---------------------------------------------------------------------------
-// Color Palette (Solarized: http://ethanschoonover.com/solarized)
+// Color Palette
+// =============
 
 $yellow   : #f2ac00;
 $orange   : #f26e00;
@@ -10,13 +10,34 @@ $blue     : #009191;
 $cyan     : #5ac8c8;
 $green    : #3ed000;
 
-// ---------------------------------------------------------------------------
 // Color System
+// ------------
 
-$base     : #005e5e;
-$alt      : $blue;
+$base     : color(darker);
+$alt      : color($blue dark);
 $accent   : $maroon;
 
-$contrasted-dark-default  : $base;
+$contrasted-dark-default  : color($base darkest);
 $contrasted-light-default : color($base lightest);
 
+// Debug
+// -----
+
+$debug: append($debug, colors);
+$debug-colors:  '$yellow'   $yellow,
+                '$orange'   $orange,
+                '$red'      $red,
+                '$pink'     $pink,
+                '$maroon'   $maroon,
+                '$blue'     $blue,
+                '$cyan'     $cyan,
+                '$green'    $green,
+                '$base'     $base,
+                '$alt'      $alt,
+                '$accent'   $accent;
+
+@mixin debug-colors {
+  @debug '# Colors';
+
+  @each $color in $debug-colors { @debug '#{nth($color,1)}: #{nth($color,2)}'; }
+}

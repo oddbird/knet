@@ -5,7 +5,7 @@ collected-assets/*
 *.pyc
 .sass-cache/
 .livereload
-htmlcov/
+pycov/
 __pycache__
 logfile
 chromedriver.log

@@ -11,10 +11,12 @@
 // Base
 // ----
 
+@import "base/debug";
 @import "base/browsers";
 @import "base/sizes";
 @import "base/colors";
 @import "base/type";
+@import "base/icons";
 @import "base/grids";
 @import "base/utilities";
 
@@ -26,7 +28,6 @@
 @import "general/root";
 @import "general/type";
 @import "general/icons";
-@import "general/icomoon";
 @import "general/forms";
 
 // Layout
@@ -35,7 +36,18 @@
 @import "layout/banner";
 @import "layout/main";
 
+// Patterns
+// --------
+
+@import "patterns/toggle-content";
+@import "patterns/announcements";
+
 // Modules
 // -------
 
 @import "modules/logo";
+
+// Plugins
+// -------
+
+@import "plugins/messages"

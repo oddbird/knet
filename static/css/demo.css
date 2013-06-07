@@ -62,56 +62,56 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 @font-face {
   font-family: "CambridgeRound";
-  src: url('../fonts/cambridge_round-webfont.woff') format('woff'), url('../fonts/cambridge_round-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round-webfont.woff?1342738619') format("woff"), url('../fonts/cambridge_round-webfont.ttf?1358363476') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRound";
-  src: url('../fonts/cambridge_round_bold-webfont.woff') format('woff'), url('../fonts/cambridge_round_bold-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round_bold-webfont.woff?1342738619') format("woff"), url('../fonts/cambridge_round_bold-webfont.ttf?1358363476') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRound";
-  src: url('../fonts/cambridge_round_it-webfont.woff') format('woff'), url('../fonts/cambridge_round_it-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round_it-webfont.woff?1342738619') format("woff"), url('../fonts/cambridge_round_it-webfont.ttf?1358363477') format("truetype");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "CambridgeRoundCond";
-  src: url('../fonts/cambridge_round_cond-webfont.woff') format('woff'), url('../fonts/cambridge_round_cond-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round_cond-webfont.woff?1351286140') format("woff"), url('../fonts/cambridge_round_cond-webfont.ttf?1358363477') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRoundCond";
-  src: url('../fonts/cambridge_round_bold_cond-webfont.woff') format('woff'), url('../fonts/cambridge_round_bold_cond-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round_bold_cond-webfont.woff?1351286140') format("woff"), url('../fonts/cambridge_round_bold_cond-webfont.ttf?1358363476') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRoundCond";
-  src: url('../fonts/cambridge_round_cond_it-webfont.woff') format('woff'), url('../fonts/cambridge_round_cond_it-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round_cond_it-webfont.woff?1351286140') format("woff"), url('../fonts/cambridge_round_cond_it-webfont.ttf?1358363477') format("truetype");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "SquareSerif";
-  src: url('../fonts/SquareSerif-Book-webfont.woff') format('woff'), url('../fonts/SquareSerif-Book-webfont.ttf') format('truetype');
+  src: url('../fonts/SquareSerif-Book-webfont.woff?1342738619') format("woff"), url('../fonts/SquareSerif-Book-webfont.ttf?1358363476') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SquareSerif";
-  src: url('../fonts/SquareSerif-Bold-webfont.woff') format('woff'), url('../fonts/SquareSerif-Bold-webfont.ttf') format('truetype');
+  src: url('../fonts/SquareSerif-Bold-webfont.woff?1342738619') format("woff"), url('../fonts/SquareSerif-Bold-webfont.ttf?1358363476') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
@@ -129,8 +129,8 @@ html {
 
 html {
   font-family: "CambridgeRound", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  color: #005e5e;
-  background: rgba(123, 211, 211, 0.25);
+  color: #4c4c4c;
+  background: rgba(229, 229, 229, 0.25);
 }
 
 html, body {
@@ -146,7 +146,7 @@ a:hover, a:active {
   outline: none;
 }
 a:link, a:visited {
-  color: #009191;
+  color: #007474;
   text-decoration: none;
 }
 a:focus, a:hover, a:active {
@@ -164,29 +164,7 @@ a:focus, a:hover, a:active {
   left: -9999px;
 }
 
-.demo h2 {
-  font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 44px;
-  font-size: 2.44444rem;
-  line-height: 58px;
-  line-height: 3.19444rem;
-}
-.demo h2 a:link, .demo h2 a:visited {
-  color: #007474;
-}
-.demo h2 a:focus, .demo h2 a:hover, .demo h2 a:active {
-  color: #760014;
-}
-.demo h3 {
-  margin-bottom: 12px;
-  margin-bottom: 0.63889rem;
-  text-transform: uppercase;
-}
-.demo h4 {
-  margin-top: 23px;
-  margin-top: 1.27778rem;
-}
-.demo h4, .demo strong {
+.demo strong {
   font-weight: bold;
 }
 .demo em {
@@ -202,76 +180,131 @@ a:focus, a:hover, a:active {
 .demo ol {
   list-style: decimal;
 }
-.demo code, .demo .code {
-  font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
-  font-size: 12px;
-  font-size: 0.66667rem;
-  line-height: 23px;
-  line-height: 1.27778rem;
-}
-.demo code {
-  display: inline-block;
-  padding: 0 .5em;
-  background: rgba(0, 87, 87, 0.125);
-}
-.demo .code {
-  line-height: 17px;
-  line-height: 0.95833rem;
-  margin-bottom: 23px;
-  margin-bottom: 1.27778rem;
-  -webkit-box-shadow: #005e5e 0 0 0.25em inset;
-  -moz-box-shadow: #005e5e 0 0 0.25em inset;
-  box-shadow: #005e5e 0 0 0.25em inset;
-  overflow: auto;
-  padding: 0.63889rem 0.95833rem;
-  border-left: 0.31944rem solid rgba(0, 28, 28, 0.25);
+
+@font-face {
+  font-family: "knet";
+  src: url('../fonts/knet.woff?1370583578') format("woff"), url('../fonts/knet.ttf?1370583578') format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-/* Use the following CSS code if you want to have a class per icon */
-[data-icon]:before {
-  font-family: 'knet';
+.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, [data-icon]:before {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  font-family: "knet";
   font-style: normal;
   speak: none;
 }
 
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
+.user-nav [name="logout"], #messages .close {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  position: relative;
+  min-width: 1em;
+  text-indent: -9999px;
+}
+.user-nav [name="logout"]:before, #messages .close:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-indent: 0;
+  text-align: center;
+}
+
 [data-icon]:before {
   content: attr(data-icon);
 }
 
-.demo button, .demo .next-button {
+#messages .close:before {
+  content: "\e006";
+}
+
+.user-nav .fb-login:before {
+  content: "\e007";
+}
+
+.announce:before, .message:before {
+  content: "\e008";
+}
+
+.message.success:before {
+  content: "\e009";
+}
+
+.message.warning:before {
+  content: "\e00a";
+}
+
+.message.error:before {
+  content: "\e00b";
+}
+
+.user-nav [name="logout"]:before {
+  content: "\e00c";
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.primary-action, .demo button, .demo .next-button {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
-  padding: 5px;
-  padding: 0.26389rem;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  background-image: -webkit-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: -moz-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: -o-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: linear-gradient(to bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+  padding: 2px;
+  padding: 0.10417rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  border-radius: 0.25rem;
+  background-image: -webkit-linear-gradient(top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -moz-linear-gradient(top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -o-linear-gradient(top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: linear-gradient(to bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
   display: inline-block;
   padding-left: 0.63889rem;
   padding-right: 0.63889rem;
   cursor: pointer;
 }
 
-.demo button:hover, .demo .next-button:hover, .demo button:focus, .demo .next-button:focus {
+.primary-action:hover, .demo button:hover, .demo .next-button:hover, .primary-action:focus, .demo button:focus, .demo .next-button:focus {
   -webkit-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   -moz-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
 }
 
-.demo button:active, .demo .next-button:active {
-  -webkit-box-shadow: #005e5e 0 0 0.31944rem inset;
-  -moz-box-shadow: #005e5e 0 0 0.31944rem inset;
-  box-shadow: #005e5e 0 0 0.31944rem inset;
-  background-image: -webkit-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: -moz-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: -o-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: linear-gradient(to top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+.primary-action:active, .demo button:active, .demo .next-button:active {
+  -webkit-box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
+  -moz-box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
+  box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
+  background-image: -webkit-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -moz-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -o-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: linear-gradient(to top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+}
+
+.primary-action {
+  border-width: 1px;
+  border-width: 0.05556rem;
+  border-style: solid;
+  padding: 5px;
+  padding: 0.26389rem;
+  padding-left: 1.27778rem;
+  padding-right: 1.27778rem;
+  background-color: #8be266;
+}
+.primary-action:after {
+  content: " »";
 }
 
 .demo button:disabled {
@@ -286,15 +319,8 @@ a:focus, a:hover, a:active {
   background-image: none;
 }
 
-button {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: none;
-  color: inherit;
+.form-actions {
+  text-align: right;
 }
 
 .formfield {
@@ -307,7 +333,21 @@ button {
   clear: both;
 }
 
-[type="text"], [type="email"], [type="password"] {
+.form-help {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  color: #6f6f6f;
+}
+
+[type="text"], [type="email"], [type="password"], [type="url"], textarea {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+[type="text"], [type="email"], [type="password"], [type="url"], textarea {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -320,15 +360,20 @@ button {
   display: block;
   width: 100%;
   border-color: #b2b2b2;
+}
+
+[type="text"], [type="email"], [type="password"], [type="url"] {
   height: 1.91667rem;
 }
 
-[role="banner"] {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 900;
+textarea {
+  min-height: 4.47222rem;
+  resize: vertical;
+}
+
+label {
+  display: inline-block;
+  cursor: pointer;
 }
 
 [role="banner"] {
@@ -351,40 +396,47 @@ button {
   display: table;
   clear: both;
 }
-[role="banner"] .branding, [role="banner"] .meta {
-  float: left;
-  width: 50%;
+[role="banner"] .org:link, [role="banner"] .org:visited {
+  font-weight: bold;
+  color: #4c4c4c;
 }
-[role="banner"] .meta {
-  float: right;
-  margin-left: -1em;
+[role="banner"] .org:focus, [role="banner"] .org:hover, [role="banner"] .org:active {
+  color: #94001a;
+}
+
+.brand {
+  width: 40%;
+  float: left;
+}
+
+.user-nav {
+  width: 60%;
+  float: left;
   text-align: right;
 }
-[role="banner"] .company, [role="banner"] .pagetitle, [role="banner"] .vcard {
+.user-nav .fb-login:before {
+  padding-right: 0.31944rem;
+}
+.user-nav .user-name, .user-nav .logout-form {
   display: inline-block;
 }
-[role="banner"] .company {
-  font-weight: bold;
+.user-nav [name="logout"] {
+  padding: 0 0.31944rem;
 }
-[role="banner"] .company:after {
-  content: ":";
+.user-nav [name="logout"]:focus, .user-nav [name="logout"]:hover, .user-nav [name="logout"]:active {
+  color: #94001a;
 }
-[role="banner"] .vcard {
-  -webkit-transition: opacity 300ms;
-  -moz-transition: opacity 300ms;
-  -o-transition: opacity 300ms;
-  transition: opacity 300ms;
-  opacity: 1;
-  margin-left: 1em;
-}
-[role="banner"] .vcard.empty {
-  display: none;
+
+[role="banner"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
 }
 
 [role="main"] {
   max-width: 49em;
-  padding-left: 0;
-  padding-right: 0;
   margin-left: auto;
   margin-right: auto;
   padding: 1.27778rem 1em;
@@ -393,6 +445,226 @@ button {
   content: "";
   display: table;
   clear: both;
+}
+
+@-moz-keyframes announce-in {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-12.77778rem);
+    transform: translateY(-12.77778rem);
+  }
+
+  100% {
+    opacity: 0.95;
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes announce-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-12.77778rem);
+    transform: translateY(-12.77778rem);
+  }
+
+  100% {
+    opacity: 0.95;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-o-keyframes announce-in {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(-12.77778rem);
+    transform: translateY(-12.77778rem);
+  }
+
+  100% {
+    opacity: 0.95;
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes announce-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-12.77778rem);
+  }
+
+  100% {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+}
+
+@-moz-keyframes announce-out {
+  0% {
+    opacity: 0.95;
+    -moz-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -moz-transform: translateX(38.33333rem);
+    transform: translateX(38.33333rem);
+  }
+}
+
+@-webkit-keyframes announce-out {
+  0% {
+    opacity: 0.95;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(38.33333rem);
+    transform: translateX(38.33333rem);
+  }
+}
+
+@-o-keyframes announce-out {
+  0% {
+    opacity: 0.95;
+    -o-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -o-transform: translateX(38.33333rem);
+    transform: translateX(38.33333rem);
+  }
+}
+
+@keyframes announce-out {
+  0% {
+    opacity: 0.95;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(38.33333rem);
+  }
+}
+
+#messages {
+  position: fixed;
+  top: 0.63889rem;
+  right: 0.63889rem;
+  width: 80%;
+  max-width: 20em;
+  z-index: 999;
+}
+#messages .close {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  position: absolute;
+  display: inline-block;
+  right: .125rem;
+  top: 0;
+  width: 1em;
+}
+
+.announce, .message {
+  font-size: 23px;
+  font-size: 1.27778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  -webkit-animation: announce-in 1s ease backwards;
+  -moz-animation: announce-in 1s ease backwards;
+  -o-animation: announce-in 1s ease backwards;
+  animation: announce-in 1s ease backwards;
+  border-width: 1px;
+  border-width: 0.05556rem;
+  border-style: solid;
+  padding: 16px;
+  padding: 0.90278rem;
+  overflow: hidden;
+  opacity: 0.95;
+  -webkit-box-shadow: #4c4c4c 0 0 0.31944rem;
+  -moz-box-shadow: #4c4c4c 0 0 0.31944rem;
+  box-shadow: #4c4c4c 0 0 0.31944rem;
+  position: relative;
+}
+.announce:before, .message:before {
+  position: absolute;
+  top: 0.95833rem;
+  left: 0.95833rem;
+}
+.announce .body, .message .body {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  margin: 0 0.31944rem 0 1.91667rem;
+}
+.announce .body a:link, .message .body a:link, .announce .body a:visited, .message .body a:visited {
+  color: #007474;
+  text-decoration: underline;
+}
+.announce .body a:focus, .message .body a:focus, .announce .body a:hover, .message .body a:hover, .announce .body a:active, .message .body a:active {
+  color: #e9ccd1;
+}
+
+.closed.announce, .closed.message, .message.closed-timeout {
+  -webkit-animation: announce-out 800ms ease forwards;
+  -moz-animation: announce-out 800ms ease forwards;
+  -o-animation: announce-out 800ms ease forwards;
+  animation: announce-out 800ms ease forwards;
+}
+
+.announce, .message {
+  color: #e5e5e5;
+  background: #009191;
+}
+.announce .close:link, .message .close:link, .announce .close:visited, .message .close:visited {
+  color: rgba(229, 229, 229, 0.75);
+}
+.announce .close:focus, .message .close:focus, .announce .close:hover, .message .close:hover, .announce .close:active, .message .close:active {
+  color: #e5e5e5;
+}
+
+.message.success {
+  color: #4c4c4c;
+  background: #3ed000;
+}
+.message.success .close:link, .message.success .close:visited {
+  color: rgba(76, 76, 76, 0.75);
+}
+.message.success .close:focus, .message.success .close:hover, .message.success .close:active {
+  color: #4c4c4c;
+}
+
+.message.warning {
+  color: #4c4c4c;
+  background: #f2ac00;
+}
+.message.warning .close:link, .message.warning .close:visited {
+  color: rgba(76, 76, 76, 0.75);
+}
+.message.warning .close:focus, .message.warning .close:hover, .message.warning .close:active {
+  color: #4c4c4c;
+}
+
+.message.error {
+  color: #e5e5e5;
+  background: #e30028;
+}
+.message.error .close:link, .message.error .close:visited {
+  color: rgba(229, 229, 229, 0.75);
+}
+.message.error .close:focus, .message.error .close:hover, .message.error .close:active {
+  color: #e5e5e5;
 }
 
 .logo {
@@ -422,6 +694,7 @@ button {
   line-height: 23px;
   line-height: 1.27778rem;
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: #007474;
   font-weight: bold;
 }
 @media (min-width: 30em) {
@@ -438,6 +711,66 @@ button {
 .tagline {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+}
+
+.js .message.js-warning {
+  display: none;
+}
+
+html {
+  background: rgba(123, 211, 211, 0.25);
+}
+
+[role="banner"] .brand, [role="banner"] .meta {
+  float: left;
+  width: 50%;
+}
+[role="banner"] .vcard {
+  display: inline-block;
+}
+[role="banner"] .org:after {
+  content: ": What's Possible";
+  font-weight: normal;
+}
+[role="banner"] .meta {
+  float: right;
+  margin-left: -1em;
+  text-align: right;
+}
+[role="banner"] .meta .vcard {
+  -webkit-transition: opacity 300ms;
+  -moz-transition: opacity 300ms;
+  -o-transition: opacity 300ms;
+  transition: opacity 300ms;
+  opacity: 1;
+  margin-left: 1em;
+}
+[role="banner"] .meta .vcard.empty {
+  display: none;
+}
+
+.demo h2 {
+  font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 43px;
+  font-size: 2.38889rem;
+  line-height: 58px;
+  line-height: 3.19444rem;
+}
+.demo h2 a:link, .demo h2 a:visited {
+  color: #005c5c;
+}
+.demo h2 a:focus, .demo h2 a:hover, .demo h2 a:active {
+  color: #760014;
+}
+.demo h3 {
+  margin-bottom: 12px;
+  margin-bottom: 0.63889rem;
+  text-transform: uppercase;
+}
+.demo h4 {
+  margin-top: 23px;
+  margin-top: 1.27778rem;
+  font-weight: bold;
 }
 
 .demo [id*="teacher-login"], .demo [id*="learner-login"], .demo [id*="topic-select"], .demo [id*="learning-session"], .demo [id*="results"], .demo [id*="profiles"], .demo [id*="relationships"] {
@@ -491,7 +824,7 @@ button {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
   max-width: 100%;
-  border: 1px solid #005e5e;
+  border: 1px solid #4c4c4c;
 }
 
 .intro {
@@ -572,9 +905,9 @@ button {
   border-top-style: solid;
   padding-top: 10px;
   padding-top: 0.52778rem;
-  padding-left: 10.20408%;
-  padding-right: 10.20408%;
   position: relative;
+  padding-left: 8.16327%;
+  padding-right: 8.16327%;
   border-top: 2px dotted rgba(0, 145, 145, 0.25);
   counter-increment: demo;
 }
@@ -606,7 +939,7 @@ button {
 }
 .collaborate .work {
   float: left;
-  width: 51.02041%;
+  width: space(5);
   padding: 7.66667rem 1.27778rem;
   border-right: 1px solid;
   text-align: center;
@@ -645,7 +978,6 @@ button {
 .teacher-feedback {
   width: 48.71795%;
   float: right;
-  margin-right: 0;
 }
 
 .feedback-item {
@@ -709,7 +1041,6 @@ button {
 .teacher-profile {
   width: 48.71795%;
   float: right;
-  margin-right: 0;
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
 }

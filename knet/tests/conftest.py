@@ -28,7 +28,6 @@ def webtest(request):
     """
     import django_webtest
     webtest = django_webtest.WebTest("__init__")
-    webtest.setup_auth = False
 
     webtest._patch_settings()
     request.addfinalizer(webtest._unpatch_settings)

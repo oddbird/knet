@@ -1,14 +1,6 @@
 // Banner
 // ======
 
-%fixed-banner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 900;
-}
-
 [role="banner"] {
   @include pie-clearfix;
   @include trailing-border(1px,.5);
@@ -16,26 +8,41 @@
   @include background(color(white,.95) linear-gradient(to top, color(lightest,.75), color(lightest,0)));
   padding-left: 1em;
   padding-right: 1em;
-  .branding, .meta {
-    float: left;
-    width: 50%;
+
+  .org {
+    #{$link} {
+      font-weight: bold;
+      color: $base;
+    }
+    #{$focus} { color: $accent; }
   }
-  .meta {
-    float: right;
-    margin-left: -1em;
-    text-align: right;
+}
+
+.brand { @include span(40% no-gutters); }
+
+.user-nav {
+  @include span(60% no-gutters);
+  text-align: right;
+
+  .fb-login {
+    @include icon(facebook) { padding-right: rhythm(.25); }
   }
-  .company, .pagetitle, .vcard {
-    display: inline-block;
+  .user-name, .logout-form { display: inline-block; }
+
+  [name="logout"] {
+    @include icon-replace(exit);
+    padding: 0 rhythm(.25);
+    #{$focus} { color: $accent; }
   }
-  .company {
-    @include after(":");
-    font-weight: bold;
-  }
-  .vcard {
-    @include transition(opacity 300ms);
-    opacity: 1;
-    margin-left: 1em;
-    &.empty { display: none; }
-  }
+}
+
+
+// Fixed Banner
+
+%fixed-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
 }
