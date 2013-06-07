@@ -22,6 +22,12 @@
 // Story
 // -----
 
+$status-published-color: $alt;
+$status-hidden-color: color($yellow lighter);
+$status-hidden-icon: eye-blocked;
+$status-private-color: color(lighter);
+$status-private-icon: lock;
+
 %story-status {
   @include adjust-font-size-to($smallpx);
   @include border-radius(.25em);
@@ -32,13 +38,16 @@
 }
 
 @mixin story-status-icon(
+  $status,
   $icon,
-  $color: $alt
+  $color: $status-published-color
 ) {
-  @include icon($icon) {
-    @extend %story-status;
-    background: $color;
-    color: contrast($color, white color(darkest));
+  &.#{$status} {
+    @include icon($icon) {
+      @extend %story-status;
+      background: $color;
+      color: contrast($color, white color(darkest));
+    }
   }
 }
 
@@ -48,10 +57,11 @@
   @include gallery(5 isolate);
   position: relative;
 
-  &.hidden { @include story-status-icon(eye-blocked, $yellow); }
-  &.private { @include story-status-icon(lock, color(lighter)); }
+  @include story-status-icon('hidden', $status-hidden-icon, $status-hidden-color);
+  @include story-status-icon('private', $status-private-icon, $status-private-color);
   &.hidden.private { @include before($icon-lock); }
 }
+
 
 // Story Body
 // ----------
@@ -70,11 +80,11 @@
   @include trailer(.5);
   @include rhythm-borders(2px,1);
   @include border-radius(.25em);
-  @include arrow(bottom rhythm(.25) rhythm(.5) $alt);
+  @include arrow(bottom rhythm(.25) rhythm(.5) $status-published-color);
   border-color: $alt;
 
-  @include story-body-status('hidden', $yellow);
-  @include story-body-status('private', color(lighter));
+  @include story-body-status('hidden', $status-hidden-color);
+  @include story-body-status('private', $status-private-color);
 }
 
 // Story Info
