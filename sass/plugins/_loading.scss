@@ -1,0 +1,62 @@
+// ---------------------------------------------------------------------------
+// Loading styles
+//
+// JS-add .loading and span.overlay
+
+@include keyframes(loadingStart) {
+  0%{ @include opacity(0); }
+  100% { @include opacity(1); }
+}
+
+@include keyframes(loading) {
+  0% {
+    @include scale(1);
+    color: color($alt, .5);
+  }
+  50% {
+    @include scale(1.5);
+    color: color($alt, .75);
+  }
+  100% {
+    @include scale(1);
+    color: color($alt, .5);
+  }
+}
+
+.loading {
+  position: relative;
+  .loading-overlay {
+    @include stretch(50%);
+    @include animation(loadingStart 3s 300ms linear 1 both);
+    text-align: center;
+    z-index: 990;
+  }
+}
+
+.loading-spinner {
+  margin: rhythm(-1.5) auto 0;
+  color: color(darkest);
+  text-align: center;
+}
+
+.loading-text {
+  @include adjust-font-size-to($smallpx);
+  @include leader(-1.5);
+  @include text-shadow(white 0 0 1em, white 0 0 .5em, white 0 0 .25em);
+  position: relative;
+  display: block;
+  text-transform: uppercase;
+  font-weight: bold;
+  z-index: 992;
+
+  @include after('...');
+}
+
+.loading-icon {
+  @include adjust-font-size-to($xlargepx);
+  @include text-shadow(color(white,.75) 0 0 .5em);
+  @include icon(heart) { vertical-align: middle; }
+  @include animation(loading 3s linear infinite);
+  display: block;
+  vertical-align: middle;
+}

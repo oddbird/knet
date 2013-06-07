@@ -1,3 +1,8 @@
 <div class="no-stories-message">
-  <p>You have no stories.</p>
+  {{#if my_profile}}
+    <p>You have no stories.</p>
+  {{else}}
+    <label for="story-form-toggle" class="toggle-addstory-body"></label>
+    <p>Be the first to leave a story{{#if teacher_name}} for {{teacher_name}}{{/if}}.</p>
+  {{/if}}
 </div>

@@ -38,7 +38,6 @@ def test_only_published_stories_shown(db):
         )
 
     assert not len(soup.findAll('article', 'story'))
-    assert len(soup.findAll('div', 'no-stories-message')) == 1
 
 
 def test_unpublished_story_shown_to_me(db):

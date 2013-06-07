@@ -8,11 +8,14 @@ var KNET = (function (KNET, $) {
             e.preventDefault();
             var button = $(this);
             var form = button.closest('form');
+            var story = button.closest('.story');
             var data = {};
             data[button.attr('name')] = button.val().toString();
+            story.loadingOverlay();
             form.ajaxSubmit({
                 data: data,
                 success: function (response, status, xhr, form) {
+                    story.loadingOverlay('remove');
                     if (response && response.success) {
                         callback(response, form);
                     }
@@ -27,10 +30,7 @@ var KNET = (function (KNET, $) {
             var container = $(containerSel);
             $.when(story.fadeOut()).done(function () {
                 story.remove();
-                if (!container.children('.story').length) {
-                    var noStoriesMsg = KNET.tpl('no_stories_msg');
-                    container.html(noStoriesMsg);
-                }
+                KNET.updateNoStoriesMsg('.story', '.no-stories-message', containerSel);
             });
         };
         KNET.ajaxStoryActions(triggerSel, containerSel, callback);
@@ -49,13 +49,34 @@ var KNET = (function (KNET, $) {
     KNET.addStory = function (formSel, formToggleSel) {
         var form = $(formSel);
         form.ajaxForm({
+            beforeSubmit: function () {
+                form.loadingOverlay();
+            },
             success: function (response) {
+                form.loadingOverlay('remove');
                 if (response && response.success) {
                     form.get(0).reset();
                     $(formToggleSel).prop('checked', true);
                 }
             }
         });
+    };
+
+    KNET.updateNoStoriesMsg = function (storySel, msgSel, containerSel) {
+        var container = $(containerSel);
+        if (container.children(storySel).length) {
+            container.find(msgSel).remove();
+        } else {
+            var teacher = container.data('teacher');
+            var teacherName = container.data('teacher-name');
+            var user = container.data('user');
+            var data = {
+                my_profile: teacher === user,
+                teacher_name: teacherName
+            };
+            var noStoriesMsg = KNET.tpl('no_stories_msg', data);
+            container.html(noStoriesMsg);
+        }
     };
 
     return KNET;

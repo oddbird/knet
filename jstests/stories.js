@@ -58,6 +58,30 @@
         strictEqual(this.requests[0].requestBody, 'test-key=test-val', 'xhr was sent with button value in requestBody');
     });
 
+    test('loadingOverlay is added before form submission', function () {
+        expect(1);
+
+        var story = this.button.closest('.story');
+        KNET.ajaxStoryActions(this.buttonSel, this.containerSel);
+        this.button.click();
+
+        ok(story.hasClass('loading'), 'story has loadingOverlay');
+    });
+
+    test('loadingOverlay is removed on xhr response', function () {
+        expect(2);
+
+        var story = this.button.closest('.story');
+        KNET.ajaxStoryActions(this.buttonSel, this.containerSel);
+        this.button.click();
+
+        ok(story.hasClass('loading'), 'story has loadingOverlay');
+
+        this.requests[0].respond(200);
+
+        ok(!story.hasClass('loading'), 'story does not have loadingOverlay');
+    });
+
     test('callback is called when request returns successfully', function () {
         expect(3);
 
@@ -116,25 +140,18 @@
         $.fx.off = false;
     });
 
-    test('"no stories" msg is added after last story is removed', function () {
-        expect(4);
+    test('updateNoStoriesMsg() is called after form is successfully submitted', function () {
+        expect(2);
 
         $.fx.off = true;
+        this.stub(KNET, 'updateNoStoriesMsg');
         KNET.removeStory(this.removeButtonSel, this.containerSel);
-        this.container.find('.story').clone().appendTo(this.container);
-
-        strictEqual(this.container.children('.story').length, 2, 'two stories exists');
-
         this.removeButton.click();
         this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
 
-        strictEqual(this.container.children('.story').length, 1, 'one story exists');
-
-        this.container.find(this.removeButtonSel).click();
-        this.requests[1].respond(200, {'content-type': 'application/json'}, '{"success": true}');
-
-        strictEqual(this.container.children('.story').length, 0, 'no stories exist');
-        strictEqual(this.container.html(), KNET.tpl('no_stories_msg').get(0).outerHTML, '"no stories" msg exists');
+        ok(KNET.updateNoStoriesMsg.calledOnce, 'updateNoStoriesMsg() was called once');
+        ok(KNET.updateNoStoriesMsg.calledWith('.story', '.no-stories-message', this.containerSel),
+            'updateNoStoriesMsg() was called with correct args');
 
         $.fx.off = false;
     });
@@ -206,6 +223,7 @@
     test('form submits via ajax', function () {
         expect(3);
 
+        var expected = 'body=Test+Story&private=on&submitter_name=Test+Submitter&submitter_email=test%40test.test';
         this.bodyInput.val('Test Story');
         this.nameInput.val('Test Submitter');
         this.emailInput.val('test@test.test');
@@ -214,7 +232,27 @@
 
         strictEqual(this.requests.length, 1, 'one xhr request was sent');
         strictEqual(this.requests[0].method, 'POST', 'xhr was sent with method POST');
-        strictEqual(this.requests[0].requestBody, this.form.formSerialize(), 'xhr is sent with serialized form data');
+        strictEqual(this.requests[0].requestBody, expected, 'xhr is sent with serialized form data');
+    });
+
+    test('loadingOverlay is added before form submission', function () {
+        expect(1);
+
+        this.form.trigger('submit');
+
+        ok(this.form.hasClass('loading'), 'form has loadingOverlay');
+    });
+
+    test('loadingOverlay is removed on xhr response', function () {
+        expect(2);
+
+        this.form.trigger('submit');
+
+        ok(this.form.hasClass('loading'), 'form has loadingOverlay');
+
+        this.requests[0].respond(200);
+
+        ok(!this.form.hasClass('loading'), 'form does not have loadingOverlay');
     });
 
     test('form is reset when submitted successfully', function () {
@@ -269,6 +307,61 @@
         this.requests[0].respond(200);
 
         ok(!this.formToggle.prop('checked'), 'form is still open');
+    });
+
+    module('updateNoStoriesMsg', {
+        setup: function () {
+            this.containerSel = '.teacher-stories';
+            this.container = $(this.containerSel);
+            this.storySel = '.story';
+            this.msgSel = '.no-stories-message';
+        },
+        teardown: function () {
+        }
+    });
+
+    test('"no stories" msg is added if no stories exist, viewing your own profile', function () {
+        expect(1);
+
+        this.container.empty();
+        this.container.data({
+            'teacher': 1,
+            'user': 1
+        });
+        KNET.updateNoStoriesMsg(this.storySel, this.msgSel, this.containerSel);
+
+        strictEqual(this.container.html(), KNET.tpl('no_stories_msg', {my_profile: true}).get(0).outerHTML, '"no stories" msg exists');
+    });
+
+    test('"be the first to leave a story" msg is added if no stories exist, viewing someone else\'s profile', function () {
+        expect(1);
+
+        this.container.empty();
+        this.container.data({
+            'teacher': 1,
+            'user': 2,
+            'teacher-name': 'tester'
+        });
+        var data = {
+            'my_profile': false,
+            'teacher_name': 'tester'
+        };
+        KNET.updateNoStoriesMsg(this.storySel, this.msgSel, this.containerSel);
+
+        strictEqual(this.container.html(), KNET.tpl('no_stories_msg', data).get(0).outerHTML, '"be the first to leave a story" msg exists');
+    });
+
+    test('"no stories" msg is removed if stories exist', function () {
+        expect(2);
+
+        var msg = KNET.tpl('no_stories_msg', {});
+        this.container.append(msg);
+
+        ok(this.container.find(this.msgSel).length, '"no stories" msg exists');
+
+        KNET.updateNoStoriesMsg(this.storySel, this.msgSel, this.containerSel);
+
+        ok(!this.container.find(this.msgSel).length, '"no stories" msg has been removed');
     });
 
 }(KNET, jQuery));

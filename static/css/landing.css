@@ -56,56 +56,56 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 @font-face {
   font-family: "CambridgeRound";
-  src: url('../fonts/cambridge_round-webfont.woff?1342738619') format("woff"), url('../fonts/cambridge_round-webfont.ttf?1358363476') format("truetype");
+  src: url('../fonts/cambridge_round-webfont.woff?1366338547') format("woff"), url('../fonts/cambridge_round-webfont.ttf?1366338547') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRound";
-  src: url('../fonts/cambridge_round_bold-webfont.woff?1342738619') format("woff"), url('../fonts/cambridge_round_bold-webfont.ttf?1358363476') format("truetype");
+  src: url('../fonts/cambridge_round_bold-webfont.woff?1366338547') format("woff"), url('../fonts/cambridge_round_bold-webfont.ttf?1366338547') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRound";
-  src: url('../fonts/cambridge_round_it-webfont.woff?1342738619') format("woff"), url('../fonts/cambridge_round_it-webfont.ttf?1358363477') format("truetype");
+  src: url('../fonts/cambridge_round_it-webfont.woff?1366338547') format("woff"), url('../fonts/cambridge_round_it-webfont.ttf?1366338547') format("truetype");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "CambridgeRoundCond";
-  src: url('../fonts/cambridge_round_cond-webfont.woff?1351286140') format("woff"), url('../fonts/cambridge_round_cond-webfont.ttf?1358363477') format("truetype");
+  src: url('../fonts/cambridge_round_cond-webfont.woff?1366338547') format("woff"), url('../fonts/cambridge_round_cond-webfont.ttf?1366338547') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRoundCond";
-  src: url('../fonts/cambridge_round_bold_cond-webfont.woff?1351286140') format("woff"), url('../fonts/cambridge_round_bold_cond-webfont.ttf?1358363476') format("truetype");
+  src: url('../fonts/cambridge_round_bold_cond-webfont.woff?1366338547') format("woff"), url('../fonts/cambridge_round_bold_cond-webfont.ttf?1366338547') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRoundCond";
-  src: url('../fonts/cambridge_round_cond_it-webfont.woff?1351286140') format("woff"), url('../fonts/cambridge_round_cond_it-webfont.ttf?1358363477') format("truetype");
+  src: url('../fonts/cambridge_round_cond_it-webfont.woff?1366338547') format("woff"), url('../fonts/cambridge_round_cond_it-webfont.ttf?1366338547') format("truetype");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "SquareSerif";
-  src: url('../fonts/SquareSerif-Book-webfont.woff?1342738619') format("woff"), url('../fonts/SquareSerif-Book-webfont.ttf?1358363476') format("truetype");
+  src: url('../fonts/SquareSerif-Book-webfont.woff?1366338547') format("woff"), url('../fonts/SquareSerif-Book-webfont.ttf?1366338547') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SquareSerif";
-  src: url('../fonts/SquareSerif-Bold-webfont.woff?1342738619') format("woff"), url('../fonts/SquareSerif-Bold-webfont.ttf?1358363476') format("truetype");
+  src: url('../fonts/SquareSerif-Bold-webfont.woff?1366338547') format("woff"), url('../fonts/SquareSerif-Bold-webfont.ttf?1366338547') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
@@ -160,12 +160,12 @@ a:focus, a:hover, a:active {
 
 @font-face {
   font-family: "knet";
-  src: url('../fonts/knet.woff?1370583578') format("woff"), url('../fonts/knet.ttf?1370583578') format("truetype");
+  src: url('../fonts/knet.woff?1370639788') format("woff"), url('../fonts/knet.ttf?1370639788') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, [data-icon]:before {
+.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, .loading-icon:before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -221,6 +221,10 @@ a:focus, a:hover, a:active {
 
 .user-nav [name="logout"]:before {
   content: "\e00c";
+}
+
+.loading-icon:before {
+  content: "\e00e";
 }
 
 button {
@@ -629,7 +633,7 @@ label {
   height: 0;
   padding-top: 36.95833%;
   width: 100%;
-  background: url('../images/wordmark.svg?1369776473') no-repeat scroll top;
+  background: url('../images/wordmark.svg?1369921673') no-repeat scroll top;
   -webkit-background-size: 100% auto;
   -moz-background-size: 100% auto;
   -o-background-size: 100% auto;
@@ -672,6 +676,181 @@ label {
 
 .js .message.js-warning {
   display: none;
+}
+
+@-moz-keyframes loadingStart {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes loadingStart {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes loadingStart {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loadingStart {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes loading {
+  0% {
+    -moz-transform: scale(1, 1);
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+
+  50% {
+    -moz-transform: scale(1.5, 1.5);
+    transform: scale(1.5, 1.5);
+    color: rgba(0, 116, 116, 0.75);
+  }
+
+  100% {
+    -moz-transform: scale(1, 1);
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+}
+
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+
+  50% {
+    -webkit-transform: scale(1.5, 1.5);
+    transform: scale(1.5, 1.5);
+    color: rgba(0, 116, 116, 0.75);
+  }
+
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+}
+
+@-o-keyframes loading {
+  0% {
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+
+  50% {
+    -o-transform: scale(1.5, 1.5);
+    transform: scale(1.5, 1.5);
+    color: rgba(0, 116, 116, 0.75);
+  }
+
+  100% {
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+
+  50% {
+    transform: scale(1.5, 1.5);
+    color: rgba(0, 116, 116, 0.75);
+  }
+
+  100% {
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+}
+
+.loading {
+  position: relative;
+}
+.loading .loading-overlay {
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-animation: loadingStart 3s 300ms linear 1 both;
+  -moz-animation: loadingStart 3s 300ms linear 1 both;
+  -o-animation: loadingStart 3s 300ms linear 1 both;
+  animation: loadingStart 3s 300ms linear 1 both;
+  text-align: center;
+  z-index: 990;
+}
+
+.loading-spinner {
+  margin: -1.91667rem auto 0;
+  color: #191919;
+  text-align: center;
+}
+
+.loading-text {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  margin-top: -35px;
+  margin-top: -1.91667rem;
+  text-shadow: white 0 0 1em, white 0 0 0.5em, white 0 0 0.25em;
+  position: relative;
+  display: block;
+  text-transform: uppercase;
+  font-weight: bold;
+  z-index: 992;
+}
+.loading-text:after {
+  content: "...";
+}
+
+.loading-icon {
+  font-size: 43px;
+  font-size: 2.38889rem;
+  line-height: 58px;
+  line-height: 3.19444rem;
+  text-shadow: rgba(255, 255, 255, 0.75) 0 0 0.5em;
+  -webkit-animation: loading 3s linear infinite;
+  -moz-animation: loading 3s linear infinite;
+  -o-animation: loading 3s linear infinite;
+  animation: loading 3s linear infinite;
+  display: block;
+  vertical-align: middle;
+}
+.loading-icon:before {
+  vertical-align: middle;
 }
 
 html {

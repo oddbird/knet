@@ -34,18 +34,10 @@
   {% endif %}
 
   {# Stories #}
-  <section class="teacher-stories">
+  <section class="teacher-stories" data-teacher="{{ teacher.user.id }}" data-teacher-name="{{ teacher }}" data-user="{{ user.id }}">
     {% for story in teacher|stories_visible_to:user %}
     {% include "_story.html" %}
-    {% empty %}
-    <div class="no-stories-message">
-      {% if user == teacher.user %}
-        <p>You have no stories.</p>
-      {% else %}
-        <label for="story-form-toggle" class="toggle-addstory-body"></label>
-        <p>Be the first to leave a story for {{ teacher }}.</p>
-      {% endif %}
-    </div>
+    {# if empty, msg inserted via js #}
     {% endfor %}
   </section>
 </article>
