@@ -140,25 +140,18 @@
         $.fx.off = false;
     });
 
-    test('"no stories" msg is added after last story is removed', function () {
-        expect(4);
+    test('updateNoStoriesMsg() is called after form is successfully submitted', function () {
+        expect(2);
 
         $.fx.off = true;
+        this.stub(KNET, 'updateNoStoriesMsg');
         KNET.removeStory(this.removeButtonSel, this.containerSel);
-        this.container.find('.story').clone().appendTo(this.container);
-
-        strictEqual(this.container.children('.story').length, 2, 'two stories exists');
-
         this.removeButton.click();
         this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
 
-        strictEqual(this.container.children('.story').length, 1, 'one story exists');
-
-        this.container.find(this.removeButtonSel).click();
-        this.requests[1].respond(200, {'content-type': 'application/json'}, '{"success": true}');
-
-        strictEqual(this.container.children('.story').length, 0, 'no stories exist');
-        strictEqual(this.container.html(), KNET.tpl('no_stories_msg').get(0).outerHTML, '"no stories" msg exists');
+        ok(KNET.updateNoStoriesMsg.calledOnce, 'updateNoStoriesMsg() was called once');
+        ok(KNET.updateNoStoriesMsg.calledWith('.story', '.no-stories-message', this.containerSel),
+            'updateNoStoriesMsg() was called with correct args');
 
         $.fx.off = false;
     });
@@ -313,6 +306,39 @@
         this.requests[0].respond(200);
 
         ok(!this.formToggle.prop('checked'), 'form is still open');
+    });
+
+    module('updateNoStoriesMsg', {
+        setup: function () {
+            this.containerSel = '.teacher-stories';
+            this.container = $(this.containerSel);
+            this.storySel = '.story';
+            this.msgSel = '.no-stories-message';
+        },
+        teardown: function () {
+        }
+    });
+
+    test('"no stories" msg is added if no stories exist', function () {
+        expect(1);
+
+        this.container.empty();
+        KNET.updateNoStoriesMsg(this.storySel, this.msgSel, this.containerSel);
+
+        strictEqual(this.container.html(), KNET.tpl('no_stories_msg').get(0).outerHTML, '"no stories" msg exists');
+    });
+
+    test('"no stories" msg is removed if stories exist', function () {
+        expect(2);
+
+        var msg = KNET.tpl('no_stories_msg');
+        this.container.append(msg);
+
+        ok(this.container.find(this.msgSel).length, '"no stories" msg exists');
+
+        KNET.updateNoStoriesMsg(this.storySel, this.msgSel, this.containerSel);
+
+        ok(!this.container.find(this.msgSel).length, '"no stories" msg has been removed');
     });
 
 }(KNET, jQuery));

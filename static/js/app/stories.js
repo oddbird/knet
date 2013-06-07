@@ -30,10 +30,7 @@ var KNET = (function (KNET, $) {
             var container = $(containerSel);
             $.when(story.fadeOut()).done(function () {
                 story.remove();
-                if (!container.children('.story').length) {
-                    var noStoriesMsg = KNET.tpl('no_stories_msg');
-                    container.html(noStoriesMsg);
-                }
+                KNET.updateNoStoriesMsg('.story', '.no-stories-message', containerSel);
             });
         };
         KNET.ajaxStoryActions(triggerSel, containerSel, callback);
@@ -63,6 +60,16 @@ var KNET = (function (KNET, $) {
                 }
             }
         });
+    };
+
+    KNET.updateNoStoriesMsg = function (storySel, msgSel, containerSel) {
+        var container = $(containerSel);
+        if (container.children(storySel).length) {
+            container.find(msgSel).remove();
+        } else {
+            var noStoriesMsg = KNET.tpl('no_stories_msg');
+            container.html(noStoriesMsg);
+        }
     };
 
     return KNET;
