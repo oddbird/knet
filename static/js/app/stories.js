@@ -19,6 +19,9 @@ var KNET = (function (KNET, $) {
                     if (response && response.success) {
                         callback(response, form);
                     }
+                },
+                error: function () {
+                    story.loadingOverlay('remove');
                 }
             });
         });
@@ -58,6 +61,9 @@ var KNET = (function (KNET, $) {
                     form.get(0).reset();
                     $(formToggleSel).prop('checked', true);
                 }
+            },
+            error: function () {
+                form.loadingOverlay('remove');
             }
         });
     };

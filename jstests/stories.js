@@ -68,7 +68,7 @@
         ok(story.hasClass('loading'), 'story has loadingOverlay');
     });
 
-    test('loadingOverlay is removed on xhr response', function () {
+    test('loadingOverlay is removed on xhr success', function () {
         expect(2);
 
         var story = this.button.closest('.story');
@@ -78,6 +78,20 @@
         ok(story.hasClass('loading'), 'story has loadingOverlay');
 
         this.requests[0].respond(200);
+
+        ok(!story.hasClass('loading'), 'story does not have loadingOverlay');
+    });
+
+    test('loadingOverlay is removed on xhr error', function () {
+        expect(2);
+
+        var story = this.button.closest('.story');
+        KNET.ajaxStoryActions(this.buttonSel, this.containerSel);
+        this.button.click();
+
+        ok(story.hasClass('loading'), 'story has loadingOverlay');
+
+        this.requests[0].respond(404);
 
         ok(!story.hasClass('loading'), 'story does not have loadingOverlay');
     });
@@ -243,7 +257,7 @@
         ok(this.form.hasClass('loading'), 'form has loadingOverlay');
     });
 
-    test('loadingOverlay is removed on xhr response', function () {
+    test('loadingOverlay is removed on xhr success', function () {
         expect(2);
 
         this.form.trigger('submit');
@@ -251,6 +265,18 @@
         ok(this.form.hasClass('loading'), 'form has loadingOverlay');
 
         this.requests[0].respond(200);
+
+        ok(!this.form.hasClass('loading'), 'form does not have loadingOverlay');
+    });
+
+    test('loadingOverlay is removed on xhr error', function () {
+        expect(2);
+
+        this.form.trigger('submit');
+
+        ok(this.form.hasClass('loading'), 'form has loadingOverlay');
+
+        this.requests[0].respond(404);
 
         ok(!this.form.hasClass('loading'), 'form does not have loadingOverlay');
     });
