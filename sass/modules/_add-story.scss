@@ -8,24 +8,6 @@
   border-color: color(light);
 }
 
-.story-body-group {
-  @include tabs(body-field video-field, '.tab-options' null);
-
-  %hide-tab-content { display: none; }
-  %show-tab-content { display: block; }
-  %active-tab-title { @extend %select-button-active; }
-
-  .tab-options {
-    @extend %tab-buttons;
-    @include trailer(-1);
-    float: right;
-  }
-
-  .formfield { clear: both; }
-
-  .form-type { @include rhythm-padding($button-border-rhythm); }
-}
-
 // Toggle
 // ------
 

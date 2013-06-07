@@ -1,9 +1,3 @@
-.story-body-group [id*="body-field"], .story-body-group [id*="video-field"] {
-  position: absolute;
-  left: -9999px;
-  opacity: 0;
-}
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -62,56 +56,56 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 @font-face {
   font-family: "CambridgeRound";
-  src: url('../fonts/cambridge_round-webfont.woff?1366338547') format("woff"), url('../fonts/cambridge_round-webfont.ttf?1366338547') format("truetype");
+  src: url('../fonts/cambridge_round-webfont.woff?1342738619') format("woff"), url('../fonts/cambridge_round-webfont.ttf?1358363476') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRound";
-  src: url('../fonts/cambridge_round_bold-webfont.woff?1366338547') format("woff"), url('../fonts/cambridge_round_bold-webfont.ttf?1366338547') format("truetype");
+  src: url('../fonts/cambridge_round_bold-webfont.woff?1342738619') format("woff"), url('../fonts/cambridge_round_bold-webfont.ttf?1358363476') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRound";
-  src: url('../fonts/cambridge_round_it-webfont.woff?1366338547') format("woff"), url('../fonts/cambridge_round_it-webfont.ttf?1366338547') format("truetype");
+  src: url('../fonts/cambridge_round_it-webfont.woff?1342738619') format("woff"), url('../fonts/cambridge_round_it-webfont.ttf?1358363477') format("truetype");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "CambridgeRoundCond";
-  src: url('../fonts/cambridge_round_cond-webfont.woff?1366338547') format("woff"), url('../fonts/cambridge_round_cond-webfont.ttf?1366338547') format("truetype");
+  src: url('../fonts/cambridge_round_cond-webfont.woff?1351286140') format("woff"), url('../fonts/cambridge_round_cond-webfont.ttf?1358363477') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRoundCond";
-  src: url('../fonts/cambridge_round_bold_cond-webfont.woff?1366338547') format("woff"), url('../fonts/cambridge_round_bold_cond-webfont.ttf?1366338547') format("truetype");
+  src: url('../fonts/cambridge_round_bold_cond-webfont.woff?1351286140') format("woff"), url('../fonts/cambridge_round_bold_cond-webfont.ttf?1358363476') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRoundCond";
-  src: url('../fonts/cambridge_round_cond_it-webfont.woff?1366338547') format("woff"), url('../fonts/cambridge_round_cond_it-webfont.ttf?1366338547') format("truetype");
+  src: url('../fonts/cambridge_round_cond_it-webfont.woff?1351286140') format("woff"), url('../fonts/cambridge_round_cond_it-webfont.ttf?1358363477') format("truetype");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "SquareSerif";
-  src: url('../fonts/SquareSerif-Book-webfont.woff?1366338547') format("woff"), url('../fonts/SquareSerif-Book-webfont.ttf?1366338547') format("truetype");
+  src: url('../fonts/SquareSerif-Book-webfont.woff?1342738619') format("woff"), url('../fonts/SquareSerif-Book-webfont.ttf?1358363476') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SquareSerif";
-  src: url('../fonts/SquareSerif-Bold-webfont.woff?1366338547') format("woff"), url('../fonts/SquareSerif-Bold-webfont.ttf?1366338547') format("truetype");
+  src: url('../fonts/SquareSerif-Bold-webfont.woff?1342738619') format("woff"), url('../fonts/SquareSerif-Bold-webfont.ttf?1358363476') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
@@ -174,7 +168,7 @@ a:focus, a:hover, a:active {
 
 @font-face {
   font-family: "knet";
-  src: url('../fonts/knet.woff?1370639788') format("woff"), url('../fonts/knet.ttf?1370639788') format("truetype");
+  src: url('../fonts/knet.woff?1370641551') format("woff"), url('../fonts/knet.ttf?1370641551') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -273,7 +267,7 @@ button {
   cursor: pointer;
 }
 
-.primary-action, .story-body-group .tab-options .tab-type .radio-value + .radio-type, .story-body-group .tab-options .tab-type {
+.primary-action {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -292,13 +286,13 @@ button {
   cursor: pointer;
 }
 
-.primary-action:hover, .story-body-group .tab-options .tab-type .radio-value + .radio-type:hover, .story-body-group .tab-options .tab-type:hover, .primary-action:focus, .story-body-group .tab-options .tab-type .radio-value + .radio-type:focus, .story-body-group .tab-options .tab-type:focus {
+.primary-action:hover, .primary-action:focus {
   -webkit-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   -moz-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
 }
 
-.primary-action:active, .story-body-group .tab-options .tab-type .radio-value + .radio-type:active, .story-body-group .tab-options .tab-type:active, .story-body-group .tab-options .tab-type .radio-value:checked + .radio-type, .story-body-group [id*="body-field"]:checked ~ .tab-options [for*="body-field"], .story-body-group [id*="video-field"]:checked ~ .tab-options [for*="video-field"] {
+.primary-action:active {
   -webkit-box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
   -moz-box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
   box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
@@ -377,41 +371,6 @@ textarea {
 label {
   display: inline-block;
   cursor: pointer;
-}
-
-.story-body-group .tab-options .tab-type .radio-value + .radio-type, .story-body-group .tab-options .tab-type {
-  border-radius: 0;
-}
-
-.story-body-group .tab-options .tab-type .radio-value {
-  display: none;
-}
-
-.story-body-group .tab-options:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.story-body-group .tab-options .tab-type {
-  float: left;
-  border-right-width: 0;
-}
-.story-body-group .tab-options .tab-type:first-child {
-  -moz-border-radius-topleft: 0.25rem;
-  -webkit-border-top-left-radius: 0.25rem;
-  border-top-left-radius: 0.25rem;
-  -moz-border-radius-bottomleft: 0.25rem;
-  -webkit-border-bottom-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
-}
-.story-body-group .tab-options .tab-type:last-child {
-  -moz-border-radius-topright: 0.25rem;
-  -webkit-border-top-right-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-  -moz-border-radius-bottomright: 0.25rem;
-  -webkit-border-bottom-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
-  border-right-width: 1px;
 }
 
 [role="banner"] {
@@ -706,7 +665,7 @@ label {
   height: 0;
   padding-top: 36.95833%;
   width: 100%;
-  background: url('../images/wordmark.svg?1369921673') no-repeat scroll top;
+  background: url('../images/wordmark.svg?1369776473') no-repeat scroll top;
   -webkit-background-size: 100% auto;
   -moz-background-size: 100% auto;
   -o-background-size: 100% auto;
@@ -974,27 +933,6 @@ label {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
   border-color: #999999;
-}
-
-.story-body-group [class*="body-field"], .story-body-group [class*="video-field"] {
-  display: none;
-}
-.story-body-group [id*="body-field"]:checked ~ [class*="body-field"], .story-body-group [id*="video-field"]:checked ~ [class*="video-field"] {
-  display: block;
-}
-.story-body-group .tab-options {
-  margin-bottom: -23px;
-  margin-bottom: -1.27778rem;
-  float: right;
-}
-.story-body-group .formfield {
-  clear: both;
-}
-.story-body-group .form-type {
-  padding-top: 3px;
-  padding-top: 0.15972rem;
-  padding-bottom: 3px;
-  padding-bottom: 0.15972rem;
 }
 
 [id="story-form-toggle"] {
