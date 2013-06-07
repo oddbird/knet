@@ -17,7 +17,7 @@ class LandingPage(base.BasePage):
 
 
     def signup(self, email='test@example.com'):
-        self.selenium.find_element(*self.email_locator).send_keys(email)
+        self.type_in_element(self.email_locator, email)
         self.selenium.find_element(*self.submit_locator).click()
 
         self.wait_for_ajax()
