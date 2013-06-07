@@ -17,7 +17,8 @@ Once this configuration is done, you should be able to run ``./manage.py
 syncdb --migrate``, then ``./manage.py runserver`` and access the site
 in your browser at ``http://localhost:8000``.
 
-You can run the tests with ``py.test``.
+You can run the tests with ``py.test``, or the ``Selenium`` tests with
+``py.test knet/tests/selenium``.
 
 Local development on this project requires `Node.js`_ >= 0.8.0 for JS linting
 and tests. To install the necessary Node dependencies, first ``npm install -g
