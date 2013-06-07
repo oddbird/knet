@@ -183,12 +183,12 @@ a:focus, a:hover, a:active {
 
 @font-face {
   font-family: "knet";
-  src: url('../fonts/knet.woff?1370583578') format("woff"), url('../fonts/knet.ttf?1370583578') format("truetype");
+  src: url('../fonts/knet.woff?1370665984') format("woff"), url('../fonts/knet.ttf?1370665984') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, [data-icon]:before {
+.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, .loading-icon:before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -244,6 +244,10 @@ a:focus, a:hover, a:active {
 
 .user-nav [name="logout"]:before {
   content: "\e00c";
+}
+
+.loading-icon:before {
+  content: "\e00e";
 }
 
 button {
@@ -715,6 +719,181 @@ label {
 
 .js .message.js-warning {
   display: none;
+}
+
+@-moz-keyframes loadingStart {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes loadingStart {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes loadingStart {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loadingStart {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes loading {
+  0% {
+    -moz-transform: scale(1, 1);
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+
+  50% {
+    -moz-transform: scale(1.5, 1.5);
+    transform: scale(1.5, 1.5);
+    color: rgba(0, 116, 116, 0.75);
+  }
+
+  100% {
+    -moz-transform: scale(1, 1);
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+}
+
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+
+  50% {
+    -webkit-transform: scale(1.5, 1.5);
+    transform: scale(1.5, 1.5);
+    color: rgba(0, 116, 116, 0.75);
+  }
+
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+}
+
+@-o-keyframes loading {
+  0% {
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+
+  50% {
+    -o-transform: scale(1.5, 1.5);
+    transform: scale(1.5, 1.5);
+    color: rgba(0, 116, 116, 0.75);
+  }
+
+  100% {
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+
+  50% {
+    transform: scale(1.5, 1.5);
+    color: rgba(0, 116, 116, 0.75);
+  }
+
+  100% {
+    transform: scale(1, 1);
+    color: rgba(0, 116, 116, 0.5);
+  }
+}
+
+.loading {
+  position: relative;
+}
+.loading .loading-overlay {
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-animation: loadingStart 3s 300ms linear 1 both;
+  -moz-animation: loadingStart 3s 300ms linear 1 both;
+  -o-animation: loadingStart 3s 300ms linear 1 both;
+  animation: loadingStart 3s 300ms linear 1 both;
+  text-align: center;
+  z-index: 990;
+}
+
+.loading-spinner {
+  margin: -1.91667rem auto 0;
+  color: #191919;
+  text-align: center;
+}
+
+.loading-text {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  margin-top: -35px;
+  margin-top: -1.91667rem;
+  text-shadow: white 0 0 1em, white 0 0 0.5em, white 0 0 0.25em;
+  position: relative;
+  display: block;
+  text-transform: uppercase;
+  font-weight: bold;
+  z-index: 992;
+}
+.loading-text:after {
+  content: "...";
+}
+
+.loading-icon {
+  font-size: 43px;
+  font-size: 2.38889rem;
+  line-height: 58px;
+  line-height: 3.19444rem;
+  text-shadow: rgba(255, 255, 255, 0.75) 0 0 0.5em;
+  -webkit-animation: loading 3s linear infinite;
+  -moz-animation: loading 3s linear infinite;
+  -o-animation: loading 3s linear infinite;
+  animation: loading 3s linear infinite;
+  display: block;
+  vertical-align: middle;
+}
+.loading-icon:before {
+  vertical-align: middle;
 }
 
 html {
