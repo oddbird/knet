@@ -223,6 +223,7 @@
     test('form submits via ajax', function () {
         expect(3);
 
+        var expected = 'body=Test+Story&private=on&submitter_name=Test+Submitter&submitter_email=test%40test.test';
         this.bodyInput.val('Test Story');
         this.nameInput.val('Test Submitter');
         this.emailInput.val('test@test.test');
@@ -231,7 +232,7 @@
 
         strictEqual(this.requests.length, 1, 'one xhr request was sent');
         strictEqual(this.requests[0].method, 'POST', 'xhr was sent with method POST');
-        strictEqual(this.requests[0].requestBody, this.form.formSerialize(), 'xhr is sent with serialized form data');
+        strictEqual(this.requests[0].requestBody, expected, 'xhr is sent with serialized form data');
     });
 
     test('loadingOverlay is added before form submission', function () {
