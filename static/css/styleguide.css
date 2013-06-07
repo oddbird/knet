@@ -174,7 +174,7 @@ a:focus, a:hover, a:active {
 
 @font-face {
   font-family: "knet";
-  src: url('../fonts/knet.woff?1370556580') format("woff"), url('../fonts/knet.ttf?1370556580') format("truetype");
+  src: url('../fonts/knet.woff?1370638457') format("woff"), url('../fonts/knet.ttf?1370638457') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -895,7 +895,7 @@ label {
   margin-left: 51.02041%;
 }
 .story.hidden:before {
-  background: #f2ac00;
+  background: #f7cd66;
   color: #191919;
 }
 .story.private:before {
@@ -933,10 +933,10 @@ label {
   left: 0.31944rem;
 }
 .hidden .story-body {
-  border-color: #f2ac00;
+  border-color: #f7cd66;
 }
 .hidden .story-body:before {
-  border-top-color: #f2ac00;
+  border-top-color: #f7cd66;
 }
 .private .story-body {
   border-color: #b2b2b2;
