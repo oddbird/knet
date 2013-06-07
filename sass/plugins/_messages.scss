@@ -1,0 +1,14 @@
+// ---------------------------------------------------------------------------
+// User Messages
+
+#messages { @extend %announce-container; }
+
+.message {
+  @extend %info-announce;
+  &.success { @extend %success-announce; }
+  &.warning { @extend %warning-announce; }
+  &.error { @extend %error-announce; }
+  .js &.js-warning { display: none; }
+
+  &.closed-timeout { @extend %closed-animation; }
+}

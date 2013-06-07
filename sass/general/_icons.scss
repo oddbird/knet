@@ -1,34 +1,31 @@
-/* Use the following CSS code if you want to have a class per icon */
-%icon-content {
-  font-family: 'knet';
-  font-style: normal;
-  speak: none;
-}
+// Icons
+// =====
 
-%padded-icon:before {
-  @extend %icon-content;
-  padding-right: .4em;
-}
+@include font('knet');
 
-%icon:before {
-  @extend %icon-content;
-}
+@include icon-defaults('knet');
 
-%icon-replace {
-  @extend %icon;
-  position: relative;
-  min-width: 1em;
-  text-indent: -9999px;
-  &:before{
-    position: absolute;
-    top: 0;
-    left: 0;
-    text-indent: 0;
+@each $icon in $debug-icons {
+  %icon-#{nth($icon,1)}:before {
+    content: nth($icon,2);
   }
 }
 
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
-[data-icon]:before {
-  @extend %icon-content;
-  content: attr(data-icon);
+@mixin icon($name) {
+  @extend %icon;
+  @extend %icon-#{$name};
+
+  &:before {
+    @content;
+  }
+}
+
+@mixin icon-replace($name, $width: null) {
+  @extend %icon-replace;
+  @extend %icon-#{$name};
+  min-width: $width;
+
+  &:before {
+    @content;
+  }
 }

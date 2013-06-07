@@ -1,0 +1,136 @@
+// Styleguide
+// ==========
+
+@include set-grid(12 (4em 1em) show inside);
+
+html {
+  @include pie-clearfix;
+  font-family: sans-serif;
+  color: color(darker);
+  background: color(white);
+}
+
+body {
+  padding: 1em;
+}
+
+// Header
+// ------
+
+.sg-title {
+  @include span(100%);
+  @include trailing-border(1px,.5);
+  @include trailer;
+  font-weight: bold;
+}
+
+// Nav
+// ---
+
+.sg-nav {
+  @include span(25%);
+  @include adjust-font-size-to($smallpx);
+}
+
+.sg-nav-title {
+  font-weight: bold;
+}
+
+// Body
+// ----
+
+.sg-body {
+  @include span(last 75%)
+}
+
+// Blocks
+// ------
+
+%sg-block {
+  @include rhythm-borders(1px,1);
+  @include trailer;
+  @include border-radius(.25em);
+  @include box-shadow(inset color(light) 0 0 3px);
+  position: relative;
+  background: color(lightest,.5);
+  overflow: hidden;
+
+  @include before(attr(data-name) ' Pattern') {
+    @include adjust-font-size-to($smallpx);
+    @include border-right-radius(.25em);
+    display: inline-block;
+    position: relative;
+    top: rhythm(-.5);
+    left: rhythm(-1);
+    padding: rhythm(.125) rhythm(1) 0;
+    color: contrast($accent);
+    background: $accent;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+
+  &:nth-child(3) { @include span(49% no-gutters); }
+  &:nth-child(4) { @include span(last 49% no-gutters); }
+  &:nth-child(5) { clear: both; }
+}
+
+.code {
+  @include adjust-font-size-to($xsmallpx, .75);
+  font-family: monospace, sans-serif;
+  overflow-x: auto;
+}
+
+// Doc Type
+// --------
+
+%doc-type {
+  @include adjust-font-size-to($smallpx);
+  h2 { font-weight: bold; }
+  p, ul, ol { @include trailer; }
+  ul, ol { padding-left: rhythm(1); }
+  ul { list-style-type: disc; }
+  ol { list-style-type: decimal; }
+}
+
+// Pattern
+// -------
+
+.pattern {
+  @include pie-clearfix;
+  @include trailing-border(1px,1);
+  @include trailer;
+  border-color: color(lighter);
+}
+
+.pattern-title {
+  @include adjust-font-size-to($largepx);
+  @include trailer(.5);
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.demo {
+  @extend %sg-block;
+  @include before(attr(data-name) ' Demo');
+}
+
+.markup {
+  @extend %sg-block;
+  @include before(attr(data-name) ' Markup');
+}
+
+.sass {
+  @extend %sg-block;
+  @include before(attr(data-name) ' Sass');
+}
+
+.docs {
+  @extend %sg-block;
+  @extend %doc-type;
+  @include before(attr(data-name) ' Docs');
+}
+
+// Demos
+// -----
+
+.demo-content { @include pie-clearfix; }

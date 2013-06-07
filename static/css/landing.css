@@ -56,56 +56,56 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 @font-face {
   font-family: "CambridgeRound";
-  src: url('../fonts/cambridge_round-webfont.woff') format('woff'), url('../fonts/cambridge_round-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round-webfont.woff?1342738619') format("woff"), url('../fonts/cambridge_round-webfont.ttf?1358363476') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRound";
-  src: url('../fonts/cambridge_round_bold-webfont.woff') format('woff'), url('../fonts/cambridge_round_bold-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round_bold-webfont.woff?1342738619') format("woff"), url('../fonts/cambridge_round_bold-webfont.ttf?1358363476') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRound";
-  src: url('../fonts/cambridge_round_it-webfont.woff') format('woff'), url('../fonts/cambridge_round_it-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round_it-webfont.woff?1342738619') format("woff"), url('../fonts/cambridge_round_it-webfont.ttf?1358363477') format("truetype");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "CambridgeRoundCond";
-  src: url('../fonts/cambridge_round_cond-webfont.woff') format('woff'), url('../fonts/cambridge_round_cond-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round_cond-webfont.woff?1351286140') format("woff"), url('../fonts/cambridge_round_cond-webfont.ttf?1358363477') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRoundCond";
-  src: url('../fonts/cambridge_round_bold_cond-webfont.woff') format('woff'), url('../fonts/cambridge_round_bold_cond-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round_bold_cond-webfont.woff?1351286140') format("woff"), url('../fonts/cambridge_round_bold_cond-webfont.ttf?1358363476') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "CambridgeRoundCond";
-  src: url('../fonts/cambridge_round_cond_it-webfont.woff') format('woff'), url('../fonts/cambridge_round_cond_it-webfont.ttf') format('truetype');
+  src: url('../fonts/cambridge_round_cond_it-webfont.woff?1351286140') format("woff"), url('../fonts/cambridge_round_cond_it-webfont.ttf?1358363477') format("truetype");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: "SquareSerif";
-  src: url('../fonts/SquareSerif-Book-webfont.woff') format('woff'), url('../fonts/SquareSerif-Book-webfont.ttf') format('truetype');
+  src: url('../fonts/SquareSerif-Book-webfont.woff?1342738619') format("woff"), url('../fonts/SquareSerif-Book-webfont.ttf?1358363476') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "SquareSerif";
-  src: url('../fonts/SquareSerif-Bold-webfont.woff') format('woff'), url('../fonts/SquareSerif-Bold-webfont.ttf') format('truetype');
+  src: url('../fonts/SquareSerif-Bold-webfont.woff?1342738619') format("woff"), url('../fonts/SquareSerif-Bold-webfont.ttf?1358363476') format("truetype");
   font-weight: bold;
   font-style: normal;
 }
@@ -123,8 +123,8 @@ html {
 
 html {
   font-family: "CambridgeRound", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  color: #005e5e;
-  background: rgba(123, 211, 211, 0.25);
+  color: #4c4c4c;
+  background: rgba(229, 229, 229, 0.25);
 }
 
 html, body {
@@ -140,7 +140,7 @@ a:hover, a:active {
   outline: none;
 }
 a:link, a:visited {
-  color: #009191;
+  color: #007474;
   text-decoration: none;
 }
 a:focus, a:hover, a:active {
@@ -158,63 +158,69 @@ a:focus, a:hover, a:active {
   left: -9999px;
 }
 
-/* Use the following CSS code if you want to have a class per icon */
-.message .close:before, [data-icon]:before {
-  font-family: 'knet';
+@font-face {
+  font-family: "knet";
+  src: url('../fonts/knet.woff?1370583578') format("woff"), url('../fonts/knet.ttf?1370583578') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, [data-icon]:before {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  font-family: "knet";
   font-style: normal;
   speak: none;
 }
 
-.message .close {
+.user-nav [name="logout"], #messages .close {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
   position: relative;
   min-width: 1em;
   text-indent: -9999px;
 }
-.message .close:before {
+.user-nav [name="logout"]:before, #messages .close:before {
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   text-indent: 0;
+  text-align: center;
 }
 
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
   content: attr(data-icon);
 }
 
-.signup button {
-  border-width: 1px;
-  border-width: 0.05556rem;
-  border-style: solid;
-  padding: 5px;
-  padding: 0.26389rem;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  background-image: -webkit-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: -moz-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: -o-linear-gradient(top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: linear-gradient(to bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  display: inline-block;
-  padding-left: 0.63889rem;
-  padding-right: 0.63889rem;
-  cursor: pointer;
+#messages .close:before {
+  content: "\e006";
 }
 
-.signup button:hover, .signup button:focus {
-  -webkit-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
-  -moz-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
-  box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
+.user-nav .fb-login:before {
+  content: "\e007";
 }
 
-.signup button:active {
-  -webkit-box-shadow: #005e5e 0 0 0.31944rem inset;
-  -moz-box-shadow: #005e5e 0 0 0.31944rem inset;
-  box-shadow: #005e5e 0 0 0.31944rem inset;
-  background-image: -webkit-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: -moz-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: -o-linear-gradient(bottom, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
-  background-image: linear-gradient(to top, rgba(0, 94, 94, 0) 40%, rgba(229, 229, 229, 0.25));
+.announce:before, .message:before {
+  content: "\e008";
+}
+
+.message.success:before {
+  content: "\e009";
+}
+
+.message.warning:before {
+  content: "\e00a";
+}
+
+.message.error:before {
+  content: "\e00b";
+}
+
+.user-nav [name="logout"]:before {
+  content: "\e00c";
 }
 
 button {
@@ -226,6 +232,60 @@ button {
   vertical-align: baseline;
   background: none;
   color: inherit;
+  cursor: pointer;
+}
+
+.primary-action, .signup button {
+  border-width: 1px;
+  border-width: 0.05556rem;
+  border-style: solid;
+  padding: 2px;
+  padding: 0.10417rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  border-radius: 0.25rem;
+  background-image: -webkit-linear-gradient(top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -moz-linear-gradient(top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -o-linear-gradient(top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: linear-gradient(to bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  display: inline-block;
+  padding-left: 0.63889rem;
+  padding-right: 0.63889rem;
+  cursor: pointer;
+}
+
+.primary-action:hover, .signup button:hover, .primary-action:focus, .signup button:focus {
+  -webkit-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
+  -moz-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
+  box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
+}
+
+.primary-action:active, .signup button:active {
+  -webkit-box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
+  -moz-box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
+  box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
+  background-image: -webkit-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -moz-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -o-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: linear-gradient(to top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+}
+
+.primary-action {
+  border-width: 1px;
+  border-width: 0.05556rem;
+  border-style: solid;
+  padding: 5px;
+  padding: 0.26389rem;
+  padding-left: 1.27778rem;
+  padding-right: 1.27778rem;
+  background-color: #8be266;
+}
+.primary-action:after {
+  content: " »";
+}
+
+.form-actions {
+  text-align: right;
 }
 
 .formfield {
@@ -238,7 +298,21 @@ button {
   clear: both;
 }
 
-[type="text"], [type="email"], [type="password"] {
+.form-help {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  color: #6f6f6f;
+}
+
+[type="text"], [type="email"], [type="password"], [type="url"], textarea {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+[type="text"], [type="email"], [type="password"], [type="url"], textarea {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -251,7 +325,20 @@ button {
   display: block;
   width: 100%;
   border-color: #b2b2b2;
+}
+
+[type="text"], [type="email"], [type="password"], [type="url"] {
   height: 1.91667rem;
+}
+
+textarea {
+  min-height: 4.47222rem;
+  resize: vertical;
+}
+
+label {
+  display: inline-block;
+  cursor: pointer;
 }
 
 [role="banner"] {
@@ -274,40 +361,39 @@ button {
   display: table;
   clear: both;
 }
-[role="banner"] .branding, [role="banner"] .meta {
-  float: left;
-  width: 50%;
+[role="banner"] .org:link, [role="banner"] .org:visited {
+  font-weight: bold;
+  color: #4c4c4c;
 }
-[role="banner"] .meta {
-  float: right;
-  margin-left: -1em;
+[role="banner"] .org:focus, [role="banner"] .org:hover, [role="banner"] .org:active {
+  color: #94001a;
+}
+
+.brand {
+  width: 40%;
+  float: left;
+}
+
+.user-nav {
+  width: 60%;
+  float: left;
   text-align: right;
 }
-[role="banner"] .company, [role="banner"] .pagetitle, [role="banner"] .vcard {
+.user-nav .fb-login:before {
+  padding-right: 0.31944rem;
+}
+.user-nav .user-name, .user-nav .logout-form {
   display: inline-block;
 }
-[role="banner"] .company {
-  font-weight: bold;
+.user-nav [name="logout"] {
+  padding: 0 0.31944rem;
 }
-[role="banner"] .company:after {
-  content: ":";
-}
-[role="banner"] .vcard {
-  -webkit-transition: opacity 300ms;
-  -moz-transition: opacity 300ms;
-  -o-transition: opacity 300ms;
-  transition: opacity 300ms;
-  opacity: 1;
-  margin-left: 1em;
-}
-[role="banner"] .vcard.empty {
-  display: none;
+.user-nav [name="logout"]:focus, .user-nav [name="logout"]:hover, .user-nav [name="logout"]:active {
+  color: #94001a;
 }
 
 [role="main"] {
   max-width: 49em;
-  padding-left: 0;
-  padding-right: 0;
   margin-left: auto;
   margin-right: auto;
   padding: 1.27778rem 1em;
@@ -316,6 +402,226 @@ button {
   content: "";
   display: table;
   clear: both;
+}
+
+@-moz-keyframes announce-in {
+  0% {
+    opacity: 0;
+    -moz-transform: translateY(-12.77778rem);
+    transform: translateY(-12.77778rem);
+  }
+
+  100% {
+    opacity: 0.95;
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes announce-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-12.77778rem);
+    transform: translateY(-12.77778rem);
+  }
+
+  100% {
+    opacity: 0.95;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-o-keyframes announce-in {
+  0% {
+    opacity: 0;
+    -o-transform: translateY(-12.77778rem);
+    transform: translateY(-12.77778rem);
+  }
+
+  100% {
+    opacity: 0.95;
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes announce-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-12.77778rem);
+  }
+
+  100% {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+}
+
+@-moz-keyframes announce-out {
+  0% {
+    opacity: 0.95;
+    -moz-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -moz-transform: translateX(38.33333rem);
+    transform: translateX(38.33333rem);
+  }
+}
+
+@-webkit-keyframes announce-out {
+  0% {
+    opacity: 0.95;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(38.33333rem);
+    transform: translateX(38.33333rem);
+  }
+}
+
+@-o-keyframes announce-out {
+  0% {
+    opacity: 0.95;
+    -o-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    -o-transform: translateX(38.33333rem);
+    transform: translateX(38.33333rem);
+  }
+}
+
+@keyframes announce-out {
+  0% {
+    opacity: 0.95;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(38.33333rem);
+  }
+}
+
+#messages {
+  position: fixed;
+  top: 0.63889rem;
+  right: 0.63889rem;
+  width: 80%;
+  max-width: 20em;
+  z-index: 999;
+}
+#messages .close {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  position: absolute;
+  display: inline-block;
+  right: .125rem;
+  top: 0;
+  width: 1em;
+}
+
+.announce, .message {
+  font-size: 23px;
+  font-size: 1.27778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  -webkit-animation: announce-in 1s ease backwards;
+  -moz-animation: announce-in 1s ease backwards;
+  -o-animation: announce-in 1s ease backwards;
+  animation: announce-in 1s ease backwards;
+  border-width: 1px;
+  border-width: 0.05556rem;
+  border-style: solid;
+  padding: 16px;
+  padding: 0.90278rem;
+  overflow: hidden;
+  opacity: 0.95;
+  -webkit-box-shadow: #4c4c4c 0 0 0.31944rem;
+  -moz-box-shadow: #4c4c4c 0 0 0.31944rem;
+  box-shadow: #4c4c4c 0 0 0.31944rem;
+  position: relative;
+}
+.announce:before, .message:before {
+  position: absolute;
+  top: 0.95833rem;
+  left: 0.95833rem;
+}
+.announce .body, .message .body {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  margin: 0 0.31944rem 0 1.91667rem;
+}
+.announce .body a:link, .message .body a:link, .announce .body a:visited, .message .body a:visited {
+  color: #007474;
+  text-decoration: underline;
+}
+.announce .body a:focus, .message .body a:focus, .announce .body a:hover, .message .body a:hover, .announce .body a:active, .message .body a:active {
+  color: #e9ccd1;
+}
+
+.closed.announce, .closed.message, .message.closed-timeout {
+  -webkit-animation: announce-out 800ms ease forwards;
+  -moz-animation: announce-out 800ms ease forwards;
+  -o-animation: announce-out 800ms ease forwards;
+  animation: announce-out 800ms ease forwards;
+}
+
+.announce, .message {
+  color: #e5e5e5;
+  background: #009191;
+}
+.announce .close:link, .message .close:link, .announce .close:visited, .message .close:visited {
+  color: rgba(229, 229, 229, 0.75);
+}
+.announce .close:focus, .message .close:focus, .announce .close:hover, .message .close:hover, .announce .close:active, .message .close:active {
+  color: #e5e5e5;
+}
+
+.message.success {
+  color: #4c4c4c;
+  background: #3ed000;
+}
+.message.success .close:link, .message.success .close:visited {
+  color: rgba(76, 76, 76, 0.75);
+}
+.message.success .close:focus, .message.success .close:hover, .message.success .close:active {
+  color: #4c4c4c;
+}
+
+.message.warning {
+  color: #4c4c4c;
+  background: #f2ac00;
+}
+.message.warning .close:link, .message.warning .close:visited {
+  color: rgba(76, 76, 76, 0.75);
+}
+.message.warning .close:focus, .message.warning .close:hover, .message.warning .close:active {
+  color: #4c4c4c;
+}
+
+.message.error {
+  color: #e5e5e5;
+  background: #e30028;
+}
+.message.error .close:link, .message.error .close:visited {
+  color: rgba(229, 229, 229, 0.75);
+}
+.message.error .close:focus, .message.error .close:hover, .message.error .close:active {
+  color: #e5e5e5;
 }
 
 .logo, .call-to-action:after {
@@ -345,6 +651,7 @@ button {
   line-height: 23px;
   line-height: 1.27778rem;
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: #007474;
   font-weight: bold;
 }
 @media (min-width: 30em) {
@@ -361,6 +668,14 @@ button {
 .tagline {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+}
+
+.js .message.js-warning {
+  display: none;
+}
+
+html {
+  background: rgba(123, 211, 211, 0.25);
 }
 
 .landing {
@@ -395,15 +710,15 @@ button {
   }
 }
 
-.intro, .signup, .message {
+.intro, .signup {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
   position: relative;
   z-index: 20;
 }
 @media (min-width: 40em) {
-  .intro, .signup, .message {
-    margin-left: 51.02041%;
+  .intro, .signup {
+    margin-left: 53.14626%;
   }
 }
 
@@ -419,8 +734,8 @@ button {
 }
 @media (min-width: 40em) {
   .intro {
-    font-size: 35px;
-    font-size: 1.94444rem;
+    font-size: 32px;
+    font-size: 1.77778rem;
     line-height: 46px;
     line-height: 2.55556rem;
     margin-bottom: 46px;
@@ -449,7 +764,6 @@ button {
 .signup button {
   width: 37.5%;
   float: right;
-  margin-right: 0;
   font-size: 14px;
   font-size: 0.77778rem;
   line-height: 23px;
@@ -471,38 +785,6 @@ button {
   }
 }
 
-.message {
-  border-width: 1px;
-  border-width: 0.05556rem;
-  border-style: solid;
-  padding: 11px;
-  padding: 0.58333rem;
-  position: relative;
-  color: #e5e5e5;
-  border-color: #005e5e;
-}
-.message.success {
-  background: #257c00;
-}
-.message.error {
-  background: #880018;
-}
-.message .close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: inline-block;
-  width: 1em;
-  color: rgba(229, 229, 229, 0.5);
-}
-.message .close:focus, .message .close:hover, .message .close:active {
-  color: white;
-}
-.message .close:before {
-  content: "x";
-  font-family: inherit;
-}
-
 .desc {
   overflow: hidden;
   border-top-width: 2px;
@@ -515,20 +797,17 @@ button {
   border-bottom-style: solid;
   padding-bottom: 21px;
   padding-bottom: 1.16667rem;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  margin-left: -1.27778rem;
-  padding-left: 1.27778rem;
-  margin-right: -1.27778rem;
-  padding-right: 1.27778rem;
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+  margin: 0 -1.27778rem;
+  padding-left: 1.27778rem;
+  padding-right: 1.27778rem;
   border-style: dashed;
   border-color: rgba(0, 116, 116, 0.25);
 }
 .desc h2 {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: #007474;
   font-weight: bold;
 }
 .desc p {

@@ -1,0 +1,40 @@
+// Icons
+// =====
+
+$icon-menu:           "\e000";
+$icon-remove:         "\e004";
+$icon-bubble-heart:   "\e005";
+$icon-cancel-circle:  "\e006";
+$icon-facebook:       "\e007";
+$icon-info:           "\e008";
+$icon-checkmark:      "\e009";
+$icon-warning:        "\e00a";
+$icon-close:          "\e00b";
+$icon-enter:          "\e003";
+$icon-exit:           "\e00c";
+$icon-lock:           "\e001";
+$icon-eye:            "\e002";
+$icon-eye-blocked:    "\e00d";
+
+// Debug
+$debug: append($debug, icons);
+
+$debug-icons: 'menu'            $icon-menu,
+              'remove'          $icon-remove,
+              'bubble-heart'    $icon-bubble-heart,
+              'cancel-circle'   $icon-cancel-circle,
+              'facebook'        $icon-facebook,
+              'info'            $icon-info,
+              'checkmark'       $icon-checkmark,
+              'warning'         $icon-warning,
+              'close'           $icon-close,
+              'enter'           $icon-enter,
+              'exit'            $icon-exit,
+              'lock'            $icon-lock,
+              'eye'             $icon-eye,
+              'eye-blocked'     $icon-eye-blocked;
+
+@mixin debug-icons {
+  @debug '# Icons';
+  @each $icon in $debug-icons { @debug '"#{nth($icon,2)}" - #{nth($icon,1)}'; }
+}

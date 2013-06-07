@@ -5,3 +5,6 @@ omit =
   knet/settings.py
   knet/wsgi.py
   knet/tests/*
+
+[html]
+directory = pycov

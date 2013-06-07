@@ -1,0 +1,118 @@
+// ---------------------------------------------------------------------------
+// Settings
+
+$announce-v-position: top;
+$announce-h-position: right;
+
+// ---------------------------------------------------------------------------
+// Animations
+
+@include keyframes(announce-in) {
+  0% {
+    @include opacity(0);
+    @include translateY(rhythm(-10));
+  }
+  100% {
+    @include opacity(.95);
+    @include translateY(0);
+  }
+}
+
+@include keyframes(announce-out) {
+  0% {
+    @include opacity(.95);
+    @include translateX(0);
+  }
+  100% {
+    @include opacity(0);
+    @include translateX(rhythm(30));
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Basics
+
+%announce-container {
+  position: fixed;
+  #{$announce-v-position}: rhythm(.5);
+  #{$announce-h-position}: rhythm(.5);
+  width: 80%;
+  max-width: 20em;
+  z-index: 999;
+  .close {
+    @include adjust-font-size-to($smallpx);
+    @include icon-replace(cancel-circle);
+    position: absolute;
+    display: inline-block;
+    right: .125rem;
+    top: 0;
+    width: 1em;
+  }
+}
+
+$announce-padding: .75;
+
+%announce {
+  @include adjust-font-size-to($medpx, 1);
+  @include animation(announce-in 1s ease backwards);
+  @include rhythm-borders(1px,$announce-padding);
+  @include clearfix;
+  @include opacity(.95);
+  @include box-shadow($base 0 0 rhythm(.25));
+  position: relative;
+  &:before {
+    position: absolute;
+    top: rhythm($announce-padding);
+    left: rhythm($announce-padding);
+  }
+  .body {
+    @include adjust-font-size-to($smallpx);
+    margin: 0 rhythm(.25) 0 rhythm(1.5);
+    a {
+      #{$link} {
+        color: $alt;
+        text-decoration: underline;
+      }
+      #{$focus} { color: color($accent lightest); }
+    }
+  }
+  &.closed { @extend %closed-animation; }
+}
+
+%closed-animation { @include animation(announce-out 800ms ease forwards); }
+
+// ---------------------------------------------------------------------------
+// Types
+
+@mixin announce-style($c: $blue, $i: info) {
+  $contrast: contrast($c, $base color(lightest));
+  @include icon($i);
+  color: $contrast;
+  background: $c;
+  .close {
+    #{$link} { color: color($contrast, .75); }
+    #{$focus} { color: $contrast; }
+  }
+}
+
+%info-announce {
+  @extend %announce;
+  @include announce-style($blue, info);
+}
+%success-announce {
+  @extend %announce;
+  @include announce-style($green, checkmark);
+}
+%warning-announce {
+  @extend %announce;
+  @include announce-style($yellow, warning);
+}
+%error-announce {
+  @extend %announce;
+  @include announce-style($red, close);
+}
+
+// ---------------------------------------------------------------------------
+// Announcements
+
+.announce { @extend %info-announce; }

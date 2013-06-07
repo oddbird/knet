@@ -1,0 +1,16 @@
+// Debug Settings
+// ==============
+
+$debug: compact();
+
+@mixin debug($modules: $debug) {
+  @debug '---';
+  @each $mod in $modules {
+    @if $mod == 'sizes' { @include debug-sizes; }
+    @if $mod == 'type' { @include debug-type; }
+    @if $mod == 'colors' { @include debug-colors; }
+    @if $mod == 'icons' { @include debug-icons; }
+
+    @debug '---';
+  }
+}

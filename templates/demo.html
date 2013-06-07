@@ -1,29 +1,25 @@
-{% extends "base.html" %}
+{% extends "base_site.html" %}
 {% load compressed %}
 
 {% block styles %}
 {% compressed_css "demo" %}
 {% endblock styles %}
 
-{% block body %}
-<header role="banner">
-  <div class="branding">
-    <h1 class="company">The K Network</h1>
-    <h2 class="pagetitle">What's Possible</h2>
-  </div>
-  <div class="meta">
-    <p class="vcard teacher empty">
-      <b class="title">Teacher</b>:
-      <span class="fn teacher-name"></span>
-    </p>
-    <p class="vcard learner empty">
-      <b class="title">Learner</b>:
-      <span class="fn learner-name"></span>
-    </p>
-  </div>
-</header>
+{% block banner %}
+<div class="meta">
+  <p class="vcard teacher empty">
+    <b class="title">Teacher</b>:
+    <span class="fn teacher-name"></span>
+  </p>
+  <p class="vcard learner empty">
+    <b class="title">Learner</b>:
+    <span class="fn learner-name"></span>
+  </p>
+</div>
+{% endblock %}
 
-<article role="main" class="demo">
+{% block main %}
+<article class="demo">
 
   <header>
     <h1 class="logo">The K Network</h1>

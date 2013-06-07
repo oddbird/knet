@@ -1,15 +1,40 @@
 // Inputs
 // ------
 
-%input {
+%reset-textbox {
+  @include reset-box-model;
+}
+
+%textbox {
   @include rhythm-borders(1px,.25);
   @include adjust-font-size-to($xsmallpx);
   display: block;
   width: 100%;
   border-color: color(lighter);
+}
+
+%input {
+  @extend %textbox;
   height: rhythm(1.5);
 }
 
-[type="text"], [type="email"], [type="password"] {
+%textarea {
+  @extend %textbox;
+  min-height: rhythm(3.5);
+  resize: vertical;
+}
+
+[type="text"], [type="email"], [type="password"], [type="url"] {
+  @extend %reset-textbox;
   @extend %input;
+}
+
+textarea {
+  @extend %reset-textbox;
+  @extend %textarea;
+}
+
+label {
+  display: inline-block;
+  cursor: pointer;
 }

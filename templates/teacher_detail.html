@@ -1,0 +1,52 @@
+{% extends "base_site.html" %}
+
+{% load markup stories %}
+
+{% block main %}
+<article class="teacher-detail">
+
+  {# Teacher Info #}
+  <header class="teacher-info">
+    {% if teacher.user != user %} {# no leaving stories for yourself! #}
+      <label for="story-form-toggle" class="toggle-addstory-main">Hide Form</label>
+    {% endif %}
+    <h1 class="teacher-name">{{ teacher }}</h1>
+
+    <ul class="teacher-data">
+      {% if teacher.school %}
+      <li class=" data-item school">
+        <span class="value">{{ teacher.school }}</span>
+      </li>
+      {% endif %}
+      <li class=" data-item membership">
+        <b class="type">Network Member Since</b>
+        <span class="value">{{ teacher.date_joined|date }}</span>
+      </li>
+    </ul>
+    <div class="teacher-bio">{{ teacher.bio|markdown }}</div>
+  </header>
+
+  {# Story Form #}
+  {% if user != teacher.user %} {# no leaving stories for yourself! #}
+  <input type="checkbox" id="story-form-toggle" checked/>
+
+  {% include "_add_story_form.html" %}
+  {% endif %}
+
+  {# Stories #}
+  <section class="teacher-stories">
+    {% for story in teacher|stories_visible_to:user %}
+    {% include "_story.html" %}
+    {% empty %}
+    <div class="no-stories-message">
+      {% if user == teacher.user %}
+        <p>You have no stories.</p>
+      {% else %}
+        <label for="story-form-toggle" class="toggle-addstory-body"></label>
+        <p>Be the first to leave a story for {{ teacher }}.</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </section>
+</article>
+{% endblock %}

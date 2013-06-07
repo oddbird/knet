@@ -5,6 +5,8 @@
 
 $landing-break: 40em;
 
+html { background: color($cyan light,.25); }
+
 .landing {
   max-width: 60em;
 
@@ -35,7 +37,7 @@ $landing-break: 40em;
   position: relative;
   z-index: 20;
 
-  @include breakpoint($landing-break) { @include pre(5); }
+  @include breakpoint($landing-break) { margin-left: outer-span(5); }
 }
 
 .intro {
@@ -59,10 +61,10 @@ $landing-break: 40em;
     display: block;
     font-weight: bold;
   }
-  input { @include span-columns(3,5); }
+  input { @include span(3 of 5); }
   button {
     @extend %button;
-    @include span-columns(2 omega,5);
+    @include span(last 2 of 5);
     @include adjust-font-size-to($smallpx);
     @include serif;
     color: white;
@@ -79,39 +81,19 @@ $landing-break: 40em;
   }
 }
 
-.message {
-  @extend %intro-section;
-  @include rhythm-borders(1px,.5);
-  position: relative;
-  color: color(lightest);
-  border-color: $base;
-
-  &.success { background: color(darker $green); }
-  &.error { background: color(darker $red); }
-
-  .close {
-    @extend %icon-replace;
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: inline-block;
-    width: 1em;
-    color: color(lightest, .5);
-    #{$focus} { color: white; }
-    @include before('x') { font-family: inherit; };
-  }
-}
-
 .desc {
   @include clearfix;
   @include h-borders(2px,1);
-  @include bleed(rhythm(1));
   @include trailer;
+  margin: 0 rhythm(-1);
+  padding-left: rhythm(1);
+  padding-right: rhythm(1);
   border-style: dashed;
   border-color: color(dark $blue,.25);
 
   h2 {
     @include serif;
+    color: $alt;
     font-weight: bold;
   }
   p {
@@ -127,7 +109,7 @@ $landing-break: 40em;
 
 @include breakpoint($landing-break) {
   .feature {
-    @include span-columns(3,9);
+    @include span(3 of 9);
     @include nth-omega(3n);
 
     p { margin: 0; }

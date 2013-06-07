@@ -12,7 +12,6 @@ $show-grid-backgrounds            : false;
 // ---------------------------------------------------------------------------
 // Grids
 
-$total-columns  : 10;
-$column-width   : 4em;
-$gutter-width   : 1em;
-$grid-padding   : 0;
+$show-grids: false;
+
+@include set-grid(10 (4em 1em));

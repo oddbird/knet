@@ -1,0 +1,274 @@
+/*global QUnit:false, module:false, test:false, asyncTest:false, expect:false*/
+/*global start:false, stop:false, ok:false, equal:false, notEqual:false, deepEqual:false*/
+/*global notDeepEqual:false, strictEqual:false, notStrictEqual:false, raises:false*/
+/*global jQuery:false*/
+/*global sinon:false*/
+/*global KNET:false*/
+
+(function (KNET, $) {
+
+    'use strict';
+
+    /*
+    ======== A Handy Little QUnit Reference ========
+    http://docs.jquery.com/QUnit
+
+    Test methods:
+        expect(numAssertions)
+        stop(increment)
+        start(decrement)
+    Test assertions:
+        ok(value, [message])
+        equal(actual, expected, [message])
+        notEqual(actual, expected, [message])
+        deepEqual(actual, expected, [message])
+        notDeepEqual(actual, expected, [message])
+        strictEqual(actual, expected, [message])
+        notStrictEqual(actual, expected, [message])
+        raises(block, [expected], [message])
+    */
+
+    module('ajaxStoryActions', {
+        setup: function () {
+            this.containerSel = '.teacher-stories';
+            this.container = $(this.containerSel);
+            this.buttonSel = '.test-trigger';
+            this.button = $('<button name="test-key" value="test-val" class="test-trigger">Test Button</button>');
+            this.container.find('form').append(this.button);
+            this.xhr = sinon.useFakeXMLHttpRequest();
+            var requests = this.requests = [];
+            this.xhr.onCreate = function (req) {
+                requests.push(req);
+            };
+        },
+        teardown: function () {
+            this.xhr.restore();
+            this.container.off('click');
+        }
+    });
+
+    test('form submits via ajax', function () {
+        expect(3);
+
+        KNET.ajaxStoryActions(this.buttonSel, this.containerSel);
+        this.button.click();
+
+        strictEqual(this.requests.length, 1, 'one xhr request was sent');
+        strictEqual(this.requests[0].method, 'POST', 'xhr was sent with method POST');
+        strictEqual(this.requests[0].requestBody, 'test-key=test-val', 'xhr was sent with button value in requestBody');
+    });
+
+    test('callback is called when request returns successfully', function () {
+        expect(3);
+
+        var callbackSpy = this.spy();
+        KNET.ajaxStoryActions(this.buttonSel, this.containerSel, callbackSpy);
+        this.button.click();
+        this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
+
+        ok(callbackSpy.calledOnce, 'callbackSpy() was called once');
+        ok(callbackSpy.calledWith({success: true}), 'callbackSpy() is passed the xhr response');
+        strictEqual(callbackSpy.args[0][1].get(0), this.button.closest('form').get(0), 'callbackSpy() is passed the form');
+    });
+
+    test('callback is not called if xhr request returns without success: true', function () {
+        expect(1);
+
+        var callbackSpy = this.spy();
+        KNET.ajaxStoryActions(this.buttonSel, this.containerSel, callbackSpy);
+        this.button.click();
+        this.requests[0].respond(200);
+
+        ok(!callbackSpy.called, 'callbackSpy() was not called');
+    });
+
+    module('removeStory', {
+        setup: function () {
+            this.containerSel = '.teacher-stories';
+            this.container = $(this.containerSel);
+            this.removeButtonSel = '.delete-story';
+            this.removeButton = this.container.find(this.removeButtonSel);
+            this.xhr = sinon.useFakeXMLHttpRequest();
+            var requests = this.requests = [];
+            this.xhr.onCreate = function (req) {
+                requests.push(req);
+            };
+        },
+        teardown: function () {
+            this.xhr.restore();
+            this.container.off('click');
+        }
+    });
+
+    test('story is removed after form is successfully submitted', function () {
+        expect(2);
+
+        $.fx.off = true;
+        KNET.removeStory(this.removeButtonSel, this.containerSel);
+
+        strictEqual(this.container.children('.story').length, 1, 'one story exists');
+
+        this.removeButton.click();
+        this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
+
+        strictEqual(this.container.children('.story').length, 0, 'no stories exist');
+
+        $.fx.off = false;
+    });
+
+    test('"no stories" msg is added after last story is removed', function () {
+        expect(4);
+
+        $.fx.off = true;
+        KNET.removeStory(this.removeButtonSel, this.containerSel);
+        this.container.find('.story').clone().appendTo(this.container);
+
+        strictEqual(this.container.children('.story').length, 2, 'two stories exists');
+
+        this.removeButton.click();
+        this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
+
+        strictEqual(this.container.children('.story').length, 1, 'one story exists');
+
+        this.container.find(this.removeButtonSel).click();
+        this.requests[1].respond(200, {'content-type': 'application/json'}, '{"success": true}');
+
+        strictEqual(this.container.children('.story').length, 0, 'no stories exist');
+        strictEqual(this.container.html(), KNET.tpl('no_stories_msg').get(0).outerHTML, '"no stories" msg exists');
+
+        $.fx.off = false;
+    });
+
+    module('changeStoryStatus', {
+        setup: function () {
+            this.containerSel = '.teacher-stories';
+            this.container = $(this.containerSel);
+            this.statusButtonSel = '.story-status';
+            this.statusButton = this.container.find(this.statusButtonSel);
+            this.xhr = sinon.useFakeXMLHttpRequest();
+            var requests = this.requests = [];
+            this.xhr.onCreate = function (req) {
+                requests.push(req);
+            };
+        },
+        teardown: function () {
+            this.xhr.restore();
+            this.container.off('click');
+        }
+    });
+
+    test('story is replaced after form is successfully submitted', function () {
+        expect(1);
+
+        var responseHTML = '<div>New Test Story</div>';
+        KNET.changeStoryStatus(this.statusButtonSel, this.containerSel);
+        this.statusButton.click();
+        this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true, "html": "' + responseHTML + '"}');
+
+        strictEqual(this.container.html().trim(), responseHTML, 'story has been replaced by response.html');
+    });
+
+    test('story is not replaced if xhr request returns without response.html', function () {
+        expect(1);
+
+        var html = this.container.html();
+        KNET.changeStoryStatus(this.statusButtonSel, this.containerSel);
+        this.statusButton.click();
+        this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
+
+        strictEqual(this.container.html(), html, 'story html has not changed');
+    });
+
+    module('addStory', {
+        setup: function () {
+            this.containerSel = '.add-story';
+            this.container = $(this.containerSel);
+            this.formSel = '.add-story-form';
+            this.form = this.container.find(this.formSel);
+            this.formToggleSel = '#story-form-toggle';
+            this.formToggle = this.container.find(this.formToggleSel);
+            this.bodyInput = this.form.find('#id_body');
+            this.nameInput = this.form.find('#id_submitter_name');
+            this.emailInput = this.form.find('#id_submitter_email');
+            this.privateInput = this.form.find('#id_private');
+            this.xhr = sinon.useFakeXMLHttpRequest();
+            var requests = this.requests = [];
+            this.xhr.onCreate = function (req) {
+                requests.push(req);
+            };
+            KNET.addStory(this.formSel, this.formToggleSel);
+        },
+        teardown: function () {
+            this.xhr.restore();
+        }
+    });
+
+    test('form submits via ajax', function () {
+        expect(3);
+
+        this.bodyInput.val('Test Story');
+        this.nameInput.val('Test Submitter');
+        this.emailInput.val('test@test.test');
+        this.privateInput.prop('checked', true);
+        this.form.trigger('submit');
+
+        strictEqual(this.requests.length, 1, 'one xhr request was sent');
+        strictEqual(this.requests[0].method, 'POST', 'xhr was sent with method POST');
+        strictEqual(this.requests[0].requestBody, this.form.formSerialize(), 'xhr is sent with serialized form data');
+    });
+
+    test('form is reset when submitted successfully', function () {
+        expect(4);
+
+        this.bodyInput.val('Test Story');
+        this.nameInput.val('Test Submitter');
+        this.emailInput.val('test@test.test');
+        this.privateInput.prop('checked', true);
+        this.form.trigger('submit');
+        this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
+
+        strictEqual(this.bodyInput.val(), '', 'Body has been reset.');
+        strictEqual(this.nameInput.val(), '', 'Name has been reset.');
+        strictEqual(this.emailInput.val(), '', 'Email has been reset.');
+        strictEqual(this.privateInput.prop('checked'), false, 'Private checkbox has been reset.');
+    });
+
+    test('form is not reset if xhr request returns without success: true', function () {
+        expect(4);
+
+        this.bodyInput.val('Test Story');
+        this.nameInput.val('Test Submitter');
+        this.emailInput.val('test@test.test');
+        this.privateInput.prop('checked', true);
+        this.form.trigger('submit');
+        this.requests[0].respond(200);
+
+        strictEqual(this.bodyInput.val(), 'Test Story', 'Body has not been reset.');
+        strictEqual(this.nameInput.val(), 'Test Submitter', 'Name has not been reset.');
+        strictEqual(this.emailInput.val(), 'test@test.test', 'Email has not been reset.');
+        strictEqual(this.privateInput.prop('checked'), true, 'Private checkbox has not been reset.');
+    });
+
+    test('form is hidden when submitted successfully', function () {
+        expect(1);
+
+        this.formToggle.prop('checked', false);
+        this.bodyInput.val('Test Story');
+        this.form.trigger('submit');
+        this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
+
+        ok(this.formToggle.prop('checked'), 'form is hidden');
+    });
+
+    test('form is not hidden if xhr request returns without success: true', function () {
+        expect(1);
+
+        this.formToggle.prop('checked', false);
+        this.bodyInput.val('Test Story');
+        this.form.trigger('submit');
+        this.requests[0].respond(200);
+
+        ok(!this.formToggle.prop('checked'), 'form is still open');
+    });
+
+}(KNET, jQuery));
