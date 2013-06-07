@@ -58,6 +58,30 @@
         strictEqual(this.requests[0].requestBody, 'test-key=test-val', 'xhr was sent with button value in requestBody');
     });
 
+    test('loadingOverlay is added before form submission', function () {
+        expect(1);
+
+        var story = this.button.closest('.story');
+        KNET.ajaxStoryActions(this.buttonSel, this.containerSel);
+        this.button.click();
+
+        ok(story.hasClass('loading'), 'story has loadingOverlay');
+    });
+
+    test('loadingOverlay is removed on xhr response', function () {
+        expect(2);
+
+        var story = this.button.closest('.story');
+        KNET.ajaxStoryActions(this.buttonSel, this.containerSel);
+        this.button.click();
+
+        ok(story.hasClass('loading'), 'story has loadingOverlay');
+
+        this.requests[0].respond(200);
+
+        ok(!story.hasClass('loading'), 'story does not have loadingOverlay');
+    });
+
     test('callback is called when request returns successfully', function () {
         expect(3);
 
@@ -215,6 +239,26 @@
         strictEqual(this.requests.length, 1, 'one xhr request was sent');
         strictEqual(this.requests[0].method, 'POST', 'xhr was sent with method POST');
         strictEqual(this.requests[0].requestBody, this.form.formSerialize(), 'xhr is sent with serialized form data');
+    });
+
+    test('loadingOverlay is added before form submission', function () {
+        expect(1);
+
+        this.form.trigger('submit');
+
+        ok(this.form.hasClass('loading'), 'form has loadingOverlay');
+    });
+
+    test('loadingOverlay is removed on xhr response', function () {
+        expect(2);
+
+        this.form.trigger('submit');
+
+        ok(this.form.hasClass('loading'), 'form has loadingOverlay');
+
+        this.requests[0].respond(200);
+
+        ok(!this.form.hasClass('loading'), 'form does not have loadingOverlay');
     });
 
     test('form is reset when submitted successfully', function () {

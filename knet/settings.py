@@ -244,6 +244,7 @@ PIPELINE_JS = {
             'js/plugins/jquery.ba-dotimeout.js',
             'js/plugins/jquery.stopwatch.js',
             'js/plugins/jquery.form.js',
+            'js/plugins/jquery.ajax-loading-overlay.js',
             'messages_ui/jquery.messages-ui.js',
             'messages_ui/message.js',
             ],

@@ -8,11 +8,14 @@ var KNET = (function (KNET, $) {
             e.preventDefault();
             var button = $(this);
             var form = button.closest('form');
+            var story = button.closest('.story');
             var data = {};
             data[button.attr('name')] = button.val().toString();
+            story.loadingOverlay();
             form.ajaxSubmit({
                 data: data,
                 success: function (response, status, xhr, form) {
+                    story.loadingOverlay('remove');
                     if (response && response.success) {
                         callback(response, form);
                     }
@@ -49,7 +52,11 @@ var KNET = (function (KNET, $) {
     KNET.addStory = function (formSel, formToggleSel) {
         var form = $(formSel);
         form.ajaxForm({
+            beforeSubmit: function () {
+                form.loadingOverlay();
+            },
             success: function (response) {
+                form.loadingOverlay('remove');
                 if (response && response.success) {
                     form.get(0).reset();
                     $(formToggleSel).prop('checked', true);
