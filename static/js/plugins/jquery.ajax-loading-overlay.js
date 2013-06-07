@@ -20,9 +20,8 @@
         init: function (opts) {
             var options = $.extend({}, $.fn.loadingOverlay.defaults, opts);
             var target = $(this).addClass(options.loadingClass);
-            var vertHeight = options.paddingTop(target);
-            var overlay = '<span class="' + options.overlayClass + '" style="padding-top: ' + vertHeight + ';">' + options.loadingText + '</span>';
-            target.prepend(overlay);
+            var overlay = '<div class="' + options.overlayClass + '"><p class="' + options.spinnerClass + '">' + options.loadingText + '</p></div>';
+            target.prepend($(overlay));
         },
 
         remove: function (opts) {
@@ -49,12 +48,10 @@
 
     /* Setup plugin defaults */
     $.fn.loadingOverlay.defaults = {
-        loadingClass: 'loading',        // Class added to `target` while loading
-        overlayClass: 'overlay',        // Class added to loading overlay (to be styled in CSS)
-        loadingText: 'loading...',      // Text within loading overlay
-        paddingTop: function (target) { // Function that returns desired padding-top for overlay text
-            return ((target.outerHeight() - parseInt(target.css('line-height'), 10)) / 2).toString() + 'px';
-        }
+        loadingClass: 'loading',            // Class added to `target` while loading
+        overlayClass: 'loading-overlay',    // Class added to loading overlay (to be styled in CSS)
+        spinnerClass: 'loading-spinner',    // Class added to loading overlay spinner
+        loadingText: 'loading'              // Text within loading overlay
     };
 
 }(jQuery));
