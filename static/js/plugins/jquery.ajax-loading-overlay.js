@@ -1,5 +1,5 @@
 /**
- * jQuery Ajax Loading Overlay 0.1.2
+ * jQuery Ajax Loading Overlay 0.1.3
  *
  * Copyright (c) 2012, Jonny Gerig Meyer
  * All rights reserved.
@@ -20,7 +20,11 @@
         init: function (opts) {
             var options = $.extend({}, $.fn.loadingOverlay.defaults, opts);
             var target = $(this).addClass(options.loadingClass);
-            var overlay = '<div class="' + options.overlayClass + '"><p class="' + options.spinnerClass + '">' + options.loadingText + '</p></div>';
+            var overlay = '<div class="' + options.overlayClass + '">' +
+                '<p class="' + options.spinnerClass + '">' +
+                '<span class="' + options.iconClass + '"></span>' +
+                '<span class="' + options.textClass + '">' + options.loadingText + '</span>' +
+                '</p></div>';
             target.prepend($(overlay));
         },
 
@@ -51,6 +55,8 @@
         loadingClass: 'loading',            // Class added to `target` while loading
         overlayClass: 'loading-overlay',    // Class added to loading overlay (to be styled in CSS)
         spinnerClass: 'loading-spinner',    // Class added to loading overlay spinner
+        iconClass: 'loading-icon',          // Class added to loading overlay spinner
+        textClass: 'loading-text',          // Class added to loading overlay spinner
         loadingText: 'loading'              // Text within loading overlay
     };
 
