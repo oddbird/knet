@@ -12,13 +12,18 @@
   <script src="../libs/sinon-qunit-1.0.0.js"></script>
   <!-- Load local js. -->
   <script src="../../static/js/libs/handlebars.runtime.js"></script>
-  <script src="../../static/js/plugins/jquery.form.js"></script>
-  <script src="../../static/js/plugins/jquery.ajax-loading-overlay.js"></script>
-  <script src="../../static/js/app/stories.js"></script>
   <script src="../../static/js/app/hbs_setup.js"></script>
-  <script src="../../static/js/jstemplates.js"></script>
+  <script type="text/javascript">
+    this['KNET'] = this['KNET'] || {};
+    this['KNET']['templates'] = this['KNET']['templates'] || {};
+    this['KNET']['templates']['test_tpl'] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+      this.compilerInfo = [4,'>= 1.0.0'];
+      helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+      return '<div class="test">Test Template</div>';
+    });
+  </script>
   <!-- Load local tests. -->
-  <script src="../stories.js"></script>
+  <script src="../hbs_setup.js"></script>
   <!-- Removing access to jQuery and $. But it'll still be available as _$, if
        you REALLY want to mess around with jQuery in the console. -->
   <script>window._$ = jQuery.noConflict(true);</script>
@@ -29,28 +34,6 @@
   <div id="qunit-testrunner-toolbar"></div>
   <h2 id="qunit-userAgent"></h2>
   <ol id="qunit-tests"></ol>
-  <div id="qunit-fixture">
-
-    <div class="teacher-stories">
-      <article class="story">
-        <form method="POST">
-          <button class="story-status" type="submit"></button>
-          <button class="delete-story" type="submit"></button>
-        </form>
-      </article>
-    </div>
-
-    <div class="add-story">
-      <input type="checkbox" id="story-form-toggle" checked>
-      <form class="add-story-form" method="POST">
-        <textarea name="body" required id="id_body"></textarea>
-        <input type="checkbox" name="private" id="id_private">
-        <input type="text" name="submitter_name" id="id_submitter_name">
-        <input type="email" name="submitter_email" id="id_submitter_email">
-        <button class="primary-action" type="submit"></button>
-      </form>
-    </div>
-
-  </div>
+  <div id="qunit-fixture"></div>
 </body>
 </html>

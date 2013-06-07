@@ -221,7 +221,7 @@ PIPELINE_JS = {
         'source_filenames': [
             'js/base.js',
             'js/jstemplates.js',
-            'js/app/handlebars_setup.js',
+            'js/app/hbs_setup.js',
             'js/app/ajax_setup.js',
             'js/landing.js',
             'js/demo.js',
