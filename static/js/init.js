@@ -33,6 +33,7 @@ var KNET = (function (KNET, $) {
         KNET.removeStory('.story .story-actions .delete-story', '.teacher-stories');
         KNET.changeStoryStatus('.story .story-actions .story-status', '.teacher-stories');
         KNET.addStory('.add-story-form', '#story-form-toggle');
+        KNET.updateNoStoriesMsg('.story', '.no-stories-message', '.teacher-stories');
     });
 
     return KNET;

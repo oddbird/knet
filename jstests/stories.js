@@ -320,19 +320,41 @@
         }
     });
 
-    test('"no stories" msg is added if no stories exist', function () {
+    test('"no stories" msg is added if no stories exist, viewing your own profile', function () {
         expect(1);
 
         this.container.empty();
+        this.container.data({
+            'teacher': 'test',
+            'user': 'test'
+        });
         KNET.updateNoStoriesMsg(this.storySel, this.msgSel, this.containerSel);
 
-        strictEqual(this.container.html(), KNET.tpl('no_stories_msg').get(0).outerHTML, '"no stories" msg exists');
+        strictEqual(this.container.html(), KNET.tpl('no_stories_msg', {my_profile: true}).get(0).outerHTML, '"no stories" msg exists');
+    });
+
+    test('"be the first to leave a story" msg is added if no stories exist, viewing someone else\'s profile', function () {
+        expect(1);
+
+        this.container.empty();
+        this.container.data({
+            'teacher': 'test',
+            'user': 'different',
+            'teacher-name': 'tester'
+        });
+        var data = {
+            'my_profile': false,
+            'teacher_name': 'tester'
+        };
+        KNET.updateNoStoriesMsg(this.storySel, this.msgSel, this.containerSel);
+
+        strictEqual(this.container.html(), KNET.tpl('no_stories_msg', data).get(0).outerHTML, '"be the first to leave a story" msg exists');
     });
 
     test('"no stories" msg is removed if stories exist', function () {
         expect(2);
 
-        var msg = KNET.tpl('no_stories_msg');
+        var msg = KNET.tpl('no_stories_msg', {});
         this.container.append(msg);
 
         ok(this.container.find(this.msgSel).length, '"no stories" msg exists');

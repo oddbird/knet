@@ -67,7 +67,14 @@ var KNET = (function (KNET, $) {
         if (container.children(storySel).length) {
             container.find(msgSel).remove();
         } else {
-            var noStoriesMsg = KNET.tpl('no_stories_msg');
+            var teacher = container.data('teacher');
+            var teacherName = container.data('teacher-name');
+            var user = container.data('user');
+            var data = {
+                my_profile: teacher === user,
+                teacher_name: teacherName
+            };
+            var noStoriesMsg = KNET.tpl('no_stories_msg', data);
             container.html(noStoriesMsg);
         }
     };
