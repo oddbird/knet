@@ -39,3 +39,6 @@ class Story(models.Model):
     def clean(self):
         if self.private and self.published:
             raise ValidationError("Cannot publish a private story.")
+
+    class Meta:
+        verbose_name_plural = 'stories'
