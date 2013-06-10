@@ -4,20 +4,22 @@ K Network
 Development
 -----------
 
-If you want to run this project in a `virtualenv`_ to isolate it from
-other Python projects on your system, create a Python 3.3 virtualenv and
-activate it.  Then run ``bin/install-reqs`` to install the dependencies
-for this project into your Python environment.
+If you want to run this project in a `virtualenv`_ to isolate it from other
+Python projects on your system, create a Python 3.3 virtualenv and activate it.
+Then run ``bin/install-reqs`` to install the dependencies for this project into
+your Python environment (you should re-run this whenever any file in the
+``requirements/`` directory changes).
 
-In order to run K Network (or its tests), you'll need a PostgreSQL
-database. By default, K Network will look for a PostgreSQL database
-named "knet" on localhost.
+In order to run K Network (or its tests), you'll need a PostgreSQL database. By
+default, K Network will look for a PostgreSQL database named "knet" on
+localhost. To use a different database, set the ``DATABASE_URL`` environment
+variable to a Postgres database URL; e.g. ``postgres://user@host/dbname``.
 
-Once this configuration is done, you should be able to run ``./manage.py
-syncdb --migrate``, then ``./manage.py runserver`` and access the site
-in your browser at ``http://localhost:8000``.
+Once this configuration is done, you should be able to run ``./manage.py syncdb
+--migrate``, then ``./manage.py runserver`` and access the site in your browser
+at ``http://localhost:8000``.
 
-You can run the tests with ``py.test``, or the ``Selenium`` tests with
+You can run the Python tests with ``py.test``, or the ``Selenium`` tests with
 ``py.test knet/tests/selenium``.
 
 Local development on this project requires `Node.js`_ >= 0.8.0 for JS linting
