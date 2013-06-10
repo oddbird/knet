@@ -14,6 +14,7 @@
   @include leader;
   @include adjust-font-size-to($xxxlargepx);
   min-height: px-to-rhythm($xxxlargepx);
+  display: block;
 
   #{$focus} { color: $alt; }
 }
