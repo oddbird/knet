@@ -30,17 +30,11 @@ body {
 .sg-nav {
   @include span(25%);
   @include adjust-font-size-to($smallpx);
+  display: none;
 }
 
 .sg-nav-title {
   font-weight: bold;
-}
-
-// Body
-// ----
-
-.sg-body {
-  @include span(last 75%)
 }
 
 // Blocks
@@ -77,7 +71,9 @@ body {
 .code {
   @include adjust-font-size-to($xsmallpx, .75);
   font-family: monospace, sans-serif;
+  height: rhythm(12);
   overflow-x: auto;
+  resize: vertical;
 }
 
 // Doc Type

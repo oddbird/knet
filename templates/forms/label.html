@@ -1,2 +1,2 @@
 {% load floppyforms %}
-<label for="{{ field|id }}" class="form-type">{{ label }}</label>
+<label for="{{ field|id }}" class="{% if label_class %}{{ label_class }}{% else %}form-type{% endif %}">{{ label }}</label>

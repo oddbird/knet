@@ -1,0 +1,25 @@
+// Labels
+// ======
+
+%label-base {
+  @include adjust-font-size-to($smallpx);
+  // display: inline-block;
+  cursor: pointer;
+}
+
+%label {
+  @extend %label-base;
+  font-weight: bold;
+}
+
+%sub-label {
+  @extend %label-base;
+}
+
+.form-type {
+  @extend %label;
+}
+
+.radio-type, .checkbox-type {
+  @extend %sub-label;
+}

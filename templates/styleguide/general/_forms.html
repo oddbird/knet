@@ -1,0 +1,57 @@
+{% extends "styleguide/_pattern.html" %}
+
+{% block demo %}
+<form class="styleguide-form" method="POST">
+  {% csrf_token %}
+  {% include "forms/errors.html" with errors=form.non_field_errors %}
+
+  {% include "forms/formfield.html" with field=form.text %}
+  {% include "forms/formfield.html" with field=form.url %}
+  {% include "forms/formfield.html" with field=form.email %}
+  {% include "forms/formfield.html" with field=form.password %}
+  {% include "forms/formfield.html" with field=form.date %}
+  {% include "forms/formfield.html" with field=form.time %}
+  {% include "forms/formfield.html" with field=form.datetime %}
+  {% include "forms/formfield.html" with field=form.number %}
+  {% include "forms/formfield.html" with field=form.attachment %}
+
+  {% include "forms/formfield.html" with field=form.textarea %}
+  {% include "forms/formfield.html" with field=form.checkbox %}
+  {% include "forms/formfield.html" with field=form.select %}
+  {% include "forms/formfield.html" with field=form.multiple %}
+  {% include "forms/formfield.html" with field=form.radio %}
+
+  <div class="form-actions">
+    <button type="submit" name="second">second</button>
+    <button class="primary-action" type="submit" name="submit">Send</button>
+  </div>
+</form>
+{% endblock %}
+
+{% block markup %}
+&lt;form class="styleguide-form" method="POST">
+  &#123;% csrf_token %&#125;
+  &#123;% include "forms/errors.html" with errors=form.non_field_errors %&#125;
+
+  &#123;% include "forms/formfield.html" with field=form.text %&#125;
+  &#123;% include "forms/formfield.html" with field=form.url %&#125;
+  &#123;% include "forms/formfield.html" with field=form.email %&#125;
+  &#123;% include "forms/formfield.html" with field=form.password %&#125;
+  &#123;% include "forms/formfield.html" with field=form.date %&#125;
+  &#123;% include "forms/formfield.html" with field=form.time %&#125;
+  &#123;% include "forms/formfield.html" with field=form.datetime %&#125;
+  &#123;% include "forms/formfield.html" with field=form.number %&#125;
+  &#123;% include "forms/formfield.html" with field=form.attachment %&#125;
+
+  &#123;% include "forms/formfield.html" with field=form.textarea %&#125;
+  &#123;% include "forms/formfield.html" with field=form.checkbox %&#125;
+  &#123;% include "forms/formfield.html" with field=form.select %&#125;
+  &#123;% include "forms/formfield.html" with field=form.multiple %&#125;
+  &#123;% include "forms/formfield.html" with field=form.radio %&#125;
+
+  &lt;div class="form-actions"&gt;
+    &lt;button type="submit" name="second"&gt;second&lt;/button&gt;
+    &lt;button class="primary-action" type="submit" name="submit"&gt;Send&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+{% endblock %}

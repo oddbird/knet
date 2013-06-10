@@ -1,40 +1,107 @@
 // Inputs
 // ------
 
+// Text Inputs
+// -----------
+
+@mixin field-shadow (
+  $color...
+) {
+  @include box-shadow(color($color...) 0 0 3px inset);
+}
+
 %reset-textbox {
   @include reset-box-model;
 }
 
-%textbox {
+%input-font {
+  @include serif;
+  @include adjust-font-size-to($normpx);
+}
+
+%textbox-base {
+  @extend %input-font;
   @include rhythm-borders(1px,.25);
-  @include adjust-font-size-to($xsmallpx);
+  @include adjust-font-size-to($medpx);
+  @include field-shadow($base,.5);
   display: block;
   width: 100%;
+  color: color($base light);
+  background: color(lightest,.25);
   border-color: color(lighter);
 }
 
+%textbox-focus {
+  border-color: color($alt lighter);
+  outline: 0;
+}
+
+%textbox-invalid {
+  border-color: color($red lighter);
+}
+
+%textbox {
+  @extend %textbox-base;
+  &:focus {
+    @extend %textbox-focus;
+    &:invalid { @extend %textbox-invalid; }
+  }
+}
+
 %input {
+  @extend %reset-textbox;
   @extend %textbox;
   height: rhythm(1.5);
 }
 
 %textarea {
+  @extend %reset-textbox;
   @extend %textbox;
-  min-height: rhythm(3.5);
+  height: rhythm(6.5);
   resize: vertical;
 }
 
-[type="text"], [type="email"], [type="password"], [type="url"] {
-  @extend %reset-textbox;
+// File Inputs
+// -----------
+
+%file { display: block; }
+
+// Select Inputs
+// -------------
+
+%select {
+  @extend %input-font;
+  display: block;
+  min-width: 50%;
+}
+
+%multiselect {
+  @extend %textarea;
+  @include adjust-font-size-to($normpx);
+}
+
+// Radio/Checkbox Inputs
+// ---------------------
+
+%checkbox { vertical-align: middle; }
+
+// Use
+// ---
+
+[type="text"], [type="email"], [type="url"],
+[type="password"], [type="datetime"] {
   @extend %input;
 }
 
-textarea {
-  @extend %reset-textbox;
-  @extend %textarea;
+[type="date"], [type="time"], [type="number"] {
+  @extend %input;
 }
+[type="number"] { padding-top: 0; }
 
-label {
-  display: inline-block;
-  cursor: pointer;
-}
+[type="file"] { @extend %file; }
+[type="checkbox"] { @extend %checkbox; }
+
+textarea { @extend %textarea; }
+
+select { @extend %select; }
+[multiple] { @extend %multiselect; }
