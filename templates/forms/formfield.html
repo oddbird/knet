@@ -4,7 +4,7 @@
   <fieldset class="formfield {{ field.html_name }}-field{% if field|optional %} optional{% endif %}{% if field.errors %} errors{% endif %}{% if field|is_checkbox %} check{% endif %}{% if field|is_radio %} radio{% endif %}">
     {% if not field|is_checkbox %}{% include "forms/label.html" %}{% endif %}
     {{ field|add_class:classes }}
-    {% if field|is_checkbox %}{% include "forms/label.html" %}{% endif %}
+    {% if field|is_checkbox %}{% include "forms/label.html" with label_class="checkbox-type" %}{% endif %}
 
     {% include "forms/errors.html" with errors=field.errors %}
     {% if help_text %}<p class="form-help">{{ help_text }}</p>{% endif %}

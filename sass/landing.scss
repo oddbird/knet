@@ -57,21 +57,16 @@ html { background: color($cyan light,.25); }
   @extend %intro-section;
   @include pie-clearfix;
   label {
-    @include adjust-font-size-to($smallpx);
-    display: block;
-    font-weight: bold;
+    @extend %label;
   }
-  input { @include span(3 of 5); }
-  button {
-    @extend %button;
-    @include span(last 2 of 5);
+  input {
+    @include span(3 of 5);
     @include adjust-font-size-to($smallpx);
-    @include serif;
-    color: white;
-    text-shadow: color(darker $green,.75) 0 1px 0;
-    background-color: color(dark $green);
-    border-color: color(darker $green);
-    font-weight: bold;
+    background: white;
+  }
+  button {
+    @extend %primary-button;
+    @include span(last 2 of 5);
   }
   @include breakpoint($landing-break) {
     button {

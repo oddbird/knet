@@ -9,4 +9,9 @@
 .form-help {
   @include adjust-font-size-to($smallpx);
   color: color($base light);
+
+  a {
+    #{$link} { color: color($alt light); }
+    #{$focus} { color: color($accent); }
+  }
 }
