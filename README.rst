@@ -19,18 +19,30 @@ Once this configuration is done, you should be able to run ``./manage.py syncdb
 --migrate``, then ``./manage.py runserver`` and access the site in your browser
 at ``http://localhost:8000``.
 
-You can run the Python tests with ``py.test``, or the ``Selenium`` tests with
-``py.test knet/tests/selenium``.
-
 Local development on this project requires `Node.js`_ >= 0.8.0 for JS linting
 and tests. To install the necessary Node dependencies, first ``npm install -g
 grunt-cli`` (once per system), then ``npm install`` (whenever ``package.json``
 changes).
 
+You can run the Python tests with ``py.test`` (or ``grunt pytest``), or the
+``Selenium`` tests with ``py.test knet/tests/selenium`` (or ``grunt
+selenium``).
+
+You can lint the project's JS with ``grunt jshint`` and run the JS unit tests
+with ``grunt qunit``.
+
+You can compile Handlebars templates in the ``jstemplates/`` directory to the
+compiled-templates file (``static/js/jstemplates.js``) with ``grunt handlebars``.
+
+Just running ``grunt`` will perform all of the above tasks except the Selenium
+tests.
+
 ``grunt dev`` will watch for changes to local files and automatically perform
 an appropriate selection of the following tasks whenever changes are detected
-to files in the ``static/js/``, ``jstests/``, and ``knet/`` directories:
+to files in the ``static/js/``, ``jstests/``, ``jstemplates/``, ``templates/``
+and ``knet/`` directories:
 
+* compile Handlebars templates
 * validate JS with `JSHint`_
 * run the JS unit tests
 * run the Python tests

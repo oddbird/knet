@@ -49,6 +49,13 @@ module.exports = function (grunt) {
                     stdout: true,
                     failOnError: true
                 }
+            },
+            selenium: {
+                command: 'py.test knet/tests/selenium',
+                options: {
+                    stdout: true,
+                    failOnError: true
+                }
             }
         },
         handlebars: {
@@ -98,6 +105,7 @@ module.exports = function (grunt) {
     grunt.registerTask('dev', ['default', 'watch']);
 
     grunt.registerTask('pytest', ['shell:pytest']);
+    grunt.registerTask('selenium', ['shell:selenium']);
 
     // Plugin tasks
     grunt.loadNpmTasks('grunt-contrib-jshint');
