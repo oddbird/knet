@@ -6,7 +6,7 @@
 // Layout
 // ------
 
-html { background: color($cyan light,.25); }
+@include set-grid(10 (4em 1em) after hide);
 
 [role="banner"] {
   @extend %fixed-banner;
@@ -33,6 +33,11 @@ html { background: color($cyan light,.25); }
       &.empty { display: none; }
     }
   }
+}
+
+[role="main"] {
+  @include container;
+  padding: rhythm(1) 1em;
 }
 
 // Headers

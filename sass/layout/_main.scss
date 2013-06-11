@@ -3,5 +3,7 @@
 
 [role="main"] {
   @include container;
+  @include background-origin(content-box);
+  @include background-clip(content-box);
   padding: rhythm(1) 1em;
 }

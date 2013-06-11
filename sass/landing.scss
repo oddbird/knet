@@ -3,7 +3,15 @@
 
 @import "site";
 
+// Grid
+// ----
+
+@include set-grid(10 (4em 1em) after hide);
+
 $landing-break: 40em;
+
+// Root
+// ----
 
 html { background: color($cyan light,.25); }
 
@@ -13,6 +21,19 @@ html { background: color($cyan light,.25); }
   @include breakpoint($landing-break) {
     header { @include gone; }
   }
+}
+
+[role="banner"] { @extend %banner; }
+
+.brand { @include span(40% no-gutters); }
+.user-nav {
+  @extend %user-nav;
+  @include span(60% no-gutters);
+}
+
+[role="main"] {
+  @include container;
+  padding: rhythm(1) 1em;
 }
 
 // Call to Action

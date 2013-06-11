@@ -448,14 +448,7 @@ select {
   color: #94001a;
 }
 
-.brand {
-  width: 40%;
-  float: left;
-}
-
 .user-nav {
-  width: 60%;
-  float: left;
   text-align: right;
 }
 .user-nav .fb-login:before {
@@ -469,18 +462,6 @@ select {
 }
 .user-nav [name="logout"]:focus, .user-nav [name="logout"]:hover, .user-nav [name="logout"]:active {
   color: #94001a;
-}
-
-[role="main"] {
-  max-width: 49em;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1.27778rem 1em;
-}
-[role="main"]:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 @-moz-keyframes announce-in {
@@ -941,6 +922,28 @@ html {
     top: -9999px;
     left: -9999px;
   }
+}
+
+.brand {
+  width: 40%;
+  float: left;
+}
+
+.user-nav {
+  width: 60%;
+  float: left;
+}
+
+[role="main"] {
+  max-width: 49em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.27778rem 1em;
+}
+[role="main"]:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .call-to-action {

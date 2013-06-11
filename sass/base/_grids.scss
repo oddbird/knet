@@ -12,6 +12,4 @@ $show-grid-backgrounds            : false;
 // ---------------------------------------------------------------------------
 // Grids
 
-$show-grids: false;
-
-@include set-grid(10 (4em 1em));
+@include set-grid(12 (4em 1em) hide);
