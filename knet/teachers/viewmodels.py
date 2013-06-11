@@ -16,4 +16,4 @@ class ViewTeacher:
 
     def stories(self):
         """Return all the stories on this profile."""
-        return self._profile.stories.all()
+        return self._profile.stories.order_by('-created')

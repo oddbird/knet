@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from knet.teachers.viewmodels import ViewTeacher
 
 from .factories import TeacherProfileFactory, StoryFactory
@@ -25,8 +27,11 @@ def test_attributes():
 
 
 def test_stories(db):
-    """Stories method gets all stories for profile."""
-    s = StoryFactory.create()
-    vt = ViewTeacher(s.profile)
+    """Stories method gets all stories for profile, most recent first."""
+    s1 = StoryFactory.create(created=datetime(2013, 6, 11))
+    s2 = StoryFactory.create(created=datetime(2013, 6, 10), profile=s1.profile)
+    s3 = StoryFactory.create(created=datetime(2013, 6, 12), profile=s1.profile)
 
-    assert list(vt.stories()) == [s]
+    vt = ViewTeacher(s1.profile)
+
+    assert list(vt.stories()) == [s3, s1, s2]
