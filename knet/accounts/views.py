@@ -61,4 +61,5 @@ def logout(request):
 
 def login(request):
     """Display login link."""
-    return render(request, 'accounts/login.html')
+    return render(
+        request, 'accounts/login.html', {'login_next': request.GET.get('next')})

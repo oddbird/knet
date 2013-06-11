@@ -186,8 +186,27 @@ class TestTeacherDetail(object):
 
 class TestCreateProfile(object):
     def test_create_profile(self, client):
-        """Can create a profile."""
+        """User without profile can create one."""
         u = UserFactory.create()
+        form = client.get(reverse('create_profile'), user=u).forms[1]
+        form['school'] = "Sample Elementary"
+        form['bio'] = "This is my song."
+        resp = form.submit()
+
+        tp = u.teacher_profile
+        assert tp.bio == "This is my song."
+        assert tp.school == "Sample Elementary"
+        assert redirects_to(resp) == reverse(
+            'teacher_detail', kwargs={'username': u.username})
+
+
+    def test_school_required(self, client):
+        """Must provide school name."""
+        u = UserFactory.create()
+        form = client.get(reverse('create_profile'), user=u).forms[1]
+        resp = form.submit(status=200)
+
+        resp.mustcontain('field is required')
 
 
     def test_already_has_profile(self, client):
