@@ -1028,6 +1028,9 @@ select {
   margin-top: 23px;
   margin-top: 1.27778rem;
 }
+.login .fb-login:before {
+  padding-right: .4em;
+}
 
 .teacher-detail {
   position: relative;

@@ -8,7 +8,7 @@
 
   .fb-login {
     @extend %button-large;
-    @include icon(facebook);
+    @include icon(facebook) { padding-right: .4em; }
     @include leader;
   }
 }
