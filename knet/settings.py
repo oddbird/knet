@@ -160,6 +160,8 @@ OAUTH_PROVIDER = env(
 OAUTH_CLIENT_ID = env('KNET_OAUTH_CLIENT_ID', default={'dev': ''})
 OAUTH_CLIENT_SECRET = env('KNET_OAUTH_CLIENT_SECRET', default={'dev': ''})
 
+LOGIN_REDIRECT_URL = 'login'
+
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 

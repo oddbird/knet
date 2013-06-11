@@ -57,3 +57,8 @@ def logout(request):
         return redirect(request.POST.get('next') or 'landing')
 
     return render(request, 'accounts/logout.html')
+
+
+def login(request):
+    """Display login link."""
+    return render(request, 'accounts/login.html')

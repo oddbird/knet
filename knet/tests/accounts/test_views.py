@@ -78,3 +78,22 @@ def test_logout(client):
     resp = client.get(reverse('logout'), user=u, status=200).forms[1].submit()
 
     assert redirects_to(resp) == reverse('landing')
+
+
+
+@override_settings(ENABLE_LOGIN=True)
+def test_login(client):
+    """Login page contains login links in both header and body."""
+    resp = client.get(reverse('login') + '?next=/foo/', status=200)
+
+    login_links = resp.html.findAll('a', 'fb-login')
+    assert len(login_links) == 2
+
+
+
+@override_settings(ENABLE_LOGIN=False)
+def test_login_disabled(client):
+    """Login page contains no login links if login disabled."""
+    resp = client.get(reverse('login'), status=200)
+
+    assert len(resp.html.findAll('a', 'fb-login')) == 0
