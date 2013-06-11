@@ -11,6 +11,7 @@ from ..utils import redirects_to
 def test_oauth_new_user(client):
     """After creating new user, OAuth view redirects to create_profile."""
     data = {
+        'next': '/foo/',
         'username': 'oauthuser',
         'email': 'oauth@example.com',
         'first_name': 'OAuth',
@@ -24,7 +25,7 @@ def test_oauth_new_user(client):
     assert user.first_name == 'OAuth'
     assert user.last_name == 'User'
     assert user.name == 'O User'
-    assert redirects_to(resp) == reverse('create_profile')
+    assert redirects_to(resp) == reverse('create_profile') + '?next=%2Ffoo%2F'
 
 
 @override_settings(OAUTH_PROVIDER='oauth2.dummy.DummyOAuth')

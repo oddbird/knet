@@ -1,5 +1,8 @@
+from urllib.parse import urlencode
+
 from django.conf import settings
 from django.contrib import auth, messages
+from django.core.urlresolvers import reverse
 from django.db import transaction
 from django.shortcuts import redirect, render
 from oauth2 import OAuthError
@@ -36,7 +39,12 @@ def oauth(request):
     # If you just logged in for the first time, we take you to create-profile.
     # Otherwise, we redirect you back wherever you came from.
     if created:
-        return redirect('create_profile')
+        return redirect(
+            '{}?{}'.format(
+                reverse('create_profile'),
+                urlencode({'next': redirect_to} if redirect_to else {}),
+                )
+            )
     return redirect(redirect_to or '/')
 
 
