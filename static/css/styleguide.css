@@ -158,12 +158,46 @@ a:focus, a:hover, a:active {
   left: -9999px;
 }
 
-.teacher-name {
+.profile-help h1, .teacher-name {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 86px;
-  font-size: 4.77778rem;
-  line-height: 92px;
-  line-height: 5.11111rem;
+  font-size: 43px;
+  font-size: 2.38889rem;
+  line-height: 58px;
+  line-height: 3.19444rem;
+}
+
+.profile-help h1 a:link, .profile-help h1 a:visited {
+  color: #005c5c;
+}
+.profile-help h1 a:focus, .profile-help h1 a:hover, .profile-help h1 a:active {
+  color: #760014;
+}
+.profile-help h2 {
+  margin-bottom: 12px;
+  margin-bottom: 0.63889rem;
+  text-transform: uppercase;
+}
+.profile-help h3 {
+  margin-top: 23px;
+  margin-top: 1.27778rem;
+  font-weight: bold;
+}
+
+.profile-help strong {
+  font-weight: bold;
+}
+.profile-help em {
+  font-style: italic;
+}
+.profile-help p, .profile-help ul, .profile-help ol, .profile-help pre {
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+}
+.profile-help ul {
+  list-style: disc;
+}
+.profile-help ol {
+  list-style: decimal;
 }
 
 @font-face {
@@ -444,6 +478,16 @@ select {
 
 .form-type {
   font-weight: bold;
+}
+
+.formfield.optional .form-type:after {
+  content: " [optional]";
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  color: #999999;
+  font-weight: normal;
 }
 
 [role="banner"] {
@@ -982,13 +1026,13 @@ select {
 .toggle-addstory-main {
   margin-top: 12px;
   margin-top: 0.63889rem;
-  font-size: 86px;
-  font-size: 4.77778rem;
-  line-height: 92px;
-  line-height: 5.11111rem;
+  font-size: 43px;
+  font-size: 2.38889rem;
+  line-height: 58px;
+  line-height: 3.19444rem;
   float: right;
   margin-left: 1.27778rem;
-  min-height: 5.11111rem;
+  min-height: 2.55556rem;
   color: #007474;
 }
 .toggle-addstory-main:focus, .toggle-addstory-main:hover, .toggle-addstory-main:active {
