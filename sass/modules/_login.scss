@@ -1,0 +1,14 @@
+// Login
+// =====
+
+.login {
+  @extend %headers;
+  @extend %type;
+  text-align: center;
+
+  .fb-login {
+    @extend %button-large;
+    @include icon(facebook);
+    @include leader;
+  }
+}
