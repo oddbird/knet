@@ -5,7 +5,7 @@ class ViewTeacher:
         self.user = self._profile.user
         self.school = self._profile.school
         self.date_joined = self.user.date_joined
-        self.bio = self.user.bio
+        self.bio = self._profile.bio
         self.full_name = str(self.user)
 
 

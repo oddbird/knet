@@ -22,7 +22,7 @@ def test_attributes():
     assert vt.user == tp.user
     assert vt.school == tp.school
     assert vt.date_joined == tp.user.date_joined
-    assert vt.bio == tp.user.bio
+    assert vt.bio == tp.bio
     assert vt.full_name == str(tp.user)
 
 

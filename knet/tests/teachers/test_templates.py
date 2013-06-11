@@ -9,7 +9,7 @@ from .factories import TeacherProfileFactory, StoryFactory
 
 def test_bio_rendered_with_markdown():
     """Bio on teacher profile renders through markdown."""
-    tp = TeacherProfileFactory.build(user__bio="Some *text*")
+    tp = TeacherProfileFactory.build(bio="Some *text*")
     bio = render_to_soup(
         'teacher_detail.html',
         {'teacher': ViewTeacher(tp), 'form': StoryForm(tp)},
