@@ -3,14 +3,15 @@
 {% load accounts %}
 
 {% block main %}
-<p>You must log in to access that page.</p>
+<div class="login">
+  <h1 class="login-title">You must log in to access that page.</h1>
 
-{% if ENABLE_LOGIN %}
-  <p>
-    <a href="{% oauth_authorize_url request login_next|default:request.path %}" class="fb-login">Login with Facebook</a>
-  </p>
-{% else %}
-  <p>Sorry, logins are currently disabled.</p>
-{% endif %}
-
+  {% if ENABLE_LOGIN %}
+    <p>
+      <a href="{% oauth_authorize_url request login_next|default:request.path %}" class="fb-login">Login with Facebook</a>
+    </p>
+  {% else %}
+    <p>Sorry, logins are currently disabled.</p>
+  {% endif %}
+</div>
 {% endblock %}

@@ -18,6 +18,13 @@
 
 .form-type {
   @extend %label;
+  .formfield.optional & {
+    @include after(' [optional]') {
+      @include adjust-font-size-to($smallpx);
+      color: color(light);
+      font-weight: normal;
+    }
+  }
 }
 
 .radio-type, .checkbox-type {
