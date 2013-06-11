@@ -4,7 +4,6 @@ from django.db import transaction
 from django.shortcuts import redirect, render
 from oauth2 import OAuthError
 
-from ..teachers.models import TeacherProfile
 from .models import User
 from .oauth import get_provider
 
@@ -19,9 +18,8 @@ def oauth(request):
         messages.error(request, str(e))
         return redirect('landing')
 
-    # @@@ just store data in session and redirect to signup page
     with transaction.atomic():
-        user, _ = User.objects.get_or_create(
+        user, created = User.objects.get_or_create(
             username=user_data['username'],
             defaults={
                 'email': user_data['email'],
@@ -30,14 +28,15 @@ def oauth(request):
                 'name': user_data.get('name', ''),
                 }
             )
-        # @@@ for now all logins are teachers, no signup form
-        TeacherProfile.objects.get_or_create(user=user)
 
     user.backend = settings.AUTHENTICATION_BACKENDS[0]
     auth.login(request, user)
 
-    # @@@ should perhaps keep you on same page you came from instead
-    return redirect('teacher_detail', username=user.username)
+    # If you just logged in for the first time, we take you to create-profile.
+    # Otherwise, we redirect you back wherever you came from.
+    if created:
+        return redirect('create_profile')
+    return redirect(request.GET.get('next', '/'))
 
 
 

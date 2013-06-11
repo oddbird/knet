@@ -2,13 +2,14 @@ from django.core.urlresolvers import reverse
 from django.test.utils import override_settings
 from oauth2 import OAuthError
 
+from knet.accounts.models import User
 from ..factories import UserFactory
 from ..utils import redirects_to
 
 
 @override_settings(OAUTH_PROVIDER='oauth2.dummy.DummyOAuth')
-def test_oauth(client):
-    """Test dummy OAuth workflow."""
+def test_oauth_new_user(client):
+    """After creating new user, OAuth view redirects to create_profile."""
     data = {
         'username': 'oauthuser',
         'email': 'oauth@example.com',
@@ -17,11 +18,28 @@ def test_oauth(client):
         'name': 'O User',
         }
     resp = client.get(reverse('oauth'), data)
+    user = User.objects.get(username='oauthuser')
 
-    # @@@ assert data is stored in session
+    assert user.email == 'oauth@example.com'
+    assert user.first_name == 'OAuth'
+    assert user.last_name == 'User'
+    assert user.name == 'O User'
+    assert redirects_to(resp) == reverse('create_profile')
 
-    assert redirects_to(resp) == reverse(
-        'teacher_detail', kwargs={'username': 'oauthuser'})
+
+@override_settings(OAUTH_PROVIDER='oauth2.dummy.DummyOAuth')
+def test_oauth_existing_user(client):
+    """After existing user logs in, OAuth view redirects to ``next`` param."""
+    UserFactory.create(username='oauthuser')
+
+    data = {
+        'next': '/foo/',
+        'username': 'oauthuser',
+        'email': 'oauth@example.com',
+        }
+    resp = client.get(reverse('oauth'), data)
+
+    assert redirects_to(resp) == '/foo/'
 
 
 class ErrorProvider:

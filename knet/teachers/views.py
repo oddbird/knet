@@ -97,3 +97,7 @@ def teacher_detail(request, username):
         'teacher_detail.html',
         {'form': form, 'teacher': teacher},
         )
+
+
+def create_profile(request):
+    pass
