@@ -118,4 +118,9 @@ def create_profile(request):
     else:
         form = TeacherProfileForm(request.user)
 
-    return render(request, 'create_profile.html', {'form': form})
+    redirect_to = request.GET.get('next', '/')
+    return render(
+        request,
+        'create_profile.html',
+        {'form': form, 'profile_next': redirect_to},
+        )
