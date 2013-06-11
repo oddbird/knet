@@ -17,7 +17,7 @@
         {% if user|teacher_profile %}
           <a href="{% url 'teacher_detail' username=user.username %}">{{ user }}</a>
         {% else %}
-          {{ user }}
+          <a href="{% url 'create_profile' %}?next={{ request.path }}">{{ user }}</a>
         {% endif %}
       </p>
       <form class="logout-form" method="POST" action="{% url 'logout' %}">
@@ -25,10 +25,8 @@
         <input type="hidden" name="next" value="{{ request.path }}">
         <button type="submit" name="logout" title="logout">Log out</button>
       </form>
-    {% else %}
-      {% if ENABLE_LOGIN %}
-        <a href="{% oauth_authorize_url login_next|default:request.path %}" class="fb-login">Login with Facebook</a>
-      {% endif %}
+    {% elif ENABLE_LOGIN %}
+      <a href="{% oauth_authorize_url login_next|default:request.path %}" class="fb-login">Login with Facebook</a>
     {% endif %}
   </nav>
   {% endblock %}
