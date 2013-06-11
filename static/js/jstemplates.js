@@ -15,7 +15,7 @@ function program1(depth0,data) {
 function program3(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "\n    <label for=\"story-form-toggle\" class=\"toggle-addstory-body\"></label>\n    <p>Be the first to leave a story";
+  buffer += "\n    <p>Be the first to leave a story";
   stack1 = helpers['if'].call(depth0, depth0.teacher_name, {hash:{},inverse:self.noop,fn:self.program(4, program4, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += ".</p>\n  ";

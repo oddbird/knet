@@ -188,7 +188,7 @@ a:focus, a:hover, a:active {
   font-style: normal;
 }
 
-.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, .loading-icon:before, [data-icon]:before {
+#messages .close:before, .announce:before, .message:before, .loading-icon:before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -197,7 +197,7 @@ a:focus, a:hover, a:active {
   speak: none;
 }
 
-.user-nav [name="logout"], #messages .close {
+#messages .close {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -205,7 +205,7 @@ a:focus, a:hover, a:active {
   min-width: 1em;
   text-indent: -9999px;
 }
-.user-nav [name="logout"]:before, #messages .close:before {
+#messages .close:before {
   position: absolute;
   top: 0;
   left: 0;
@@ -222,10 +222,6 @@ a:focus, a:hover, a:active {
   content: "\e006";
 }
 
-.user-nav .fb-login:before {
-  content: "\e007";
-}
-
 .announce:before, .message:before {
   content: "\e008";
 }
@@ -240,10 +236,6 @@ a:focus, a:hover, a:active {
 
 .message.error:before {
   content: "\e00b";
-}
-
-.user-nav [name="logout"]:before {
-  content: "\e00c";
 }
 
 .loading-icon:before {
@@ -473,47 +465,12 @@ select {
   color: #94001a;
 }
 
-.brand {
-  width: 40%;
-  float: left;
-}
-
-.user-nav {
-  width: 60%;
-  float: left;
-  text-align: right;
-}
-.user-nav .fb-login:before {
-  padding-right: 0.31944rem;
-}
-.user-nav .user-name, .user-nav .logout-form {
-  display: inline-block;
-}
-.user-nav [name="logout"] {
-  padding: 0 0.31944rem;
-}
-.user-nav [name="logout"]:focus, .user-nav [name="logout"]:hover, .user-nav [name="logout"]:active {
-  color: #94001a;
-}
-
 [role="banner"] {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 900;
-}
-
-[role="main"] {
-  max-width: 49em;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1.27778rem 1em;
-}
-[role="main"]:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 @-moz-keyframes announce-in {
@@ -961,10 +918,6 @@ select {
   vertical-align: middle;
 }
 
-html {
-  background: rgba(123, 211, 211, 0.25);
-}
-
 [role="banner"] .brand, [role="banner"] .meta {
   float: left;
   width: 50%;
@@ -991,6 +944,18 @@ html {
 }
 [role="banner"] .meta .vcard.empty {
   display: none;
+}
+
+[role="main"] {
+  max-width: 49em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.27778rem 1em;
+}
+[role="main"]:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .demo h2 {

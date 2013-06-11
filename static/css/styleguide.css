@@ -474,14 +474,7 @@ select {
   color: #94001a;
 }
 
-.brand {
-  width: 40%;
-  float: left;
-}
-
 .user-nav {
-  width: 60%;
-  float: left;
   text-align: right;
 }
 .user-nav .fb-login:before {
@@ -495,18 +488,6 @@ select {
 }
 .user-nav [name="logout"]:focus, .user-nav [name="logout"]:hover, .user-nav [name="logout"]:active {
   color: #94001a;
-}
-
-[role="main"] {
-  max-width: 49em;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1.27778rem 1em;
-}
-[role="main"]:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 [id="story-form-toggle"]:checked ~ .add-story-form {
@@ -958,6 +939,44 @@ select {
   vertical-align: middle;
 }
 
+.brand {
+  width: 40%;
+  float: left;
+}
+
+.user-nav {
+  width: 60%;
+  float: left;
+}
+
+[role="main"] {
+  background: -webkit-linear-gradient(left, rgba(179, 179, 255, 0.25) 8.33333%, transparent 8.33333%, transparent 8.33333%, rgba(102, 102, 255, 0.25) 8.33333%, rgba(179, 179, 255, 0.25) 16.66667%, transparent 16.66667%, transparent 16.66667%, rgba(102, 102, 255, 0.25) 16.66667%, rgba(179, 179, 255, 0.25) 25%, transparent 25%, transparent 25%, rgba(102, 102, 255, 0.25) 25%, rgba(179, 179, 255, 0.25) 33.33333%, transparent 33.33333%, transparent 33.33333%, rgba(102, 102, 255, 0.25) 33.33333%, rgba(179, 179, 255, 0.25) 41.66667%, transparent 41.66667%, transparent 41.66667%, rgba(102, 102, 255, 0.25) 41.66667%, rgba(179, 179, 255, 0.25) 50%, transparent 50%, transparent 50%, rgba(102, 102, 255, 0.25) 50%, rgba(179, 179, 255, 0.25) 58.33333%, transparent 58.33333%, transparent 58.33333%, rgba(102, 102, 255, 0.25) 58.33333%, rgba(179, 179, 255, 0.25) 66.66667%, transparent 66.66667%, transparent 66.66667%, rgba(102, 102, 255, 0.25) 66.66667%, rgba(179, 179, 255, 0.25) 75%, transparent 75%, transparent 75%, rgba(102, 102, 255, 0.25) 75%, rgba(179, 179, 255, 0.25) 83.33333%, transparent 83.33333%, transparent 83.33333%, rgba(102, 102, 255, 0.25) 83.33333%, rgba(179, 179, 255, 0.25) 91.66667%, transparent 91.66667%, transparent 91.66667%, rgba(102, 102, 255, 0.25) 91.66667%, rgba(179, 179, 255, 0.25) 100%), -webkit-linear-gradient(bottom, rgba(76, 76, 76, 0.25) 5%, rgba(76, 76, 76, 0) 5%);
+  background: -moz-linear-gradient(left, rgba(179, 179, 255, 0.25) 8.33333%, transparent 8.33333%, transparent 8.33333%, rgba(102, 102, 255, 0.25) 8.33333%, rgba(179, 179, 255, 0.25) 16.66667%, transparent 16.66667%, transparent 16.66667%, rgba(102, 102, 255, 0.25) 16.66667%, rgba(179, 179, 255, 0.25) 25%, transparent 25%, transparent 25%, rgba(102, 102, 255, 0.25) 25%, rgba(179, 179, 255, 0.25) 33.33333%, transparent 33.33333%, transparent 33.33333%, rgba(102, 102, 255, 0.25) 33.33333%, rgba(179, 179, 255, 0.25) 41.66667%, transparent 41.66667%, transparent 41.66667%, rgba(102, 102, 255, 0.25) 41.66667%, rgba(179, 179, 255, 0.25) 50%, transparent 50%, transparent 50%, rgba(102, 102, 255, 0.25) 50%, rgba(179, 179, 255, 0.25) 58.33333%, transparent 58.33333%, transparent 58.33333%, rgba(102, 102, 255, 0.25) 58.33333%, rgba(179, 179, 255, 0.25) 66.66667%, transparent 66.66667%, transparent 66.66667%, rgba(102, 102, 255, 0.25) 66.66667%, rgba(179, 179, 255, 0.25) 75%, transparent 75%, transparent 75%, rgba(102, 102, 255, 0.25) 75%, rgba(179, 179, 255, 0.25) 83.33333%, transparent 83.33333%, transparent 83.33333%, rgba(102, 102, 255, 0.25) 83.33333%, rgba(179, 179, 255, 0.25) 91.66667%, transparent 91.66667%, transparent 91.66667%, rgba(102, 102, 255, 0.25) 91.66667%, rgba(179, 179, 255, 0.25) 100%), -moz-linear-gradient(bottom, rgba(76, 76, 76, 0.25) 5%, rgba(76, 76, 76, 0) 5%);
+  background: -o-linear-gradient(left, rgba(179, 179, 255, 0.25) 8.33333%, transparent 8.33333%, transparent 8.33333%, rgba(102, 102, 255, 0.25) 8.33333%, rgba(179, 179, 255, 0.25) 16.66667%, transparent 16.66667%, transparent 16.66667%, rgba(102, 102, 255, 0.25) 16.66667%, rgba(179, 179, 255, 0.25) 25%, transparent 25%, transparent 25%, rgba(102, 102, 255, 0.25) 25%, rgba(179, 179, 255, 0.25) 33.33333%, transparent 33.33333%, transparent 33.33333%, rgba(102, 102, 255, 0.25) 33.33333%, rgba(179, 179, 255, 0.25) 41.66667%, transparent 41.66667%, transparent 41.66667%, rgba(102, 102, 255, 0.25) 41.66667%, rgba(179, 179, 255, 0.25) 50%, transparent 50%, transparent 50%, rgba(102, 102, 255, 0.25) 50%, rgba(179, 179, 255, 0.25) 58.33333%, transparent 58.33333%, transparent 58.33333%, rgba(102, 102, 255, 0.25) 58.33333%, rgba(179, 179, 255, 0.25) 66.66667%, transparent 66.66667%, transparent 66.66667%, rgba(102, 102, 255, 0.25) 66.66667%, rgba(179, 179, 255, 0.25) 75%, transparent 75%, transparent 75%, rgba(102, 102, 255, 0.25) 75%, rgba(179, 179, 255, 0.25) 83.33333%, transparent 83.33333%, transparent 83.33333%, rgba(102, 102, 255, 0.25) 83.33333%, rgba(179, 179, 255, 0.25) 91.66667%, transparent 91.66667%, transparent 91.66667%, rgba(102, 102, 255, 0.25) 91.66667%, rgba(179, 179, 255, 0.25) 100%), -o-linear-gradient(bottom, rgba(76, 76, 76, 0.25) 5%, rgba(76, 76, 76, 0) 5%);
+  background: linear-gradient(to right, rgba(179, 179, 255, 0.25) 8.33333%, transparent 8.33333%, transparent 8.33333%, rgba(102, 102, 255, 0.25) 8.33333%, rgba(179, 179, 255, 0.25) 16.66667%, transparent 16.66667%, transparent 16.66667%, rgba(102, 102, 255, 0.25) 16.66667%, rgba(179, 179, 255, 0.25) 25%, transparent 25%, transparent 25%, rgba(102, 102, 255, 0.25) 25%, rgba(179, 179, 255, 0.25) 33.33333%, transparent 33.33333%, transparent 33.33333%, rgba(102, 102, 255, 0.25) 33.33333%, rgba(179, 179, 255, 0.25) 41.66667%, transparent 41.66667%, transparent 41.66667%, rgba(102, 102, 255, 0.25) 41.66667%, rgba(179, 179, 255, 0.25) 50%, transparent 50%, transparent 50%, rgba(102, 102, 255, 0.25) 50%, rgba(179, 179, 255, 0.25) 58.33333%, transparent 58.33333%, transparent 58.33333%, rgba(102, 102, 255, 0.25) 58.33333%, rgba(179, 179, 255, 0.25) 66.66667%, transparent 66.66667%, transparent 66.66667%, rgba(102, 102, 255, 0.25) 66.66667%, rgba(179, 179, 255, 0.25) 75%, transparent 75%, transparent 75%, rgba(102, 102, 255, 0.25) 75%, rgba(179, 179, 255, 0.25) 83.33333%, transparent 83.33333%, transparent 83.33333%, rgba(102, 102, 255, 0.25) 83.33333%, rgba(179, 179, 255, 0.25) 91.66667%, transparent 91.66667%, transparent 91.66667%, rgba(102, 102, 255, 0.25) 91.66667%, rgba(179, 179, 255, 0.25) 100%), linear-gradient(to top, rgba(76, 76, 76, 0.25) 5%, rgba(76, 76, 76, 0) 5%);
+  background: linear-gradient(to right, rgba(179, 179, 255, 0.25) 8.33333%, transparent 8.33333%, transparent 8.33333%, rgba(102, 102, 255, 0.25) 8.33333%, rgba(179, 179, 255, 0.25) 16.66667%, transparent 16.66667%, transparent 16.66667%, rgba(102, 102, 255, 0.25) 16.66667%, rgba(179, 179, 255, 0.25) 25%, transparent 25%, transparent 25%, rgba(102, 102, 255, 0.25) 25%, rgba(179, 179, 255, 0.25) 33.33333%, transparent 33.33333%, transparent 33.33333%, rgba(102, 102, 255, 0.25) 33.33333%, rgba(179, 179, 255, 0.25) 41.66667%, transparent 41.66667%, transparent 41.66667%, rgba(102, 102, 255, 0.25) 41.66667%, rgba(179, 179, 255, 0.25) 50%, transparent 50%, transparent 50%, rgba(102, 102, 255, 0.25) 50%, rgba(179, 179, 255, 0.25) 58.33333%, transparent 58.33333%, transparent 58.33333%, rgba(102, 102, 255, 0.25) 58.33333%, rgba(179, 179, 255, 0.25) 66.66667%, transparent 66.66667%, transparent 66.66667%, rgba(102, 102, 255, 0.25) 66.66667%, rgba(179, 179, 255, 0.25) 75%, transparent 75%, transparent 75%, rgba(102, 102, 255, 0.25) 75%, rgba(179, 179, 255, 0.25) 83.33333%, transparent 83.33333%, transparent 83.33333%, rgba(102, 102, 255, 0.25) 83.33333%, rgba(179, 179, 255, 0.25) 91.66667%, transparent 91.66667%, transparent 91.66667%, rgba(102, 102, 255, 0.25) 91.66667%, rgba(179, 179, 255, 0.25) 100%), linear-gradient(to top, rgba(76, 76, 76, 0.25) 5%, rgba(76, 76, 76, 0) 5%);
+  -webkit-background-size: 100% 23px;
+  -moz-background-size: 100% 23px;
+  -o-background-size: 100% 23px;
+  background-size: 100% 23px;
+  background-position: left top;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-background-origin: content;
+  -moz-background-origin: content;
+  background-origin: content-box;
+  -webkit-background-clip: content;
+  -moz-background-clip: content;
+  background-clip: content-box;
+  padding: 1.27778rem 1em;
+}
+[role="main"]:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .teacher-detail {
   position: relative;
 }
@@ -1061,7 +1080,7 @@ select {
   margin-top: 1.27778rem;
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
-  width: 48.97959%;
+  width: 41.66667%;
   float: left;
   margin-right: -100%;
   position: relative;
@@ -1075,7 +1094,7 @@ select {
   clear: left;
 }
 .story:nth-child(2n + 2) {
-  margin-left: 51.02041%;
+  margin-left: 41.66667%;
 }
 .story.hidden:before {
   background: #f7cd66;

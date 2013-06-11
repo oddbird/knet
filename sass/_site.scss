@@ -30,15 +30,10 @@
 @import "general/icons";
 @import "general/forms";
 
-// Layout
-// ------
-
-@import "layout/banner";
-@import "layout/main";
-
 // Patterns
 // --------
 
+@import "patterns/banner";
 @import "patterns/toggle-content";
 @import "patterns/announcements";
 

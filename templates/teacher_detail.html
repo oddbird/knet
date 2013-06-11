@@ -7,9 +7,6 @@
 
   {# Teacher Info #}
   <header class="teacher-info">
-    {% if teacher.user != user %} {# no leaving stories for yourself! #}
-      <label for="story-form-toggle" class="toggle-addstory-main">Hide Form</label>
-    {% endif %}
     <h1 class="teacher-name">{{ teacher }}</h1>
 
     <ul class="teacher-data">
@@ -28,6 +25,7 @@
 
   {# Story Form #}
   {% if user != teacher.user %} {# no leaving stories for yourself! #}
+  <label for="story-form-toggle" class="toggle-addstory">Tell us how {{ teacher }} changed your life.</label>
   <input type="checkbox" id="story-form-toggle" checked/>
 
   {% include "_add_story_form.html" %}
