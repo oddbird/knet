@@ -2,19 +2,51 @@
 // =========
 
 .add-story-form {
-  @include padding-leader(.5);
-  @include trailing-border(1px);
+  @include rhythm-borders(2px);
   @include trailer;
-  border-color: color(light);
+  background: color(white,.5);
+  border-color: color(lightest,.75);
+}
+
+.submitter_name-field, .submitter_email-field { @include span(6); }
+.submitter_email-field { @include last; }
+.private-field {
+  clear: both;
+  text-align: right;
 }
 
 // Toggle
 // ------
+
+.icon-addstory {
+  @include icon(bubble-heart);
+  @include adjust-font-size-to($xxlargepx);
+  margin-right: rhythm(.5);
+}
+
+.icon-addstory, .text-addstory {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.toggle-addstory {
+  @extend %button-large;
+  @include serif;
+  @include adjust-font-size-to($largepx);
+  color: $alt;
+  text-align: center;
+  cursor: pointer;
+
+  #{$focus} { color: $accent; }
+
+  display: none;
+}
 
 [id="story-form-toggle"] {
   position: absolute;
   left: -9999px;
   opacity: .01;
 
+  &:checked ~ .toggle-addstory { display: block; }
   &:checked ~ .add-story-form { @extend %toggle-content-hidden; }
 }

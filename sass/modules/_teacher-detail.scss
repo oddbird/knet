@@ -6,7 +6,7 @@
 }
 
 .teacher-info {
-  @include trailing-border(1px, .5);
+  @include trailer(1);
   border-color: color(lighter);
 }
 
@@ -21,23 +21,4 @@
     display: inline-block;
     margin-right: rhythm(1);
   }
-}
-
-// Toggles
-// -------
-
-%toggle-addstory {
-  @include icon-replace(bubble-heart);
-}
-
-.toggle-addstory-main {
-  @extend %toggle-addstory;
-  @include leader(.5);
-  @include adjust-font-size-to($main-title-size);
-  float: right;
-  margin-left: rhythm(1);
-  min-height: px-to-rhythm($main-title-size);
-  color: $alt;
-
-  #{$focus} { color: $accent; }
 }

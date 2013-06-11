@@ -25,8 +25,13 @@
 
   {# Story Form #}
   {% if user != teacher.user %} {# no leaving stories for yourself! #}
-  <label for="story-form-toggle" class="toggle-addstory">Tell us how {{ teacher }} changed your life.</label>
   <input type="checkbox" id="story-form-toggle" checked/>
+  <label for="story-form-toggle" class="toggle-addstory">
+    <span class="icon-addstory"></span>
+    <span class="text-addstory">
+      Tell us how {{ teacher }} changed your life.
+    </span>
+  </label>
 
   {% include "_add_story_form.html" %}
   {% endif %}

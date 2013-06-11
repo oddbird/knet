@@ -12,4 +12,9 @@ $show-grid-backgrounds            : false;
 // ---------------------------------------------------------------------------
 // Grids
 
-@include set-grid(12 1/4 inside show);
+@include set-grid(80em 12 (4em 1em) hide);
+
+@mixin full {
+  padding-left: gutter() / 2;
+  padding-right: gutter() / 2;
+}

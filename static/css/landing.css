@@ -925,7 +925,7 @@ html {
 }
 
 [role="main"] {
-  max-width: 49em;
+  max-width: 80em;
   margin-left: auto;
   margin-right: auto;
   padding: 1.27778rem 1em;
