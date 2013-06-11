@@ -158,12 +158,46 @@ a:focus, a:hover, a:active {
   left: -9999px;
 }
 
-.teacher-name {
+.login h1, .profile-help h1, .teacher-name {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 86px;
-  font-size: 4.77778rem;
-  line-height: 92px;
-  line-height: 5.11111rem;
+  font-size: 43px;
+  font-size: 2.38889rem;
+  line-height: 58px;
+  line-height: 3.19444rem;
+}
+
+.login h1 a:link, .profile-help h1 a:link, .login h1 a:visited, .profile-help h1 a:visited {
+  color: #005c5c;
+}
+.login h1 a:focus, .profile-help h1 a:focus, .login h1 a:hover, .profile-help h1 a:hover, .login h1 a:active, .profile-help h1 a:active {
+  color: #760014;
+}
+.login h2, .profile-help h2 {
+  margin-bottom: 12px;
+  margin-bottom: 0.63889rem;
+  text-transform: uppercase;
+}
+.login h3, .profile-help h3 {
+  margin-top: 23px;
+  margin-top: 1.27778rem;
+  font-weight: bold;
+}
+
+.login strong, .profile-help strong {
+  font-weight: bold;
+}
+.login em, .profile-help em {
+  font-style: italic;
+}
+.login p, .profile-help p, .login ul, .profile-help ul, .login ol, .profile-help ol, .login pre, .profile-help pre {
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+}
+.login ul, .profile-help ul {
+  list-style: disc;
+}
+.login ol, .profile-help ol {
+  list-style: decimal;
 }
 
 @font-face {
@@ -173,7 +207,7 @@ a:focus, a:hover, a:active {
   font-style: normal;
 }
 
-.user-nav [name="logout"]:before, #messages .close:before, .story-status:before, .delete-story:before, .user-nav .fb-login:before, .announce:before, .message:before, .loading-icon:before, .icon-addstory:before, .story.hidden:before, .story.private:before, .story-private-notice:before, .icons-demo div:nth-child(1):before, .icons-demo div:nth-child(2):before, .icons-demo div:nth-child(3):before, .icons-demo div:nth-child(4):before, .icons-demo div:nth-child(5):before, .icons-demo div:nth-child(6):before, .icons-demo div:nth-child(7):before, .icons-demo div:nth-child(8):before, .icons-demo div:nth-child(9):before, .icons-demo div:nth-child(10):before, .icons-demo div:nth-child(11):before, .icons-demo div:nth-child(12):before, .icons-demo div:nth-child(13):before, .icons-demo div:nth-child(14):before, .icons-demo div:nth-child(15):before, [data-icon]:before {
+.user-nav [name="logout"]:before, #messages .close:before, .story-status:before, .delete-story:before, .user-nav .fb-login:before, .announce:before, .message:before, .loading-icon:before, .login .fb-login:before, .icon-addstory:before, .story.hidden:before, .story.private:before, .story-private-notice:before, .icons-demo div:nth-child(1):before, .icons-demo div:nth-child(2):before, .icons-demo div:nth-child(3):before, .icons-demo div:nth-child(4):before, .icons-demo div:nth-child(5):before, .icons-demo div:nth-child(6):before, .icons-demo div:nth-child(7):before, .icons-demo div:nth-child(8):before, .icons-demo div:nth-child(9):before, .icons-demo div:nth-child(10):before, .icons-demo div:nth-child(11):before, .icons-demo div:nth-child(12):before, .icons-demo div:nth-child(13):before, .icons-demo div:nth-child(14):before, .icons-demo div:nth-child(15):before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -219,7 +253,7 @@ a:focus, a:hover, a:active {
   content: "\e006";
 }
 
-.user-nav .fb-login:before, .icons-demo div:nth-child(5):before {
+.user-nav .fb-login:before, .login .fb-login:before, .icons-demo div:nth-child(5):before {
   content: "\e007";
 }
 
@@ -275,7 +309,7 @@ button {
   cursor: pointer;
 }
 
-.primary-action, .toggle-addstory {
+.primary-action, .login .fb-login, .toggle-addstory {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -294,13 +328,13 @@ button {
   cursor: pointer;
 }
 
-.primary-action:hover, .toggle-addstory:hover, .primary-action:focus, .toggle-addstory:focus {
+.primary-action:hover, .login .fb-login:hover, .toggle-addstory:hover, .primary-action:focus, .login .fb-login:focus, .toggle-addstory:focus {
   -webkit-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   -moz-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
 }
 
-.primary-action:active, .toggle-addstory:active {
+.primary-action:active, .login .fb-login:active, .toggle-addstory:active {
   -webkit-box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
   -moz-box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
   box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
@@ -324,7 +358,7 @@ button {
   content: " »";
 }
 
-.toggle-addstory {
+.login .fb-login, .toggle-addstory {
   font-size: 32px;
   font-size: 1.77778rem;
   line-height: 46px;
@@ -463,6 +497,16 @@ select {
 
 .form-type {
   font-weight: bold;
+}
+
+.formfield.optional .form-type:after {
+  content: " [optional]";
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  color: #999999;
+  font-weight: normal;
 }
 
 [role="banner"] {
@@ -984,6 +1028,17 @@ select {
   content: "";
   display: table;
   clear: both;
+}
+
+.login {
+  text-align: center;
+}
+.login .fb-login {
+  margin-top: 23px;
+  margin-top: 1.27778rem;
+}
+.login .fb-login:before {
+  padding-right: .4em;
 }
 
 .teacher-detail {

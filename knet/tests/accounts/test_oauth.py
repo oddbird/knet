@@ -15,9 +15,10 @@ class FakeProvider(stub):
     OAUTH_CLIENT_ID='client id',
     OAUTH_CLIENT_SECRET='client secret')
 def test_get_provider():
-    provider = get_provider()
+    provider = get_provider(redirect_to='/foo/')
 
     assert isinstance(provider, FakeProvider)
-    assert provider.redirect_uri == 'http://example.com' + reverse('oauth')
+    assert provider.redirect_uri == (
+        'http://example.com' + reverse('oauth') + '?next=%2Ffoo%2F')
     assert provider.client_id == 'client id'
     assert provider.client_secret == 'client secret'

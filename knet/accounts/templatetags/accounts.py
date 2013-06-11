@@ -7,7 +7,7 @@ register = template.Library()
 
 
 @register.simple_tag
-def oauth_authorize_url():
-    """Get OAuth provider login url."""
-    provider = oauth.get_provider()
+def oauth_authorize_url(redirect_to):
+    """Get OAuth provider login url that will redirect to given URL."""
+    provider = oauth.get_provider(redirect_to=redirect_to)
     return provider.get_authorize_url()

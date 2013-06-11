@@ -1,10 +1,12 @@
+from urllib.parse import urlencode
+
 from django.conf import settings
 from django.contrib import auth, messages
+from django.core.urlresolvers import reverse
 from django.db import transaction
 from django.shortcuts import redirect, render
 from oauth2 import OAuthError
 
-from ..teachers.models import TeacherProfile
 from .models import User
 from .oauth import get_provider
 
@@ -12,16 +14,16 @@ from .oauth import get_provider
 
 def oauth(request):
     """OAuth callback."""
-    provider = get_provider()
+    redirect_to = request.GET.get('next')
+    provider = get_provider(redirect_to=redirect_to)
     try:
         user_data = provider.get_user_data(request.GET)
     except OAuthError as e:
         messages.error(request, str(e))
         return redirect('landing')
 
-    # @@@ just store data in session and redirect to signup page
     with transaction.atomic():
-        user, _ = User.objects.get_or_create(
+        user, created = User.objects.get_or_create(
             username=user_data['username'],
             defaults={
                 'email': user_data['email'],
@@ -30,14 +32,20 @@ def oauth(request):
                 'name': user_data.get('name', ''),
                 }
             )
-        # @@@ for now all logins are teachers, no signup form
-        TeacherProfile.objects.get_or_create(user=user)
 
     user.backend = settings.AUTHENTICATION_BACKENDS[0]
     auth.login(request, user)
 
-    # @@@ should perhaps keep you on same page you came from instead
-    return redirect('teacher_detail', username=user.username)
+    # If you just logged in for the first time, we take you to create-profile.
+    # Otherwise, we redirect you back wherever you came from.
+    if created:
+        return redirect(
+            '{}?{}'.format(
+                reverse('create_profile'),
+                urlencode({'next': redirect_to} if redirect_to else {}),
+                )
+            )
+    return redirect(redirect_to or '/')
 
 
 
@@ -49,3 +57,9 @@ def logout(request):
         return redirect(request.POST.get('next') or 'landing')
 
     return render(request, 'accounts/logout.html')
+
+
+def login(request):
+    """Display login link."""
+    return render(
+        request, 'accounts/login.html', {'login_next': request.GET.get('next')})

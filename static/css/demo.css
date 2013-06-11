@@ -437,6 +437,16 @@ select {
   font-weight: bold;
 }
 
+.formfield.optional .form-type:after {
+  content: " [optional]";
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  color: #999999;
+  font-weight: normal;
+}
+
 [role="banner"] {
   border-bottom-width: 1px;
   border-bottom-width: 0.05556rem;

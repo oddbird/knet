@@ -1,5 +1,6 @@
 import json
 
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
@@ -8,7 +9,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 from django.template import RequestContext
 
-from .forms import StoryForm
+from .forms import StoryForm, TeacherProfileForm
 from .models import TeacherProfile
 from .viewmodels import ViewTeacher
 
@@ -96,4 +97,30 @@ def teacher_detail(request, username):
         request,
         'teacher_detail.html',
         {'form': form, 'teacher': teacher},
+        )
+
+
+@login_required
+def create_profile(request):
+    """Give user option to create a teacher profile."""
+    try:
+        request.user.teacher_profile
+    except TeacherProfile.DoesNotExist:
+        pass
+    else:
+        return redirect('teacher_detail', username=request.user.username)
+
+    if request.method == 'POST':
+        form = TeacherProfileForm(request.user, request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('teacher_detail', username=request.user.username)
+    else:
+        form = TeacherProfileForm(request.user)
+
+    redirect_to = request.GET.get('next', '/')
+    return render(
+        request,
+        'create_profile.html',
+        {'form': form, 'profile_next': redirect_to},
         )
