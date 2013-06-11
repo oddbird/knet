@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load accounts %}
+{% load accounts teachers %}
 
 {% block body %}
 {% block top %}{% include "messages_ui/_messages.html" %}{% endblock %}
@@ -13,7 +13,13 @@
   {% block banner %}
   <nav class="user-nav">
     {% if user.is_authenticated %}
-      <p class="user-name"><a href="{% url 'teacher_detail' username=user.username %}">{{ user }}</a></p>
+      <p class="user-name">
+        {% if user|teacher_profile %}
+          <a href="{% url 'teacher_detail' username=user.username %}">{{ user }}</a>
+        {% else %}
+          {{ user }}
+        {% endif %}
+      </p>
       <form class="logout-form" method="POST" action="{% url 'logout' %}">
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ request.path }}">
