@@ -7,7 +7,7 @@
 
 {% if ENABLE_LOGIN %}
   <p>
-    <a href="{% oauth_authorize_url login_next|default:request.path %}" class="fb-login">Login with Facebook</a>
+    <a href="{% oauth_authorize_url request login_next|default:request.path %}" class="fb-login">Login with Facebook</a>
   </p>
 {% else %}
   <p>Sorry, logins are currently disabled.</p>

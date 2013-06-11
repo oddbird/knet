@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib import auth, messages
 from django.core.urlresolvers import reverse
 from django.db import transaction
+from django.middleware.csrf import get_token
 from django.shortcuts import redirect, render
 from oauth2 import OAuthError
 
@@ -15,7 +16,7 @@ from .oauth import get_provider
 def oauth(request):
     """OAuth callback."""
     redirect_to = request.GET.get('next')
-    provider = get_provider(redirect_to=redirect_to)
+    provider = get_provider(redirect_to=redirect_to, state=get_token(request))
     try:
         user_data = provider.get_user_data(request.GET)
     except OAuthError as e:

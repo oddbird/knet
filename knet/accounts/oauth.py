@@ -6,7 +6,7 @@ from django.utils.importlib import import_module
 
 
 
-def get_provider(redirect_to=None):
+def get_provider(redirect_to=None, state=None):
     """Return a configured OAuth provider instance."""
     mod_name, class_name = settings.OAUTH_PROVIDER.rsplit('.', 1)
     provider_class = getattr(import_module(mod_name), class_name)
@@ -17,4 +17,5 @@ def get_provider(redirect_to=None):
         redirect_uri=redirect_uri,
         client_id=settings.OAUTH_CLIENT_ID,
         client_secret=settings.OAUTH_CLIENT_SECRET,
+        state=state,
         )
