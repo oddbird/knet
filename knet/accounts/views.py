@@ -11,7 +11,8 @@ from .oauth import get_provider
 
 def oauth(request):
     """OAuth callback."""
-    provider = get_provider()
+    redirect_to = request.GET.get('next')
+    provider = get_provider(redirect_to=redirect_to)
     try:
         user_data = provider.get_user_data(request.GET)
     except OAuthError as e:
@@ -36,7 +37,7 @@ def oauth(request):
     # Otherwise, we redirect you back wherever you came from.
     if created:
         return redirect('create_profile')
-    return redirect(request.GET.get('next', '/'))
+    return redirect(redirect_to or '/')
 
 
 

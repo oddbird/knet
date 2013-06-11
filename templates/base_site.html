@@ -27,7 +27,7 @@
       </form>
     {% else %}
       {% if ENABLE_LOGIN %}
-        <a href="{% oauth_authorize_url %}" class="fb-login">Login with Facebook</a>
+        <a href="{% oauth_authorize_url request.path %}" class="fb-login">Login with Facebook</a>
       {% endif %}
     {% endif %}
   </nav>
