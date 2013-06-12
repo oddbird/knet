@@ -1102,6 +1102,9 @@ select {
   font-weight: bold;
   text-transform: uppercase;
 }
+.toggle-profile strong:after, .skip-profile strong:after {
+  content: " »";
+}
 
 .toggle-profile {
   width: 49.15254%;

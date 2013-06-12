@@ -30,6 +30,8 @@
     display: block;
     font-weight: bold;
     text-transform: uppercase;
+
+    @include after(' »');
   }
 }
 
