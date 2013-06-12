@@ -1,0 +1,13 @@
+// Form Layouts
+// ============
+
+$main-form-background: color(white,.5);
+$main-form-border: color(lightest);
+
+%main-form-base {
+  @include rhythm-borders(2px);
+  @include trailer;
+  clear: both;
+  background: $main-form-background;
+  border-color: $main-form-border;
+}

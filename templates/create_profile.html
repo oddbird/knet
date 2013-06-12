@@ -2,16 +2,20 @@
 
 {% block main %}
 <div class="create-profile">
-  <div class="profile-help">
-    <h1 class="profile-help-title">Welcome to The K Network!</h1>
+  <h1 class="welcome-title">Welcome to The K Network!</h1>
 
-    <p>
-      If you would like to create a public teacher profile, fill
-      out your school name and a brief bio.
-      If you are just here to thank your favorite teachers,
-      you can <a href="{{ profile_next }}">skip this step</a>.
-    </p>
-  </div>
+  <input type="checkbox" id="create-profile-toggle" checked />
+  <label for="create-profile-toggle" class="toggle-profile">
+    I'm a teacher:
+    <strong>create a profile</strong>
+    where I can receive thank-you notes.
+  </label>
+
+  <a href="{{ profile_next }}" class="skip-profile">
+    I'm not a teacher:
+    <strong>skip this step</strong>
+    I'm just here to thank inspiring teachers.
+  </a>
 
   <form class="create-profile-form" method="POST">
     {% csrf_token %}
@@ -24,7 +28,6 @@
     {% endwith %}
 
     <div class="form-actions">
-      <span><a href="{{ profile_next }}">skip this</a> or</span>
       <button class="primary-action" type="submit" name="submit">Create Profile</button>
     </div>
   </form>
