@@ -109,6 +109,7 @@ INSTALLED_APPS = [
     'floppyforms',
     'form_utils',
     'widget_tweaks',
+    'micawber.contrib.mcdjango',
     'knet',
     'knet.landing',
     'knet.accounts',

@@ -1,7 +1,7 @@
-{% load markup %}
+{% load markup micawber_tags %}
 <article class="story {{ story.published|yesno:'published,hidden' }} {{ story.private|yesno:'private,public' }}">
   <div class="story-body">
-    {{ story.body|markdown }}
+    {{ story.body|markdown|oembed_html }}
   </div>
 
   <header class="story-info">
