@@ -76,9 +76,11 @@ var KNET = (function (KNET, $) {
             var teacher = container.data('teacher');
             var teacherName = container.data('teacher-name');
             var user = container.data('user');
+            var url = container.data('url');
             var data = {
                 my_profile: teacher === user,
-                teacher_name: teacherName
+                teacher_name: teacherName,
+                profile_url: url
             };
             var noStoriesMsg = KNET.tpl('no_stories_msg', data);
             container.html(noStoriesMsg);
