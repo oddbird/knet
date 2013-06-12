@@ -78,6 +78,34 @@ DATABASES = {
         )
 }
 
+try:
+    import pylibmc
+except ImportError:
+    pylibmc = None
+
+# support memcachier Heroku add-on as well as default memcache add-on
+if 'MEMCACHE_SERVERS' not in os.environ:
+    os.environ['MEMCACHE_SERVERS'] = os.environ.get('MEMCACHIER_SERVERS', '').replace(',', ';')
+if 'MEMCACHE_USERNAME' not in os.environ:
+    os.environ['MEMCACHE_USERNAME'] = os.environ.get('MEMCACHIER_USERNAME', '')
+if 'MEMCACHE_PASSWORD' not in os.environ:
+    os.environ['MEMCACHE_PASSWORD'] = os.environ.get('MEMCACHIER_PASSWORD', '')
+
+if pylibmc and (MODE == 'prod'):
+    CACHES = {
+        'default': {
+            'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
+            'TIMEOUT': 500,
+            'BINARY': True,
+            }
+        }
+else:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            }
+        }
+
 BASE_URL = env('KNET_BASE_URL', default={'dev': 'http://knet.hexxie.com:8000'})
 
 SECURE_FRAME_DENY = True
