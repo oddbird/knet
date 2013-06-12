@@ -55,6 +55,12 @@ def parse_database_url(url):
     }
 
 
+# utility for parsing a redis url
+def parse_redis_url(url):
+    from urllib.parse import urlparse
+    url_parts = urlparse(url)
+
+
 # Deployment config
 
 SECRET_KEY = env('KNET_SECRET_KEY', default={'dev': 'development-secret-key'})
@@ -78,27 +84,9 @@ DATABASES = {
         )
 }
 
-try:
-    import pylibmc
-except ImportError:
-    pylibmc = None
-
-# support memcachier Heroku add-on as well as default memcache add-on
-if 'MEMCACHE_SERVERS' not in os.environ:
-    os.environ['MEMCACHE_SERVERS'] = os.environ.get('MEMCACHIER_SERVERS', '').replace(',', ';')
-if 'MEMCACHE_USERNAME' not in os.environ:
-    os.environ['MEMCACHE_USERNAME'] = os.environ.get('MEMCACHIER_USERNAME', '')
-if 'MEMCACHE_PASSWORD' not in os.environ:
-    os.environ['MEMCACHE_PASSWORD'] = os.environ.get('MEMCACHIER_PASSWORD', '')
-
-if pylibmc and (MODE == 'prod'):
-    CACHES = {
-        'default': {
-            'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
-            'TIMEOUT': 500,
-            'BINARY': True,
-            }
-        }
+if MODE == 'prod':
+    from redisify import redisify
+    CACHES = redisify()
 else:
     CACHES = {
         'default': {
