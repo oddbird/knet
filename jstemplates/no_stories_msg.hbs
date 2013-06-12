@@ -1,7 +1,13 @@
-<div class="no-stories-message">
+<div class="no-stories-message{{#if my_profile}} my-stories{{/if}}">
   {{#if my_profile}}
-    <p>You have no stories.</p>
+    <p>
+      You don't have any stories.
+      Send current or former students to:
+      <span class="share-profile-link">http://theknetwork.org/teacher/@@@/</span>
+    </p>
   {{else}}
-    <p>Be the first to leave a story{{#if teacher_name}} for {{teacher_name}}{{/if}}.</p>
+    <p>
+      Be the first to leave a story{{#if teacher_name}} for {{teacher_name}}{{/if}}.
+    </p>
   {{/if}}
 </div>
