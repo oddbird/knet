@@ -6,7 +6,7 @@
 
   <header class="story-info">
     <h1 class="author-name">{{ story.submitter_name }}</h1>
-    <time class="pubdate" pubdate>{{ story.created|date:'F j, Y g:i a e' }}</time>
+    <time class="pubdate" pubdate>{{ story.created|date:'F j, Y' }}</time>
   </header>
 
   {% if user == teacher.user %}

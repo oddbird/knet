@@ -37,7 +37,7 @@
   {% endif %}
 
   {# Stories #}
-  <section class="teacher-stories" data-teacher="{{ teacher.user.id }}" data-teacher-name="{{ teacher }}" data-user="{{ user.id }}">
+  <section class="teacher-stories" data-teacher="{{ teacher.user.id }}" data-teacher-name="{{ teacher }}" data-user="{{ user.id }}" data-url="{% if user == teacher.user %}{{ BASE_URL }}{% url 'teacher_detail' username=user.username %}{% endif %}">
     {% for story in teacher|stories_visible_to:user %}
     {% include "_story.html" %}
     {# if empty, msg inserted via js #}
