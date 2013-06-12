@@ -94,6 +94,8 @@ else:
             }
         }
 
+STORY_CACHE_TIMEOUT = env('KNET_STORY_CACHE_TIMEOUT', int, default=1)
+
 BASE_URL = env('KNET_BASE_URL', default={'dev': 'http://knet.hexxie.com:8000'})
 
 SECURE_FRAME_DENY = True
