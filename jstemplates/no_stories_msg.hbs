@@ -2,8 +2,10 @@
   {{#if my_profile}}
     <p>
       You don't have any stories.
-      Send current or former students to:
-      <span class="share-profile-link">http://theknetwork.org/teacher/@@@/</span>
+      {{#if profile_url}}
+        Send current or former students to:
+        <span class="share-profile-link">{{ profile_url }}</span>
+      {{/if}}
     </p>
   {{else}}
     <p>

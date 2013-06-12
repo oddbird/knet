@@ -1130,6 +1130,11 @@ select {
   text-align: center;
 }
 
+.share-profile-link {
+  display: block;
+  color: #66abab;
+}
+
 .story.hidden:before, .story.private:before {
   font-size: 14px;
   font-size: 0.77778rem;

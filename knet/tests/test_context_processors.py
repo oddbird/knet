@@ -13,3 +13,8 @@ def test_enable_login():
     with override_settings(ENABLE_LOGIN=False):
         d = context_processors.settings(None)
         assert d['ENABLE_LOGIN'] == False
+
+def test_base_url():
+    with override_settings(BASE_URL=False):
+        d = context_processors.settings(None)
+        assert d['BASE_URL'] == False
