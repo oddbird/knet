@@ -3,5 +3,5 @@
 gunicorn==0.17.2
 
 django-heroku-redisify==0.2.1
-django-redis-cache==0.9.7
+django-redis-cache==0.9.7.obc1
 redis==2.7.5
