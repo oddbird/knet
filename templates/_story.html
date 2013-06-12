@@ -2,7 +2,7 @@
 <article class="story {{ story.published|yesno:'published,hidden' }} {{ story.private|yesno:'private,public' }}">
   {% cache STORY_CACHE_TIMEOUT|default:1 story-body story.id %}
   <div class="story-body">
-    {{ story.body|markdown|oembed_html }}
+    {{ story.body|escape|oembed|markdown:'unsafe' }}
   </div>
   {% endcache %}
 
