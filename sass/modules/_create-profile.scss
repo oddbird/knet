@@ -1,7 +1,58 @@
 // Create Profile
 // ==============
 
-.profile-help {
-  @extend %headers;
-  @extend %type;
+.welcome-title {
+  @extend %main-title;
+  @include trailer;
+}
+
+.create-profile-form {
+  @extend %main-form-base;
+  @include arrow(top rhythm(2) $main-form-border rhythm(.75));
+}
+
+// Toggle
+// ------
+
+%profile-options {
+  @include adjust-font-size-to($normpx);
+  @include rhythm-borders(1px,1);
+  @include border-radius($button-border-radius);
+  @include background-image(linear-gradient(to bottom, $button-gradient...));
+  @include box-shadow(white 0 0 rhythm(.25) inset);
+  @include trailer;
+  text-align: center;
+  cursor: pointer;
+
+  strong {
+    @include adjust-font-size-to($largepx);
+    @include serif;
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.toggle-profile {
+  @extend %profile-options;
+  @include span(6 of 12);
+}
+
+%toggle-profile-active {
+  @include background-image(linear-gradient(to top, $button-gradient...));
+  @include box-shadow($base 0 0 rhythm(.5) inset);
+}
+
+.skip-profile {
+  @extend %profile-options;
+  @include span(last 6 of 12);
+}
+
+[id="create-profile-toggle"] {
+  position: absolute;
+  left: -9999px;
+  opacity: .01;
+
+  &:not(:checked) ~ .toggle-profile { @extend %toggle-profile-active; }
+  &:checked ~ .create-profile-form { @extend %toggle-content-hidden; }
 }

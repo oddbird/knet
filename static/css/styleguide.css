@@ -158,7 +158,7 @@ a:focus, a:hover, a:active {
   left: -9999px;
 }
 
-.login h1, .profile-help h1, .teacher-name {
+.login h1, .welcome-title, .teacher-name {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 43px;
   font-size: 2.38889rem;
@@ -166,37 +166,37 @@ a:focus, a:hover, a:active {
   line-height: 3.19444rem;
 }
 
-.login h1 a:link, .profile-help h1 a:link, .login h1 a:visited, .profile-help h1 a:visited {
+.login h1 a:link, .login h1 a:visited {
   color: #005c5c;
 }
-.login h1 a:focus, .profile-help h1 a:focus, .login h1 a:hover, .profile-help h1 a:hover, .login h1 a:active, .profile-help h1 a:active {
+.login h1 a:focus, .login h1 a:hover, .login h1 a:active {
   color: #760014;
 }
-.login h2, .profile-help h2 {
+.login h2 {
   margin-bottom: 12px;
   margin-bottom: 0.63889rem;
   text-transform: uppercase;
 }
-.login h3, .profile-help h3 {
+.login h3 {
   margin-top: 23px;
   margin-top: 1.27778rem;
   font-weight: bold;
 }
 
-.login strong, .profile-help strong {
+.login strong {
   font-weight: bold;
 }
-.login em, .profile-help em {
+.login em {
   font-style: italic;
 }
-.login p, .profile-help p, .login ul, .profile-help ul, .login ol, .profile-help ol, .login pre, .profile-help pre {
+.login p, .login ul, .login ol, .login pre {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
 }
-.login ul, .profile-help ul {
+.login ul {
   list-style: disc;
 }
-.login ol, .profile-help ol {
+.login ol {
   list-style: decimal;
 }
 
@@ -509,6 +509,19 @@ select {
   font-weight: normal;
 }
 
+.create-profile-form, .add-story-form {
+  border-width: 2px;
+  border-width: 0.11111rem;
+  border-style: solid;
+  padding: 21px;
+  padding: 1.16667rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+  clear: both;
+  background: rgba(255, 255, 255, 0.5);
+  border-color: #e5e5e5;
+}
+
 [role="banner"] {
   border-bottom-width: 1px;
   border-bottom-width: 0.05556rem;
@@ -553,7 +566,7 @@ select {
   color: #94001a;
 }
 
-[id="story-form-toggle"]:checked ~ .add-story-form {
+[id="create-profile-toggle"]:checked ~ .create-profile-form, [id="story-form-toggle"]:checked ~ .add-story-form {
   display: none;
 }
 
@@ -1041,6 +1054,90 @@ select {
   padding-right: .4em;
 }
 
+.welcome-title {
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+}
+
+.create-profile-form {
+  position: relative;
+}
+.create-profile-form:before {
+  content: " ";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border: solid transparent;
+  pointer-events: none;
+  bottom: 100%;
+  border-bottom-color: #e5e5e5;
+  border-width: 0.95833rem;
+  left: 2.55556rem;
+}
+
+.toggle-profile, .skip-profile {
+  font-size: 18px;
+  font-size: 1rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  border-width: 1px;
+  border-width: 0.05556rem;
+  border-style: solid;
+  padding: 22px;
+  padding: 1.22222rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  border-radius: 0.25rem;
+  background-image: -webkit-linear-gradient(top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -moz-linear-gradient(top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -o-linear-gradient(top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: linear-gradient(to bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  -webkit-box-shadow: white 0 0 0.31944rem inset;
+  -moz-box-shadow: white 0 0 0.31944rem inset;
+  box-shadow: white 0 0 0.31944rem inset;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+  text-align: center;
+  cursor: pointer;
+}
+.toggle-profile strong, .skip-profile strong {
+  font-size: 32px;
+  font-size: 1.77778rem;
+  line-height: 46px;
+  line-height: 2.55556rem;
+  font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  display: block;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.toggle-profile {
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%;
+}
+
+[id="create-profile-toggle"]:not(:checked) ~ .toggle-profile {
+  background-image: -webkit-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -moz-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: -o-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  background-image: linear-gradient(to top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
+  -webkit-box-shadow: #4c4c4c 0 0 0.63889rem inset;
+  -moz-box-shadow: #4c4c4c 0 0 0.63889rem inset;
+  box-shadow: #4c4c4c 0 0 0.63889rem inset;
+}
+
+.skip-profile {
+  width: 49.15254%;
+  float: right;
+}
+
+[id="create-profile-toggle"] {
+  position: absolute;
+  left: -9999px;
+  opacity: .01;
+}
+
 .teacher-detail {
   position: relative;
 }
@@ -1057,18 +1154,6 @@ select {
 .teacher-data .data-item {
   display: inline-block;
   margin-right: 1.27778rem;
-}
-
-.add-story-form {
-  border-width: 2px;
-  border-width: 0.11111rem;
-  border-style: solid;
-  padding: 21px;
-  padding: 1.16667rem;
-  margin-bottom: 23px;
-  margin-bottom: 1.27778rem;
-  background: rgba(255, 255, 255, 0.5);
-  border-color: rgba(229, 229, 229, 0.75);
 }
 
 .submitter_name-field, .submitter_email-field {

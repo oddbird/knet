@@ -2,10 +2,7 @@
 // =========
 
 .add-story-form {
-  @include rhythm-borders(2px);
-  @include trailer;
-  background: color(white,.5);
-  border-color: color(lightest,.75);
+  @extend %main-form-base;
 }
 
 .submitter_name-field, .submitter_email-field { @include span(6); }
