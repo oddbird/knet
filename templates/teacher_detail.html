@@ -24,7 +24,7 @@
   </header>
 
   {# Story Form #}
-  {% if user.is_authenticated %}
+  {% if user.is_authenticated and user != teacher.user %}
   <input type="checkbox" id="story-form-toggle" checked/>
   <label for="story-form-toggle" class="toggle-addstory">
     <span class="icon-addstory"></span>
