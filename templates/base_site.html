@@ -20,7 +20,7 @@
           <a href="{% url 'create_profile' %}?next={{ request.path }}">{{ user }}</a>
         {% endif %}
       </p>
-      <form class="logout-form" method="POST" action="{% url 'logout' %}">
+      <form id="nav-logout-form" class="logout-form" method="POST" action="{% url 'logout' %}">
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ request.path }}">
         <button type="submit" name="logout" title="logout">Log out</button>

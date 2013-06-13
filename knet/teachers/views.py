@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 from django.template import RequestContext
@@ -45,17 +45,19 @@ def teacher_detail(request, username):
         TeacherProfile.objects.select_related('user'), user__username=username)
     teacher = ViewTeacher(teacher_profile)
     if request.method == 'POST':
-
+        if not request.user.is_authenticated():
+            return HttpResponseForbidden()
+        # @@@ need to check perms to delete/publish/hide
         if 'delete-story' in request.POST:
             with transaction.atomic():
-                teacher.stories().filter(
+                teacher_profile.stories.filter(
                     pk=request.POST['delete-story']).delete()
             messages.success(request, "Story deleted.")
             return _response(request, teacher)
         elif 'publish-story' in request.POST:
             with transaction.atomic():
                 story = get_or_none(
-                    teacher.stories().select_for_update(),
+                    teacher_profile.stories.select_for_update(),
                     pk=request.POST['publish-story'],
                     private=False,
                     )
@@ -68,7 +70,7 @@ def teacher_detail(request, username):
         elif 'hide-story' in request.POST:
             with transaction.atomic():
                 story = get_or_none(
-                    teacher.stories().select_for_update(),
+                    teacher_profile.stories.select_for_update(),
                     pk=request.POST['hide-story'],
                     )
                 if story:
@@ -78,7 +80,7 @@ def teacher_detail(request, username):
                     messages.error(request, "That story has been removed.")
             return _response(request, teacher, story, success=story is not None)
 
-        form = StoryForm(teacher_profile, request.POST)
+        form = StoryForm(request.user, teacher_profile, request.POST)
         if form.is_valid():
             with transaction.atomic():
                 form.save()
@@ -91,7 +93,7 @@ def teacher_detail(request, username):
                     messages.error(request, error)
             return _response(request, teacher, success=False)
     else:
-        form = StoryForm(teacher_profile)
+        form = StoryForm(request.user, teacher_profile)
 
     return render(
         request,

@@ -1,13 +1,10 @@
-<form class="add-story-form" method="POST">
+<form id="add-story-form" class="add-story-form" method="POST">
   {% csrf_token %}
   {% include "forms/errors.html" with errors=form.non_field_errors %}
 
   {% with help_text="Include photos & video by pasting links from services like <a href='http://youtube.com/'>youtube</a>, <a href='http://vimeo.com/'>vimeo</a>, <a href='http://flickr.com/'>flickr</a>, and <a href='http://instagram.com/'>instagram</a>. Links should be posted on their own line." %}
   {% include "forms/formfield.html" with field=form.body label="Story" help_text=help_text %}
   {% endwith %}
-
-  {% include "forms/formfield.html" with field=form.submitter_name label="Name" %}
-  {% include "forms/formfield.html" with field=form.submitter_email label="Email" %}
 
   {% include "forms/formfield.html" with field=form.private label="Keep this story private" %}
 

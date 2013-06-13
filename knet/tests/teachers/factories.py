@@ -18,3 +18,4 @@ class StoryFactory(KNetModelFactory):
 
     profile = factory.SubFactory(TeacherProfileFactory)
     body = "It was a dark and stormy night."
+    submitter = factory.SubFactory(UserFactory)

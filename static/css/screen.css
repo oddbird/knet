@@ -267,7 +267,7 @@ button {
   cursor: pointer;
 }
 
-.primary-action, .login .fb-login, .toggle-addstory {
+.primary-action, .login .fb-login, .teacher-detail .fb-login, .toggle-addstory {
   border-width: 1px;
   border-width: 0.0625rem;
   border-style: solid;
@@ -286,13 +286,13 @@ button {
   cursor: pointer;
 }
 
-.primary-action:hover, .login .fb-login:hover, .toggle-addstory:hover, .primary-action:focus, .login .fb-login:focus, .toggle-addstory:focus {
+.primary-action:hover, .login .fb-login:hover, .teacher-detail .fb-login:hover, .toggle-addstory:hover, .primary-action:focus, .login .fb-login:focus, .teacher-detail .fb-login:focus, .toggle-addstory:focus {
   -webkit-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.3125rem;
   -moz-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.3125rem;
   box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.3125rem;
 }
 
-.primary-action:active, .login .fb-login:active, .toggle-addstory:active {
+.primary-action:active, .login .fb-login:active, .teacher-detail .fb-login:active, .toggle-addstory:active {
   -webkit-box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
   -moz-box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
   box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
@@ -316,7 +316,7 @@ button {
   content: " »";
 }
 
-.login .fb-login, .toggle-addstory {
+.login .fb-login, .teacher-detail .fb-login, .toggle-addstory {
   font-size: 28px;
   font-size: 1.75rem;
   line-height: 40px;
@@ -1100,6 +1100,9 @@ select {
 .teacher-detail {
   position: relative;
 }
+.teacher-detail .fb-login {
+  display: block;
+}
 
 .teacher-info {
   margin-bottom: 20px;
@@ -1138,7 +1141,7 @@ select {
   vertical-align: middle;
 }
 
-.toggle-addstory {
+.teacher-detail .fb-login, .toggle-addstory {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-size: 1.25rem;
@@ -1147,10 +1150,13 @@ select {
   color: #007474;
   text-align: center;
   cursor: pointer;
-  display: none;
 }
-.toggle-addstory:focus, .toggle-addstory:hover, .toggle-addstory:active {
+.teacher-detail .fb-login:focus, .toggle-addstory:focus, .teacher-detail .fb-login:hover, .toggle-addstory:hover, .teacher-detail .fb-login:active, .toggle-addstory:active {
   color: #94001a;
+}
+
+.toggle-addstory {
+  display: none;
 }
 
 [id="story-form-toggle"] {

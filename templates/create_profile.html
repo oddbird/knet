@@ -11,7 +11,7 @@
     where I can receive thank-you notes.
   </label>
 
-  <form class="create-profile-form" method="POST">
+  <form id="create-profile-form" class="create-profile-form" method="POST">
     {% csrf_token %}
     {% include "forms/errors.html" with errors=form.non_field_errors %}
 

@@ -24,7 +24,7 @@
   vertical-align: middle;
 }
 
-.toggle-addstory {
+%addstory-button {
   @extend %button-large;
   @include serif;
   @include adjust-font-size-to($medpx);
@@ -33,7 +33,10 @@
   cursor: pointer;
 
   #{$focus} { color: $accent; }
+}
 
+.toggle-addstory {
+  @extend %addstory-button;
   display: none;
 }
 

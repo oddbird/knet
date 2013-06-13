@@ -14,6 +14,31 @@ class ViewTeacher:
         return self.full_name
 
 
-    def stories(self):
-        """Return all the stories on this profile."""
-        return self._profile.stories.order_by('-created')
+    def stories(self, visible_to=None):
+        """
+        Yield all the stories on this profile as ``ViewStory`` instances.
+
+        If ``visible_to`` is provided it should be a ``User`` instance, and
+        only stories visible to that user will be shown.
+
+        """
+        qs = self._profile.stories.order_by('-created')
+        if visible_to and (visible_to != self.user):
+            qs = qs.filter(published=True)
+        for story in qs:
+            yield ViewStory(story)
+
+
+
+class ViewStory:
+    """View model for a ``Story``."""
+    def __init__(self, story):
+        self._story = story
+        self.id = story.id
+        self.body = story.body
+        self.private = story.private
+        self.published = story.published
+        self.date = story.nominal_date or story.created.date()
+        # @@@ submitter should be required
+        self.attribution = story.submitter_name or (
+            story.submitter.first_name if story.submitter else '')

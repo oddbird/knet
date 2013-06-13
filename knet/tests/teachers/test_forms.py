@@ -5,20 +5,22 @@ from .factories import TeacherProfileFactory
 
 
 
-class TestStoryForm(object):
-    def test_save_assigns_teacher(self):
-        """StoryForm assigns teacher profile to the story before saving."""
+class TestStoryForm:
+    def test_save_assigns_user_and_teacher(self):
+        """StoryForm assigns user and profile to the story before saving."""
+        user = UserFactory.build()
         profile = TeacherProfileFactory.build()
-        form = StoryForm(profile, {'body': "Cool story bro"})
+        form = StoryForm(user, profile, {'body': "Cool story bro"})
 
         assert form.is_valid()
         story = form.save(commit=False)
 
         assert story.profile == profile
+        assert story.submitter == user
 
 
 
-class TestTeacherProfileForm(object):
+class TestTeacherProfileForm:
     def test_save_assigns_user(self):
         """TeacherProfileForm assigns user to the profile before saving."""
         user = UserFactory.build()

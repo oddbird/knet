@@ -3,6 +3,11 @@
 
 .teacher-detail {
   position: relative;
+
+  .fb-login {
+    @extend %addstory-button;
+    display: block;
+  }
 }
 
 .teacher-info {
