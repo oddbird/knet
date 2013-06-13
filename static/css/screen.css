@@ -111,8 +111,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 html {
-  font-size: 100%;
-  line-height: 1.25em;
+  font-size: 112.5%;
+  line-height: 1.27778em;
 }
 
 * {
@@ -160,10 +160,10 @@ a:focus, a:hover, a:active {
 
 .welcome-title, .teacher-name {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 38px;
-  font-size: 2.375rem;
-  line-height: 50px;
-  line-height: 3.125rem;
+  font-size: 43px;
+  font-size: 2.38889rem;
+  line-height: 58px;
+  line-height: 3.19444rem;
 }
 
 @font-face {
@@ -269,10 +269,10 @@ button {
 
 .primary-action, .login .fb-login, .teacher-detail .fb-login, .toggle-addstory {
   border-width: 1px;
-  border-width: 0.0625rem;
+  border-width: 0.05556rem;
   border-style: solid;
   padding: 2px;
-  padding: 0.09375rem;
+  padding: 0.10417rem;
   -webkit-border-radius: 0.25rem;
   -moz-border-radius: 0.25rem;
   border-radius: 0.25rem;
@@ -281,15 +281,15 @@ button {
   background-image: -o-linear-gradient(top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
   background-image: linear-gradient(to bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
   display: inline-block;
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
+  padding-left: 0.63889rem;
+  padding-right: 0.63889rem;
   cursor: pointer;
 }
 
 .primary-action:hover, .login .fb-login:hover, .teacher-detail .fb-login:hover, .toggle-addstory:hover, .primary-action:focus, .login .fb-login:focus, .teacher-detail .fb-login:focus, .toggle-addstory:focus {
-  -webkit-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.3125rem;
-  -moz-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.3125rem;
-  box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.3125rem;
+  -webkit-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
+  -moz-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
+  box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
 }
 
 .primary-action:active, .login .fb-login:active, .teacher-detail .fb-login:active, .toggle-addstory:active {
@@ -304,12 +304,12 @@ button {
 
 .primary-action {
   border-width: 1px;
-  border-width: 0.0625rem;
+  border-width: 0.05556rem;
   border-style: solid;
-  padding: 4px;
-  padding: 0.25rem;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding: 5px;
+  padding: 0.26389rem;
+  padding-left: 1.27778rem;
+  padding-right: 1.27778rem;
   background-color: #8be266;
 }
 .primary-action:after {
@@ -317,22 +317,22 @@ button {
 }
 
 .login .fb-login, .teacher-detail .fb-login, .toggle-addstory {
-  font-size: 28px;
-  font-size: 1.75rem;
-  line-height: 40px;
-  line-height: 2.5rem;
+  font-size: 32px;
+  font-size: 1.77778rem;
+  line-height: 46px;
+  line-height: 2.55556rem;
   border-top-width: 1px;
-  border-top-width: 0.0625rem;
+  border-top-width: 0.05556rem;
   border-top-style: solid;
-  padding-top: 9px;
-  padding-top: 0.5625rem;
+  padding-top: 11px;
+  padding-top: 0.58333rem;
   border-bottom-width: 1px;
-  border-bottom-width: 0.0625rem;
+  border-bottom-width: 0.05556rem;
   border-bottom-style: solid;
-  padding-bottom: 9px;
-  padding-bottom: 0.5625rem;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-bottom: 11px;
+  padding-bottom: 0.58333rem;
+  padding-left: 1.27778rem;
+  padding-right: 1.27778rem;
 }
 
 .form-actions {
@@ -340,8 +340,8 @@ button {
 }
 
 .formfield {
-  margin-bottom: 10px;
-  margin-bottom: 0.625rem;
+  margin-bottom: 12px;
+  margin-bottom: 0.63889rem;
 }
 .formfield:after {
   content: "";
@@ -350,10 +350,10 @@ button {
 }
 
 .form-help {
-  font-size: 13px;
-  font-size: 0.8125rem;
-  line-height: 20px;
-  line-height: 1.25rem;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   color: #6f6f6f;
 }
 .form-help a:link, .form-help a:visited {
@@ -373,23 +373,23 @@ button {
 [type="text"], [type="email"], [type="url"],
 [type="password"], [type="datetime"], [type="date"], [type="time"], [type="number"], [multiple], textarea, select {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-size: 1rem;
-  line-height: 20px;
-  line-height: 1.25rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
 }
 
 [type="text"], [type="email"], [type="url"],
 [type="password"], [type="datetime"], [type="date"], [type="time"], [type="number"], [multiple], textarea {
   border-width: 1px;
-  border-width: 0.0625rem;
+  border-width: 0.05556rem;
   border-style: solid;
-  padding: 4px;
-  padding: 0.25rem;
-  font-size: 20px;
-  font-size: 1.25rem;
-  line-height: 30px;
-  line-height: 1.875rem;
+  padding: 5px;
+  padding: 0.26389rem;
+  font-size: 23px;
+  font-size: 1.27778rem;
+  line-height: 35px;
+  line-height: 1.91667rem;
   -webkit-box-shadow: rgba(76, 76, 76, 0.5) 0 0 3px inset;
   -moz-box-shadow: rgba(76, 76, 76, 0.5) 0 0 3px inset;
   box-shadow: rgba(76, 76, 76, 0.5) 0 0 3px inset;
@@ -413,11 +413,11 @@ button {
 
 [type="text"], [type="email"], [type="url"],
 [type="password"], [type="datetime"], [type="date"], [type="time"], [type="number"] {
-  height: 1.875rem;
+  height: 1.91667rem;
 }
 
 [multiple], textarea {
-  height: 8.125rem;
+  height: 8.30556rem;
   resize: vertical;
 }
 
@@ -431,10 +431,10 @@ select {
 }
 
 [multiple] {
-  font-size: 16px;
+  font-size: 18px;
   font-size: 1rem;
-  line-height: 20px;
-  line-height: 1.25rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
 }
 
 [type="checkbox"] {
@@ -446,10 +446,10 @@ select {
 }
 
 .form-type, .radio-type, .checkbox-type {
-  font-size: 13px;
-  font-size: 0.8125rem;
-  line-height: 20px;
-  line-height: 1.25rem;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   cursor: pointer;
 }
 
@@ -459,22 +459,22 @@ select {
 
 .formfield.optional .form-type:after {
   content: " [optional]";
-  font-size: 13px;
-  font-size: 0.8125rem;
-  line-height: 20px;
-  line-height: 1.25rem;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   color: #999999;
   font-weight: normal;
 }
 
 .create-profile-form, .add-story-form {
   border-width: 2px;
-  border-width: 0.125rem;
+  border-width: 0.11111rem;
   border-style: solid;
-  padding: 18px;
-  padding: 1.125rem;
-  margin-bottom: 20px;
-  margin-bottom: 1.25rem;
+  padding: 21px;
+  padding: 1.16667rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
   clear: both;
   background: rgba(255, 255, 255, 0.5);
   border-color: #e5e5e5;
@@ -482,12 +482,12 @@ select {
 
 [role="banner"] {
   border-bottom-width: 1px;
-  border-bottom-width: 0.0625rem;
+  border-bottom-width: 0.05556rem;
   border-bottom-style: solid;
-  padding-bottom: 9px;
-  padding-bottom: 0.5625rem;
-  padding-top: 10px;
-  padding-top: 0.625rem;
+  padding-bottom: 11px;
+  padding-bottom: 0.58333rem;
+  padding-top: 12px;
+  padding-top: 0.63889rem;
   background: rgba(255, 255, 255, 0.95) -webkit-linear-gradient(bottom, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
   background: rgba(255, 255, 255, 0.95) -moz-linear-gradient(bottom, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
   background: rgba(255, 255, 255, 0.95) -o-linear-gradient(bottom, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
@@ -512,13 +512,13 @@ select {
   text-align: right;
 }
 .user-nav .fb-login:before {
-  padding-right: 0.3125rem;
+  padding-right: 0.31944rem;
 }
 .user-nav .user-name, .user-nav .logout-form {
   display: inline-block;
 }
 .user-nav [name="logout"] {
-  padding: 0 0.3125rem;
+  padding: 0 0.31944rem;
 }
 .user-nav [name="logout"]:focus, .user-nav [name="logout"]:hover, .user-nav [name="logout"]:active {
   color: #94001a;
@@ -531,8 +531,8 @@ select {
 @-moz-keyframes announce-in {
   0% {
     opacity: 0;
-    -moz-transform: translateY(-12.5rem);
-    transform: translateY(-12.5rem);
+    -moz-transform: translateY(-12.77778rem);
+    transform: translateY(-12.77778rem);
   }
 
   100% {
@@ -545,8 +545,8 @@ select {
 @-webkit-keyframes announce-in {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(-12.5rem);
-    transform: translateY(-12.5rem);
+    -webkit-transform: translateY(-12.77778rem);
+    transform: translateY(-12.77778rem);
   }
 
   100% {
@@ -559,8 +559,8 @@ select {
 @-o-keyframes announce-in {
   0% {
     opacity: 0;
-    -o-transform: translateY(-12.5rem);
-    transform: translateY(-12.5rem);
+    -o-transform: translateY(-12.77778rem);
+    transform: translateY(-12.77778rem);
   }
 
   100% {
@@ -573,7 +573,7 @@ select {
 @keyframes announce-in {
   0% {
     opacity: 0;
-    transform: translateY(-12.5rem);
+    transform: translateY(-12.77778rem);
   }
 
   100% {
@@ -591,8 +591,8 @@ select {
 
   100% {
     opacity: 0;
-    -moz-transform: translateX(37.5rem);
-    transform: translateX(37.5rem);
+    -moz-transform: translateX(38.33333rem);
+    transform: translateX(38.33333rem);
   }
 }
 
@@ -605,8 +605,8 @@ select {
 
   100% {
     opacity: 0;
-    -webkit-transform: translateX(37.5rem);
-    transform: translateX(37.5rem);
+    -webkit-transform: translateX(38.33333rem);
+    transform: translateX(38.33333rem);
   }
 }
 
@@ -619,8 +619,8 @@ select {
 
   100% {
     opacity: 0;
-    -o-transform: translateX(37.5rem);
-    transform: translateX(37.5rem);
+    -o-transform: translateX(38.33333rem);
+    transform: translateX(38.33333rem);
   }
 }
 
@@ -632,23 +632,23 @@ select {
 
   100% {
     opacity: 0;
-    transform: translateX(37.5rem);
+    transform: translateX(38.33333rem);
   }
 }
 
 #messages {
   position: fixed;
-  top: 0.625rem;
-  right: 0.625rem;
+  top: 0.63889rem;
+  right: 0.63889rem;
   width: 80%;
   max-width: 20em;
   z-index: 999;
 }
 #messages .close {
-  font-size: 13px;
-  font-size: 0.8125rem;
-  line-height: 20px;
-  line-height: 1.25rem;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   position: absolute;
   display: inline-block;
   right: .125rem;
@@ -657,37 +657,37 @@ select {
 }
 
 .announce, .message {
-  font-size: 20px;
-  font-size: 1.25rem;
-  line-height: 20px;
-  line-height: 1.25rem;
+  font-size: 23px;
+  font-size: 1.27778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   -webkit-animation: announce-in 1s ease backwards;
   -moz-animation: announce-in 1s ease backwards;
   -o-animation: announce-in 1s ease backwards;
   animation: announce-in 1s ease backwards;
   border-width: 1px;
-  border-width: 0.0625rem;
+  border-width: 0.05556rem;
   border-style: solid;
-  padding: 14px;
-  padding: 0.875rem;
+  padding: 16px;
+  padding: 0.90278rem;
   overflow: hidden;
   opacity: 0.95;
-  -webkit-box-shadow: #4c4c4c 0 0 0.3125rem;
-  -moz-box-shadow: #4c4c4c 0 0 0.3125rem;
-  box-shadow: #4c4c4c 0 0 0.3125rem;
+  -webkit-box-shadow: #4c4c4c 0 0 0.31944rem;
+  -moz-box-shadow: #4c4c4c 0 0 0.31944rem;
+  box-shadow: #4c4c4c 0 0 0.31944rem;
   position: relative;
 }
 .announce:before, .message:before {
   position: absolute;
-  top: 0.9375rem;
-  left: 0.9375rem;
+  top: 0.95833rem;
+  left: 0.95833rem;
 }
 .announce .body, .message .body {
-  font-size: 13px;
-  font-size: 0.8125rem;
-  line-height: 20px;
-  line-height: 1.25rem;
-  margin: 0 0.3125rem 0 1.875rem;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  margin: 0 0.31944rem 0 1.91667rem;
 }
 .announce .body a:link, .message .body a:link, .announce .body a:visited, .message .body a:visited {
   color: #007474;
@@ -770,10 +770,10 @@ select {
 }
 
 .tagline {
-  font-size: 13px;
-  font-size: 0.8125rem;
-  line-height: 20px;
-  line-height: 1.25rem;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
   color: #007474;
   font-weight: bold;
@@ -790,8 +790,8 @@ select {
 }
 
 .tagline {
-  margin-bottom: 20px;
-  margin-bottom: 1.25rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
 }
 
 .js .message.js-warning {
@@ -933,18 +933,18 @@ select {
 }
 
 .loading-spinner {
-  margin: -1.875rem auto 0;
+  margin: -1.91667rem auto 0;
   color: #191919;
   text-align: center;
 }
 
 .loading-text {
-  font-size: 13px;
-  font-size: 0.8125rem;
-  line-height: 20px;
-  line-height: 1.25rem;
-  margin-top: -30px;
-  margin-top: -1.875rem;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  margin-top: -35px;
+  margin-top: -1.91667rem;
   text-shadow: white 0 0 1em, white 0 0 0.5em, white 0 0 0.25em;
   position: relative;
   display: block;
@@ -957,10 +957,10 @@ select {
 }
 
 .loading-icon {
-  font-size: 38px;
-  font-size: 2.375rem;
-  line-height: 50px;
-  line-height: 3.125rem;
+  font-size: 43px;
+  font-size: 2.38889rem;
+  line-height: 58px;
+  line-height: 3.19444rem;
   text-shadow: rgba(255, 255, 255, 0.75) 0 0 0.5em;
   -webkit-animation: loading 3s linear infinite;
   -moz-animation: loading 3s linear infinite;
@@ -993,7 +993,7 @@ select {
   -webkit-background-clip: content;
   -moz-background-clip: content;
   background-clip: content-box;
-  padding: 1.25rem 1em;
+  padding: 1.27778rem 1em;
 }
 [role="main"]:after {
   content: "";
@@ -1005,8 +1005,8 @@ select {
   text-align: center;
 }
 .login .fb-login {
-  margin-top: 20px;
-  margin-top: 1.25rem;
+  margin-top: 23px;
+  margin-top: 1.27778rem;
 }
 .login .fb-login:before {
   padding-right: .4em;
@@ -1014,15 +1014,15 @@ select {
 
 .login-title {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 28px;
-  font-size: 1.75rem;
-  line-height: 40px;
-  line-height: 2.5rem;
+  font-size: 32px;
+  font-size: 1.77778rem;
+  line-height: 46px;
+  line-height: 2.55556rem;
 }
 
 .welcome-title {
-  margin-bottom: 20px;
-  margin-bottom: 1.25rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
 }
 
 .create-profile-form {
@@ -1037,20 +1037,20 @@ select {
   pointer-events: none;
   bottom: 100%;
   border-bottom-color: #e5e5e5;
-  border-width: 0.9375rem;
-  left: 2.5rem;
+  border-width: 0.95833rem;
+  left: 2.55556rem;
 }
 
 .toggle-profile, .skip-profile {
-  font-size: 16px;
+  font-size: 18px;
   font-size: 1rem;
-  line-height: 20px;
-  line-height: 1.25rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   border-width: 1px;
-  border-width: 0.0625rem;
+  border-width: 0.05556rem;
   border-style: solid;
-  padding: 19px;
-  padding: 1.1875rem;
+  padding: 22px;
+  padding: 1.22222rem;
   -webkit-border-radius: 0.25rem;
   -moz-border-radius: 0.25rem;
   border-radius: 0.25rem;
@@ -1058,20 +1058,20 @@ select {
   background-image: -moz-linear-gradient(top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
   background-image: -o-linear-gradient(top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
   background-image: linear-gradient(to bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
-  -webkit-box-shadow: white 0 0 0.3125rem inset;
-  -moz-box-shadow: white 0 0 0.3125rem inset;
-  box-shadow: white 0 0 0.3125rem inset;
-  margin-bottom: 20px;
-  margin-bottom: 1.25rem;
+  -webkit-box-shadow: white 0 0 0.31944rem inset;
+  -moz-box-shadow: white 0 0 0.31944rem inset;
+  box-shadow: white 0 0 0.31944rem inset;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
   display: block;
   text-align: center;
   cursor: pointer;
 }
 .toggle-profile strong, .skip-profile strong {
-  font-size: 28px;
-  font-size: 1.75rem;
-  line-height: 40px;
-  line-height: 2.5rem;
+  font-size: 32px;
+  font-size: 1.77778rem;
+  line-height: 46px;
+  line-height: 2.55556rem;
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
   display: block;
   font-weight: bold;
@@ -1086,9 +1086,9 @@ select {
   background-image: -moz-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
   background-image: -o-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
   background-image: linear-gradient(to top, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
-  -webkit-box-shadow: #4c4c4c 0 0 0.625rem inset;
-  -moz-box-shadow: #4c4c4c 0 0 0.625rem inset;
-  box-shadow: #4c4c4c 0 0 0.625rem inset;
+  -webkit-box-shadow: #4c4c4c 0 0 0.63889rem inset;
+  -moz-box-shadow: #4c4c4c 0 0 0.63889rem inset;
+  box-shadow: #4c4c4c 0 0 0.63889rem inset;
 }
 
 [id="create-profile-toggle"] {
@@ -1105,8 +1105,8 @@ select {
 }
 
 .teacher-info {
-  margin-bottom: 20px;
-  margin-bottom: 1.25rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
 }
 
 .teacher-data, .teacher-bio {
@@ -1114,26 +1114,26 @@ select {
 }
 
 .teacher-data {
-  margin-bottom: 10px;
-  margin-bottom: 0.625rem;
+  margin-bottom: 12px;
+  margin-bottom: 0.63889rem;
 }
 .teacher-data .data-item {
   display: inline-block;
-  margin-right: 1.25rem;
+  margin-right: 1.27778rem;
 }
 
 .private-field {
-  padding-top: 5px;
-  padding-top: 0.3125rem;
+  padding-top: 6px;
+  padding-top: 0.31944rem;
   float: left;
 }
 
 .icon-addstory {
-  font-size: 38px;
-  font-size: 2.375rem;
-  line-height: 50px;
-  line-height: 3.125rem;
-  margin-right: 0.625rem;
+  font-size: 43px;
+  font-size: 2.38889rem;
+  line-height: 58px;
+  line-height: 3.19444rem;
+  margin-right: 0.63889rem;
 }
 
 .icon-addstory, .text-addstory {
@@ -1143,10 +1143,10 @@ select {
 
 .teacher-detail .fb-login, .toggle-addstory {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-size: 1.25rem;
-  line-height: 30px;
-  line-height: 1.875rem;
+  font-size: 23px;
+  font-size: 1.27778rem;
+  line-height: 35px;
+  line-height: 1.91667rem;
   color: #007474;
   text-align: center;
   cursor: pointer;
@@ -1170,14 +1170,14 @@ select {
 
 .no-stories-message {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  padding-top: 20px;
-  padding-top: 1.25rem;
-  padding-bottom: 20px;
-  padding-bottom: 1.25rem;
-  font-size: 20px;
-  font-size: 1.25rem;
-  line-height: 30px;
-  line-height: 1.875rem;
+  padding-top: 23px;
+  padding-top: 1.27778rem;
+  padding-bottom: 23px;
+  padding-bottom: 1.27778rem;
+  font-size: 23px;
+  font-size: 1.27778rem;
+  line-height: 35px;
+  line-height: 1.91667rem;
   color: #b2b2b2;
   text-align: center;
 }
@@ -1188,25 +1188,25 @@ select {
 }
 
 .story.hidden:before, .story.private:before {
-  font-size: 13px;
-  font-size: 0.8125rem;
-  line-height: 25px;
-  line-height: 1.5625rem;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 29px;
+  line-height: 1.59722rem;
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
   border-radius: 0.25em;
   position: absolute;
-  top: -0.46875rem;
-  right: -0.46875rem;
+  top: -0.47917rem;
+  right: -0.47917rem;
   padding: 0 .5em;
   z-index: 900;
 }
 
 .story {
-  margin-top: 40px;
-  margin-top: 2.5rem;
-  margin-bottom: 40px;
-  margin-bottom: 2.5rem;
+  margin-top: 46px;
+  margin-top: 2.55556rem;
+  margin-bottom: 46px;
+  margin-bottom: 2.55556rem;
   position: relative;
 }
 .story:after {
@@ -1227,13 +1227,13 @@ select {
 }
 
 .story-body {
-  margin-bottom: 10px;
-  margin-bottom: 0.625rem;
+  margin-bottom: 12px;
+  margin-bottom: 0.63889rem;
   border-width: 2px;
-  border-width: 0.125rem;
+  border-width: 0.11111rem;
   border-style: solid;
-  padding: 18px;
-  padding: 1.125rem;
+  padding: 21px;
+  padding: 1.16667rem;
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
   border-radius: 0.25em;
@@ -1250,8 +1250,8 @@ select {
   pointer-events: none;
   top: 100%;
   border-top-color: #007474;
-  border-width: 0.625rem;
-  left: 0.3125rem;
+  border-width: 0.63889rem;
+  left: 0.31944rem;
 }
 .hidden .story-body {
   border-color: #f7cd66;
@@ -1271,10 +1271,10 @@ select {
 }
 
 .story-info {
-  font-size: 13px;
-  font-size: 0.8125rem;
-  line-height: 20px;
-  line-height: 1.25rem;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   float: left;
   width: 50%;
 }
@@ -1300,15 +1300,15 @@ select {
 }
 
 .story-status, .delete-story {
-  padding: 0 0.3125rem;
+  padding: 0 0.31944rem;
   color: #999999;
 }
 
 .story-private-notice {
-  font-size: 13px;
-  font-size: 0.8125rem;
-  line-height: 20px;
-  line-height: 1.25rem;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
   display: inline-block;
   color: #b2b2b2;
 }
