@@ -153,6 +153,7 @@ $status-private-icon: lock;
 
 .oembed {
   @include trailer;
+  text-align: center;
 
   &.video-embed { @include fluid-ratio; }
 
@@ -163,6 +164,10 @@ $status-private-icon: lock;
   iframe, img { vertical-align: top; }
   img { max-width: 100%; }
   a { display: block; }
+
+  &.twitter {
+    iframe { margin: 0 auto !important; }
+  }
 }
 
 

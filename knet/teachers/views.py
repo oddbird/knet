@@ -11,7 +11,7 @@ from django.template import RequestContext
 
 from .forms import StoryForm, TeacherProfileForm
 from .models import TeacherProfile
-from .viewmodels import ViewTeacher
+from .viewmodels import ViewTeacher, ViewStory
 
 
 
@@ -30,7 +30,11 @@ def _response(request, teacher, story=None, success=True):
         if story:
             data['html'] = render_to_string(
                 '_story.html',
-                {'story': story, 'teacher': teacher, 'user': request.user},
+                {
+                    'story': ViewStory(story),
+                    'teacher': teacher,
+                    'user': request.user,
+                    },
                 context_instance=RequestContext(request),
                 )
         return HttpResponse(

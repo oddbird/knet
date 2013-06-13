@@ -37,6 +37,7 @@
   @include serif;
   @include adjust-font-size-to($medpx);
   color: $alt;
+  background-color: color($alt lightest,.5);
   text-align: center;
   cursor: pointer;
 
