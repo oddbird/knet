@@ -1,3 +1,5 @@
+from django.utils.timezone import now, localtime
+
 import floppyforms as forms
 
 from .models import Story, TeacherProfile
@@ -40,6 +42,7 @@ class StoryForm(forms.ModelForm):
             self.fields['submitter_name'].widget.is_required = True
             self.fields['nominal_date'].required = True
             self.fields['nominal_date'].widget.is_required = True
+            self.fields['nominal_date'].initial = localtime(now()).date()
 
 
     def save(self, commit=True):
