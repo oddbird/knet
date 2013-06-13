@@ -1,0 +1,17 @@
+{% load markup %}
+<header class="teacher-info">
+  <h1 class="teacher-name">{{ teacher }}</h1>
+
+  <ul class="teacher-data">
+    {% if teacher.school %}
+    <li class=" data-item school">
+      <span class="value">{{ teacher.school }}</span>
+    </li>
+    {% endif %}
+    <li class=" data-item membership">
+      <b class="type">Network Member Since</b>
+      <span class="value">{{ teacher.date_joined|date }}</span>
+    </li>
+  </ul>
+  <div class="teacher-bio">{{ teacher.bio|markdown }}</div>
+</header>

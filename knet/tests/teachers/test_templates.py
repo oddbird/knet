@@ -11,8 +11,8 @@ def test_bio_rendered_with_markdown():
     """Bio on teacher profile renders through markdown."""
     tp = TeacherProfileFactory.build(bio="Some *text*")
     bio = render_to_soup(
-        'teacher_detail.html',
-        {'teacher': ViewTeacher(tp), 'user': tp.user},
+        '_teacher_info.html',
+        {'teacher': ViewTeacher(tp)},
         ).find('div', 'teacher-bio')
 
     assert innerhtml(bio) == '<p>Some <em>text</em></p>'
