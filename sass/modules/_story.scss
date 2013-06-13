@@ -24,12 +24,13 @@ $status-private-color: color(lighter);
 $status-private-icon: lock;
 
 %story-status {
-  @include adjust-font-size-to($smallpx);
+  @include adjust-font-size-to($smallpx,1.25);
   @include border-radius(.25em);
   position: absolute;
-  top: 0;
-  left: 0;
+  top: rhythm(-.375);
+  right: rhythm(-.375);
   padding: 0 .5em;
+  z-index: 900;
 }
 
 @mixin story-status-icon(
@@ -48,8 +49,7 @@ $status-private-icon: lock;
 
 .story {
   @include pie-clearfix;
-  @include rhythm-margins;
-  @include gallery(4 isolate);
+  @include rhythm-margins(2);
   position: relative;
 
   @include story-status-icon('hidden', $status-hidden-icon, $status-hidden-color);
@@ -76,10 +76,19 @@ $status-private-icon: lock;
   @include rhythm-borders(2px,1);
   @include border-radius(.25em);
   @include arrow(bottom rhythm(.25) rhythm(.5) $status-published-color);
+  background: color(white, .75);
   border-color: $alt;
 
   @include story-body-status('hidden', $status-hidden-color);
   @include story-body-status('private', $status-private-color);
+}
+
+.story-content {
+  @extend %type;
+  overflow: hidden;
+
+  ul, ol { padding-left: rhythm(1); }
+  :last-child { @include trailer(0); }
 }
 
 // Story Info
@@ -138,3 +147,22 @@ $status-private-icon: lock;
 
   #{$focus} { color: $red; }
 }
+
+// Embeded Content
+// ---------------
+
+.oembed {
+  @include trailer;
+
+  &.video-embed { @include fluid-ratio; }
+
+  &.video-embed, img {
+    border: 1px solid color($base light);
+  }
+
+  iframe, img { vertical-align: top; }
+  img { max-width: 100%; }
+  a { display: block; }
+}
+
+

@@ -21,6 +21,7 @@
   @include background-image(linear-gradient(to bottom, $button-gradient...));
   @include box-shadow(white 0 0 rhythm(.25) inset);
   @include trailer;
+  display: block;
   text-align: center;
   cursor: pointer;
 
@@ -37,7 +38,6 @@
 
 .toggle-profile {
   @extend %profile-options;
-  @include span(6 of 12);
 }
 
 %toggle-profile-active {
@@ -47,7 +47,6 @@
 
 .skip-profile {
   @extend %profile-options;
-  @include span(last 6 of 12);
 }
 
 [id="create-profile-toggle"] {

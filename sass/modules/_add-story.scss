@@ -5,11 +5,9 @@
   @extend %main-form-base;
 }
 
-.submitter_name-field, .submitter_email-field { @include span(6); }
-.submitter_email-field { @include last; }
 .private-field {
-  clear: both;
-  text-align: right;
+  @include padding-leader(.25);
+  float: left;
 }
 
 // Toggle
@@ -17,7 +15,7 @@
 
 .icon-addstory {
   @include icon(bubble-heart);
-  @include adjust-font-size-to($xxlargepx);
+  @include adjust-font-size-to($xlargepx);
   margin-right: rhythm(.5);
 }
 
@@ -29,7 +27,7 @@
 %addstory-button {
   @extend %button-large;
   @include serif;
-  @include adjust-font-size-to($largepx);
+  @include adjust-font-size-to($medpx);
   color: $alt;
   text-align: center;
   cursor: pointer;

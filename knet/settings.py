@@ -55,6 +55,12 @@ def parse_database_url(url):
     }
 
 
+# utility for parsing a redis url
+def parse_redis_url(url):
+    from urllib.parse import urlparse
+    url_parts = urlparse(url)
+
+
 # Deployment config
 
 SECRET_KEY = env('KNET_SECRET_KEY', default={'dev': 'development-secret-key'})
@@ -77,6 +83,18 @@ DATABASES = {
             },
         )
 }
+
+if MODE == 'prod':
+    from redisify import redisify
+    CACHES = redisify()
+else:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            }
+        }
+
+STORY_CACHE_TIMEOUT = env('KNET_STORY_CACHE_TIMEOUT', int, default=1)
 
 BASE_URL = env('KNET_BASE_URL', default={'dev': 'http://knet.hexxie.com:8000'})
 
@@ -109,6 +127,7 @@ INSTALLED_APPS = [
     'floppyforms',
     'form_utils',
     'widget_tweaks',
+    'micawber.contrib.mcdjango',
     'knet',
     'knet.landing',
     'knet.accounts',

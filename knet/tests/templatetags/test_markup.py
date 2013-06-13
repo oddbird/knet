@@ -19,5 +19,10 @@ def test_markdown_returns_safestring():
 
 
 def test_markdown_escapes_html():
-    """Markdown filter escapes HTML."""
+    """Markdown filter escapes HTML by default."""
     assert markup.markdown("<script>") == "<p>&lt;script&gt;</p>\n"
+
+
+def test_markdown_unsafe():
+    """Markdown filter can be put in unsafe mode, allowing HTML."""
+    assert markup.markdown("<script>", "unsafe") == "<p><script></p>\n"
