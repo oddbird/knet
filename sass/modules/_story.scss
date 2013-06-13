@@ -83,7 +83,13 @@ $status-private-icon: lock;
   @include story-body-status('private', $status-private-color);
 }
 
-.story-content { overflow: hidden; }
+.story-content {
+  @extend %type;
+  overflow: hidden;
+
+  ul, ol { padding-left: rhythm(1); }
+  :last-child { @include trailer(0); }
+}
 
 // Story Info
 // ----------
@@ -146,6 +152,7 @@ $status-private-icon: lock;
 // ---------------
 
 .oembed {
+  @include trailer;
 
   &.video-embed { @include fluid-ratio; }
 

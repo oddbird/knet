@@ -166,6 +166,23 @@ a:focus, a:hover, a:active {
   line-height: 3.19444rem;
 }
 
+.story-content strong {
+  font-weight: bold;
+}
+.story-content em {
+  font-style: italic;
+}
+.story-content p, .story-content ul, .story-content ol, .story-content pre {
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+}
+.story-content ul {
+  list-style: disc;
+}
+.story-content ol {
+  list-style: decimal;
+}
+
 @font-face {
   font-family: "knet";
   src: url('../fonts/knet.woff?649aba11a5063bc747fe489ad982a921410c36b2') format("woff"), url('../fonts/knet.ttf?81ba85d1397ae3fe49c0490bf6cc89329d64283c') format("truetype");
@@ -1277,6 +1294,13 @@ select {
 .story-content {
   overflow: hidden;
 }
+.story-content ul, .story-content ol {
+  padding-left: 1.27778rem;
+}
+.story-content :last-child {
+  margin-bottom: 0px;
+  margin-bottom: 0rem;
+}
 
 .story-info {
   font-size: 14px;
@@ -1338,6 +1362,10 @@ select {
   color: #e30028;
 }
 
+.oembed {
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
+}
 .oembed.video-embed {
   position: relative;
   height: 0;
