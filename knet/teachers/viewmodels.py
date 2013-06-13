@@ -39,6 +39,4 @@ class ViewStory:
         self.private = story.private
         self.published = story.published
         self.date = story.nominal_date or story.created.date()
-        # @@@ submitter should be required
-        self.attribution = story.submitter_name or (
-            story.submitter.first_name if story.submitter else '')
+        self.attribution = story.submitter_name or story.submitter.first_name
