@@ -47,7 +47,7 @@ def teacher_detail(request, username):
     if request.method == 'POST':
         if not request.user.is_authenticated():
             return HttpResponseForbidden()
-
+        # @@@ need to check perms to delete/publish/hide
         if 'delete-story' in request.POST:
             with transaction.atomic():
                 teacher_profile.stories.filter(
