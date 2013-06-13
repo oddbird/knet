@@ -4,7 +4,7 @@ from ...factories import UserFactory
 from ..factories import TeacherProfileFactory
 
 
-class TestTeacherProfile(object):
+class TestTeacherProfile:
     def test_has_teacher_profile(self, db):
         tp = TeacherProfileFactory.create()
 

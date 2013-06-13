@@ -11,7 +11,7 @@ from .factories import TeacherProfileFactory, StoryFactory
 
 
 
-class TestTeacherDetail(object):
+class TestTeacherDetail:
     def test_submit_story_authenticated(self, client):
         """Authenticated user can submit a story on a teacher's profile page."""
         user = UserFactory.create()
@@ -234,7 +234,7 @@ class TestTeacherDetail(object):
 
 
 
-class TestCreateProfile(object):
+class TestCreateProfile:
     def test_create_profile(self, client):
         """User without profile can create one."""
         u = UserFactory.create()

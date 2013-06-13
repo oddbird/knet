@@ -5,7 +5,7 @@ from .factories import TeacherProfileFactory
 
 
 
-class TestStoryForm(object):
+class TestStoryForm:
     def test_save_assigns_user_and_teacher(self):
         """StoryForm assigns user and profile to the story before saving."""
         user = UserFactory.build()
@@ -20,7 +20,7 @@ class TestStoryForm(object):
 
 
 
-class TestTeacherProfileForm(object):
+class TestTeacherProfileForm:
     def test_save_assigns_user(self):
         """TeacherProfileForm assigns user to the profile before saving."""
         user = UserFactory.build()

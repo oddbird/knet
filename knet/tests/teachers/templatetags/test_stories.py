@@ -5,7 +5,7 @@ from ...factories import UserFactory
 from ..factories import StoryFactory
 
 
-class TestVisibleTo(object):
+class TestVisibleTo:
     def test_unpublished_visible_to_self(self, db):
         """I can see my own unpublished stories."""
         s = StoryFactory.create(published=False)

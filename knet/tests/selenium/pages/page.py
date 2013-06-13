@@ -5,7 +5,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 
 
-class Page(object):
+class Page:
     """Base class for all Pages."""
     def __init__(self, selenium):
         self.selenium = selenium
