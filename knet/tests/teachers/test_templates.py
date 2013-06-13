@@ -22,7 +22,7 @@ def test_stories_rendered_with_markdown():
     """Stories on teacher profile render through markdown."""
     s = StoryFactory.build(body="Some *text*")
     soup = render_to_soup('_story.html', {'story': s})
-    body = soup.find('div', 'story-body')
+    body = soup.find('div', 'story-content')
 
     assert innerhtml(body) == '<p>Some <em>text</em></p>'
 
