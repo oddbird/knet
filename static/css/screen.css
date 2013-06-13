@@ -1001,7 +1001,7 @@ select {
 }
 
 [role="main"] {
-  max-width: 35em;
+  max-width: 38em;
   margin-left: auto;
   margin-right: auto;
   -webkit-background-origin: content;
@@ -1120,14 +1120,25 @@ select {
 .teacher-detail .fb-login {
   display: block;
 }
-
-.teacher-info {
-  margin-bottom: 23px;
-  margin-bottom: 1.27778rem;
+.teacher-detail .fb-login .icon-addstory:before {
+  content: "\e007";
 }
 
-.teacher-data, .teacher-bio {
-  color: #999999;
+.teacher-info {
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  border-width: 2px;
+  border-width: 0.11111rem;
+  border-style: solid;
+  padding: 10px;
+  padding: 0.52778rem;
+  margin-bottom: 46px;
+  margin-bottom: 2.55556rem;
+  color: #6f6f6f;
+  border-color: #e5e5e5;
+  background: rgba(229, 229, 229, 0.25);
 }
 
 .teacher-data {
@@ -1165,6 +1176,7 @@ select {
   line-height: 35px;
   line-height: 1.91667rem;
   color: #007474;
+  background-color: rgba(204, 227, 227, 0.5);
   text-align: center;
   cursor: pointer;
 }
@@ -1357,6 +1369,7 @@ select {
 .oembed {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+  text-align: center;
 }
 .oembed.video-embed {
   position: relative;
@@ -1384,4 +1397,7 @@ select {
 }
 .oembed a {
   display: block;
+}
+.oembed.twitter iframe {
+  margin: 0 auto !important;
 }
