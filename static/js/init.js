@@ -32,7 +32,7 @@ var KNET = (function (KNET, $) {
         // stories.js
         KNET.removeStory('.story .story-actions .delete-story', '.teacher-stories');
         KNET.changeStoryStatus('.story .story-actions .story-status', '.teacher-stories');
-        KNET.addStory('.add-story-form', '#story-form-toggle');
+        KNET.addStory('.teacher-stories', '.add-story-form', '#story-form-toggle');
         KNET.updateNoStoriesMsg('.story', '.no-stories-message', '.teacher-stories');
     });
 

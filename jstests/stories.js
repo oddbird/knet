@@ -220,12 +220,14 @@
             this.formToggle = this.container.find(this.formToggleSel);
             this.bodyInput = this.form.find('#id_body');
             this.privateInput = this.form.find('#id_private');
+            this.storiesContainerSel = '.teacher-stories';
+            this.storiesContainer = $(this.storiesContainerSel);
             this.xhr = sinon.useFakeXMLHttpRequest();
             var requests = this.requests = [];
             this.xhr.onCreate = function (req) {
                 requests.push(req);
             };
-            KNET.addStory(this.formSel, this.formToggleSel);
+            KNET.addStory(this.storiesContainerSel, this.formSel, this.formToggleSel);
         },
         teardown: function () {
             this.xhr.restore();
@@ -243,6 +245,17 @@
         strictEqual(this.requests.length, 1, 'one xhr request was sent');
         strictEqual(this.requests[0].method, 'POST', 'xhr was sent with method POST');
         strictEqual(this.requests[0].requestBody, expected, 'xhr is sent with serialized form data');
+    });
+
+    test('story is added after form is successfully submitted', function () {
+        expect(2);
+
+        this.bodyInput.val('New Test Story');
+        this.form.trigger('submit');
+        this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true, "html": "<article class=\\"story new\\">New Test Story</article>"}');
+
+        strictEqual(this.storiesContainer.children('.story').length, 2, 'now we have two stories');
+        ok(this.storiesContainer.children('.story').eq(0).hasClass('new'), 'story from response.html has been prepended to stories list');
     });
 
     test('loadingOverlay is added before form submission', function () {
