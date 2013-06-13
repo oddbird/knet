@@ -5,8 +5,8 @@
   @extend %main-form-base;
 }
 
-.submitter_name-field, .submitter_email-field { @include span(6); }
-.submitter_email-field { @include last; }
+.submitter_name-field, .nominal_date-field { @include span(6); }
+.nominal_date-field { @include last; }
 .private-field {
   clear: both;
   text-align: right;
