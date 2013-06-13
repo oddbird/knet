@@ -1120,6 +1120,9 @@ select {
 .teacher-detail .fb-login {
   display: block;
 }
+.teacher-detail .fb-login .icon-addstory:before {
+  content: "\e007";
+}
 
 .teacher-info {
   margin-bottom: 23px;
