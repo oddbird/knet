@@ -6,7 +6,9 @@
   {% include "forms/formfield.html" with field=form.body label="Your Message" help_text=help_text %}
   {% endwith %}
 
-  {% include "forms/formfield.html" with field=form.private label="Keep this story private" %}
+  {% with label="For "|add:teacher.full_name|add:"'s eyes only" %}
+  {% include "forms/formfield.html" with field=form.private label=label %}
+  {% endwith %}
 
   <div class="form-actions">
     <button class="primary-action" type="submit" name="submit">Send</button>
