@@ -50,14 +50,14 @@ def teacher_detail(request, username):
 
         if 'delete-story' in request.POST:
             with transaction.atomic():
-                teacher.stories().filter(
+                teacher_profile.stories.filter(
                     pk=request.POST['delete-story']).delete()
             messages.success(request, "Story deleted.")
             return _response(request, teacher)
         elif 'publish-story' in request.POST:
             with transaction.atomic():
                 story = get_or_none(
-                    teacher.stories().select_for_update(),
+                    teacher_profile.stories.select_for_update(),
                     pk=request.POST['publish-story'],
                     private=False,
                     )
@@ -70,7 +70,7 @@ def teacher_detail(request, username):
         elif 'hide-story' in request.POST:
             with transaction.atomic():
                 story = get_or_none(
-                    teacher.stories().select_for_update(),
+                    teacher_profile.stories.select_for_update(),
                     pk=request.POST['hide-story'],
                     )
                 if story:

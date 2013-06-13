@@ -8,12 +8,9 @@ register = template.Library()
 @register.filter
 def stories_visible_to(teacher, user):
     """
-    Filter ``teacher``'s stories to those visible to ``user``.
+    Return iterable of ``teacher``'s stories visible to ``user``.
 
     ``teacher`` should be a ``ViewTeacher`` instance.
 
     """
-    qs = teacher.stories()
-    if teacher.user != user:
-        qs = qs.filter(published=True)
-    return qs
+    return teacher.stories(user)
