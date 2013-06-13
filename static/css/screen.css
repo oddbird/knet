@@ -158,46 +158,12 @@ a:focus, a:hover, a:active {
   left: -9999px;
 }
 
-.login h1, .welcome-title, .teacher-name {
+.welcome-title, .teacher-name {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 38px;
   font-size: 2.375rem;
   line-height: 50px;
   line-height: 3.125rem;
-}
-
-.login h1 a:link, .login h1 a:visited {
-  color: #005c5c;
-}
-.login h1 a:focus, .login h1 a:hover, .login h1 a:active {
-  color: #760014;
-}
-.login h2 {
-  margin-bottom: 10px;
-  margin-bottom: 0.625rem;
-  text-transform: uppercase;
-}
-.login h3 {
-  margin-top: 20px;
-  margin-top: 1.25rem;
-  font-weight: bold;
-}
-
-.login strong {
-  font-weight: bold;
-}
-.login em {
-  font-style: italic;
-}
-.login p, .login ul, .login ol, .login pre {
-  margin-bottom: 20px;
-  margin-bottom: 1.25rem;
-}
-.login ul {
-  list-style: disc;
-}
-.login ol {
-  list-style: decimal;
 }
 
 @font-face {
@@ -1044,6 +1010,14 @@ select {
 }
 .login .fb-login:before {
   padding-right: .4em;
+}
+
+.login-title {
+  font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 28px;
+  font-size: 1.75rem;
+  line-height: 40px;
+  line-height: 2.5rem;
 }
 
 .welcome-title {
