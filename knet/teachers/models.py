@@ -24,6 +24,7 @@ class Story(models.Model):
     body = models.TextField()
 
     # this is always the user who actually created the story
+    # @@@ should be required, not null/blank=True
     submitter = models.ForeignKey(
         User, blank=True, null=True, related_name='submitted_stories')
     # overrides for stories posted by proxy to own profile
