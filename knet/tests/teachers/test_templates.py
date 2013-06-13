@@ -12,7 +12,7 @@ def test_bio_rendered_with_markdown():
     tp = TeacherProfileFactory.build(bio="Some *text*")
     bio = render_to_soup(
         'teacher_detail.html',
-        {'teacher': ViewTeacher(tp), 'form': StoryForm(tp)},
+        {'teacher': ViewTeacher(tp)},
         ).find('div', 'teacher-bio')
 
     assert innerhtml(bio) == '<p>Some <em>text</em></p>'
@@ -34,7 +34,7 @@ def test_only_published_stories_shown(db):
     u = UserFactory.build(id=1)
     soup = render_to_soup(
         'teacher_detail.html',
-        {'teacher': ViewTeacher(p), 'user': u, 'form': StoryForm(p)},
+        {'teacher': ViewTeacher(p), 'user': u, 'form': StoryForm(u, p)},
         )
 
     assert not len(soup.findAll('article', 'story'))
@@ -46,7 +46,11 @@ def test_unpublished_story_shown_to_me(db):
     p = s.profile
     soup = render_to_soup(
         'teacher_detail.html',
-        {'teacher': ViewTeacher(p), 'user': p.user, 'form': StoryForm(p)},
+        {
+            'teacher': ViewTeacher(p),
+            'user': p.user,
+            'form': StoryForm(p.user, p),
+            },
         )
 
     assert len(soup.findAll('article', 'story')) == 1

@@ -11,7 +11,7 @@
 
   {% if user == teacher.user %}
     <div class="story-actions">
-      <form method="POST">
+      <form id="story-{{ story.id }}-actions-form" method="POST">
         {% csrf_token %}
         {% if story.published %}
           <button type="submit" name="hide-story" value="{{ story.id }}" class="story-status hide" title="Hide this story">hide</button>

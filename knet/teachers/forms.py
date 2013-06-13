@@ -7,34 +7,35 @@ from .models import Story, TeacherProfile
 class StoryForm(forms.ModelForm):
     class Meta:
         model = Story
-        fields = ['body', 'private', 'submitter_name', 'submitter_email']
+        fields = ['body', 'private']
         widgets = {
             'body': forms.Textarea,
             'private': forms.CheckboxInput,
-            'submitter_name': forms.TextInput,
-            'submitter_email': forms.EmailInput,
             }
 
 
-    def __init__(self, profile, *args, **kw):
+    def __init__(self, user, profile, *args, **kw):
         """
-        Accept ``profile`` argument in addition to normal ``ModelForm`` args.
+        Accept ``user`` and ``profile`` arguments in addition to normal args.
 
-        ``profile`` should be a ``TeacherProfile`` instance.
+        ``user`` should be the ``User`` leaving a story.
+
+        ``profile`` should be the ``TeacherProfile`` for whom the story is
+        being left.
 
         """
+        self.user = user
         self.profile = profile
         super(StoryForm, self).__init__(*args, **kw)
         self.fields['body'].error_messages['required'] = (
             "You seem to have left your story blank.")
-        self.fields['submitter_email'].error_messages['invalid'] = (
-            "That doesn't look like an email address; double-check it?")
 
 
     def save(self, commit=True):
-        """Save the story for the appropriate teacher."""
+        """Save the story for the given profile from given user."""
         story = super(StoryForm, self).save(commit=False)
         story.profile = self.profile
+        story.submitter = self.user
         if commit:
             story.save()
         return story

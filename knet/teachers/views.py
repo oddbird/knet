@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 from django.template import RequestContext
@@ -45,6 +45,8 @@ def teacher_detail(request, username):
         TeacherProfile.objects.select_related('user'), user__username=username)
     teacher = ViewTeacher(teacher_profile)
     if request.method == 'POST':
+        if not request.user.is_authenticated():
+            return HttpResponseForbidden()
 
         if 'delete-story' in request.POST:
             with transaction.atomic():
@@ -78,7 +80,7 @@ def teacher_detail(request, username):
                     messages.error(request, "That story has been removed.")
             return _response(request, teacher, story, success=story is not None)
 
-        form = StoryForm(teacher_profile, request.POST)
+        form = StoryForm(request.user, teacher_profile, request.POST)
         if form.is_valid():
             with transaction.atomic():
                 form.save()
@@ -91,7 +93,7 @@ def teacher_detail(request, username):
                     messages.error(request, error)
             return _response(request, teacher, success=False)
     else:
-        form = StoryForm(teacher_profile)
+        form = StoryForm(request.user, teacher_profile)
 
     return render(
         request,

@@ -1,3 +1,5 @@
+import datetime
+
 from django.core.urlresolvers import reverse
 import pytest
 
@@ -10,11 +12,13 @@ from .factories import TeacherProfileFactory, StoryFactory
 
 
 class TestTeacherDetail(object):
-    def test_submit_story_anonymously(self, client):
-        """User can submit a story anonymously on the teacher profile page."""
+    def test_submit_story_authenticated(self, client):
+        """Authenticated user can submit a story on a teacher's profile page."""
+        user = UserFactory.create()
         profile = TeacherProfileFactory.create()
-        url = reverse('teacher_detail', kwargs={'username': profile.user.username})
-        form = client.get(url).forms[0]
+        url = reverse(
+            'teacher_detail', kwargs={'username': profile.user.username})
+        form = client.get(url, user=user).forms['add-story-form']
         form['body'] = "It was a dark and stormy night."
         resp = form.submit()
 
@@ -22,14 +26,49 @@ class TestTeacherDetail(object):
         assert redirects_to(resp) == url
         s = Story.objects.get()
         assert s.body == "It was a dark and stormy night."
+        assert s.submitter == user
+
+
+
+    def test_submit_story_to_own_profile(self, client):
+        """Can submit a story to own profile with overridden name/date."""
+        profile = TeacherProfileFactory.create()
+        url = reverse(
+            'teacher_detail', kwargs={'username': profile.user.username})
+        form = client.get(url, user=profile.user).forms['add-story-form']
+        form['body'] = "It was a dark and stormy night."
+        form['submitter_name'] = "Somebody"
+        form['nominal_date'] = "3/21/2013"
+        resp = form.submit()
+
+        assert resp.status_code == 302, resp
+        assert redirects_to(resp) == url
+        s = Story.objects.get()
+        assert s.body == "It was a dark and stormy night."
+        assert s.submitter == profile.user
+        assert s.submitter_name == "Somebody"
+        assert s.nominal_date == datetime.date(2013, 3, 21)
+
+
+
+    def test_cant_submit_story_anonymously(self, client):
+        """No form to submit a story anonymously."""
+        profile = TeacherProfileFactory.create()
+        url = reverse(
+            'teacher_detail', kwargs={'username': profile.user.username})
+        resp = client.get(url)
+
+        assert len(resp.html.find_all('form', 'add-story-form')) == 0
 
 
 
     def test_submit_story_requires_body(self, client):
-        """User can submit a story anonymously on the teacher profile page."""
+        """Can't submit a story without a... story."""
+        user = UserFactory.create()
         profile = TeacherProfileFactory.create()
-        url = reverse('teacher_detail', kwargs={'username': profile.user.username})
-        form = client.get(url).forms[0]
+        url = reverse(
+            'teacher_detail', kwargs={'username': profile.user.username})
+        form = client.get(url, user=user).forms['add-story-form']
         resp = form.submit()
 
         assert resp.status_code == 200
@@ -40,10 +79,17 @@ class TestTeacherDetail(object):
 
     def test_submit_story_ajax(self, no_csrf_client):
         """User can submit a story via AJAX."""
+        user = UserFactory.create()
         profile = TeacherProfileFactory.create()
-        url = reverse('teacher_detail', kwargs={'username': profile.user.username})
+        url = reverse(
+            'teacher_detail', kwargs={'username': profile.user.username})
         resp = no_csrf_client.post(
-            url, {'body': "It was a dark and stormy night."}, status=200, ajax=True)
+            url,
+            {'body': "It was a dark and stormy night."},
+            user=user,
+            status=200,
+            ajax=True,
+            )
 
         assert resp.json['success']
         assert resp.json['messages'] == [{
@@ -56,35 +102,34 @@ class TestTeacherDetail(object):
 
 
 
+    def test_no_anonymous_story_ajax(self, no_csrf_client):
+        """User can't submit a story anonymously via AJAX."""
+        profile = TeacherProfileFactory.create()
+        url = reverse(
+            'teacher_detail', kwargs={'username': profile.user.username})
+        no_csrf_client.post(
+            url,
+            {'body': "It was a dark and stormy night."},
+            status=403,
+            ajax=True,
+            )
+
+
+
     def test_submit_story_ajax_requires_body(self, no_csrf_client):
         """Error if story submitted via ajax with no body."""
+        user = UserFactory.create()
         profile = TeacherProfileFactory.create()
-        url = reverse('teacher_detail', kwargs={'username': profile.user.username})
-        resp = no_csrf_client.post(url, {'body': ""}, status=200, ajax=True)
+        url = reverse(
+            'teacher_detail', kwargs={'username': profile.user.username})
+        resp = no_csrf_client.post(
+            url, {'body': ""}, status=200, ajax=True, user=user)
 
         assert not resp.json['success']
         assert resp.json['messages'] == [{
                 'level': 40,
                 'tags': 'error',
                 'message': "You seem to have left your story blank.",
-                }]
-        assert not Story.objects.count()
-
-
-
-    def test_submit_story_ajax_invalid_email(self, no_csrf_client):
-        """Error if story submitted via ajax with invalid email address."""
-        profile = TeacherProfileFactory.create()
-        url = reverse('teacher_detail', kwargs={'username': profile.user.username})
-        resp = no_csrf_client.post(
-            url, {'body': "Foo", 'submitter_email': "bar"}, status=200, ajax=True)
-
-        assert not resp.json['success']
-        assert resp.json['messages'] == [{
-                'level': 40,
-                'tags': 'error',
-                'message':
-                    "That doesn't look like an email address; double-check it?",
                 }]
         assert not Story.objects.count()
 
@@ -110,7 +155,8 @@ class TestTeacherDetail(object):
         s = StoryFactory.create()
         u = s.profile.user
         url = reverse('teacher_detail', kwargs={'username': u.username})
-        form = client.get(url, user=u, status=200).forms[1]
+        form = client.get(url, user=u, status=200).forms[
+            'story-%s-actions-form' % s.id]
 
         resp = form.submit('delete-story', status=302)
 
@@ -142,7 +188,8 @@ class TestTeacherDetail(object):
         s = StoryFactory.create(private=False, published=initially_published)
         u = s.profile.user
         url = reverse('teacher_detail', kwargs={'username': u.username})
-        form = client.get(url, user=u, status=200).forms[1]
+        form = client.get(url, user=u, status=200).forms[
+            'story-%s-actions-form' % s.id]
 
         resp = form.submit(action, status=302)
 
@@ -180,7 +227,10 @@ class TestTeacherDetail(object):
         assert resp.json['success'] == False
         assert 'html' not in resp.json
         assert resp.json['messages'][0] == {
-            'message': "That story has been removed.", 'level': 40, 'tags': 'error'}
+            'message': "That story has been removed.",
+            'level': 40,
+            'tags': 'error',
+            }
 
 
 
@@ -188,7 +238,8 @@ class TestCreateProfile(object):
     def test_create_profile(self, client):
         """User without profile can create one."""
         u = UserFactory.create()
-        form = client.get(reverse('create_profile'), user=u).forms[1]
+        form = client.get(reverse('create_profile'), user=u).forms[
+            'create-profile-form']
         form['school'] = "Sample Elementary"
         form['bio'] = "This is my song."
         resp = form.submit()
@@ -203,7 +254,8 @@ class TestCreateProfile(object):
     def test_school_required(self, client):
         """Must provide school name."""
         u = UserFactory.create()
-        form = client.get(reverse('create_profile'), user=u).forms[1]
+        form = client.get(reverse('create_profile'), user=u).forms[
+            'create-profile-form']
         resp = form.submit(status=200)
 
         resp.mustcontain('field is required')

@@ -22,10 +22,16 @@ class Story(models.Model):
     """A story from a student about the impact a teacher had on them."""
     profile = models.ForeignKey(TeacherProfile, related_name='stories')
     body = models.TextField()
-    # submitter requested that this story remain private
-    private = models.BooleanField(default=False)
+
+    # this is always the user who actually created the story
+    submitter = models.ForeignKey(
+        User, blank=True, null=True, related_name='submitted_stories')
+    # overrides for stories posted by proxy to own profile
     submitter_name = models.TextField(blank=True)
     submitter_email = models.EmailField(blank=True, max_length=254)
+    nominal_date = models.DateField(blank=True, null=True)
+    # submitter requested that this story remain private
+    private = models.BooleanField(default=False)
 
     # teacher has approved this story for their profile
     published = models.BooleanField(default=False)
