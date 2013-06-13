@@ -1089,6 +1089,7 @@ select {
   box-shadow: white 0 0 0.3125rem inset;
   margin-bottom: 20px;
   margin-bottom: 1.25rem;
+  display: block;
   text-align: center;
   cursor: pointer;
 }
@@ -1106,12 +1107,6 @@ select {
   content: " »";
 }
 
-.toggle-profile {
-  width: 49.15254%;
-  float: left;
-  margin-right: 1.69492%;
-}
-
 [id="create-profile-toggle"]:not(:checked) ~ .toggle-profile {
   background-image: -webkit-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
   background-image: -moz-linear-gradient(bottom, rgba(76, 76, 76, 0) 40%, rgba(229, 229, 229, 0.25));
@@ -1120,11 +1115,6 @@ select {
   -webkit-box-shadow: #4c4c4c 0 0 0.625rem inset;
   -moz-box-shadow: #4c4c4c 0 0 0.625rem inset;
   box-shadow: #4c4c4c 0 0 0.625rem inset;
-}
-
-.skip-profile {
-  width: 49.15254%;
-  float: right;
 }
 
 [id="create-profile-toggle"] {
@@ -1140,38 +1130,32 @@ select {
 .teacher-info {
   margin-bottom: 20px;
   margin-bottom: 1.25rem;
-  border-color: #b2b2b2;
+}
+
+.teacher-data, .teacher-bio {
+  color: #999999;
 }
 
 .teacher-data {
-  color: #999999;
+  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 .teacher-data .data-item {
   display: inline-block;
   margin-right: 1.25rem;
 }
 
-.submitter_name-field, .submitter_email-field {
-  width: 74.35897%;
-  float: left;
-  margin-right: 2.5641%;
-}
-
-.submitter_email-field {
-  float: right;
-  margin-right: 0;
-}
-
 .private-field {
-  clear: both;
-  text-align: right;
+  padding-top: 5px;
+  padding-top: 0.3125rem;
+  float: left;
 }
 
 .icon-addstory {
-  font-size: 67px;
-  font-size: 4.1875rem;
-  line-height: 80px;
-  line-height: 5rem;
+  font-size: 38px;
+  font-size: 2.375rem;
+  line-height: 50px;
+  line-height: 3.125rem;
   margin-right: 0.625rem;
 }
 
@@ -1182,10 +1166,10 @@ select {
 
 .toggle-addstory {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 28px;
-  font-size: 1.75rem;
-  line-height: 40px;
-  line-height: 2.5rem;
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 30px;
+  line-height: 1.875rem;
   color: #007474;
   text-align: center;
   cursor: pointer;

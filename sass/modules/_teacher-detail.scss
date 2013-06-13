@@ -7,15 +7,18 @@
 
 .teacher-info {
   @include trailer(1);
-  border-color: color(lighter);
 }
 
 .teacher-name {
   @extend %main-title;
 }
 
-.teacher-data {
+.teacher-data, .teacher-bio {
   color: color(light);
+}
+
+.teacher-data {
+  @include trailer(.5);
 
   .data-item {
     display: inline-block;
