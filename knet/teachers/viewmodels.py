@@ -1,3 +1,6 @@
+from django.db.models import Q
+
+
 class ViewTeacher:
     """View model for a ``TeacherProfile`` and associated ``User``."""
     def __init__(self, teacher_profile):
@@ -24,7 +27,10 @@ class ViewTeacher:
         """
         qs = self._profile.stories.order_by('-created')
         if visible_to and (visible_to != self.user):
-            qs = qs.filter(published=True)
+            filters = Q(published=True)
+            if visible_to.is_authenticated():
+                filters = filters | Q(submitter=visible_to)
+            qs = qs.filter(filters)
         for story in qs:
             yield ViewStory(story)
 

@@ -11,7 +11,7 @@ from django.template import RequestContext
 
 from .forms import StoryForm, TeacherProfileForm
 from .models import TeacherProfile
-from .viewmodels import ViewTeacher
+from .viewmodels import ViewTeacher, ViewStory
 
 
 
@@ -30,7 +30,11 @@ def _response(request, teacher, story=None, success=True):
         if story:
             data['html'] = render_to_string(
                 '_story.html',
-                {'story': story, 'teacher': teacher, 'user': request.user},
+                {
+                    'story': ViewStory(story),
+                    'teacher': teacher,
+                    'user': request.user,
+                    },
                 context_instance=RequestContext(request),
                 )
         return HttpResponse(
@@ -91,9 +95,9 @@ def teacher_detail(request, username):
         form = StoryForm(request.user, teacher_profile, request.POST)
         if form.is_valid():
             with transaction.atomic():
-                form.save()
+                story = form.save()
             messages.success(request, "Thanks for submitting your story!")
-            return _response(request, teacher)
+            return _response(request, teacher, story)
         elif request.is_ajax():
             # provide form errors as user messages instead of form errors
             for fieldname, errors in form.errors.items():

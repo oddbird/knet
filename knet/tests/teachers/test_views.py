@@ -71,6 +71,7 @@ class TestTeacherDetail:
                 'tags': 'success',
                 'message': "Thanks for submitting your story!",
                 }]
+        assert 'stormy night' in resp.json['html']
         s = Story.objects.get()
         assert s.body == "It was a dark and stormy night."
 
