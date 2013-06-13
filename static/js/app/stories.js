@@ -49,8 +49,9 @@ var KNET = (function (KNET, $) {
         KNET.ajaxStoryActions(triggerSel, containerSel, callback);
     };
 
-    KNET.addStory = function (formSel, formToggleSel) {
+    KNET.addStory = function (storiesContainerSel, formSel, formToggleSel) {
         var form = $(formSel);
+        var storiesContainer = $(storiesContainerSel);
         form.ajaxForm({
             beforeSubmit: function () {
                 form.loadingOverlay();
@@ -60,6 +61,9 @@ var KNET = (function (KNET, $) {
                 if (response && response.success) {
                     form.get(0).reset();
                     $(formToggleSel).prop('checked', true);
+                    if (response.html) {
+                        storiesContainer.prepend(response.html);
+                    }
                 }
             },
             error: function () {

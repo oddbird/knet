@@ -219,15 +219,15 @@
             this.formToggleSel = '#story-form-toggle';
             this.formToggle = this.container.find(this.formToggleSel);
             this.bodyInput = this.form.find('#id_body');
-            this.nameInput = this.form.find('#id_submitter_name');
-            this.emailInput = this.form.find('#id_submitter_email');
             this.privateInput = this.form.find('#id_private');
+            this.storiesContainerSel = '.teacher-stories';
+            this.storiesContainer = $(this.storiesContainerSel);
             this.xhr = sinon.useFakeXMLHttpRequest();
             var requests = this.requests = [];
             this.xhr.onCreate = function (req) {
                 requests.push(req);
             };
-            KNET.addStory(this.formSel, this.formToggleSel);
+            KNET.addStory(this.storiesContainerSel, this.formSel, this.formToggleSel);
         },
         teardown: function () {
             this.xhr.restore();
@@ -237,16 +237,25 @@
     test('form submits via ajax', function () {
         expect(3);
 
-        var expected = 'body=Test+Story&private=on&submitter_name=Test+Submitter&submitter_email=test%40test.test';
+        var expected = 'body=Test+Story&private=on';
         this.bodyInput.val('Test Story');
-        this.nameInput.val('Test Submitter');
-        this.emailInput.val('test@test.test');
         this.privateInput.prop('checked', true);
         this.form.trigger('submit');
 
         strictEqual(this.requests.length, 1, 'one xhr request was sent');
         strictEqual(this.requests[0].method, 'POST', 'xhr was sent with method POST');
         strictEqual(this.requests[0].requestBody, expected, 'xhr is sent with serialized form data');
+    });
+
+    test('story is added after form is successfully submitted', function () {
+        expect(2);
+
+        this.bodyInput.val('New Test Story');
+        this.form.trigger('submit');
+        this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true, "html": "<article class=\\"story new\\">New Test Story</article>"}');
+
+        strictEqual(this.storiesContainer.children('.story').length, 2, 'now we have two stories');
+        ok(this.storiesContainer.children('.story').eq(0).hasClass('new'), 'story from response.html has been prepended to stories list');
     });
 
     test('loadingOverlay is added before form submission', function () {
@@ -282,34 +291,26 @@
     });
 
     test('form is reset when submitted successfully', function () {
-        expect(4);
+        expect(2);
 
         this.bodyInput.val('Test Story');
-        this.nameInput.val('Test Submitter');
-        this.emailInput.val('test@test.test');
         this.privateInput.prop('checked', true);
         this.form.trigger('submit');
         this.requests[0].respond(200, {'content-type': 'application/json'}, '{"success": true}');
 
         strictEqual(this.bodyInput.val(), '', 'Body has been reset.');
-        strictEqual(this.nameInput.val(), '', 'Name has been reset.');
-        strictEqual(this.emailInput.val(), '', 'Email has been reset.');
         strictEqual(this.privateInput.prop('checked'), false, 'Private checkbox has been reset.');
     });
 
     test('form is not reset if xhr request returns without success: true', function () {
-        expect(4);
+        expect(2);
 
         this.bodyInput.val('Test Story');
-        this.nameInput.val('Test Submitter');
-        this.emailInput.val('test@test.test');
         this.privateInput.prop('checked', true);
         this.form.trigger('submit');
         this.requests[0].respond(200);
 
         strictEqual(this.bodyInput.val(), 'Test Story', 'Body has not been reset.');
-        strictEqual(this.nameInput.val(), 'Test Submitter', 'Name has not been reset.');
-        strictEqual(this.emailInput.val(), 'test@test.test', 'Email has not been reset.');
         strictEqual(this.privateInput.prop('checked'), true, 'Private checkbox has not been reset.');
     });
 
