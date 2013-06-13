@@ -1,3 +1,5 @@
 {% extends "micawber/base.html" %}
 
+{% block embed-type %}video-embed{% endblock %}
+
 {% block oembed-html %}{{ response.html|safe }}{% endblock %}

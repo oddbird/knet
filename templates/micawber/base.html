@@ -1,4 +1,4 @@
-<figure class="oembed {{ response.provider_name|slugify }}" data-width="{{ response.width }}" data-height="{{ response.height }}">
+<figure class="oembed {{ response.provider_name|slugify }} {% block embed-type %}{% endblock %}" data-width="{{ response.width }}" data-height="{{ response.height }}">
 {% block oembed-html %}
 {% endblock %}
 </figure>

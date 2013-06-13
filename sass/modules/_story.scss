@@ -30,6 +30,7 @@ $status-private-icon: lock;
   top: 0;
   left: 0;
   padding: 0 .5em;
+  z-index: 900;
 }
 
 @mixin story-status-icon(
@@ -49,7 +50,6 @@ $status-private-icon: lock;
 .story {
   @include pie-clearfix;
   @include rhythm-margins;
-  @include gallery(4 isolate);
   position: relative;
 
   @include story-status-icon('hidden', $status-hidden-icon, $status-hidden-color);
@@ -73,14 +73,17 @@ $status-private-icon: lock;
 
 .story-body {
   @include trailer(.5);
-  @include rhythm-borders(2px,1);
+  @include rhythm-borders(2px,.5);
   @include border-radius(.25em);
   @include arrow(bottom rhythm(.25) rhythm(.5) $status-published-color);
+  background: color(white, .75);
   border-color: $alt;
 
   @include story-body-status('hidden', $status-hidden-color);
   @include story-body-status('private', $status-private-color);
 }
+
+.story-content { overflow: hidden; }
 
 // Story Info
 // ----------
@@ -138,3 +141,21 @@ $status-private-icon: lock;
 
   #{$focus} { color: $red; }
 }
+
+// Embeded Content
+// ---------------
+
+.oembed {
+
+  &.video-embed { @include fluid-ratio; }
+
+  &.video-embed, img {
+    border: 1px solid color($base light);
+  }
+
+  iframe, img { vertical-align: top; }
+  img { max-width: 100%; }
+  a { display: block; }
+}
+
+
