@@ -3,7 +3,7 @@
   {% include "forms/errors.html" with errors=form.non_field_errors %}
 
   {% with help_text="Include photos & video by pasting links from services like <a href='http://youtube.com/'>youtube</a>, <a href='http://vimeo.com/'>vimeo</a>, <a href='http://flickr.com/'>flickr</a>, and <a href='http://instagram.com/'>instagram</a>. Links should be posted on their own line." %}
-  {% include "forms/formfield.html" with field=form.body label="Story" help_text=help_text %}
+  {% include "forms/formfield.html" with field=form.body label="Your Message" help_text=help_text %}
   {% endwith %}
 
   {% include "forms/formfield.html" with field=form.private label="Keep this story private" %}
