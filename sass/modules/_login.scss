@@ -2,8 +2,6 @@
 // =====
 
 .login {
-  @extend %headers;
-  @extend %type;
   text-align: center;
 
   .fb-login {
@@ -11,4 +9,9 @@
     @include icon(facebook) { padding-right: .4em; }
     @include leader;
   }
+}
+
+.login-title {
+  @include serif;
+  @include adjust-font-size-to($largepx);
 }

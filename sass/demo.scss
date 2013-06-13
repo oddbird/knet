@@ -7,6 +7,7 @@
 // ------
 
 @include set-grid(10 (4em 1em) after hide);
+$container: null;
 
 [role="banner"] {
   @extend %fixed-banner;

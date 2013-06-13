@@ -201,6 +201,18 @@ class TestTeacherDetail:
         assert refresh(s).published == (not initially_published)
 
 
+    @pytest.mark.parametrize('action',
+                             ['publish-story', 'hide-story', 'delete-story'])
+    def test_cant_modify_stories_on_other_profile(self, no_csrf_client, action):
+        """No deleting/hiding/publishing stories on someone else's profile."""
+        s = StoryFactory.create()
+        u = UserFactory.create()
+        url = reverse(
+            'teacher_detail', kwargs={'username': s.profile.user.username})
+
+        no_csrf_client.post(url, {action: s.id}, user=u, status=403, ajax=True)
+
+
     @pytest.mark.parametrize('action', ['publish-story', 'hide-story'])
     def test_bad_story_id(self, no_csrf_client, action):
         """Bad story id just returns success: False."""

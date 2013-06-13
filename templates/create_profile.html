@@ -11,12 +11,6 @@
     where I can receive thank-you notes.
   </label>
 
-  <a href="{{ profile_next }}" class="skip-profile">
-    I'm not a teacher:
-    <strong>skip this step</strong>
-    I'm just here to thank inspiring teachers.
-  </a>
-
   <form id="create-profile-form" class="create-profile-form" method="POST">
     {% csrf_token %}
     {% include "forms/errors.html" with errors=form.non_field_errors %}
@@ -31,5 +25,12 @@
       <button class="primary-action" type="submit" name="submit">Create Profile</button>
     </div>
   </form>
+
+  <a href="{{ profile_next }}" class="skip-profile">
+    I'm not a teacher:
+    <strong>skip this step</strong>
+    I'm just here to thank inspiring teachers.
+  </a>
+
 </div>
 {% endblock %}

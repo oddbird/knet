@@ -25,4 +25,4 @@ markdown2==2.1.0
 oauth2lib==0.2
 requests==1.2.3
 
-micawber==0.2.6
+micawber==0.2.6.obc1
