@@ -53,6 +53,26 @@ class TestTeacherDetail:
         resp.mustcontain("left your story blank")
 
 
+    def test_submit_story_to_own_profile(self, client):
+        """Can submit a story to own profile with overridden name/date."""
+        profile = TeacherProfileFactory.create()
+        url = reverse(
+            'teacher_detail', kwargs={'username': profile.user.username})
+        form = client.get(url, user=profile.user).forms['add-story-form']
+        form['body'] = "It was a dark and stormy night."
+        form['submitter_name'] = "Somebody"
+        form['nominal_date'] = "3/21/2013"
+        resp = form.submit()
+
+        assert resp.status_code == 302, resp
+        assert redirects_to(resp) == url
+        s = Story.objects.get()
+        assert s.body == "It was a dark and stormy night."
+        assert s.submitter == profile.user
+        assert s.submitter_name == "Somebody"
+        assert s.nominal_date == datetime.date(2013, 3, 21)
+
+
     def test_submit_story_ajax(self, no_csrf_client):
         """User can submit a story via AJAX."""
         user = UserFactory.create()
