@@ -1226,23 +1226,23 @@ select {
 .story.hidden:before, .story.private:before {
   font-size: 13px;
   font-size: 0.8125rem;
-  line-height: 20px;
-  line-height: 1.25rem;
+  line-height: 25px;
+  line-height: 1.5625rem;
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
   border-radius: 0.25em;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -0.46875rem;
+  right: -0.46875rem;
   padding: 0 .5em;
   z-index: 900;
 }
 
 .story {
-  margin-top: 20px;
-  margin-top: 1.25rem;
-  margin-bottom: 20px;
-  margin-bottom: 1.25rem;
+  margin-top: 40px;
+  margin-top: 2.5rem;
+  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
   position: relative;
 }
 .story:after {
@@ -1268,8 +1268,8 @@ select {
   border-width: 2px;
   border-width: 0.125rem;
   border-style: solid;
-  padding: 8px;
-  padding: 0.5rem;
+  padding: 18px;
+  padding: 1.125rem;
   -webkit-border-radius: 0.25em;
   -moz-border-radius: 0.25em;
   border-radius: 0.25em;

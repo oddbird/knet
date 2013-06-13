@@ -1,7 +1,5 @@
 {% extends "micawber/base.html" %}
 
-{% block embed-type %}photo-embed{% endblock %}
-
 {% block oembed-html %}
 <a href="{{ response.url }}" title="{{ response.title }}"><img alt="{{ response.title }}" src="{{ response.url }}" /></a>
 {% endblock %}
