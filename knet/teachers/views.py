@@ -47,13 +47,20 @@ def teacher_detail(request, username):
     if request.method == 'POST':
         if not request.user.is_authenticated():
             return HttpResponseForbidden()
-        # @@@ need to check perms to delete/publish/hide
+
+        if any(
+            x in request.POST for x in
+            ['delete-story', 'publish-story', 'hide-story']
+            ) and (teacher_profile.user != request.user):
+            return HttpResponseForbidden()
+
         if 'delete-story' in request.POST:
             with transaction.atomic():
                 teacher_profile.stories.filter(
                     pk=request.POST['delete-story']).delete()
             messages.success(request, "Story deleted.")
             return _response(request, teacher)
+
         elif 'publish-story' in request.POST:
             with transaction.atomic():
                 story = get_or_none(
@@ -67,6 +74,7 @@ def teacher_detail(request, username):
                 else:
                     messages.error(request, "That story has been removed.")
             return _response(request, teacher, story, success=story is not None)
+
         elif 'hide-story' in request.POST:
             with transaction.atomic():
                 story = get_or_none(

@@ -119,7 +119,7 @@ class TestViewStory:
         assert vs.date == date(2012, 11, 10)
 
 
-    def test_name_override(self):
+    def test_attribution_override(self):
         """``submitter_name``, if present, takes precedence."""
         s = StoryFactory.build(submitter_name='Foo')
         vs = ViewStory(s)
@@ -127,17 +127,9 @@ class TestViewStory:
         assert vs.attribution == 'Foo'
 
 
-    def test_name_fallback(self):
+    def test_attribution_fallback(self):
         """If no ``submitter_name`` falls back to submitting user first name."""
         s = StoryFactory.build(submitter__first_name='Bar')
         vs = ViewStory(s)
 
         assert vs.attribution == 'Bar'
-
-
-    def test_no_name(self):
-        """If no ``submitter_name`` and no submitting user, no attribution."""
-        s = StoryFactory.build(submitter=None)
-        vs = ViewStory(s)
-
-        assert vs.attribution == ''
