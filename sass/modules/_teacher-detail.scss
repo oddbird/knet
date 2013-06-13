@@ -13,15 +13,16 @@
 }
 
 .teacher-info {
-  @include trailer(1);
+  @include adjust-font-size-to($smallpx);
+  @include rhythm-borders(2px,.5);
+  @include trailer(2);
+  color: color($base light);
+  border-color: color(lightest);
+  background: color(lightest,.25);
 }
 
 .teacher-name {
   @extend %main-title;
-}
-
-.teacher-data, .teacher-bio {
-  color: color(light);
 }
 
 .teacher-data {

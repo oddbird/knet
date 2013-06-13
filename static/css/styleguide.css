@@ -1133,12 +1133,20 @@ select {
 }
 
 .teacher-info {
-  margin-bottom: 23px;
-  margin-bottom: 1.27778rem;
-}
-
-.teacher-data, .teacher-bio {
-  color: #999999;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  border-width: 2px;
+  border-width: 0.11111rem;
+  border-style: solid;
+  padding: 10px;
+  padding: 0.52778rem;
+  margin-bottom: 46px;
+  margin-bottom: 2.55556rem;
+  color: #6f6f6f;
+  border-color: #e5e5e5;
+  background: rgba(229, 229, 229, 0.25);
 }
 
 .teacher-data {
@@ -1176,6 +1184,7 @@ select {
   line-height: 35px;
   line-height: 1.91667rem;
   color: #007474;
+  background-color: rgba(204, 227, 227, 0.5);
   text-align: center;
   cursor: pointer;
 }
