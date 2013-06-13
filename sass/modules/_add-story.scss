@@ -5,6 +5,14 @@
   @extend %main-form-base;
 }
 
+.submitter_name-field {
+  @include span(4);
+}
+
+.nominal_date-field {
+  @include span(last 4);
+}
+
 .private-field {
   @include padding-leader(.25);
   float: left;

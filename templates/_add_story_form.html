@@ -8,7 +8,7 @@
 
   {% if user == teacher.user %}
     {% include "forms/formfield.html" with field=form.submitter_name label="From" help_text="Who sent you this story? (First name only)." %}
-    {% include "forms/formfield.html" with field=form.nominal_date label="Date" help_text="When did you receive this story?"%}
+    {% include "forms/formfield.html" with field=form.nominal_date label="Date Received" help_text="MM/DD/YYYY"%}
   {% else %}
     {% with label="For "|add:teacher.full_name|add:"'s eyes only" %}
       {% include "forms/formfield.html" with field=form.private label=label %}

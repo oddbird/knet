@@ -29,7 +29,11 @@
   <label for="story-form-toggle" class="toggle-addstory">
     <span class="icon-addstory"></span>
     <span class="text-addstory">
-      Tell us how {{ teacher }} changed your life.
+      {% if user == teacher.user %}
+        Post messages you've recieved elsewhere.
+      {% else %}
+        Tell us how {{ teacher }} changed your life.
+      {% endif %}
     </span>
   </label>
 

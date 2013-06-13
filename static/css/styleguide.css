@@ -1147,6 +1147,17 @@ select {
   margin-right: 1.27778rem;
 }
 
+.submitter_name-field {
+  width: 48.71795%;
+  float: left;
+  margin-right: 2.5641%;
+}
+
+.nominal_date-field {
+  width: 48.71795%;
+  float: right;
+}
+
 .private-field {
   padding-top: 6px;
   padding-top: 0.31944rem;
