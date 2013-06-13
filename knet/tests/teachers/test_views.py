@@ -29,28 +29,6 @@ class TestTeacherDetail:
         assert s.submitter == user
 
 
-
-    def test_submit_story_to_own_profile(self, client):
-        """Can submit a story to own profile with overridden name/date."""
-        profile = TeacherProfileFactory.create()
-        url = reverse(
-            'teacher_detail', kwargs={'username': profile.user.username})
-        form = client.get(url, user=profile.user).forms['add-story-form']
-        form['body'] = "It was a dark and stormy night."
-        form['submitter_name'] = "Somebody"
-        form['nominal_date'] = "3/21/2013"
-        resp = form.submit()
-
-        assert resp.status_code == 302, resp
-        assert redirects_to(resp) == url
-        s = Story.objects.get()
-        assert s.body == "It was a dark and stormy night."
-        assert s.submitter == profile.user
-        assert s.submitter_name == "Somebody"
-        assert s.nominal_date == datetime.date(2013, 3, 21)
-
-
-
     def test_cant_submit_story_anonymously(self, client):
         """No form to submit a story anonymously."""
         profile = TeacherProfileFactory.create()
@@ -59,7 +37,6 @@ class TestTeacherDetail:
         resp = client.get(url)
 
         assert len(resp.html.find_all('form', 'add-story-form')) == 0
-
 
 
     def test_submit_story_requires_body(self, client):
@@ -74,7 +51,6 @@ class TestTeacherDetail:
         assert resp.status_code == 200
         assert Story.objects.count() == 0
         resp.mustcontain("left your story blank")
-
 
 
     def test_submit_story_ajax(self, no_csrf_client):
@@ -101,7 +77,6 @@ class TestTeacherDetail:
         assert s.body == "It was a dark and stormy night."
 
 
-
     def test_no_anonymous_story_ajax(self, no_csrf_client):
         """User can't submit a story anonymously via AJAX."""
         profile = TeacherProfileFactory.create()
@@ -113,7 +88,6 @@ class TestTeacherDetail:
             status=403,
             ajax=True,
             )
-
 
 
     def test_submit_story_ajax_requires_body(self, no_csrf_client):
@@ -134,12 +108,10 @@ class TestTeacherDetail:
         assert not Story.objects.count()
 
 
-
     def test_404_on_nonexistent_teacher(self, client):
         """404 is returned for a nonexistent teacher username."""
         url = reverse('teacher_detail', kwargs={'username': 'foo'})
         client.get(url, status=404)
-
 
 
     def test_404_on_non_teacher_user(self, client):
@@ -147,7 +119,6 @@ class TestTeacherDetail:
         u = UserFactory.create()
         url = reverse('teacher_detail', kwargs={'username': u.username})
         client.get(url, status=404)
-
 
 
     def test_delete_story(self, client):
@@ -164,7 +135,6 @@ class TestTeacherDetail:
         assert is_deleted(s)
 
 
-
     def test_delete_story_ajax(self, no_csrf_client):
         """Can delete a story on my profile page via ajax."""
         s = StoryFactory.create()
@@ -178,7 +148,6 @@ class TestTeacherDetail:
         assert len(resp.json['messages']) == 1
         assert resp.json['messages'][0]['message'] == "Story deleted."
         assert is_deleted(s)
-
 
 
     @pytest.mark.parametrize('action', ['publish-story', 'hide-story'])
@@ -197,7 +166,6 @@ class TestTeacherDetail:
         assert refresh(s).published == (not initially_published)
 
 
-
     @pytest.mark.parametrize('action', ['publish-story', 'hide-story'])
     def test_publish_or_hide_story_ajax(self, no_csrf_client, action):
         """Can publish a story on my profile page via ajax."""
@@ -212,7 +180,6 @@ class TestTeacherDetail:
         assert resp.json['success'] == True
         assert 'csrfmiddlewaretoken' in resp.json['html']
         assert refresh(s).published == (not initially_published)
-
 
 
     @pytest.mark.parametrize('action', ['publish-story', 'hide-story'])
