@@ -30,8 +30,10 @@ class TestViewTeacher:
     def test_stories(self, db):
         """By default gets all stories for profile, most recent first."""
         s1 = StoryFactory.create(created=datetime(2013, 6, 11))
-        s2 = StoryFactory.create(created=datetime(2013, 6, 10), profile=s1.profile)
-        s3 = StoryFactory.create(created=datetime(2013, 6, 12), profile=s1.profile)
+        s2 = StoryFactory.create(
+            created=datetime(2013, 6, 10), profile=s1.profile)
+        s3 = StoryFactory.create(
+            created=datetime(2013, 6, 12), profile=s1.profile)
 
         vt = ViewTeacher(s1.profile)
 
@@ -39,7 +41,7 @@ class TestViewTeacher:
 
 
     def test_unpublished_visible_to_self(self, db):
-        """I can see my own unpublished stories."""
+        """I can see unpublished stories on my own profile."""
         s = StoryFactory.create(published=False)
 
         visible = ViewTeacher(s.profile).stories(s.profile.user)
@@ -65,6 +67,16 @@ class TestViewTeacher:
         visible = ViewTeacher(s.profile).stories(u)
 
         assert len(list(visible)) == 0
+
+
+    def test_can_see_my_own_unpublished(self, db):
+        """I can see unpublished stories I posted to someone's profile."""
+        me = UserFactory.create()
+        s = StoryFactory.create(published=False, submitter=me)
+
+        visible = ViewTeacher(s.profile).stories(me)
+
+        assert len(list(visible)) == 1
 
 
 
