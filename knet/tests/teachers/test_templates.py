@@ -12,7 +12,7 @@ def test_bio_rendered_with_markdown():
     tp = TeacherProfileFactory.build(bio="Some *text*")
     bio = render_to_soup(
         'teacher_detail.html',
-        {'teacher': ViewTeacher(tp)},
+        {'teacher': ViewTeacher(tp), 'user': tp.user},
         ).find('div', 'teacher-bio')
 
     assert innerhtml(bio) == '<p>Some <em>text</em></p>'
