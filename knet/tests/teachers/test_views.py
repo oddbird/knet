@@ -68,7 +68,7 @@ class TestTeacherDetail:
         assert s.body == "It was a dark and stormy night."
         assert s.submitter == profile.user
         assert s.submitter_name == "Somebody"
-        assert s.nominal_date == datetime.date(2013, 3, 21)
+        assert s.nominal_date.isoformat() == '2013-03-21'
 
 
     def test_submit_story_ajax(self, no_csrf_client):

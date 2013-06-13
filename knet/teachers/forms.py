@@ -7,10 +7,12 @@ from .models import Story, TeacherProfile
 class StoryForm(forms.ModelForm):
     class Meta:
         model = Story
-        fields = ['body', 'private']
+        fields = ['body', 'private', 'submitter_name', 'nominal_date']
         widgets = {
             'body': forms.Textarea,
             'private': forms.CheckboxInput,
+            'submitter_name': forms.TextInput,
+            'nominal_date': forms.DateInput,
             }
 
 
@@ -29,6 +31,15 @@ class StoryForm(forms.ModelForm):
         super(StoryForm, self).__init__(*args, **kw)
         self.fields['body'].error_messages['required'] = (
             "You seem to have left your story blank.")
+        if self.user != self.profile.user:
+            del self.fields['submitter_name']
+            del self.fields['nominal_date']
+        else:
+            del self.fields['private']
+            self.fields['submitter_name'].required = True
+            self.fields['submitter_name'].widget.is_required = True
+            self.fields['nominal_date'].required = True
+            self.fields['nominal_date'].widget.is_required = True
 
 
     def save(self, commit=True):
@@ -43,6 +54,7 @@ class StoryForm(forms.ModelForm):
 
 
 class TeacherProfileForm(forms.ModelForm):
+    """Form for creating a teacher profile."""
     class Meta:
         model = TeacherProfile
         widgets = {
