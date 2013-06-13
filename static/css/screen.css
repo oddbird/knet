@@ -1001,7 +1001,7 @@ select {
 }
 
 [role="main"] {
-  max-width: 35em;
+  max-width: 38em;
   margin-left: auto;
   margin-right: auto;
   -webkit-background-origin: content;
@@ -1357,6 +1357,7 @@ select {
 .oembed {
   margin-bottom: 23px;
   margin-bottom: 1.27778rem;
+  text-align: center;
 }
 .oembed.video-embed {
   position: relative;
@@ -1384,4 +1385,7 @@ select {
 }
 .oembed a {
   display: block;
+}
+.oembed.twitter iframe {
+  margin: 0 auto !important;
 }
