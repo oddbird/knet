@@ -336,6 +336,16 @@
         ok(!this.formToggle.prop('checked'), 'form is still open');
     });
 
+    test('body input is auto-focused when form is toggled open', function () {
+        expect(2);
+
+        ok(!this.bodyInput.is(':focus'), 'Body input does not initially have focus.');
+
+        this.formToggle.prop('checked', false).trigger('change');
+
+        ok(this.bodyInput.is(':focus'), 'Body input has focus after form is opened.');
+    });
+
     module('updateNoStoriesMsg', {
         setup: function () {
             this.containerSel = '.teacher-stories';
