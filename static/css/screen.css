@@ -190,7 +190,7 @@ a:focus, a:hover, a:active {
   font-style: normal;
 }
 
-.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, .loading-icon:before, .login .fb-login:before, .icon-addstory:before, .hidden .status-icon:before, .private .status-icon:before, .story-private-notice:before, .story-status:before, .delete-story:before, [data-icon]:before {
+.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, .loading-icon:before, .login .fb-login:before, .icon-addstory:before, .hidden .status-icon:before, .private .status-icon:before, .story-status:before, .delete-story:before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -256,7 +256,7 @@ a:focus, a:hover, a:active {
   content: "\e00c";
 }
 
-.private .status-icon:before, .story-private-notice:before {
+.private .status-icon:before {
   content: "\e001";
 }
 
@@ -552,6 +552,9 @@ select {
   background: #4c4c4c;
   white-space: nowrap;
   display: none;
+}
+[data-tooltip].tooltip:after {
+  content: attr(data-tooltip);
 }
 
 .tooltip {
@@ -1300,7 +1303,7 @@ select {
   background: #b2b2b2;
   color: #191919;
 }
-.status-icon.hidden.private:before {
+.hidden.private .status-icon:before {
   content: "\e001";
 }
 
@@ -1387,18 +1390,6 @@ select {
 .story-status, .delete-story {
   padding: 0 0.31944rem;
   color: #999999;
-}
-
-.story-private-notice {
-  font-size: 14px;
-  font-size: 0.77778rem;
-  line-height: 23px;
-  line-height: 1.27778rem;
-  display: inline-block;
-  color: #b2b2b2;
-}
-.story-private-notice:before {
-  padding-right: .4em;
 }
 
 .story-status:focus, .story-status:hover, .story-status:active {

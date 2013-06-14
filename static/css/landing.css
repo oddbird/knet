@@ -472,6 +472,9 @@ select {
   white-space: nowrap;
   display: none;
 }
+[data-tooltip].tooltip:after {
+  content: attr(data-tooltip);
+}
 
 .tooltip {
   bottom: 100%;

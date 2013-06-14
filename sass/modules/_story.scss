@@ -60,7 +60,7 @@ $status-private-icon: lock;
 .status-icon {
   @include story-status-icon('hidden', $status-hidden-icon, $status-hidden-color);
   @include story-status-icon('private', $status-private-icon, $status-private-color);
-  &.hidden.private { @include before($icon-lock); }
+  .hidden.private & { @include before($icon-lock); }
 }
 
 // Story Body
@@ -125,14 +125,6 @@ $status-private-icon: lock;
   @extend %has-tooltip;
   padding: 0 rhythm(.25);
   color: color(light);
-}
-
-.story-private-notice {
-  @include adjust-font-size-to($smallpx);
-  display: inline-block;
-  color: color(lighter);
-
-  @include icon(lock) { padding-right: .4em; }
 }
 
 .story-status {

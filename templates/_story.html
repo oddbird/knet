@@ -33,12 +33,7 @@
           <button type="submit" name="hide-story" value="{{ story.id }}" class="story-status hide">
             <span class="tooltip">Hide this story</span>
           </button>
-        {% elif story.private %}
-          <p class="story-private-notice">
-            private
-            <span class="tooltip" data-tooltip="For your eyes only."></span>
-          </p>
-        {% else %}
+        {% elif not story.private %}
           <button type="submit" name="publish-story" value="{{ story.id }}" class="story-status publish">
             <span class="tooltip">Publish this story</span>
           </button>
