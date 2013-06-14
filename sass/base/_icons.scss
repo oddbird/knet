@@ -1,7 +1,7 @@
 // Icons
 // =====
 
-$icon-menu:           "\e000";
+$icon-search:         "\e000";
 $icon-remove:         "\e004";
 $icon-bubble-heart:   "\e005";
 $icon-cancel-circle:  "\e006";
@@ -20,7 +20,7 @@ $icon-heart:          "\e00e";
 // Debug
 $debug: append($debug, icons);
 
-$debug-icons: 'menu'            $icon-menu,
+$debug-icons: 'search'          $icon-search,
               'remove'          $icon-remove,
               'bubble-heart'    $icon-bubble-heart,
               'cancel-circle'   $icon-cancel-circle,

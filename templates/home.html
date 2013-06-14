@@ -1,58 +1,54 @@
-{% extends "base_site.html" %}
-{% load compressed %}
+{% extends "base.html" %}
+{% load accounts teachers %}
 
-{% block styles %}
-{% compressed_css "landing" %}
-{% endblock styles %}
+{% block body %}
+{% include "messages_ui/_messages.html" %}
+<article class="landing" role="main">
+  <section class="cta">
+    <h1 class="cta-title"><b>Inspiring stories</b> from the lives you've changed.</h1>
 
-{% block main %}
-<div class="landing">
-  <header>
+    <article class="story published public">
+      <a href="https://www.theknetwork.org/teacher/sample/" class="sample-icon">
+        See a live demo!
+      </a>
+
+      <div class="story-body">
+      <div class="story-content">
+        <p>
+          You impact every student who walks through your door.
+          Give those students and parents a place to share
+          with you—and the world—the difference you’ve&nbsp;made.
+        </p>
+        <p>
+          Create a résumé of lives changed,
+          and re-discover your&nbsp;inspiration!
+        </p>
+      </div>
+      </div>
+
+      <header class="story-info">
+        <h1 class="author-name">The K Network</h1>
+      </header>
+    </article>
+
+    {% if ENABLE_LOGIN %}
+      <a href="{% oauth_authorize_url request login_next|default:request.path %}" class="fb-login">Login with Facebook to get started!</a>
+    {% endif %}
+  </section>
+
+  <footer class="landing-footer">
+    <p class="license">
+      Copyright &copy; 3013 <strong>The K Network</strong>
+    </p>
+    <p class="tax-exempt">
+     <strong>The K Network</strong> is a tax-exempt 501(c)(3) nonprofit.
+     Any donations are tax-deductible as allowed by law (tax ID 46-5167493).
+   </p>
+  </footer>
+
+  <header class="landing-header">
     <h1 class="logo">The K Network.</h1>
     <p class="tagline">Exploring what's possible in the world of teaching and learning.</p>
   </header>
-
-  <div class="call-to-action" data-tagline="Exploring what's possible in the world of teaching and learning.">
-    <p class="intro">
-      You change lives.<br />
-      Let us record your impact,
-      and keep you&nbsp;inspired.
-    </p>
-
-    {% include "landing/_form.html" %}
-  </div>
-
-  <div class="desc">
-
-    <div class="feature">
-      <h2>You change lives.</h2>
-      <p>
-        As a teacher,
-        you impact every student who walks through your door.
-        You're a mentor and supporter,
-        building insight, enthusiasm, and confidence.
-      </p>
-    </div>
-
-    <div class="feature">
-      <h2>We record your impact.</h2>
-      <p>
-        Give students and parents a place to share with you –
-        and the world –
-        the differences you’ve made.
-        Create a résumé of lives changed.
-      </p>
-    </div>
-
-    <div class="feature">
-      <h2>You stay inspired.</h2>
-      <p>
-        Rediscover inspiration in your own stories –
-        remind yourself what you’re capable of doing,
-        and why you became a teacher.
-      </p>
-    </div>
-
-  </div>
 </div>
 {% endblock %}

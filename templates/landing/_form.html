@@ -1,7 +1,0 @@
-{% load widget_tweaks %}
-<form class="signup" method="POST">
-  {% csrf_token %}
-  <label for="id_email">Get updates as we launch:</label>
-  {{ form.email|attr:"placeholder:email@example.com" }}
-  <button type="submit">Sign up</button>
-<form>

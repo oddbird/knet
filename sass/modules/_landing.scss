@@ -1,0 +1,57 @@
+// Landing Page
+// ============
+
+.cta-title {
+  @extend %main-title;
+  @include leader;
+  color: $accent;
+  b {
+    display: block;
+    font-weight: bold;
+  }
+}
+
+.sample-icon {
+  #{$link} {
+    @extend %story-status;
+    background: $alt;
+    color: contrast($alt, white color(darkest));
+
+    @include icon(search) { padding-right: .4em; }
+  }
+  #{$focus} {
+    background: $accent;
+    color: contrast($accent, white color(darkest));
+  }
+}
+
+.cta {
+  .fb-login {
+    @extend %addstory-button;
+    @include trailer(2);
+    display: block;
+
+    @include icon(bubble-heart) {
+      @include adjust-font-size-to($xlargepx);
+      margin-right: rhythm(.5);
+      vertical-align: middle;
+    }
+  }
+}
+
+.landing-footer {
+  @include leader(6);
+  @include adjust-font-size-to($smallpx);
+  color: color($base light);
+
+  .license { text-transform: uppercase; }
+  .tax-exempt { color: color(light); }
+  strong { font-weight: bold; }
+
+  @include breakpoint(20em) { padding-left: 50%; }
+}
+
+.landing-header {
+  @include trailer(2);
+  margin-top: -22%;
+}

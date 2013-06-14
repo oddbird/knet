@@ -158,7 +158,7 @@ a:focus, a:hover, a:active {
   left: -9999px;
 }
 
-.welcome-title, .teacher-name {
+.welcome-title, .teacher-name, .cta-title {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 43px;
   font-size: 2.38889rem;
@@ -185,12 +185,12 @@ a:focus, a:hover, a:active {
 
 @font-face {
   font-family: "knet";
-  src: url('../fonts/knet.woff?649aba11a5063bc747fe489ad982a921410c36b2') format("woff"), url('../fonts/knet.ttf?81ba85d1397ae3fe49c0490bf6cc89329d64283c') format("truetype");
+  src: url('../fonts/knet.woff?4b6471790c23e2d527904597afc648c30dc55669') format("woff"), url('../fonts/knet.ttf?8995ed93eed189d78deafc7bb31e5f2110724c78') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, .loading-icon:before, .login .fb-login:before, .icon-addstory:before, .hidden .status-icon:before, .private .status-icon:before, .story-status:before, .delete-story:before, .icons-demo div:nth-child(1):before, .icons-demo div:nth-child(2):before, .icons-demo div:nth-child(3):before, .icons-demo div:nth-child(4):before, .icons-demo div:nth-child(5):before, .icons-demo div:nth-child(6):before, .icons-demo div:nth-child(7):before, .icons-demo div:nth-child(8):before, .icons-demo div:nth-child(9):before, .icons-demo div:nth-child(10):before, .icons-demo div:nth-child(11):before, .icons-demo div:nth-child(12):before, .icons-demo div:nth-child(13):before, .icons-demo div:nth-child(14):before, .icons-demo div:nth-child(15):before, [data-icon]:before {
+.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, .loading-icon:before, .login .fb-login:before, .icon-addstory:before, .hidden .status-icon:before, .private .status-icon:before, .story-status:before, .delete-story:before, .sample-icon:link:before, .sample-icon:visited:before, .cta .fb-login:before, .icons-demo div:nth-child(1):before, .icons-demo div:nth-child(2):before, .icons-demo div:nth-child(3):before, .icons-demo div:nth-child(4):before, .icons-demo div:nth-child(5):before, .icons-demo div:nth-child(6):before, .icons-demo div:nth-child(7):before, .icons-demo div:nth-child(8):before, .icons-demo div:nth-child(9):before, .icons-demo div:nth-child(10):before, .icons-demo div:nth-child(11):before, .icons-demo div:nth-child(12):before, .icons-demo div:nth-child(13):before, .icons-demo div:nth-child(14):before, .icons-demo div:nth-child(15):before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -220,7 +220,7 @@ a:focus, a:hover, a:active {
   content: attr(data-icon);
 }
 
-.icons-demo div:nth-child(1):before {
+.sample-icon:link:before, .sample-icon:visited:before, .icons-demo div:nth-child(1):before {
   content: "\e000";
 }
 
@@ -228,7 +228,7 @@ a:focus, a:hover, a:active {
   content: "\e004";
 }
 
-.icon-addstory:before, .icons-demo div:nth-child(3):before {
+.icon-addstory:before, .cta .fb-login:before, .icons-demo div:nth-child(3):before {
   content: "\e005";
 }
 
@@ -292,7 +292,7 @@ button {
   cursor: pointer;
 }
 
-.primary-action, .login .fb-login, .teacher-detail .fb-login, .toggle-addstory {
+.primary-action, .login .fb-login, .teacher-detail .fb-login, .toggle-addstory, .cta .fb-login {
   border-width: 1px;
   border-width: 0.05556rem;
   border-style: solid;
@@ -311,13 +311,13 @@ button {
   cursor: pointer;
 }
 
-.primary-action:hover, .login .fb-login:hover, .teacher-detail .fb-login:hover, .toggle-addstory:hover, .primary-action:focus, .login .fb-login:focus, .teacher-detail .fb-login:focus, .toggle-addstory:focus {
+.primary-action:hover, .login .fb-login:hover, .teacher-detail .fb-login:hover, .toggle-addstory:hover, .cta .fb-login:hover, .primary-action:focus, .login .fb-login:focus, .teacher-detail .fb-login:focus, .toggle-addstory:focus, .cta .fb-login:focus {
   -webkit-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   -moz-box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
   box-shadow: rgba(102, 189, 189, 0.25) 0 0 0.31944rem;
 }
 
-.primary-action:active, .login .fb-login:active, .teacher-detail .fb-login:active, .toggle-addstory:active {
+.primary-action:active, .login .fb-login:active, .teacher-detail .fb-login:active, .toggle-addstory:active, .cta .fb-login:active {
   -webkit-box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
   -moz-box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
   box-shadow: rgba(15, 15, 15, 0.5) 0 0 0.25rem inset;
@@ -341,7 +341,7 @@ button {
   content: " »";
 }
 
-.login .fb-login, .teacher-detail .fb-login, .toggle-addstory {
+.login .fb-login, .teacher-detail .fb-login, .toggle-addstory, .cta .fb-login {
   font-size: 32px;
   font-size: 1.77778rem;
   line-height: 46px;
@@ -586,10 +586,10 @@ select {
   right: 0.31944rem;
 }
 
-.hidden .status-icon, .private .status-icon, .story-status, .delete-story {
+.hidden .status-icon, .private .status-icon, .sample-icon:link, .sample-icon:visited, .story-status, .delete-story {
   position: relative;
 }
-.no-touch .hidden .status-icon:hover .tooltip, .hidden .no-touch .status-icon:hover .tooltip, .no-touch .private .status-icon:hover .tooltip, .private .no-touch .status-icon:hover .tooltip, .no-touch .story-status:hover .tooltip, .no-touch .delete-story:hover .tooltip {
+.no-touch .hidden .status-icon:hover .tooltip, .hidden .no-touch .status-icon:hover .tooltip, .no-touch .private .status-icon:hover .tooltip, .private .no-touch .status-icon:hover .tooltip, .no-touch .sample-icon:hover:link .tooltip, .no-touch .sample-icon:hover:visited .tooltip, .no-touch .story-status:hover .tooltip, .no-touch .delete-story:hover .tooltip {
   display: block;
 }
 
@@ -1228,7 +1228,7 @@ select {
   vertical-align: middle;
 }
 
-.teacher-detail .fb-login, .toggle-addstory {
+.teacher-detail .fb-login, .toggle-addstory, .cta .fb-login {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 23px;
   font-size: 1.27778rem;
@@ -1239,7 +1239,7 @@ select {
   text-align: center;
   cursor: pointer;
 }
-.teacher-detail .fb-login:focus, .toggle-addstory:focus, .teacher-detail .fb-login:hover, .toggle-addstory:hover, .teacher-detail .fb-login:active, .toggle-addstory:active {
+.teacher-detail .fb-login:focus, .toggle-addstory:focus, .cta .fb-login:focus, .teacher-detail .fb-login:hover, .toggle-addstory:hover, .cta .fb-login:hover, .teacher-detail .fb-login:active, .toggle-addstory:active, .cta .fb-login:active {
   color: #94001a;
 }
 
@@ -1288,7 +1288,7 @@ select {
   clear: both;
 }
 
-.hidden .status-icon, .private .status-icon {
+.hidden .status-icon, .private .status-icon, .sample-icon:link, .sample-icon:visited {
   font-size: 14px;
   font-size: 0.77778rem;
   line-height: 29px;
@@ -1448,6 +1448,72 @@ select {
 }
 .oembed.twitter iframe {
   margin: 0 auto !important;
+}
+
+.cta-title {
+  margin-top: 23px;
+  margin-top: 1.27778rem;
+  color: #94001a;
+}
+.cta-title b {
+  display: block;
+  font-weight: bold;
+}
+
+.sample-icon:link, .sample-icon:visited {
+  background: #007474;
+  color: white;
+}
+.sample-icon:link:before, .sample-icon:visited:before {
+  padding-right: .4em;
+}
+.sample-icon:focus, .sample-icon:hover, .sample-icon:active {
+  background: #94001a;
+  color: white;
+}
+
+.cta .fb-login {
+  margin-bottom: 46px;
+  margin-bottom: 2.55556rem;
+  display: block;
+}
+.cta .fb-login:before {
+  font-size: 43px;
+  font-size: 2.38889rem;
+  line-height: 58px;
+  line-height: 3.19444rem;
+  margin-right: 0.63889rem;
+  vertical-align: middle;
+}
+
+.landing-footer {
+  margin-top: 138px;
+  margin-top: 7.66667rem;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+  color: #6f6f6f;
+}
+.landing-footer .license {
+  text-transform: uppercase;
+}
+.landing-footer .tax-exempt {
+  color: #999999;
+}
+.landing-footer strong {
+  font-weight: bold;
+}
+@media (min-width: 20em) {
+  .landing-footer {
+    padding-left: 50%;
+  }
+}
+
+.landing-header {
+  margin-bottom: 46px;
+  margin-bottom: 2.55556rem;
+  margin-top: -22%;
 }
 
 html {
@@ -2037,7 +2103,7 @@ body {
   margin-right: .4em;
 }
 .icons-demo div:nth-child(1):after {
-  content: "menu";
+  content: "search";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;
