@@ -1,5 +1,17 @@
 {% load cache markup micawber_tags %}
 <article class="story {{ story.published|yesno:'published,hidden' }} {{ story.private|yesno:'private,public' }}">
+  {% if not story.published %}
+  <span class="status-icon">
+    <span class="tooltip">
+      {% if story.private %}
+        For {% if user == teacher.user %}your{% else %}{{ teacher }}'s{% endif %} eyes only
+      {% else %}
+        Currently hidden from {% if user == teacher.user %}your{% else %}{{ teacher }}'s{% endif %} public profile
+      {% endif %}
+    </span>
+  </span>
+  {% endif %}
+
   {% cache STORY_CACHE_TIMEOUT|default:1 story-body story.id %}
   <div class="story-body">
   <div class="story-content">
@@ -18,13 +30,17 @@
       <form id="story-{{ story.id }}-actions-form" method="POST">
         {% csrf_token %}
         {% if story.published %}
-          <button type="submit" name="hide-story" value="{{ story.id }}" class="story-status hide" title="Hide this story">hide</button>
-        {% elif story.private %}
-          <p class="story-private-notice" title="This is a private note, just for you.">private</p>
-        {% else %}
-          <button type="submit" name="publish-story" value="{{ story.id }}" class="story-status publish" title="Publish this story">publish</button>
+          <button type="submit" name="hide-story" value="{{ story.id }}" class="story-status hide">
+            <span class="tooltip">Hide this story</span>
+          </button>
+        {% elif not story.private %}
+          <button type="submit" name="publish-story" value="{{ story.id }}" class="story-status publish">
+            <span class="tooltip">Publish this story</span>
+          </button>
         {% endif %}
-        <button type="submit" name="delete-story" value="{{ story.id }}" class="delete-story" title="Delete this story.">Delete</button>
+        <button type="submit" name="delete-story" value="{{ story.id }}" class="delete-story">
+          <span class="tooltip">Delete this story.</span>
+        </button>
       </form>
     </div>
   {% endif %}
