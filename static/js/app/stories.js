@@ -55,7 +55,8 @@ var KNET = (function (KNET, $) {
         var storiesContainer = $(storiesContainerSel);
         formToggle.on('change', function () {
             if (!formToggle.prop('checked')) {
-                form.find('textarea').eq(0).focus();
+                // all inputs/textareas have form-value class
+                form.find('.form-value').eq(0).focus();
             }
         });
         form.ajaxForm({
