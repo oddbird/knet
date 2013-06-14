@@ -4,43 +4,62 @@ from oauth2 import OAuthError
 
 from knet.accounts.models import User
 from ..factories import UserFactory
+from ..teachers.factories import TeacherProfileFactory
 from ..utils import redirects_to
 
 
-@override_settings(OAUTH_PROVIDER='oauth2.dummy.DummyOAuth')
-def test_oauth_new_user(client):
-    """After creating new user, OAuth view redirects to create_profile."""
-    data = {
-        'next': '/foo/',
-        'username': 'oauthuser',
-        'email': 'oauth@example.com',
-        'first_name': 'OAuth',
-        'last_name': 'User',
-        'name': 'O User',
-        }
-    resp = client.get(reverse('oauth'), data)
-    user = User.objects.get(username='oauthuser')
+class TestOAuth:
+    @override_settings(OAUTH_PROVIDER='oauth2.dummy.DummyOAuth')
+    def test_new_user(self, client):
+        """After creating new user, OAuth view redirects to create_profile."""
+        data = {
+            'next': '/foo/',
+            'username': 'oauthuser',
+            'email': 'oauth@example.com',
+            'first_name': 'OAuth',
+            'last_name': 'User',
+            'name': 'O User',
+            }
+        resp = client.get(reverse('oauth'), data)
+        user = User.objects.get(username='oauthuser')
 
-    assert user.email == 'oauth@example.com'
-    assert user.first_name == 'OAuth'
-    assert user.last_name == 'User'
-    assert user.name == 'O User'
-    assert redirects_to(resp) == reverse('create_profile') + '?next=%2Ffoo%2F'
+        assert user.email == 'oauth@example.com'
+        assert user.first_name == 'OAuth'
+        assert user.last_name == 'User'
+        assert user.name == 'O User'
+        assert redirects_to(resp) == reverse(
+            'create_profile') + '?next=%2Ffoo%2F'
 
 
-@override_settings(OAUTH_PROVIDER='oauth2.dummy.DummyOAuth')
-def test_oauth_existing_user(client):
-    """After existing user logs in, OAuth view redirects to ``next`` param."""
-    UserFactory.create(username='oauthuser')
+    @override_settings(OAUTH_PROVIDER='oauth2.dummy.DummyOAuth')
+    def test_existing_user(self, client):
+        """After existing user logs in, redirects to ``next`` param."""
+        UserFactory.create(username='oauthuser')
 
-    data = {
-        'next': '/foo/',
-        'username': 'oauthuser',
-        'email': 'oauth@example.com',
-        }
-    resp = client.get(reverse('oauth'), data)
+        data = {
+            'next': '/',
+            'username': 'oauthuser',
+            'email': 'oauth@example.com',
+            }
+        resp = client.get(reverse('oauth'), data)
 
-    assert redirects_to(resp) == '/foo/'
+        assert redirects_to(resp) == '/'
+
+
+    @override_settings(OAUTH_PROVIDER='oauth2.dummy.DummyOAuth')
+    def test_user_with_profile_redirected_there_not_landing(self, client):
+        TeacherProfileFactory.create(user__username='oauthuser')
+
+        data = {
+            'next': '/',
+            'username': 'oauthuser',
+            'email': 'oauth@example.com',
+            }
+        resp = client.get(reverse('oauth'), data)
+
+        assert redirects_to(resp) == reverse(
+            'teacher_detail', kwargs={'username': 'oauthuser'})
+
 
 
 class ErrorProvider:

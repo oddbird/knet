@@ -2,6 +2,7 @@ from urllib.parse import urlencode
 
 from django.conf import settings
 from django.contrib import auth, messages
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
 from django.db import transaction
 from django.middleware.csrf import get_token
@@ -15,7 +16,7 @@ from .oauth import get_provider
 
 def oauth(request):
     """OAuth callback."""
-    redirect_to = request.GET.get('next')
+    redirect_to = request.GET.get('next') or '/'
     provider = get_provider(redirect_to=redirect_to, state=get_token(request))
     try:
         user_data = provider.get_user_data(request.GET)
@@ -37,16 +38,27 @@ def oauth(request):
     user.backend = settings.AUTHENTICATION_BACKENDS[0]
     auth.login(request, user)
 
+    # If you already have a profile, taking you there is more useful than the
+    # landing page.
+    if redirect_to == '/':
+        try:
+            user.teacher_profile
+        except ObjectDoesNotExist:
+            pass
+        else:
+            redirect_to = reverse(
+                'teacher_detail', kwargs={'username': user.username})
+
     # If you just logged in for the first time, we take you to create-profile.
     # Otherwise, we redirect you back wherever you came from.
     if created:
         return redirect(
             '{}?{}'.format(
                 reverse('create_profile'),
-                urlencode({'next': redirect_to} if redirect_to else {}),
+                urlencode({'next': redirect_to}),
                 )
             )
-    return redirect(redirect_to or '/')
+    return redirect(redirect_to)
 
 
 
