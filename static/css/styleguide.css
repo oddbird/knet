@@ -190,7 +190,7 @@ a:focus, a:hover, a:active {
   font-style: normal;
 }
 
-.user-nav [name="logout"]:before, #messages .close:before, .story-status:before, .delete-story:before, .user-nav .fb-login:before, .announce:before, .message:before, .loading-icon:before, .login .fb-login:before, .icon-addstory:before, .story.hidden:before, .story.private:before, .story-private-notice:before, .icons-demo div:nth-child(1):before, .icons-demo div:nth-child(2):before, .icons-demo div:nth-child(3):before, .icons-demo div:nth-child(4):before, .icons-demo div:nth-child(5):before, .icons-demo div:nth-child(6):before, .icons-demo div:nth-child(7):before, .icons-demo div:nth-child(8):before, .icons-demo div:nth-child(9):before, .icons-demo div:nth-child(10):before, .icons-demo div:nth-child(11):before, .icons-demo div:nth-child(12):before, .icons-demo div:nth-child(13):before, .icons-demo div:nth-child(14):before, .icons-demo div:nth-child(15):before, [data-icon]:before {
+.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, .loading-icon:before, .login .fb-login:before, .icon-addstory:before, .hidden .status-icon:before, .private .status-icon:before, .story-private-notice:before, .story-status:before, .delete-story:before, .icons-demo div:nth-child(1):before, .icons-demo div:nth-child(2):before, .icons-demo div:nth-child(3):before, .icons-demo div:nth-child(4):before, .icons-demo div:nth-child(5):before, .icons-demo div:nth-child(6):before, .icons-demo div:nth-child(7):before, .icons-demo div:nth-child(8):before, .icons-demo div:nth-child(9):before, .icons-demo div:nth-child(10):before, .icons-demo div:nth-child(11):before, .icons-demo div:nth-child(12):before, .icons-demo div:nth-child(13):before, .icons-demo div:nth-child(14):before, .icons-demo div:nth-child(15):before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -199,7 +199,7 @@ a:focus, a:hover, a:active {
   speak: none;
 }
 
-.user-nav [name="logout"], #messages .close, .story-status, .delete-story {
+.user-nav [name="logout"], #messages .close {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -207,7 +207,7 @@ a:focus, a:hover, a:active {
   min-width: 1em;
   text-indent: -9999px;
 }
-.user-nav [name="logout"]:before, #messages .close:before, .story-status:before, .delete-story:before {
+.user-nav [name="logout"]:before, #messages .close:before {
   position: absolute;
   top: 0;
   left: 0;
@@ -264,7 +264,7 @@ a:focus, a:hover, a:active {
   content: "\e00c";
 }
 
-.story.private:before, .story-private-notice:before, .icons-demo div:nth-child(12):before {
+.private .status-icon:before, .story-private-notice:before, .icons-demo div:nth-child(12):before {
   content: "\e001";
 }
 
@@ -272,7 +272,7 @@ a:focus, a:hover, a:active {
   content: "\e002";
 }
 
-.story.hidden:before, .icons-demo div:nth-child(14):before {
+.hidden .status-icon:before, .icons-demo div:nth-child(14):before {
   content: "\e00d";
 }
 
@@ -551,6 +551,43 @@ select {
 
 [id="create-profile-toggle"]:checked ~ .create-profile-form, [id="story-form-toggle"]:checked ~ .add-story-form {
   display: none;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 0.31944rem 0.63889rem;
+  color: #dbdbdb;
+  background: #4c4c4c;
+  white-space: nowrap;
+  display: none;
+}
+
+.tooltip {
+  bottom: 100%;
+  margin-bottom: 0.31944rem;
+}
+
+.tooltip {
+  right: 0;
+}
+.tooltip:before {
+  content: " ";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border: solid transparent;
+  pointer-events: none;
+  top: 100%;
+  border-top-color: #4c4c4c;
+  border-width: 0.31944rem;
+  right: 0.31944rem;
+}
+
+.hidden .status-icon, .private .status-icon, .story-status, .delete-story {
+  position: relative;
+}
+.no-touch .hidden .status-icon:hover .tooltip, .hidden .no-touch .status-icon:hover .tooltip, .no-touch .private .status-icon:hover .tooltip, .private .no-touch .status-icon:hover .tooltip, .no-touch .story-status:hover .tooltip, .no-touch .delete-story:hover .tooltip {
+  display: block;
 }
 
 @-moz-keyframes announce-in {
@@ -1235,7 +1272,20 @@ select {
   color: #66abab;
 }
 
-.story.hidden:before, .story.private:before {
+.story {
+  margin-top: 46px;
+  margin-top: 2.55556rem;
+  margin-bottom: 46px;
+  margin-bottom: 2.55556rem;
+  position: relative;
+}
+.story:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.hidden .status-icon, .private .status-icon {
   font-size: 14px;
   font-size: 0.77778rem;
   line-height: 29px;
@@ -1250,27 +1300,15 @@ select {
   z-index: 900;
 }
 
-.story {
-  margin-top: 46px;
-  margin-top: 2.55556rem;
-  margin-bottom: 46px;
-  margin-bottom: 2.55556rem;
-  position: relative;
-}
-.story:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.story.hidden:before {
+.hidden .status-icon {
   background: #f7cd66;
   color: #191919;
 }
-.story.private:before {
+.private .status-icon {
   background: #b2b2b2;
   color: #191919;
 }
-.story.hidden.private:before {
+.status-icon.hidden.private:before {
   content: "\e001";
 }
 

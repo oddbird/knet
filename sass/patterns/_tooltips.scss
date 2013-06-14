@@ -1,0 +1,52 @@
+// Tooltips
+// ========
+
+$tooltip-background: $base;
+$tooltip-color: contrast($base);
+$tooltip-arrow-size: rhythm(.25);
+
+%tooltip-base {
+  position: absolute;
+  padding: rhythm(.25) rhythm(.5);
+  color: $tooltip-color;
+  background: $tooltip-background;
+  white-space: nowrap;
+
+  display: none;
+}
+
+// Positions
+// ---------
+
+%tooltip-top {
+  @extend %tooltip-base;
+  bottom: 100%;
+  margin-bottom: $tooltip-arrow-size;
+}
+
+%tooltip-top-left {
+  @extend %tooltip-top;
+  @include arrow(bottom (- $tooltip-arrow-size) $tooltip-background $tooltip-arrow-size, $positioning: null);
+  right: 0;
+}
+
+%tooltip-top-right {
+  @extend %tooltip-top;
+  @include arrow(bottom $tooltip-arrow-size $tooltip-background $tooltip-arrow-size, $positioning: null);
+  left: 0;
+}
+
+// Defaults
+// --------
+
+.tooltip {
+  @extend %tooltip-top-left;
+}
+
+// Triggers
+// --------
+
+%has-tooltip {
+  position: relative;
+  .no-touch &:hover .tooltip { display: block; }
+}
