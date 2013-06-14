@@ -464,6 +464,39 @@ select {
   color: #94001a;
 }
 
+.tooltip {
+  position: absolute;
+  padding: 0.31944rem 0.63889rem;
+  color: #dbdbdb;
+  background: #4c4c4c;
+  white-space: nowrap;
+  display: none;
+}
+[data-tooltip].tooltip:after {
+  content: attr(data-tooltip);
+}
+
+.tooltip {
+  bottom: 100%;
+  margin-bottom: 0.31944rem;
+}
+
+.tooltip {
+  right: 0;
+}
+.tooltip:before {
+  content: " ";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border: solid transparent;
+  pointer-events: none;
+  top: 100%;
+  border-top-color: #4c4c4c;
+  border-width: 0.31944rem;
+  right: 0.31944rem;
+}
+
 @-moz-keyframes announce-in {
   0% {
     opacity: 0;
