@@ -336,3 +336,9 @@ LOGGING = {
 }
 
 GOOGLE_ANALYTICS_ID = env('KNET_GOOGLE_ANALYTICS_ID', default='')
+
+if MODE == 'prod':
+    INSTALLED_APPS += ['raven.contrib.django.raven_compat']
+    RAVEN_CONFIG = {
+        'dsn': env('SENTRY_DSN'),
+        }
