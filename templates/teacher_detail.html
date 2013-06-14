@@ -24,7 +24,7 @@
 
   {% include "_add_story_form.html" %}
 
-  {% elif not user.is_authenticated %}
+  {% elif ENABLE_LOGIN and not user.is_authenticated %}
   <a href="{% oauth_authorize_url request login_next|default:request.path %}" class="fb-login">
     <span class="icon-addstory"></span>
     <span class="text-addstory">
