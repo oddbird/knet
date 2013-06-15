@@ -37,7 +37,7 @@ $status-private-icon: lock;
   @include adjust-font-size-to($smallpx,1.25);
   @include border-radius(.25em);
   position: absolute;
-  top: rhythm(-.375);
+  top: rhythm(-.5);
   right: rhythm(-.375);
   padding: 0 .5em;
   z-index: 900;
