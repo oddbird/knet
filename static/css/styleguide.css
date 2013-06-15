@@ -1487,8 +1487,10 @@ select {
 }
 
 .landing-footer {
-  margin-top: 138px;
-  margin-top: 7.66667rem;
+  margin-top: 46px;
+  margin-top: 2.55556rem;
+  margin-bottom: 23px;
+  margin-bottom: 1.27778rem;
   font-size: 14px;
   font-size: 0.77778rem;
   line-height: 23px;
@@ -1504,8 +1506,12 @@ select {
 .landing-footer strong {
   font-weight: bold;
 }
-@media (min-width: 20em) {
+@media (min-width: 30em) {
   .landing-footer {
+    margin-top: 115px;
+    margin-top: 6.38889rem;
+    margin-bottom: 0px;
+    margin-bottom: 0rem;
     padding-left: 50%;
   }
 }
@@ -1513,7 +1519,11 @@ select {
 .landing-header {
   margin-bottom: 46px;
   margin-bottom: 2.55556rem;
-  margin-top: -22%;
+}
+@media (min-width: 30em) {
+  .landing-header {
+    margin-top: -22%;
+  }
 }
 
 html {

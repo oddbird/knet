@@ -40,7 +40,8 @@
 }
 
 .landing-footer {
-  @include leader(6);
+  @include leader(2);
+  @include trailer(1);
   @include adjust-font-size-to($smallpx);
   color: color($base light);
 
@@ -48,10 +49,16 @@
   .tax-exempt { color: color(light); }
   strong { font-weight: bold; }
 
-  @include breakpoint(20em) { padding-left: 50%; }
+  @include breakpoint(30em) {
+    @include leader(5);
+    @include trailer(0);
+    padding-left: 50%;
+  }
 }
 
 .landing-header {
   @include trailer(2);
-  margin-top: -22%;
+
+  @include breakpoint(30em) { margin-top: -22%; }
+
 }
