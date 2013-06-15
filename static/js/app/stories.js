@@ -51,7 +51,14 @@ var KNET = (function (KNET, $) {
 
     KNET.addStory = function (storiesContainerSel, formSel, formToggleSel) {
         var form = $(formSel);
+        var formToggle = $(formToggleSel);
         var storiesContainer = $(storiesContainerSel);
+        formToggle.on('change', function () {
+            if (!formToggle.prop('checked')) {
+                // all inputs/textareas have form-value class
+                form.find('.form-value').eq(0).focus();
+            }
+        });
         form.ajaxForm({
             beforeSubmit: function () {
                 form.loadingOverlay();
@@ -60,7 +67,7 @@ var KNET = (function (KNET, $) {
                 form.loadingOverlay('remove');
                 if (response && response.success) {
                     form.get(0).reset();
-                    $(formToggleSel).prop('checked', true);
+                    formToggle.prop('checked', true);
                     if (response.html) {
                         storiesContainer.prepend(response.html);
                     }

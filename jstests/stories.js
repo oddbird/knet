@@ -336,6 +336,22 @@
         ok(!this.formToggle.prop('checked'), 'form is still open');
     });
 
+    test('body input is auto-focused when form is toggled open', function () {
+        expect(2);
+
+        // ensure its hidden (this also covers the do-nothing branch of the change handler)
+        this.formToggle.prop('checked', true).trigger('change');
+
+        // we can't use .is(':focus') because PhantomJS is buggy;
+        // we could actually patch jQuery with this workaround if we use it a lot;
+        // see https://github.com/ariya/phantomjs/issues/10427#issuecomment-14992909
+        ok(this.bodyInput.get(0) !== document.activeElement, 'Body input does not have focus if hidden.');
+
+        this.formToggle.prop('checked', false).trigger('change');
+
+        ok(this.bodyInput.get(0) === document.activeElement, 'Body input has focus after form is opened.');
+    });
+
     module('updateNoStoriesMsg', {
         setup: function () {
             this.containerSel = '.teacher-stories';
