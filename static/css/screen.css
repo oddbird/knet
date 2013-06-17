@@ -185,12 +185,12 @@ a:focus, a:hover, a:active {
 
 @font-face {
   font-family: "knet";
-  src: url('../fonts/knet.woff?4b6471790c23e2d527904597afc648c30dc55669') format("woff"), url('../fonts/knet.ttf?8995ed93eed189d78deafc7bb31e5f2110724c78') format("truetype");
+  src: url('../fonts/knet.woff?1ac4348a28f76a96da19f4c7d892a5cc6db934e9') format("woff"), url('../fonts/knet.ttf?19df15282163cbbb3764b8efb608018d9f4bf36e') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, .loading-icon:before, .login .fb-login:before, .icon-addstory:before, .hidden .status-icon:before, .private .status-icon:before, .story-status:before, .delete-story:before, .sample-icon:link:before, .sample-icon:visited:before, .cta .fb-login:before, [data-icon]:before {
+.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, .loading-icon:before, .login .fb-login:before, .icon-addstory:before, .hidden .status-icon:before, .private .status-icon:before, .quoted .status-icon:before, .story-status:before, .delete-story:before, .sample-icon:link:before, .sample-icon:visited:before, .cta .fb-login:before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -274,6 +274,10 @@ a:focus, a:hover, a:active {
 
 .loading-icon:before {
   content: "\e00e";
+}
+
+.quoted .status-icon:before {
+  content: "\f10e";
 }
 
 button {
@@ -582,10 +586,10 @@ select {
   right: 0.31944rem;
 }
 
-.hidden .status-icon, .private .status-icon, .sample-icon:link, .sample-icon:visited, .story-status, .delete-story {
+.hidden .status-icon, .private .status-icon, .quoted .status-icon, .sample-icon:link, .sample-icon:visited, .story-status, .delete-story {
   position: relative;
 }
-.no-touch .hidden .status-icon:hover .tooltip, .hidden .no-touch .status-icon:hover .tooltip, .no-touch .private .status-icon:hover .tooltip, .private .no-touch .status-icon:hover .tooltip, .no-touch .sample-icon:hover:link .tooltip, .no-touch .sample-icon:hover:visited .tooltip, .no-touch .story-status:hover .tooltip, .no-touch .delete-story:hover .tooltip {
+.no-touch .hidden .status-icon:hover .tooltip, .hidden .no-touch .status-icon:hover .tooltip, .no-touch .private .status-icon:hover .tooltip, .private .no-touch .status-icon:hover .tooltip, .no-touch .quoted .status-icon:hover .tooltip, .quoted .no-touch .status-icon:hover .tooltip, .no-touch .sample-icon:hover:link .tooltip, .no-touch .sample-icon:hover:visited .tooltip, .no-touch .story-status:hover .tooltip, .no-touch .delete-story:hover .tooltip {
   display: block;
 }
 
@@ -1284,7 +1288,7 @@ select {
   clear: both;
 }
 
-.hidden .status-icon, .private .status-icon, .sample-icon:link, .sample-icon:visited {
+.hidden .status-icon, .private .status-icon, .quoted .status-icon, .sample-icon:link, .sample-icon:visited {
   font-size: 14px;
   font-size: 0.77778rem;
   line-height: 29px;
@@ -1307,8 +1311,9 @@ select {
   background: #b2b2b2;
   color: #191919;
 }
-.hidden.private .status-icon:before {
-  content: "\e001";
+.quoted .status-icon {
+  background: #7bd3d3;
+  color: #191919;
 }
 
 .story-body {
@@ -1349,6 +1354,12 @@ select {
 }
 .private .story-body:before {
   border-top-color: #b2b2b2;
+}
+.quoted .story-body {
+  border-color: #7bd3d3;
+}
+.quoted .story-body:before {
+  border-top-color: #7bd3d3;
 }
 
 .story-content {

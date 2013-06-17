@@ -16,6 +16,7 @@ $icon-lock:           "\e001";
 $icon-eye:            "\e002";
 $icon-eye-blocked:    "\e00d";
 $icon-heart:          "\e00e";
+$icon-quote-right:    "\f10e";
 
 // Debug
 $debug: append($debug, icons);
@@ -34,7 +35,8 @@ $debug-icons: 'search'          $icon-search,
               'lock'            $icon-lock,
               'eye'             $icon-eye,
               'eye-blocked'     $icon-eye-blocked,
-              'heart'           $icon-heart;
+              'heart'           $icon-heart,
+              'quote-right'     $icon-quote-right;
 
 @mixin debug-icons {
   @debug '# Icons';
