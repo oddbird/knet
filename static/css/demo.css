@@ -183,7 +183,7 @@ a:focus, a:hover, a:active {
 
 @font-face {
   font-family: "knet";
-  src: url('../fonts/knet.woff?4b6471790c23e2d527904597afc648c30dc55669') format("woff"), url('../fonts/knet.ttf?8995ed93eed189d78deafc7bb31e5f2110724c78') format("truetype");
+  src: url('../fonts/knet.woff?1ac4348a28f76a96da19f4c7d892a5cc6db934e9') format("woff"), url('../fonts/knet.ttf?19df15282163cbbb3764b8efb608018d9f4bf36e') format("truetype");
   font-weight: normal;
   font-style: normal;
 }

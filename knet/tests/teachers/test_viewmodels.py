@@ -145,3 +145,19 @@ class TestViewStory:
         vs = ViewStory(s)
 
         assert vs.attribution == 'Bar'
+
+
+    def test_self_posted(self):
+        """If submitter is same as profile, story is self-posted."""
+        u = UserFactory.build()
+        s = StoryFactory.build(submitter=u, profile__user=u)
+        vs = ViewStory(s)
+
+        assert vs.self_posted
+
+
+    def test_not_self_posted(self):
+        s = StoryFactory.build(submitter__id=1, profile__user__id=2)
+        vs = ViewStory(s)
+
+        assert not vs.self_posted

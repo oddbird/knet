@@ -1,9 +1,11 @@
 {% load cache markup micawber_tags %}
-<article class="story {{ story.published|yesno:'published,hidden' }} {{ story.private|yesno:'private,public' }}">
-  {% if not story.published %}
+<article class="story {% if story.published %}{{ story.self_posted|yesno:'quoted,published' }}{% else %}{{ story.private|yesno:'private,hidden' }}{% endif %}">
+  {% if not story.published or story.self_posted %}
   <span class="status-icon">
     <span class="tooltip">
-      {% if story.private %}
+      {% if story.published and story.self_posted %}
+        Quoted by {{ teacher }}, from another source
+      {% elif story.private %}
         For {% if user == teacher.user %}your{% else %}{{ teacher }}'s{% endif %} eyes only
       {% else %}
         Currently hidden from {% if user == teacher.user %}your{% else %}{{ teacher }}'s{% endif %} public profile
