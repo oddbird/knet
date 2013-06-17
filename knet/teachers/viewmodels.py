@@ -46,3 +46,4 @@ class ViewStory:
         self.published = story.published
         self.date = story.nominal_date or story.created.date()
         self.attribution = story.submitter_name or story.submitter.first_name
+        self.self_posted = (story.submitter == story.profile.user)
