@@ -56,7 +56,7 @@ var KNET = (function (KNET, $) {
         formToggle.on('change', function () {
             if (!formToggle.prop('checked')) {
                 // all inputs/textareas have form-value class
-                form.find('.form-value').eq(0).focus();
+                form.find('.form-value').first().focus();
             }
         });
         form.ajaxForm({

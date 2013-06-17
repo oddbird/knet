@@ -339,7 +339,7 @@
     test('body input is auto-focused when form is toggled open', function () {
         expect(2);
 
-        // ensure its hidden (this also covers the do-nothing branch of the change handler)
+        // ensure form is initially hidden (this also covers the do-nothing branch of the change handler)
         this.formToggle.prop('checked', true).trigger('change');
 
         // we can't use .is(':focus') because PhantomJS is buggy;
