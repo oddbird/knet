@@ -22,4 +22,8 @@ urlpatterns = patterns(
         TemplateView.as_view(template_name='terms_of_service.html'),
         name='terms_of_service',
         ),
+    url(r'^privacy/$',
+        TemplateView.as_view(template_name='privacy_policy.html'),
+        name='privacy_policy',
+        ),
 )
