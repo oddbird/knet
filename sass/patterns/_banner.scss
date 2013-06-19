@@ -3,9 +3,10 @@
   @include pie-clearfix;
   @include trailing-border(1px,.5);
   @include padding-leader(.5);
-  @include background(color(white,.95) linear-gradient(to top, color(lightest,.75), color(lightest,0)));
   padding-left: 1em;
   padding-right: 1em;
+  background: color(85%,.95);
+  border-color: color(lighter);
 
   .org {
     #{$link} {

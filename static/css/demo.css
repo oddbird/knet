@@ -463,12 +463,10 @@ select {
   padding-bottom: 0.58333rem;
   padding-top: 12px;
   padding-top: 0.63889rem;
-  background: rgba(255, 255, 255, 0.95) -webkit-linear-gradient(bottom, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
-  background: rgba(255, 255, 255, 0.95) -moz-linear-gradient(bottom, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
-  background: rgba(255, 255, 255, 0.95) -o-linear-gradient(bottom, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
-  background: rgba(255, 255, 255, 0.95) linear-gradient(to top, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
   padding-left: 1em;
   padding-right: 1em;
+  background: rgba(235, 235, 235, 0.95);
+  border-color: #b2b2b2;
 }
 [role="banner"]:after {
   content: "";
