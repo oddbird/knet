@@ -456,22 +456,25 @@ select {
 }
 
 [role="banner"] {
-  border-bottom-width: 1px;
-  border-bottom-width: 0.05556rem;
-  border-bottom-style: solid;
-  padding-bottom: 11px;
-  padding-bottom: 0.58333rem;
-  padding-top: 12px;
-  padding-top: 0.63889rem;
-  padding-left: 1em;
-  padding-right: 1em;
-  background: rgba(235, 235, 235, 0.95);
-  border-color: #b2b2b2;
+  padding: 0.63889rem 1em;
 }
 [role="banner"]:after {
   content: "";
   display: table;
   clear: both;
+}
+
+[role="banner"] {
+  background: rgba(235, 235, 235, 0.95);
+  border-color: #b2b2b2;
+}
+
+[role="banner"] {
+  border-bottom-width: 1px;
+  border-bottom-width: 0.05556rem;
+  border-bottom-style: solid;
+  padding-bottom: 11px;
+  padding-bottom: 0.58333rem;
 }
 [role="banner"] .org:link, [role="banner"] .org:visited {
   font-weight: bold;

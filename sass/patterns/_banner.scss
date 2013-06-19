@@ -1,12 +1,20 @@
+// Banner
+// ======
 
-%banner {
+%banner-layout {
   @include pie-clearfix;
-  @include trailing-border(1px,.5);
-  @include padding-leader(.5);
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: rhythm(.5) 1em;
+}
+
+%banner-colors {
   background: color(85%,.95);
   border-color: color(lighter);
+}
+
+%banner {
+  @extend %banner-layout;
+  @extend %banner-colors;
+  @include trailing-border(1px,.5);
 
   .org {
     #{$link} {

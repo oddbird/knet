@@ -1,0 +1,19 @@
+// Content Info
+// ============
+
+$footer-base: color($base light);
+
+[role="contentinfo"] {
+  @extend %banner-layout;
+  @extend %banner-colors;
+  @include adjust-font-size-to($smallpx);
+  @include leading-border(1px,.5);
+  clear: both;
+  color: $footer-base;
+
+  strong { font-weight: bold; }
+  a {
+    display: inline-block;
+    @include before(' | ') { color: $footer-base; }
+  }
+}
