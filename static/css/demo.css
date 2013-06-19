@@ -180,10 +180,18 @@ a:focus, a:hover, a:active {
 .demo ol {
   list-style: decimal;
 }
+.demo ul ul, .demo ul ol, .demo ol ul, .demo ol ol {
+  margin-left: 1.5em;
+}
+@media (max-width: 46em) {
+  .demo ul, .demo ol {
+    margin-left: 1.5em;
+  }
+}
 
 @font-face {
   font-family: "knet";
-  src: url('../fonts/knet.woff?1ac4348a28f76a96da19f4c7d892a5cc6db934e9') format("woff"), url('../fonts/knet.ttf?19df15282163cbbb3764b8efb608018d9f4bf36e') format("truetype");
+  src: url('../fonts/knet.woff?ea3e07afb11021754430b10596f37feabe85fe0e') format("woff"), url('../fonts/knet.ttf?92ba68062e26e7ab027978359f4c45e3d4b20ccf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -448,24 +456,25 @@ select {
 }
 
 [role="banner"] {
-  border-bottom-width: 1px;
-  border-bottom-width: 0.05556rem;
-  border-bottom-style: solid;
-  padding-bottom: 11px;
-  padding-bottom: 0.58333rem;
-  padding-top: 12px;
-  padding-top: 0.63889rem;
-  background: rgba(255, 255, 255, 0.95) -webkit-linear-gradient(bottom, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
-  background: rgba(255, 255, 255, 0.95) -moz-linear-gradient(bottom, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
-  background: rgba(255, 255, 255, 0.95) -o-linear-gradient(bottom, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
-  background: rgba(255, 255, 255, 0.95) linear-gradient(to top, rgba(229, 229, 229, 0.75), rgba(229, 229, 229, 0));
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 0.63889rem 1em;
 }
 [role="banner"]:after {
   content: "";
   display: table;
   clear: both;
+}
+
+[role="banner"] {
+  background: rgba(235, 235, 235, 0.95);
+  border-color: #b2b2b2;
+}
+
+[role="banner"] {
+  border-bottom-width: 1px;
+  border-bottom-width: 0.05556rem;
+  border-bottom-style: solid;
+  padding-bottom: 11px;
+  padding-bottom: 0.58333rem;
 }
 [role="banner"] .org:link, [role="banner"] .org:visited {
   font-weight: bold;
@@ -488,6 +497,7 @@ select {
   padding: 0.31944rem 0.63889rem;
   color: #dbdbdb;
   background: #4c4c4c;
+  border: 1px solid #dbdbdb;
   white-space: nowrap;
   display: none;
 }

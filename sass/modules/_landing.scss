@@ -43,7 +43,9 @@
   @include leader(2);
   @include trailer(1);
   @include adjust-font-size-to($smallpx);
+  position: relative;
   color: color($base light);
+  z-index: 20;
 
   .license { text-transform: uppercase; }
   .tax-exempt { color: color(light); }
