@@ -1,6 +1,8 @@
-{% extends "base_site.html" %}
+{% extends "base.html" %}
 
-{% block main %}
+{% block title %}Terms of Service | {{ block.super }}{% endblock %}
+
+{% block body %}
 <article class="terms-of-service" id="tos">
   <h2 class="pagehead">Terms of Service for The K Network</h2>
   <p>
@@ -513,4 +515,4 @@
   </ol>
 </article>
 
-{% endblock main %}
+{% endblock %}

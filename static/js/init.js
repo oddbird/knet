@@ -16,6 +16,7 @@ var KNET = (function (KNET, $) {
                 $.doTimeout(800, function () { el.remove(); });
             }
         });
+        $('.email').defuscate();
 
         // demo.js
         if ($('.demo').length) {

@@ -289,6 +289,7 @@ PIPELINE_JS = {
             'js/plugins/jquery.stopwatch.js',
             'js/plugins/jquery.form.js',
             'js/plugins/jquery.ajax-loading-overlay.js',
+            'js/plugins/jquery.defuscate.js',
             'messages_ui/jquery.messages-ui.js',
             'messages_ui/message.js',
             ],
