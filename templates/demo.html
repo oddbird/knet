@@ -1,6 +1,8 @@
 {% extends "base_site.html" %}
 {% load compressed %}
 
+{% block title %}What's Possible | {{ block.super }}{% endblock %}
+
 {% block styles %}
 {% compressed_css "demo" %}
 {% endblock styles %}

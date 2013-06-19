@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}Styleguide | {{ block.super }}{% endblock %}
+
 {% block styles %}
 <link rel="stylesheet" href="/static/css/styleguide.css" media="screen" />
 {% endblock %}
@@ -8,7 +10,7 @@
 
 {% block body %}
 <h1 class="sg-title">
-  <a href="/" rel="home">KNetwork Style Guide</a>
+  <a href="/" rel="home">The K Network Style Guide</a>
 </h1>
 
 <nav class="sg-nav">

@@ -2,6 +2,8 @@
 
 {% load markup stories accounts %}
 
+{% block title %}{{ teacher }} | {{ block.super }}{% endblock %}
+
 {% block main %}
 <article class="teacher-detail">
 
