@@ -43,13 +43,16 @@ $main-title-size: $xlargepx;
   }
 
   h2 {
+    @include serif;
     @include trailer(.5);
     text-transform: uppercase;
+    font-weight: bold;
   }
 
   h3 {
+    @include serif;
     @include leader;
-    font-weight: bold;
+    text-transform: uppercase;
   }
 }
 
@@ -64,4 +67,14 @@ $main-title-size: $xlargepx;
 
   ul { list-style: disc; }
   ol { list-style: decimal; }
+
+  ul, ol {
+    ul, ol {
+      margin-left: 1.5em;
+    }
+
+    @include breakpoint(max-width $break + 8) {
+      margin-left: 1.5em;
+    }
+  }
 }

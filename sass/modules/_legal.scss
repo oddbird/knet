@@ -1,0 +1,24 @@
+// Legal Pages
+// ===========
+
+.terms-of-service, .privacy-policy {
+  @extend %simple-page;
+}
+
+.top-link {
+  .icon-up {
+    @include icon(arrow-up) { vertical-align: middle; };
+
+    @extend %button;
+    @extend %has-tooltip;
+    display: block;
+    position: fixed;
+    bottom: rhythm(.5);
+    right: rhythm(.5);
+    opacity: .25;
+    background-color: color(lightest);
+
+
+    #{$focus} { opacity: 1; }
+  }
+}

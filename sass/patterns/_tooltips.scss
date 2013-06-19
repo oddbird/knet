@@ -10,6 +10,7 @@ $tooltip-arrow-size: rhythm(.25);
   padding: rhythm(.25) rhythm(.5);
   color: $tooltip-color;
   background: $tooltip-background;
+  border: 1px solid $tooltip-color;
   white-space: nowrap;
 
   &[data-tooltip] { @include after(attr(data-tooltip)); }

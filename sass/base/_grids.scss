@@ -12,4 +12,6 @@ $show-grid-backgrounds            : false;
 // ---------------------------------------------------------------------------
 // Grids
 
-@include set-grid(38em 8 1/4 hide);
+$break: 38em;
+
+@include set-grid($break 8 1/4 hide);
