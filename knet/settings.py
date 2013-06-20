@@ -132,7 +132,6 @@ INSTALLED_APPS = [
     'knet.landing',
     'knet.accounts',
     'knet.teachers',
-    'knet.stories',
     ]
 
 AUTH_USER_MODEL = 'accounts.User'
