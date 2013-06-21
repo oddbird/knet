@@ -6,10 +6,10 @@ from knet.landing.models import Lead
 
 @override_settings(ENABLE_LOGIN=True)
 def test_login_button(client):
-    """Login link is in banner."""
+    """Login link is available."""
     resp = client.get('/')
 
-    assert len(resp.html.findAll('a', 'fb-login')) == 1
+    assert len(resp.html.findAll('a', 'fb-login'))
 
 
 @override_settings(ENABLE_LOGIN=False)

@@ -12,7 +12,7 @@ $footer-base: color($base light);
   color: $footer-base;
 
   strong { font-weight: bold; }
-  a {
+  a, .phone {
     display: inline-block;
     @include before(' | ') { color: $footer-base; }
   }
