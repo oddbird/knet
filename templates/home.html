@@ -1,9 +1,8 @@
-{% extends "base.html" %}
+{% extends "base_site.html" %}
 {% load accounts teachers %}
 
-{% block body %}
-{% include "messages_ui/_messages.html" %}
-<article class="landing" role="main">
+{% block main %}
+<article class="landing">
   <section class="cta">
     <h1 class="cta-title"><b>Inspiring stories</b> from the lives you've changed.</h1>
 
@@ -36,15 +35,12 @@
     {% endif %}
   </section>
 
-  <footer class="landing-footer">
-    <p class="license">
-      Copyright &copy; 2013 <strong>The K Network</strong>
-    </p>
+  <section class="landing-footer">
     <p class="tax-exempt">
      <strong>The K Network</strong> is a tax-exempt 501(c)(3) nonprofit.
      Any donations are tax-deductible as allowed by law (tax ID 46-5167493).
    </p>
-  </footer>
+  </section>
 
   <header class="landing-header">
     <h1 class="logo">The K Network.</h1>
