@@ -1120,10 +1120,10 @@ select {
 [role="contentinfo"] strong {
   font-weight: bold;
 }
-[role="contentinfo"] a {
+[role="contentinfo"] a, [role="contentinfo"] .phone {
   display: inline-block;
 }
-[role="contentinfo"] a:before {
+[role="contentinfo"] a:before, [role="contentinfo"] .phone:before {
   content: " | ";
   color: #6f6f6f;
 }
