@@ -1,3 +1,5 @@
+import re
+import unicodedata
 from urllib.parse import urlencode
 
 from django.conf import settings
@@ -25,10 +27,14 @@ def oauth(request):
         return redirect('landing')
 
     with transaction.atomic():
+        email = user_data['email']
+        username = user_data.get('username')
+        if username is None:
+            username = slugify(email)
         user, created = User.objects.get_or_create(
-            username=user_data['username'],
+            username=username,
             defaults={
-                'email': user_data['email'],
+                'email': email,
                 'first_name': user_data.get('first_name', ''),
                 'last_name': user_data.get('last_name', ''),
                 'name': user_data.get('name', ''),
@@ -76,3 +82,17 @@ def login(request):
     """Display login link."""
     return render(
         request, 'accounts/login.html', {'login_next': request.GET.get('next')})
+
+
+
+def slugify(value):
+    """
+    Converts to lowercase, converts spaces and non-word characters to hyphens.
+
+    Also strips leading and trailing whitespace.
+
+    """
+    value = unicodedata.normalize(
+        'NFKD', value).encode('ascii', 'ignore').decode('ascii')
+    value = re.sub('[^\w\s-]', '-', value).strip().lower()
+    return re.sub('[-\s]+', '-', value)

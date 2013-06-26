@@ -61,6 +61,27 @@ class TestOAuth:
             'teacher_detail', kwargs={'username': 'oauthuser'})
 
 
+    @override_settings(OAUTH_PROVIDER='oauth2.dummy.DummyOAuth')
+    def test_no_username(self, client):
+        """If no username, fall back to slugified email address."""
+        data = {
+            'next': '/foo/',
+            'email': 'oauth@example.com',
+            'first_name': 'OAuth',
+            'last_name': 'User',
+            'name': 'O User',
+            }
+        resp = client.get(reverse('oauth'), data)
+        user = User.objects.get(username='oauth-example-com')
+
+        assert user.email == 'oauth@example.com'
+        assert user.first_name == 'OAuth'
+        assert user.last_name == 'User'
+        assert user.name == 'O User'
+        assert redirects_to(resp) == reverse(
+            'create_profile') + '?next=%2Ffoo%2F'
+
+
 
 class ErrorProvider:
     def __init__(self, *a, **kw):
