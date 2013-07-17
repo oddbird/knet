@@ -3,7 +3,6 @@
 /*global notDeepEqual:false, strictEqual:false, notStrictEqual:false, raises:false*/
 /*global jQuery:false*/
 /*global sinon:false*/
-/*global KNET:false*/
 
 (function (KNET, $) {
 
@@ -28,15 +27,30 @@
         raises(block, [expected], [message])
     */
 
-    module('tpl');
+    module('tpl', {
+        setup: function () {
+            KNET.templates = KNET.templates || {};
+            KNET.templates.test_tpl = Handlebars.compile('<div>Test Template</div>');
+            KNET.templates.test_tpl2 = Handlebars.compile('<div>{{text}}</div>');
+        }
+    });
 
     test('returns template as jQuery object', function () {
         expect(1);
 
-        var expected = '<div class="test">Test Template</div>';
+        var expected = '<div>Test Template</div>';
         var actual = KNET.tpl('test_tpl').get(0).outerHTML;
 
         strictEqual(actual, expected, 'hbs template is returned rendered as jQuery object');
+    });
+
+    test('renders data passed to template', function () {
+        expect(1);
+
+        var expected = '<div>Another Test Template</div>';
+        var actual = KNET.tpl('test_tpl2', {text: 'Another Test Template'}).get(0).outerHTML;
+
+        strictEqual(actual, expected, 'hbs template is returned with data rendered');
     });
 
 }(KNET, jQuery));

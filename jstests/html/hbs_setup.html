@@ -10,18 +10,9 @@
   <script src="../vendor/qunit.js"></script>
   <script src="../vendor/sinon.js"></script>
   <script src="../vendor/sinon-qunit.js"></script>
+  <script src="../vendor/handlebars.js"></script>
   <!-- Load local js. -->
-  <script src="../../static/js/vendor/handlebars.runtime.js"></script>
   <script src="../../static/js/app/hbs_setup.js"></script>
-  <script type="text/javascript">
-    this['KNET'] = this['KNET'] || {};
-    this['KNET']['templates'] = this['KNET']['templates'] || {};
-    this['KNET']['templates']['test_tpl'] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
-      this.compilerInfo = [4,'>= 1.0.0'];
-      helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-      return '<div class="test">Test Template</div>';
-    });
-  </script>
   <!-- Load local tests. -->
   <script src="../hbs_setup.js"></script>
   <!-- Removing access to jQuery and $. But it'll still be available as _$, if

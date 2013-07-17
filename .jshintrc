@@ -19,6 +19,8 @@
     "white": true,
 
     "globals": {
-        "Modernizr": true
+        "Modernizr": true,
+        "KNET": true,
+        "Handlebars": true
     }
 }
