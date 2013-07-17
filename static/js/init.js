@@ -18,9 +18,6 @@ var KNET = (function (KNET, $) {
         });
         $('.email').defuscate();
 
-        // landing.js
-        KNET.landingForm('form.signup', '#messages');
-
         // stories.js
         KNET.removeStory('.story .story-actions .delete-story', '.teacher-stories');
         KNET.changeStoryStatus('.story .story-actions .story-status', '.teacher-stories');
