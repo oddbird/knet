@@ -7,17 +7,24 @@ module.exports = function (grunt) {
     grunt.initConfig({
         vars: {
             src_py_dir: 'knet/',
+            py_tests_dir: 'knet/tests',
             src_templates_dir: 'templates/',
             src_js_dir: 'static/js/',
             js_tests_dir: 'jstests/',
             src_js_templates: 'jstemplates/*.hbs',
-            dest_js_templates: '<%= vars.src_js_dir %>jstemplates.js'
+            dest_js_templates: '<%= vars.src_js_dir %>app/jstemplates.js',
+            fonts_dir: 'static/fonts/',
+            images_dir: 'static/images/',
+            sass_dir: 'sass/'
         },
         pkg: grunt.file.readJSON('package.json'),
         qunit: {
             options: {
                 coverage: {
-                    src: ['<%= jshint.src.src %>'],
+                    src: [
+                        '<%= vars.src_js_dir %>app/*.js',
+                        '!<%= vars.dest_js_templates %>'
+                    ],
                     instrumentedFiles: 'jscov_temp/',
                     htmlReport: 'jscov/'
                 }
@@ -35,6 +42,7 @@ module.exports = function (grunt) {
                 src: [
                     '<%= vars.src_js_dir %>*.js',
                     '<%= vars.src_js_dir %>app/*.js',
+                    '<%= vars.src_js_dir %>demo/*.js',
                     '!<%= vars.dest_js_templates %>'
                 ]
             },
@@ -75,13 +83,25 @@ module.exports = function (grunt) {
                 }]
             }
         },
+        compass: {
+            dev: {
+                options: {
+                    bundleExec: true,
+                    config: 'config.rb'
+                }
+            }
+        },
         watch: {
             gruntfile: {
                 files: ['<%= jshint.gruntfile.src %>'],
-                tasks: ['jshint:gruntfile']
+                tasks: ['default']
             },
             pytest: {
-                files: ['<%= vars.src_py_dir %>**/*.py', '<%= vars.src_templates_dir %>**/*.html'],
+                files: [
+                    '<%= vars.src_py_dir %>**/*.py',
+                    '<%= vars.py_tests_dir %>**/*.py',
+                    '<%= vars.src_templates_dir %>**/*.html'
+                ],
                 tasks: ['pytest']
             },
             jstest: {
@@ -89,28 +109,36 @@ module.exports = function (grunt) {
                 tasks: ['jshint:test', 'qunit']
             },
             js: {
-                files: ['<%= jshint.src.src %>'],
+                files: ['<%= vars.src_js_dir %>**/*.js', '!<%= vars.dest_js_templates %>'],
                 tasks: ['jshint:src', 'qunit']
             },
             jstemplates: {
                 files: ['<%= vars.src_js_templates %>'],
                 tasks: ['handlebars', 'qunit']
+            },
+            css: {
+                files: ['<%= vars.sass_dir %>**/*.scss', '<%= vars.fonts_dir %>**/*', '<%= vars.images_dir %>**/*'],
+                tasks: ['compass']
             }
         }
     });
 
     // Default task
-    grunt.registerTask('default', ['jshint', 'handlebars', 'qunit', 'pytest']);
+    grunt.registerTask('default', ['jshint', 'handlebars', 'compass', 'qunit', 'pytest']);
 
+    // Run default tasks and watch for changes
     grunt.registerTask('dev', ['default', 'watch']);
 
+    // Shortcut for running python tests
     grunt.registerTask('pytest', ['shell:pytest']);
+    // Shortcut for running selenium tests
     grunt.registerTask('selenium', ['shell:selenium']);
 
     // Plugin tasks
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-handlebars');
+    grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-qunit-istanbul');
     grunt.loadNpmTasks('grunt-shell');
 };
