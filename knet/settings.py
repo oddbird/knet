@@ -259,41 +259,41 @@ PIPELINE_CSS = {
     }
 
 PIPELINE_JS = {
+    'modernizr': {
+        'source_filenames': [
+            'js/vendor/modernizr.custom.02470.js',
+            'js/vendor/modernizr.selectors.js',
+            'js/vendor/elem-details.js',
+            ],
+        'output_filename': 'js/modernizr.min.js',
+        },
     'main': {
         'source_filenames': [
-            'js/base.js',
-            'js/jstemplates.js',
+            'js/vendor/jquery.js',
+            'js/vendor/handlebars.runtime.js',
+            'js/vendor/jquery.ba-dotimeout.js',
+            'js/vendor/jquery.form.js',
+            'js/vendor/jquery.ajax-loading-overlay.js',
+            'js/vendor/jquery.defuscate.js',
+            'messages_ui/jquery.messages-ui.js',
+            'messages_ui/message.js',
+            'js/app/jstemplates.js',
             'js/app/hbs_setup.js',
             'js/app/ajax_setup.js',
-            'js/landing.js',
-            'js/demo.js',
+            'js/app/landing.js',
             'js/app/stories.js',
             'js/init.js',
             ],
         'output_filename': 'js/main.min.js',
         },
-    'modernizr': {
+    'demo': {
         'source_filenames': [
-            'js/plugins/modernizr.custom.02470.js',
-            'js/plugins/modernizr.selectors.js',
-            'js/plugins/elem-details.js',
+            'js/vendor/jquery.stopwatch.js',
+            'js/demo/demo.js',
+            'js/demo/init.js'
             ],
-        'output_filename': 'js/modernizr.min.js',
-        },
-    'plugins': {
-        'source_filenames': [
-            'js/libs/jquery.js',
-            'js/libs/handlebars.runtime.js',
-            'js/plugins/jquery.ba-dotimeout.js',
-            'js/plugins/jquery.stopwatch.js',
-            'js/plugins/jquery.form.js',
-            'js/plugins/jquery.ajax-loading-overlay.js',
-            'js/plugins/jquery.defuscate.js',
-            'messages_ui/jquery.messages-ui.js',
-            'messages_ui/message.js',
-            ],
-        'output_filename': 'js/plugins.min.js',
-        },
+        'output_filename': 'js/demo.min.js',
+        }
     }
 
 # Pipeline doesn't need to wrap JS in an anonymous function for us

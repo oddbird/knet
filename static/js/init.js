@@ -18,15 +18,6 @@ var KNET = (function (KNET, $) {
         });
         $('.email').defuscate();
 
-        // demo.js
-        if ($('.demo').length) {
-            KNET.inputTeacherName();
-            KNET.selectLearnerName();
-            KNET.initializeTimer();
-            KNET.initFeedbackButtons();
-            KNET.selectTopic();
-        }
-
         // landing.js
         KNET.landingForm('form.signup', '#messages');
 
