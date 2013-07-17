@@ -1,51 +1,5 @@
-{% extends "base_tcs.html" %}
-
-{% load accounts teachers %}
+{% extends "layout.html" %}
 
 {% block main %}
-<article class="landing">
-  <section class="cta">
-    <h1 class="cta-title"><b>Inspiring stories</b> from the lives you've changed.</h1>
-
-    <article class="story published public">
-      <a href="/tcs/teacher/sample/" class="sample-icon">
-        See a sample teacher profile!
-      </a>
-
-      <div class="story-body">
-      <div class="story-content">
-        <p>
-          You impact every student who walks through your door.
-          Give those students and their parents a place to share
-          the difference you’ve&nbsp;made.
-        </p>
-        <p>
-          Create a profile of lives changed,
-          and re-discover your&nbsp;inspiration!
-        </p>
-      </div>
-      </div>
-
-      <header class="story-info">
-        <h1 class="author-name">The K Network</h1>
-      </header>
-    </article>
-
-    {% if ENABLE_LOGIN and not user.is_authenticated %}
-      <a href="{% oauth_authorize_url request login_next|default:request.path %}" class="fb-login">Login with Facebook to get started!</a>
-    {% endif %}
-  </section>
-
-  <footer class="landing-footer">
-    <p class="tax-exempt">
-     <strong>The K Network</strong> is a tax-exempt 501(c)(3) nonprofit.
-     Any donations are tax-deductible as allowed by law (tax ID 46-5167493).
-   </p>
-  </footer>
-
-  <header class="landing-header">
-    <h1 class="logo">The K Network.</h1>
-    <p class="tagline">Exploring what's possible in the world of teaching and learning.</p>
-  </header>
-</article>
+  Hello cruel world.
 {% endblock %}

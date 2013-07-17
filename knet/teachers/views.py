@@ -29,7 +29,7 @@ def _response(request, teacher, story=None, success=True):
         data = {'success': success}
         if story:
             data['html'] = render_to_string(
-                '_story.html',
+                'stories/_story.html',
                 {
                     'story': ViewStory(story),
                     'teacher': teacher,
@@ -109,7 +109,7 @@ def teacher_detail(request, username):
 
     return render(
         request,
-        'teacher_detail.html',
+        'stories/teacher_detail.html',
         {'form': form, 'teacher': teacher},
         )
 
@@ -135,6 +135,6 @@ def create_profile(request):
     redirect_to = request.GET.get('next', '/')
     return render(
         request,
-        'create_profile.html',
+        'stories/create_profile.html',
         {'form': form, 'profile_next': redirect_to},
         )

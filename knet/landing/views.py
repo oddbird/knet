@@ -5,4 +5,4 @@ from django.template.response import TemplateResponse
 
 def landing(request):
     """A static landing page."""
-    return TemplateResponse(request, "home.html")
+    return TemplateResponse(request, "stories/landing.html")
