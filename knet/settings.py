@@ -245,11 +245,11 @@ PIPELINE_CSS = {
             ],
         'output_filename': 'css/screen.min.css',
         },
-    'landing': {
+    'knet': {
         'source_filenames': [
-            'css/landing.css',
+            'css/knet.css',
             ],
-        'output_filename': 'css/landing.min.css',
+        'output_filename': 'css/knet.min.css',
         },
     'demo': {
         'source_filenames': [

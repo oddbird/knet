@@ -13,16 +13,16 @@
   {% endblock banner %}
 </header>
 
-<div role="main">
+<main role="main">
   {% block main %}{% endblock %}
-</div>
+</main>
 
-{% block footer %}
 <footer role="contentinfo">
+  {% block footer %}
   <span class="license">Copyright &copy; 2013 <strong>The K Network</strong></span>
   <a href="mailto:support(put the 'at' sign here)theknetwork.org" class="email">support(put the 'at' sign here)theknetwork.org</a>
   <span class="phone">212.625.1833</span>
+  {% endblock %}
 </footer>
-{% endblock footer %}
 
 {% endblock %}

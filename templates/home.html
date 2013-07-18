@@ -1,5 +1,24 @@
 {% extends "layout.html" %}
+{% load compressed %}
+
+{% block styles %}
+{% compressed_css "knet" %}
+{% endblock styles %}
+
+{% block banner %}
+<div class="banner-wrap">
+  {{ block.super }}
+</div>
+{% endblock %}
 
 {% block main %}
+<div class="main-wrap">
   Hello cruel world.
+</div>
+{% endblock %}
+
+{% block footer %}
+<div class="info-wrap">
+  {{ block.super }}
+</div>
 {% endblock %}

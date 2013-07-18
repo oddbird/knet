@@ -1,0 +1,36 @@
+// Knet Layout
+// ===========
+
+@include set-grid(70em 12 .25);
+
+%container {
+  > [class$="-wrap"] { @include container; }
+}
+
+%boilerplate {
+  @extend %container;
+  @include rhythm-padding(.5);
+  background: color(lightest, .25);
+}
+
+// Banner
+// ------
+
+[role="banner"] {
+  @extend %boilerplate;
+}
+
+// Main
+// ----
+
+[role="main"] {
+  @extend %container;
+  @include rhythm-padding(2);
+}
+
+// Content Info
+// ------------
+
+[role="contentinfo"] {
+  @extend %boilerplate;
+}
