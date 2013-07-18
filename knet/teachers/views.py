@@ -3,6 +3,7 @@ import json
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.urlresolvers import reverse
 from django.db import transaction
 from django.http import HttpResponse, HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect, render
@@ -132,7 +133,7 @@ def create_profile(request):
     else:
         form = TeacherProfileForm(request.user)
 
-    redirect_to = request.GET.get('next', '/tcs/')
+    redirect_to = request.GET.get('next', reverse('landing'))
     return render(
         request,
         'stories/create_profile.html',

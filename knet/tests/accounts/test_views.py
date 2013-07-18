@@ -51,7 +51,7 @@ class TestOAuth:
         TeacherProfileFactory.create(user__username='oauthuser')
 
         data = {
-            'next': '/tcs/',
+            'next': reverse('landing'),
             'username': 'oauthuser',
             'email': 'oauth@example.com',
             }
