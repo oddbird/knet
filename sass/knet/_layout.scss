@@ -1,10 +1,13 @@
 // Knet Layout
 // ===========
 
-@include set-grid(70em 12 .25);
+@include set-grid(70em 12 .25 inside);
 
 %container {
-  > [class$="-wrap"] { @include container; }
+  > [class$="-wrap"] {
+    @include container;
+    padding: 0 rhythm(.5);
+  }
 }
 
 %boilerplate {
@@ -18,6 +21,8 @@
 
 [role="banner"] {
   @extend %boilerplate;
+  @include serif;
+  .brand { font-weight: bold; }
 }
 
 // Main
@@ -25,12 +30,48 @@
 
 [role="main"] {
   @extend %container;
+  @extend %type;
   @include rhythm-padding(2);
+}
+
+.intro {
+  @extend %main-title;
+  @include padding-leader;
+  @include trailing-border(2px, 3);
+  @include trailer;
+  border-bottom: 2px dotted color(lightest,.5);
+}
+
+.how-title {
+  @include serif;
+  @include adjust-font-size-to($largepx);
+  @include trailer;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.feature {
+  @include gallery(4, of-type);
+
+  h2 { @extend %sub-title; }
 }
 
 // Content Info
 // ------------
 
+$footer-base: color(light $base);
+
 [role="contentinfo"] {
   @extend %boilerplate;
+}
+
+.info {
+  @include adjust-font-size-to($smallpx);
+  color: $footer-base;
+
+  strong { font-weight: bold; }
+  a, .phone {
+    display: inline-block;
+    @include before(' | ') { color: $footer-base; }
+  }
 }

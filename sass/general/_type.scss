@@ -33,6 +33,19 @@ $main-title-size: $xlargepx;
   @include adjust-font-size-to($main-title-size);
 }
 
+%sub-title {
+  @include serif;
+  @include trailer(.5);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+%minor-title {
+  @include serif;
+  @include leader;
+  text-transform: uppercase;
+}
+
 %headers {
   h1 {
     @extend %main-title;
@@ -43,16 +56,11 @@ $main-title-size: $xlargepx;
   }
 
   h2 {
-    @include serif;
-    @include trailer(.5);
-    text-transform: uppercase;
-    font-weight: bold;
+    @extend %sub-title;
   }
 
   h3 {
-    @include serif;
-    @include leader;
-    text-transform: uppercase;
+    @extend %minor-title;
   }
 }
 

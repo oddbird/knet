@@ -16,15 +16,6 @@ GIT
     accoutrement (0.0.5)
       compass (>= 0.12.2)
 
-GIT
-  remote: git://github.com/ericam/susy
-  revision: 700a1776cd5e418b5c8f5a9bececd815d445b40d
-  branch: susy-next
-  specs:
-    susy (2.0.0.alpha.2)
-      compass (>= 0.12.2)
-      sass (>= 3.2.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -32,7 +23,7 @@ GEM
       compass (>= 0.12.1)
       sass (>= 3.2.0)
     chunky_png (1.2.8)
-    ffi (1.8.1)
+    ffi (1.9.0)
     listen (1.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -49,6 +40,9 @@ GEM
     sass (3.2.9)
     sassy-math (1.5)
       compass (~> 0.11)
+    susy (2.0.0.alpha.3)
+      compass (>= 0.12.2)
+      sass (>= 3.2.0)
 
 PLATFORMS
   ruby
@@ -59,4 +53,4 @@ DEPENDENCIES
   compass!
   modular-scale (~> 1.0.6)
   sass (~> 3.2.7)
-  susy!
+  susy (= 2.0.0.alpha.3)
