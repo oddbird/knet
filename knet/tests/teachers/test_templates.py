@@ -11,7 +11,7 @@ def test_bio_rendered_with_markdown():
     """Bio on teacher profile renders through markdown."""
     tp = TeacherProfileFactory.build(bio="Some *text*")
     bio = render_to_soup(
-        '_teacher_info.html',
+        'stories/_teacher_info.html',
         {'teacher': ViewTeacher(tp)},
         ).find('div', 'teacher-bio')
 
@@ -21,7 +21,7 @@ def test_bio_rendered_with_markdown():
 def test_stories_rendered_with_markdown():
     """Stories on teacher profile render through markdown."""
     s = StoryFactory.build(body="Some *text*")
-    soup = render_to_soup('_story.html', {'story': ViewStory(s)})
+    soup = render_to_soup('stories/_story.html', {'story': ViewStory(s)})
     body = soup.find('div', 'story-content')
 
     assert innerhtml(body) == '<p>Some <em>text</em></p>'
@@ -33,7 +33,7 @@ def test_only_published_stories_shown(db):
     p = s.profile
     u = UserFactory.build(id=1)
     soup = render_to_soup(
-        'teacher_detail.html',
+        'stories/teacher_detail.html',
         {'teacher': ViewTeacher(p), 'user': u, 'form': StoryForm(u, p)},
         )
 
@@ -45,7 +45,7 @@ def test_unpublished_story_shown_to_me(db):
     s = StoryFactory.create(published=False)
     p = s.profile
     soup = render_to_soup(
-        'teacher_detail.html',
+        'stories/teacher_detail.html',
         {
             'teacher': ViewTeacher(p),
             'user': p.user,
@@ -61,7 +61,7 @@ def test_no_story_controls_on_someone_elses_profile():
     s = StoryFactory.build(private=False, published=True)
     u = UserFactory.build(id=1)
     soup = render_to_soup(
-        '_story.html',
+        'stories/_story.html',
         {'story': ViewStory(s), 'teacher': ViewTeacher(s.profile), 'user': u},
         )
 

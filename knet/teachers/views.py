@@ -132,7 +132,7 @@ def create_profile(request):
     else:
         form = TeacherProfileForm(request.user)
 
-    redirect_to = request.GET.get('next', '/')
+    redirect_to = request.GET.get('next', '/tcs/')
     return render(
         request,
         'stories/create_profile.html',

@@ -18,7 +18,7 @@ from .oauth import get_provider
 
 def oauth(request):
     """OAuth callback."""
-    redirect_to = request.GET.get('next') or '/'
+    redirect_to = request.GET.get('next') or '/tcs/'
     provider = get_provider(redirect_to=redirect_to, state=get_token(request))
     try:
         user_data = provider.get_user_data(request.GET)
@@ -46,7 +46,7 @@ def oauth(request):
 
     # If you already have a profile, taking you there is more useful than the
     # landing page.
-    if redirect_to == '/':
+    if redirect_to == '/tcs/':
         try:
             user.teacher_profile
         except ObjectDoesNotExist:
