@@ -37,13 +37,13 @@ class TestOAuth:
         UserFactory.create(username='oauthuser')
 
         data = {
-            'next': '/',
+            'next': reverse('landing'),
             'username': 'oauthuser',
             'email': 'oauth@example.com',
             }
         resp = client.get(reverse('oauth'), data)
 
-        assert redirects_to(resp) == '/'
+        assert redirects_to(resp) == reverse('landing')
 
 
     @override_settings(OAUTH_PROVIDER='oauth2.dummy.DummyOAuth')
