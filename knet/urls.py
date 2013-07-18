@@ -23,11 +23,11 @@ urlpatterns = patterns(
     url(r'^tcs/accounts/', include('knet.accounts.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^tcs/terms/$',
-        TemplateView.as_view(template_name='terms_of_service.html'),
+        TemplateView.as_view(template_name='stories/terms_of_service.html'),
         name='terms_of_service',
         ),
     url(r'^tcs/privacy/$',
-        TemplateView.as_view(template_name='privacy_policy.html'),
+        TemplateView.as_view(template_name='stories/privacy_policy.html'),
         name='privacy_policy',
         ),
 )
