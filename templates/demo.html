@@ -1,4 +1,4 @@
-{% extends "base_site.html" %}
+{% extends "layout.html" %}
 {% load compressed %}
 
 {% block title %}What's Possible | {{ block.super }}{% endblock %}
@@ -8,6 +8,9 @@
 {% endblock styles %}
 
 {% block banner %}
+<h1 class="brand vcard">
+  <a href="/demo/" rel="home" class="fn org">The K Network</a>
+</h1>
 <div class="meta">
   <p class="vcard teacher empty">
     <b class="title">Teacher</b>:

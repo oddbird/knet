@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load accounts teachers %}
+
+{% block body %}
+{% block top %}{% include "messages_ui/_messages.html" %}{% endblock %}
+
+<header role="banner">
+  {% block banner %}
+  <h1 class="brand vcard">
+    <a href="/" rel="home" class="fn org">The K Network</a>
+  </h1>
+  {% endblock banner %}
+</header>
+
+<main role="main">
+  {% block main %}{% endblock %}
+</main>
+
+<footer role="contentinfo">
+  {% block footer %}
+  <span class="license">Copyright &copy; 2013 <strong>The K Network</strong></span>
+  <a href="mailto:support(put the 'at' sign here)theknetwork.org" class="email">support(put the 'at' sign here)theknetwork.org</a>
+  <span class="phone">212.625.1833</span>
+  {% endblock %}
+</footer>
+
+{% endblock %}

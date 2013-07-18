@@ -166,12 +166,6 @@ a:focus, a:hover, a:active {
   line-height: 3.19444rem;
 }
 
-.terms-of-service h1 a:link, .privacy-policy h1 a:link, .terms-of-service h1 a:visited, .privacy-policy h1 a:visited {
-  color: #005c5c;
-}
-.terms-of-service h1 a:focus, .privacy-policy h1 a:focus, .terms-of-service h1 a:hover, .privacy-policy h1 a:hover, .terms-of-service h1 a:active, .privacy-policy h1 a:active {
-  color: #760014;
-}
 .terms-of-service h2, .privacy-policy h2 {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin-bottom: 12px;
@@ -179,11 +173,19 @@ a:focus, a:hover, a:active {
   text-transform: uppercase;
   font-weight: bold;
 }
+
 .terms-of-service h3, .privacy-policy h3 {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin-top: 23px;
   margin-top: 1.27778rem;
   text-transform: uppercase;
+}
+
+.terms-of-service h1 a:link, .privacy-policy h1 a:link, .terms-of-service h1 a:visited, .privacy-policy h1 a:visited {
+  color: #005c5c;
+}
+.terms-of-service h1 a:focus, .privacy-policy h1 a:focus, .terms-of-service h1 a:hover, .privacy-policy h1 a:hover, .terms-of-service h1 a:active, .privacy-policy h1 a:active {
+  color: #760014;
 }
 
 .terms-of-service strong, .privacy-policy strong, .story-content strong {

@@ -187,7 +187,7 @@ OAUTH_PROVIDER = env(
 OAUTH_CLIENT_ID = env('KNET_OAUTH_CLIENT_ID', default={'dev': ''})
 OAUTH_CLIENT_SECRET = env('KNET_OAUTH_CLIENT_SECRET', default={'dev': ''})
 
-LOGIN_REDIRECT_URL = 'login'
+LOGIN_URL = 'login'
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
@@ -244,11 +244,11 @@ PIPELINE_CSS = {
             ],
         'output_filename': 'css/screen.min.css',
         },
-    'landing': {
+    'knet': {
         'source_filenames': [
-            'css/landing.css',
+            'css/knet.css',
             ],
-        'output_filename': 'css/landing.min.css',
+        'output_filename': 'css/knet.min.css',
         },
     'demo': {
         'source_filenames': [
