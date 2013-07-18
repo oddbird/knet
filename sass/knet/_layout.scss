@@ -34,7 +34,7 @@
   @include rhythm-padding(2);
 }
 
-.intro {
+.why {
   @extend %main-title;
   @include padding-leader;
   @include trailing-border(2px, 3);
@@ -42,7 +42,7 @@
   border-bottom: 2px dotted color(lightest,.5);
 }
 
-.how-title {
+.section-title {
   @include serif;
   @include adjust-font-size-to($largepx);
   @include trailer;
@@ -50,10 +50,25 @@
   text-transform: uppercase;
 }
 
-.feature {
-  @include gallery(4, of-type);
+.what, .who { @include clearfix; }
 
-  h2 { @extend %sub-title; }
+.block-title { @extend %sub-title; }
+
+.what {
+  @include trailing-border(2px, 1);
+  border-bottom: 2px dotted color(lightest,.5);
+}
+
+.what-block {
+  @include gallery(4, of-type);
+}
+
+.who {
+  @include padding-leader;
+}
+
+.who-block {
+  @include gallery(6, of-type);
 }
 
 // Content Info

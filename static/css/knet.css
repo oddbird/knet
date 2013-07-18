@@ -158,7 +158,7 @@ a:focus, a:hover, a:active {
   left: -9999px;
 }
 
-.intro {
+.why {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 43px;
   font-size: 2.38889rem;
@@ -166,7 +166,7 @@ a:focus, a:hover, a:active {
   line-height: 3.19444rem;
 }
 
-.feature h2 {
+.block-title {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
   margin-bottom: 12px;
   margin-bottom: 0.63889rem;
@@ -966,7 +966,7 @@ select {
   padding-bottom: 2.55556rem;
 }
 
-.intro {
+.why {
   padding-top: 23px;
   padding-top: 1.27778rem;
   border-bottom-width: 2px;
@@ -979,7 +979,7 @@ select {
   border-bottom: 2px dotted rgba(229, 229, 229, 0.5);
 }
 
-.how-title {
+.section-title {
   font-family: "SquareSerif", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 32px;
   font-size: 1.77778rem;
@@ -991,7 +991,20 @@ select {
   text-transform: uppercase;
 }
 
-.feature {
+.what, .who {
+  overflow: hidden;
+}
+
+.what {
+  border-bottom-width: 2px;
+  border-bottom-width: 0.11111rem;
+  border-bottom-style: solid;
+  padding-bottom: 21px;
+  padding-bottom: 1.16667rem;
+  border-bottom: 2px dotted rgba(229, 229, 229, 0.5);
+}
+
+.what-block {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -1001,16 +1014,40 @@ select {
   padding-left: 0.84746%;
   padding-right: 0.84746%;
 }
-.feature:nth-of-type(3n + 1) {
+.what-block:nth-of-type(3n + 1) {
   margin-left: 0;
   clear: left;
 }
-.feature:nth-of-type(3n + 2) {
+.what-block:nth-of-type(3n + 2) {
   margin-left: 33.33333%;
   clear: none;
 }
-.feature:nth-of-type(3n + 3) {
+.what-block:nth-of-type(3n + 3) {
   margin-left: 66.66667%;
+  clear: none;
+}
+
+.who {
+  padding-top: 23px;
+  padding-top: 1.27778rem;
+}
+
+.who-block {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  margin-right: -100%;
+  padding-left: 0.84746%;
+  padding-right: 0.84746%;
+}
+.who-block:nth-of-type(2n + 1) {
+  margin-left: 0;
+  clear: left;
+}
+.who-block:nth-of-type(2n + 2) {
+  margin-left: 50%;
   clear: none;
 }
 
