@@ -1983,11 +1983,11 @@ body {
   font-weight: bold;
 }
 .size-demo div:nth-child(9):after {
-  content: "76px";
-  font-size: 76px;
-  font-size: 4.22222rem;
-  line-height: 81px;
-  line-height: 4.47222rem;
+  content: "57px";
+  font-size: 57px;
+  font-size: 3.16667rem;
+  line-height: 69px;
+  line-height: 3.83333rem;
 }
 .size-demo div:nth-child(10) {
   display: block;
@@ -2003,11 +2003,11 @@ body {
   font-weight: bold;
 }
 .size-demo div:nth-child(10):after {
-  content: "107px";
-  font-size: 107px;
-  font-size: 5.94444rem;
-  line-height: 115px;
-  line-height: 6.38889rem;
+  content: "86px";
+  font-size: 86px;
+  font-size: 4.77778rem;
+  line-height: 92px;
+  line-height: 5.11111rem;
 }
 
 .color-demo {
