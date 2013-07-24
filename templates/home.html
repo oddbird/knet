@@ -8,21 +8,54 @@
 {% block banner %}
 <div class="banner-wrap">
   {{ block.super }}
-  <p class="tag">Exploring what's possible in the world of teaching and learning.</p>
+  <nav class="page-nav">
+    <a href="#what">about</a>
+    <a href="#contact">contact</a>
+  </nav>
 </div>
 {% endblock %}
 
 {% block main %}
-<div class="main-wrap">
+<section class="feature">
+<div class="feature-wrap">
+  <h1 class="intro">
+    Exploring what's possible in the world of teaching&nbsp;&&nbsp;learning.
+  </h1>
 
-<h1 class="why">
-  Training & technology to
-  engage students,
-  personalize learning,
-  and reduce teacher&nbsp;burdens.
-</h1>
+  <div class="feature-links">
+    <a href="#what" class="consult feature-block">
+      <h2 class="feature-title">Training & Technology</h2>
+      <p>
+        Engage students,
+        personalize learning,
+        and reduce teacher burdens.
+      </p>
+    </a>
+    <a href="http://portfoliyo.org/" class="pyo feature-block">
+      <h2 class="feature-title">Portfoliyo</h2>
+      <p>
+        Use your computer to text parents in seconds.
+      </p>
+    </a>
+    <a href="/tcs/" class="tcs feature-block">
+      <h2 class="feature-title">Teacher Stories</h2>
+      <p>
+        Inspiring stories from the lives you've changed.
+      </p>
+    </a>
+  </div>
+</div>
+</section>
 
-<section class="what">
+<section class="why">
+<div class="why-wrap">
+  <h1>21st century students are engaged through technology.</h1>
+  <p>Meeting their needs means speaking their language.</p>
+</div>
+</section>
+
+<section id="what" class="what">
+<div class="what-wrap">
   <h1 class="section-title">What we offer</h1>
   <div class="what-block">
     <h2 class="block-title">Personalized Learning</h2>
@@ -30,7 +63,8 @@
       Introduce teachers to digital tools
       that generate data on each student
       so that teachers can be more responsive to student needs
-      and can easily personalize lessons for all students.
+      and can easily differentiate & individualize
+      lessons for all students.
     </p>
   </div>
 
@@ -40,27 +74,27 @@
       Work with schools and teachers
       to implement Khan Academy in classrooms
       efficiently and for maximum results.
-      Preliminary data shows
-      that when adopted effectively and in its entirety,
+      When adopted effectively,
       students’ understanding can improve
-      so much that they work up to three years ahead
-      of their grade level.
+      up to three years ahead of their grade level.
     </p>
   </div>
 
   <div class="what-block">
     <h2 class="block-title">The “Flipped Classroom”</h2>
     <p>
-      Help teachers to transfer the classroom lecture
+      Help teachers transfer the classroom lecture
       to the student’s home after class,
-      freeing up classroom time for problem solving and project creation.
-      This allows teachers to increase the time they can spend
-      1-on-1 and in small groups with students.
+      freeing up classroom time for problem solving,
+      project creation,
+      and 1-on-1 time with students and small groups.
     </p>
   </div>
+</div>
 </section>
 
-<section class="who">
+<section id="who" class="who">
+<div class="who-wrap">
   <h1 class="section-title">Who We Are</h1>
 
   <div class="who-block">
@@ -93,9 +127,8 @@
       and higher-order thinking.
     </p>
   </div>
-</section>
-
 </div>
+</section>
 {% endblock %}
 
 {% block footer %}
