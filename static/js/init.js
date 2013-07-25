@@ -17,6 +17,7 @@ var KNET = (function (KNET, $) {
             }
         });
         $('.email').defuscate();
+        $('body.home').localScroll();
 
         // stories.js
         KNET.removeStory('.story .story-actions .delete-story', '.teacher-stories');
