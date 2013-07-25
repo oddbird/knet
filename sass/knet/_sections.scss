@@ -1,11 +1,21 @@
 // Sections
 // ========
 
+@include keyframes(pulse) {
+  0% { @include scale(1); }
+  50% { @include scale(1.1); }
+  100% { @include scale(1); }
+}
+
 %section {
   @extend %container;
   > [class$="-wrap"] {
     @include pie-clearfix;
     @include rhythm-padding(2);
+  }
+
+  &:target {
+    @include animation(pulse 600ms 600ms 1);
   }
 }
 
@@ -36,7 +46,7 @@
   > [class$="-wrap"] {
     @include background(image-url('girl.svg') no-repeat scroll span(1) center);
     @include background-size(span(5) auto);
-    @include rhythm-padding(4);
+    @include rhythm-padding(6);
   }
 
   h1, p { @include pre(6); }
@@ -94,6 +104,7 @@ $what-border: color($yellow);
   @include arrow(top center $back $normpx, 2px solid $what-border);
   @include leading-border(2px,2);
   border-color: $what-border;
+  background: $back;
   > [class$="-wrap"] { @include padding-leader(0); }
 }
 
