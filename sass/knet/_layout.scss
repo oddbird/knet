@@ -135,7 +135,7 @@ $feature-offset: 3%;
   text-transform: uppercase;
 }
 
-.what, .who, .why {
+.what, .who, .why, .contact {
   @extend %container;
   > [class$="-wrap"] {
     @include pie-clearfix;
@@ -169,7 +169,7 @@ $feature-offset: 3%;
   @include gallery(4, of-type);
 }
 
-.who, .what {
+.who, .what, .contact {
   > [class$="-wrap"] {
     @include leading-border(2px, 2);
     border-top: 2px dotted color(light,.5);
@@ -178,6 +178,12 @@ $feature-offset: 3%;
 
 .who-block {
   @include gallery(6, of-type);
+}
+
+.contact-block {
+  @include gallery(4, of-type);
+
+  .block-title { @include trailer(0); }
 }
 
 // Content Info
