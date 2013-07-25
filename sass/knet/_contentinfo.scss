@@ -4,7 +4,9 @@
 $footer-base: color(light $base);
 
 [role="contentinfo"] {
-  @extend %boilerplate;
+  @extend %container;
+  @include rhythm-padding(.5);
+  background: color(85%, .8);
 }
 
 .info {
@@ -12,8 +14,11 @@ $footer-base: color(light $base);
   color: $footer-base;
 
   strong { font-weight: bold; }
-  a, .phone {
-    display: inline-block;
-    @include before(' | ') { color: $footer-base; }
+  div { display: inline-block; }
+
+  .adr {
+    margin-left: rhythm(.5);
+    padding-left: rhythm(.5);
+    border-left: 1px solid color(dark $base, .5);
   }
 }

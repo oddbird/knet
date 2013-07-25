@@ -5,19 +5,12 @@ $back: color(95%);
 
 html { background: $back; }
 
-@include set-grid(70em 12 .25 inside);
+@include set-grid(70em 12 .5 inside);
 
 %container {
   > [class$="-wrap"] {
     @include container;
-    padding: 0 rhythm(.5);
   }
-}
-
-%boilerplate {
-  @extend %container;
-  @include rhythm-padding(.5);
-  background: color(80%, .8);
 }
 
 %large-title {

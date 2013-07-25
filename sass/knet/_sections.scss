@@ -9,13 +9,6 @@
   }
 }
 
-%section-top-border {
-  > [class$="-wrap"] {
-    @include leading-border(2px, 2);
-    border-top: 2px dotted color(light,.5);
-  }
-}
-
 .section-title {
   @include serif;
   @include adjust-font-size-to($largepx);
@@ -29,12 +22,8 @@
 // Layout
 // ------
 
-.what, .who, .why, .contact {
+.what, .who, .why {
   @extend %section;
-}
-
-.who, .what, .contact {
-  @extend %section-top-border;
 }
 
 // Why
@@ -63,20 +52,79 @@
 // What
 // ----
 
+$what-back: color(lightest $yellow);
+$what-border: color($yellow);
+
+.what {
+  @include arrow(top center $what-back $normpx, 2px solid $what-border);
+  @include leading-border(2px,2);
+  background: $what-back;
+  border-color: $what-border;
+  > [class$="-wrap"] { @include padding-leader(0); }
+}
+
 .what-block {
   @include gallery(4, of-type);
+  @include background(no-repeat scroll);
+  @include background-size(auto rhythm(6));
+  padding-top: rhythm(8);
+
+  &.personal {
+    background-image: image-url('students.svg');
+    background-position: center rhythm(.5);
+  }
+
+  &.khan {
+    @include background-size(auto rhythm(7));
+    background-image: image-url('khan-logo.png');
+    background-position: top;
+  }
+
+  &.flipped {
+    @include background-size(auto rhythm(5));
+    background-image: image-url('flip.svg');
+    background-position: center rhythm(1.5);
+  }
 }
 
 // Who
 // ---
 
-.who-block {
-  @include gallery(6, of-type);
+.who {
+  @include arrow(top center $back $normpx, 2px solid $what-border);
+  @include leading-border(2px,2);
+  border-color: $what-border;
+  > [class$="-wrap"] { @include padding-leader(0); }
 }
 
-// Contact
-// -------
+.who-block {
+  @include gallery(6, of-type);
 
-.contact-block {
-  @include gallery(4, of-type);
+  .fn { @include trailer(0); }
+
+  .photo {
+    @include span(2 of 6 split);
+    margin-left: 0;
+    border: 2px solid $alt;
+  }
+
+  .note {
+    @include trailer(.5);
+  }
+
+  .contact {
+    @include adjust-font-size-to($smallpx);
+    margin-left: span(2 of 6 no-gutters) + gutter(of 6);
+  }
+
+  strong { font-weight: bold; }
+
+  .email {
+    @include before('Email: ') {
+      font-weight: bold;
+      color: $base;
+    }
+  }
+
+  .contact, .note { @include clearfix; }
 }
