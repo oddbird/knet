@@ -1016,11 +1016,17 @@ html {
 }
 
 [role="contentinfo"] {
-  padding-top: 12px;
-  padding-top: 0.63889rem;
-  padding-bottom: 12px;
-  padding-bottom: 0.63889rem;
-  background: rgba(235, 235, 235, 0.8);
+  border-top-width: 2px;
+  border-top-width: 0.11111rem;
+  border-top-style: solid;
+  padding-top: 21px;
+  padding-top: 1.16667rem;
+  padding-bottom: 23px;
+  padding-bottom: 1.27778rem;
+  position: relative;
+  background: #e4e4e4;
+  border-color: #6f6f6f;
+  z-index: 40;
 }
 
 .info {
@@ -1174,6 +1180,71 @@ html {
   color: #007474;
 }
 
+@-moz-keyframes pulse {
+  0% {
+    -moz-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+
+  50% {
+    -moz-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+
+  100% {
+    -moz-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+
+  100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+
+@-o-keyframes pulse {
+  0% {
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+
+  50% {
+    -o-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+
+  100% {
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
 .what > [class$="-wrap"], .who > [class$="-wrap"], .why > [class$="-wrap"] {
   padding-top: 46px;
   padding-top: 2.55556rem;
@@ -1184,6 +1255,12 @@ html {
   content: "";
   display: table;
   clear: both;
+}
+.what:target, .who:target, .why:target, .target.what, .target.who, .target.why {
+  -webkit-animation: pulse 300ms 1;
+  -moz-animation: pulse 300ms 1;
+  -o-animation: pulse 300ms 1;
+  animation: pulse 300ms 1;
 }
 
 .section-title {
@@ -1221,15 +1298,15 @@ html {
   margin-left: -35px;
 }
 .why > [class$="-wrap"] {
-  background: url('../images/girl.svg?9d63382448cd2b36be10ca0c06cbb2479a13ae6f') no-repeat scroll 8.33333% center;
+  background: url('../images/girl.svg?a0577e2a2faafbeacfa50b64582c63edf794dc95') no-repeat scroll 8.33333% center;
   -webkit-background-size: 41.66667% auto;
   -moz-background-size: 41.66667% auto;
   -o-background-size: 41.66667% auto;
   background-size: 41.66667% auto;
-  padding-top: 92px;
-  padding-top: 5.11111rem;
-  padding-bottom: 92px;
-  padding-bottom: 5.11111rem;
+  padding-top: 138px;
+  padding-top: 7.66667rem;
+  padding-bottom: 138px;
+  padding-bottom: 7.66667rem;
 }
 .why h1, .why p {
   margin-left: 50%;
@@ -1333,6 +1410,7 @@ html {
   padding-top: 44px;
   padding-top: 2.44444rem;
   border-color: #f2ac00;
+  background: #f8f8f8;
 }
 .who:before, .who:after {
   content: " ";

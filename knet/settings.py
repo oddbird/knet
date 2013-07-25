@@ -273,6 +273,8 @@ PIPELINE_JS = {
             'js/vendor/handlebars.runtime.js',
             'js/vendor/jquery.ba-dotimeout.js',
             'js/vendor/jquery.form.js',
+            'js/vendor/jquery.scrollTo.js',
+            'js/vendor/jquery.localScroll.js',
             'js/vendor/jquery.ajax-loading-overlay.js',
             'js/vendor/jquery.defuscate.js',
             'messages_ui/jquery.messages-ui.js',
