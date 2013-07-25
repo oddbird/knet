@@ -1,0 +1,82 @@
+// Sections
+// ========
+
+%section {
+  @extend %container;
+  > [class$="-wrap"] {
+    @include pie-clearfix;
+    @include rhythm-padding(2);
+  }
+}
+
+%section-top-border {
+  > [class$="-wrap"] {
+    @include leading-border(2px, 2);
+    border-top: 2px dotted color(light,.5);
+  }
+}
+
+.section-title {
+  @include serif;
+  @include adjust-font-size-to($largepx);
+  @include trailer;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.block-title { @extend %sub-title; }
+
+// Layout
+// ------
+
+.what, .who, .why, .contact {
+  @extend %section;
+}
+
+.who, .what, .contact {
+  @extend %section-top-border;
+}
+
+// Why
+// ---
+
+.why {
+  @include arrow(top center $back $largepx, 2px solid color($base, .25));
+  z-index: 20;
+
+  > [class$="-wrap"] {
+    @include background(image-url('girl.svg') no-repeat scroll span(1) center);
+    @include background-size(span(5) auto);
+    @include rhythm-padding(4);
+  }
+
+  h1, p { @include pre(6); }
+
+  h1 { @extend %main-title; }
+  p {
+    @include serif;
+    @include adjust-font-size-to($medpx);
+    font-weight: bold;
+  }
+}
+
+// What
+// ----
+
+.what-block {
+  @include gallery(4, of-type);
+}
+
+// Who
+// ---
+
+.who-block {
+  @include gallery(6, of-type);
+}
+
+// Contact
+// -------
+
+.contact-block {
+  @include gallery(4, of-type);
+}
