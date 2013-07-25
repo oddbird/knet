@@ -17,7 +17,17 @@ var KNET = (function (KNET, $) {
             }
         });
         $('.email').defuscate();
-        $('body.home').localScroll();
+        $('body.home').localScroll({
+            hash: true,
+            easing: 'swing',
+            duration: 750,
+            onBefore: function (event, element, window) {
+                $('body.home').find('.target').removeClass('target');
+            },
+            onAfter: function (target, settings) {
+                target.addClass('target');
+            }
+        });
 
         // stories.js
         KNET.removeStory('.story .story-actions .delete-story', '.teacher-stories');
