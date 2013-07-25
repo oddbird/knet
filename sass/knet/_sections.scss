@@ -14,7 +14,7 @@
     @include rhythm-padding(2);
   }
 
-  &:target {
+  &.target {
     @include animation(pulse 600ms 600ms 1);
   }
 }
