@@ -1,0 +1,24 @@
+// Banner
+// ------
+
+$feature-shadow-color: color($base, .25);
+$feature-shadow-size: 6px;
+
+[role="banner"] {
+  @extend %boilerplate;
+  @include stretch-x;
+  @include box-shadow(color($feature-shadow-color,.75) 0 0 $feature-shadow-size);
+  .brand {
+    @include span(50%);
+    @include serif;
+    font-weight: bold;
+  }
+  .page-nav {
+    @include span(last 50%);
+    text-align: right;
+    a {
+      display: inline-block;
+      + a { @include before(' | ') { color: $base; } }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+// Content Info
+// ============
+
+$footer-base: color(light $base);
+
+[role="contentinfo"] {
+  @extend %boilerplate;
+}
+
+.info {
+  @include adjust-font-size-to($smallpx);
+  color: $footer-base;
+
+  strong { font-weight: bold; }
+  a, .phone {
+    display: inline-block;
+    @include before(' | ') { color: $footer-base; }
+  }
+}
