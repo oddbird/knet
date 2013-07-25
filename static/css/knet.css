@@ -1256,11 +1256,11 @@ html {
   display: table;
   clear: both;
 }
-.target.what, .target.who, .target.why {
-  -webkit-animation: pulse 600ms 600ms 1;
-  -moz-animation: pulse 600ms 600ms 1;
-  -o-animation: pulse 600ms 600ms 1;
-  animation: pulse 600ms 600ms 1;
+.what:target, .who:target, .why:target, .target.what, .target.who, .target.why {
+  -webkit-animation: pulse 300ms 1;
+  -moz-animation: pulse 300ms 1;
+  -o-animation: pulse 300ms 1;
+  animation: pulse 300ms 1;
 }
 
 .section-title {
