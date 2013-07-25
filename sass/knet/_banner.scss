@@ -5,20 +5,41 @@ $feature-shadow-color: color($base, .25);
 $feature-shadow-size: 6px;
 
 [role="banner"] {
-  @extend %boilerplate;
+  @extend %container;
   @include stretch-x;
   @include box-shadow(color($feature-shadow-color,.75) 0 0 $feature-shadow-size);
-  .brand {
-    @include span(50%);
-    @include serif;
-    font-weight: bold;
-  }
-  .page-nav {
-    @include span(last 50%);
-    text-align: right;
-    a {
+  background: color(white, .85);
+}
+
+.brand {
+  @include span(50%);
+  @include adjust-font-size-to($medpx);
+  font-weight: bold;
+
+  a {
+    #{$link} {
+      @include rhythm-padding(1, .5);
+      @include transition(all 300ms);
+      @include background(image-url('logo.svg') no-repeat scroll left);
+      @include background-size(rhythm(5) auto);
       display: inline-block;
-      + a { @include before(' | ') { color: $base; } }
+      padding-left: rhythm(4.75);
     }
+    #{$focus} {
+      @include background-size(rhythm(6.5) auto);
+    }
+  }
+}
+
+.page-nav {
+  @include span(last 50%);
+  @include padding-leader(1);
+  @include adjust-font-size-to($smallpx);
+  text-align: right;
+  text-transform: capitalize;
+  a {
+    display: inline-block;
+    padding: rhythm(.25) rhythm(.5);
+    + a { border-left: 2px solid color(darker $blue, .25); }
   }
 }

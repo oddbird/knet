@@ -215,12 +215,12 @@ a:focus, a:hover, a:active {
 
 @font-face {
   font-family: "knet";
-  src: url('../fonts/knet.woff?ea3e07afb11021754430b10596f37feabe85fe0e') format("woff"), url('../fonts/knet.ttf?92ba68062e26e7ab027978359f4c45e3d4b20ccf') format("truetype");
+  src: url('../fonts/knet.woff?379c738ad09a479a82bdfd30492987144a42f17a') format("woff"), url('../fonts/knet.ttf?43b4ced329a56e09bdd065d4b279fde1a2989038') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, .loading-icon:before, .login .fb-login:before, .icon-addstory:before, .hidden .status-icon:before, .private .status-icon:before, .quoted .status-icon:before, .story-status:before, .delete-story:before, .sample-icon:link:before, .sample-icon:visited:before, .cta .fb-login:before, .top-link .icon-up:before, .icons-demo div:nth-child(1):before, .icons-demo div:nth-child(2):before, .icons-demo div:nth-child(3):before, .icons-demo div:nth-child(4):before, .icons-demo div:nth-child(5):before, .icons-demo div:nth-child(6):before, .icons-demo div:nth-child(7):before, .icons-demo div:nth-child(8):before, .icons-demo div:nth-child(9):before, .icons-demo div:nth-child(10):before, .icons-demo div:nth-child(11):before, .icons-demo div:nth-child(12):before, .icons-demo div:nth-child(13):before, .icons-demo div:nth-child(14):before, .icons-demo div:nth-child(15):before, .icons-demo div:nth-child(16):before, .icons-demo div:nth-child(17):before, [data-icon]:before {
+.user-nav [name="logout"]:before, #messages .close:before, .user-nav .fb-login:before, .announce:before, .message:before, .loading-icon:before, .login .fb-login:before, .icon-addstory:before, .hidden .status-icon:before, .private .status-icon:before, .quoted .status-icon:before, .story-status:before, .delete-story:before, .sample-icon:link:before, .sample-icon:visited:before, .cta .fb-login:before, .top-link .icon-up:before, .icons-demo div:nth-child(1):before, .icons-demo div:nth-child(2):before, .icons-demo div:nth-child(3):before, .icons-demo div:nth-child(4):before, .icons-demo div:nth-child(5):before, .icons-demo div:nth-child(6):before, .icons-demo div:nth-child(7):before, .icons-demo div:nth-child(8):before, .icons-demo div:nth-child(9):before, .icons-demo div:nth-child(10):before, .icons-demo div:nth-child(11):before, .icons-demo div:nth-child(12):before, .icons-demo div:nth-child(13):before, .icons-demo div:nth-child(14):before, .icons-demo div:nth-child(15):before, .icons-demo div:nth-child(16):before, .icons-demo div:nth-child(17):before, .icons-demo div:nth-child(18):before, .icons-demo div:nth-child(19):before, [data-icon]:before {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
@@ -316,6 +316,14 @@ a:focus, a:hover, a:active {
 
 .top-link .icon-up:before, .icons-demo div:nth-child(17):before {
   content: "\e00f";
+}
+
+.icons-demo div:nth-child(18):before {
+  content: "\e010";
+}
+
+.icons-demo div:nth-child(19):before {
+  content: "\e011";
 }
 
 button {
@@ -2526,6 +2534,46 @@ body {
 }
 .icons-demo div:nth-child(17):after {
   content: "arrow-up";
+  font-size: 18px;
+  font-size: 1rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+}
+.icons-demo div:nth-child(18) {
+  display: block;
+  float: left;
+  margin-right: 2.55556rem;
+}
+.icons-demo div:nth-child(18):focus, .icons-demo div:nth-child(18):hover, .icons-demo div:nth-child(18):active {
+  color: #94001a;
+}
+.icons-demo div:nth-child(18):before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .4em;
+}
+.icons-demo div:nth-child(18):after {
+  content: "bubbles";
+  font-size: 18px;
+  font-size: 1rem;
+  line-height: 23px;
+  line-height: 1.27778rem;
+}
+.icons-demo div:nth-child(19) {
+  display: block;
+  float: left;
+  margin-right: 2.55556rem;
+}
+.icons-demo div:nth-child(19):focus, .icons-demo div:nth-child(19):hover, .icons-demo div:nth-child(19):active {
+  color: #94001a;
+}
+.icons-demo div:nth-child(19):before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .4em;
+}
+.icons-demo div:nth-child(19):after {
+  content: "cord";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;

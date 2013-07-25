@@ -18,6 +18,8 @@ $icon-eye-blocked:    "\e00d";
 $icon-heart:          "\e00e";
 $icon-quote-right:    "\f10e";
 $icon-arrow-up:       "\e00f";
+$icon-bubbles:        "\e010";
+$icon-cord:           "\e011";
 
 // Debug
 $debug: append($debug, icons);
@@ -38,7 +40,9 @@ $debug-icons: 'search'          $icon-search,
               'eye-blocked'     $icon-eye-blocked,
               'heart'           $icon-heart,
               'quote-right'     $icon-quote-right,
-              'arrow-up'   $icon-arrow-up;
+              'arrow-up'        $icon-arrow-up,
+              'bubbles'         $icon-bubbles,
+              'cord'            $icon-cord;
 
 @mixin debug-icons {
   @debug '# Icons';

@@ -10,7 +10,7 @@
   {{ block.super }}
   <nav class="page-nav">
     <a href="#what">about</a>
-    <a href="#contact">contact</a>
+    <a href="#who">contact</a>
   </nav>
 </div>
 {% endblock %}
@@ -24,23 +24,26 @@
 
   <div class="feature-links">
     <a href="#what" class="consult feature-block">
+      <span class="icon-consult"></span>
       <h2 class="feature-title">Training & Technology</h2>
       <p>
         Engage students,
         personalize learning,
-        and reduce teacher burdens.
+        and reduce teacher&nbsp;burdens.
       </p>
     </a>
     <a href="http://portfoliyo.org/" class="pyo feature-block">
+      <span class="icon-pyo"></span>
       <h2 class="feature-title">Portfoliyo</h2>
       <p>
-        Use your computer to text parents in seconds.
+        Use your computer to text parents in&nbsp;seconds.
       </p>
     </a>
     <a href="/tcs/" class="tcs feature-block">
+      <span class="icon-tcs"></span>
       <h2 class="feature-title">Teacher Stories</h2>
       <p>
-        Inspiring stories from the lives you've changed.
+        Inspiring stories from the lives you've&nbsp;changed.
       </p>
     </a>
   </div>
@@ -49,45 +52,43 @@
 
 <section class="why">
 <div class="why-wrap">
-  <h1>21st century students are engaged through technology.</h1>
-  <p>Meeting their needs means speaking their language.</p>
+  <h1>21st century students are engaged through&nbsp;technology.</h1>
+  <p>Meeting their needs means speaking their&nbsp;language.</p>
 </div>
 </section>
 
 <section id="what" class="what">
 <div class="what-wrap">
   <h1 class="section-title">What we offer</h1>
-  <div class="what-block">
+  <div class="what-block personal">
     <h2 class="block-title">Personalized Learning</h2>
     <p>
       Introduce teachers to digital tools
       that generate data on each student
-      so that teachers can be more responsive to student needs
-      and can easily differentiate & individualize
-      lessons for all students.
+      so they can easily differentiate & individualize
+      lessons in response to student needs.
     </p>
   </div>
 
-  <div class="what-block">
+  <div class="what-block khan">
     <h2 class="block-title">Khan Academy Integration</h2>
     <p>
-      Work with schools and teachers
-      to implement Khan Academy in classrooms
-      efficiently and for maximum results.
+      Work with schools & teachers
+      to incorporate Khan Academy in classrooms.
       When adopted effectively,
-      students’ understanding can improve
-      up to three years ahead of their grade level.
+      students’ understanding has improved
+      up to three years ahead of their grade&nbsp;level.
     </p>
   </div>
 
-  <div class="what-block">
+  <div class="what-block flipped">
     <h2 class="block-title">The “Flipped Classroom”</h2>
     <p>
       Help teachers transfer the classroom lecture
       to the student’s home after class,
       freeing up classroom time for problem solving,
       project creation,
-      and 1-on-1 time with students and small groups.
+      and 1-on-1 time with&nbsp;students.
     </p>
   </div>
 </div>
@@ -97,9 +98,11 @@
 <div class="who-wrap">
   <h1 class="section-title">Who We Are</h1>
 
-  <div class="who-block">
-    <h2 class="block-title vcard peter">Peter Kuperman</h2>
-    <p>
+  <div class="who-block vcard peter">
+    <img src="{{ STATIC_URL }}images/peter.jpg" alt="" class="photo" />
+    <h2 class="block-title fn">Peter Kuperman</h2>
+
+    <p class="note">
       Peter
       has a background in asset management.
       He has invested over 1,200 volunteer hours
@@ -108,14 +111,29 @@
       and coding exercises for the knowledge map.
       His infectious enthusiasm inspired
       Sal Khan to make his first ever trip to Canada
-      for meetings with business & education leaders.
+      for meetings with business & education&nbsp;leaders.
     </p>
+
+    <div class="contact">
+      <a href="mailto:peter(put the 'at' sign here)theknetwork.org" class="email">peter(put the 'at' sign here)theknetwork.org</a>
+      <div class="tel">
+        <strong class="type">Canada:</strong>
+        <span class="value">416-992-9972</span>
+      </div>
+      <div class="tel">
+        <strong class="type">United States:</strong>
+        <span class="value">212-625-1833</span>
+      </div>
+    </div>
   </div>
 
-  <div class="who-block">
-    <h2 class="block-title vcard emmanuelle">Emmanuelle Deaton</h2>
-    <p>
-      Emmanuelle is a veteran teacher
+  <div class="who-block vcard emmanuelle">
+    <img src="{{ STATIC_URL }}images/emmanuelle.jpg" alt="" class="photo" />
+    <h2 class="block-title fn">Emmanuelle Deaton</h2>
+
+    <p class="note">
+      Emmanuelle
+      is a veteran teacher
       with eight years in the classroom.
       She has worked in multiple school systems
       with a range of administrative teams.
@@ -124,56 +142,36 @@
       Her focus is on
       high student engagement & collaboration,
       skill development,
-      and higher-order thinking.
+      and higher-order&nbsp;thinking.
     </p>
+
+    <div class="contact">
+      <a href="mailto:emmanuelle(put the 'at' sign here)theknetwork.org" class="email">emmanuelle(put the 'at' sign here)theknetwork.org</a>
+      <div class="tel">
+        <strong class="type">Canada:</strong>
+        <span class="value">613-304-3030</span>
+      </div>
+    </div>
   </div>
 </div>
 </section>
 
-<section id="contact" class="contact">
-<div class="contact-wrap">
-  <h1 class="section-title">Contact Us</h1>
-
-  <article class="vcard knet contact-block">
-    <h1 class="fn block-title">The K Network</h1>
-    <div class="adr">
-      <span class="street-address">75 Arbor Lane</span>,
-      <span class="extended-address">Suite L</span>
-      <div>
-        <span class="locality">Menlo Park</span>,
-        <span class="region">CA</span>
-        <span class="postal-code">94025</span>
-      </div>
-    </div>
-  </article>
-
-  <article class="vcard emmanuelle contact-block">
-    <h1 class="fn block-title">Emmanuelle Deaton</h1>
-    <a href="mailto:emmanuelle(put the 'at' sign here)theknetwork.org" class="email">emmanuelle(put the 'at' sign here)theknetwork.org</a>
-    <div class="tel">
-      <span class="value">613-304-3030</span>
-      <span class="type">(Canada)</span>
-    </div>
-  </article>
-
-  <article class="vcard peter contact-block">
-    <h1 class="fn block-title">Peter Kuperman</h1>
-    <a href="mailto:peter(put the 'at' sign here)theknetwork.org" class="email">peter(put the 'at' sign here)theknetwork.org</a>
-    <div class="tel">
-      <span class="value">416-992-9972</span>
-      <span class="type">(Canada)</span>
-    </div>
-    <div class="tel">
-      <span class="value">212-625-1833</span>
-      <span class="type">(United States)</span>
-    </div>
-  </article>
 </div>
 </section>
 {% endblock %}
 
 {% block footer %}
 <div class="info-wrap">
-  <p class="info">{{ block.super }}</p>
+<div class="info vcard knetwork">
+  <span class="license">Copyright &copy; 2013</span>
+  <strong><a href="http://theknetwork.org" class="fn org url">The K Network</a></strong>
+  <div class="adr">
+    <span class="street-address">75 Arbor Lane</span>
+    <span class="extended-address">Suite L</span>,
+    <span class="locality">Menlo Park</span>,
+    <span class="region">CA</span>
+    <span class="postal-code">94025</span>
+  </div>
+</div>
 </div>
 {% endblock %}
