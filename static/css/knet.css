@@ -176,7 +176,7 @@ a:focus, a:hover, a:active {
 
 @font-face {
   font-family: "knet";
-  src: url('../fonts/knet.woff?379c738ad09a479a82bdfd30492987144a42f17a') format("woff"), url('../fonts/knet.ttf?43b4ced329a56e09bdd065d4b279fde1a2989038') format("truetype");
+  src: url('../fonts/knet.woff?95c4e3b560bfe08e05e675a71a1153d2430a634f') format("woff"), url('../fonts/knet.ttf?a19f92a54b9ed7f5936974a031c36ffe7d827721') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -1067,13 +1067,14 @@ html {
 .intro {
   margin-bottom: 69px;
   margin-bottom: 3.83333rem;
-  text-shadow: rgba(255, 255, 255, 0.5) 0 1px 0;
+  text-shadow: rgba(255, 255, 255, 0.5) 0 1px 1px;
   text-align: center;
 }
 
 .feature-links {
   padding-left: 1.27778rem;
   padding-right: 1.27778rem;
+  text-shadow: rgba(255, 255, 255, 0.85) 0 1px 1px;
 }
 
 .feature-title {
@@ -1115,8 +1116,8 @@ html {
   font-size: 1.27778rem;
   line-height: 35px;
   line-height: 1.91667rem;
-  margin-top: -46px;
-  margin-top: -2.55556rem;
+  margin-top: -35px;
+  margin-top: -1.91667rem;
   -webkit-box-shadow: #4c4c4c 0 0 6px;
   -moz-box-shadow: #4c4c4c 0 0 6px;
   box-shadow: #4c4c4c 0 0 6px;
@@ -1157,11 +1158,12 @@ html {
 }
 
 .icon-consult {
-  font-size: 86px;
-  font-size: 4.77778rem;
-  line-height: 92px;
-  line-height: 5.11111rem;
-  color: #94001a;
+  font-size: 107px;
+  font-size: 5.94444rem;
+  line-height: 115px;
+  line-height: 6.38889rem;
+  color: #f2ac00;
+  text-shadow: rgba(0, 116, 116, 0.75) 0 1px 1px;
 }
 
 .icon-pyo {

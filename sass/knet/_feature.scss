@@ -21,7 +21,7 @@ $feature-grad   : color(-25% lighter $blue),
 .intro {
   @extend %large-title;
   @include trailer(3);
-  text-shadow: color(white,.5) 0 1px 0;
+  text-shadow: color(white,.5) 0 1px 1px;
   text-align: center;
 }
 
@@ -30,7 +30,10 @@ $feature-grad   : color(-25% lighter $blue),
 
 $feature-offset: 3%;
 
-.feature-links { @include pad(rhythm(1)); }
+.feature-links {
+  @include pad(rhythm(1));
+  text-shadow: color(white,.85) 0 1px 1px;
+}
 
 .feature-title {
   @extend %sub-title;
@@ -61,7 +64,7 @@ $feature-offset: 3%;
 
   &.consult {
     @include adjust-font-size-to($medpx);
-    @include leader(-2);
+    @include leader(-1.5);
     @include box-shadow($base 0 0 6px);
     @include transition(all 300ms);
     position: relative;
@@ -91,9 +94,10 @@ $feature-offset: 3%;
 }
 
 .icon-consult {
-  @include adjust-font-size-to($xxxlargepx);
-  @include icon(cord);
-  color: $accent;
+  @include adjust-font-size-to(ms(14));
+  @include icon(bulb);
+  color: $yellow;
+  text-shadow: color($alt, .75) 0 1px 1px;
 }
 .icon-pyo {
   @include adjust-font-size-to($xxlargepx);
