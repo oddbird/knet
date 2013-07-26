@@ -15,7 +15,7 @@
   }
 
   &:target, &.target {
-    @include animation(pulse 300ms 1);
+    @include animation(pulse 600ms 1);
   }
 }
 

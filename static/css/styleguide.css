@@ -215,7 +215,7 @@ a:focus, a:hover, a:active {
 
 @font-face {
   font-family: "knet";
-  src: url('../fonts/knet.woff?379c738ad09a479a82bdfd30492987144a42f17a') format("woff"), url('../fonts/knet.ttf?43b4ced329a56e09bdd065d4b279fde1a2989038') format("truetype");
+  src: url('../fonts/knet.woff?95c4e3b560bfe08e05e675a71a1153d2430a634f') format("woff"), url('../fonts/knet.ttf?a19f92a54b9ed7f5936974a031c36ffe7d827721') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -2573,7 +2573,7 @@ body {
   margin-right: .4em;
 }
 .icons-demo div:nth-child(19):after {
-  content: "cord";
+  content: "bulb";
   font-size: 18px;
   font-size: 1rem;
   line-height: 23px;
