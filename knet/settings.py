@@ -235,7 +235,7 @@ STATICFILES_STORAGE = {
     }[MODE]
 
 PIPELINE_CSS_COMPRESSOR = 'knet.assets.css.RCSSMinCompressor'
-PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.slimit.SlimItCompressor'
+PIPELINE_JS_COMPRESSOR = 'knet.assets.js.RJSMinCompressor'
 
 PIPELINE_CSS = {
     'screen': {
