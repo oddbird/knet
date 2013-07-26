@@ -1034,6 +1034,8 @@ html {
   font-size: 0.77778rem;
   line-height: 23px;
   line-height: 1.27778rem;
+  padding-left: 1.42857%;
+  padding-right: 1.42857%;
   color: #6f6f6f;
 }
 .info strong {
@@ -1065,6 +1067,8 @@ html {
 }
 
 .intro {
+  padding-left: 1.42857%;
+  padding-right: 1.42857%;
   margin-bottom: 69px;
   margin-bottom: 3.83333rem;
   text-shadow: rgba(255, 255, 255, 0.5) 0 1px 1px;

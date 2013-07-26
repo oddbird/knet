@@ -20,6 +20,7 @@ $feature-grad   : color(-25% lighter $blue),
 
 .intro {
   @extend %large-title;
+  @include gutters;
   @include trailer(3);
   text-shadow: color(white,.5) 0 1px 1px;
   text-align: center;

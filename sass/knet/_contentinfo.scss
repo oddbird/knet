@@ -16,6 +16,7 @@ $footer-base: color(light $base);
 
 .info {
   @include adjust-font-size-to($smallpx);
+  @include gutters;
   color: $footer-base;
 
   strong { font-weight: bold; }
