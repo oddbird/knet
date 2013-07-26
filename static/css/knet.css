@@ -1065,8 +1065,8 @@ html {
 }
 
 .intro {
-  margin-bottom: 58px;
-  margin-bottom: 3.19444rem;
+  margin-bottom: 69px;
+  margin-bottom: 3.83333rem;
   text-shadow: rgba(255, 255, 255, 0.5) 0 1px 0;
   text-align: center;
 }
@@ -1115,8 +1115,8 @@ html {
   font-size: 1.27778rem;
   line-height: 35px;
   line-height: 1.91667rem;
-  margin-top: -23px;
-  margin-top: -1.27778rem;
+  margin-top: -46px;
+  margin-top: -2.55556rem;
   -webkit-box-shadow: #4c4c4c 0 0 6px;
   -moz-box-shadow: #4c4c4c 0 0 6px;
   box-shadow: #4c4c4c 0 0 6px;
@@ -1257,10 +1257,10 @@ html {
   clear: both;
 }
 .what:target, .who:target, .why:target, .target.what, .target.who, .target.why {
-  -webkit-animation: pulse 300ms 1;
-  -moz-animation: pulse 300ms 1;
-  -o-animation: pulse 300ms 1;
-  animation: pulse 300ms 1;
+  -webkit-animation: pulse 600ms 1;
+  -moz-animation: pulse 600ms 1;
+  -o-animation: pulse 600ms 1;
+  animation: pulse 600ms 1;
 }
 
 .section-title {
