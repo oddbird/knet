@@ -1523,8 +1523,6 @@ html {
     padding-right: 1.42857%;
     margin-bottom: 0px;
     margin-bottom: 0rem;
-    padding-left: 0%;
-    padding-right: 0%;
     -webkit-background-size: auto 7.66667rem;
     -moz-background-size: auto 7.66667rem;
     -o-background-size: auto 7.66667rem;
@@ -1634,7 +1632,11 @@ html {
   font-size: 0.77778rem;
   line-height: 23px;
   line-height: 1.27778rem;
-  margin-left: 32.35294%;
+}
+@media (min-width: 25em) {
+  .who-block .contact {
+    margin-left: 32.35294%;
+  }
 }
 .who-block strong {
   font-weight: bold;
