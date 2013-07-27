@@ -11,19 +11,31 @@ $feature-grad   : color(-25% lighter $blue),
 .feature {
   @extend %container;
   @include pie-clearfix;
-  @include rhythm-padding(4,3);
+  @include padding-leader(3);
   @include background(
     linear-gradient(to top, $feature-shadow...) no-repeat scroll,
     linear-gradient(to bottom right, $feature-grad...) no-repeat fixed
   );
+
+  @include breakpoint(30em) { @include padding-leader(4); }
+  @include breakpoint(40em) { @include padding-trailer(3); }
 }
 
 .intro {
-  @extend %large-title;
+  @include serif;
+  @include adjust-font-size-to($medpx);
   @include gutters;
-  @include trailer(3);
+  @include trailer(.5);
+  @include transition(font-size 300ms);
   text-shadow: color(white,.5) 0 1px 1px;
   text-align: center;
+
+  @include breakpoint(30em) { @include adjust-font-size-to($largepx); }
+  @include breakpoint(40em) {
+    @include adjust-font-size-to($xlargepx);
+    @include trailer(3);
+  }
+  @include breakpoint(50em) { @include adjust-font-size-to($xxlargepx); }
 }
 
 // Feature Links
@@ -32,7 +44,7 @@ $feature-grad   : color(-25% lighter $blue),
 $feature-offset: 3%;
 
 .feature-links {
-  @include pad(rhythm(1));
+  @include gutters;
   text-shadow: color(white,.85) 0 1px 1px;
 }
 
@@ -44,10 +56,9 @@ $feature-offset: 3%;
 .feature-block {
   #{$link} {
     @include rhythm-borders(1px, 1.5);
+    @include trailer(.5);
     @include box-shadow($base 0 0 3px inset);
-    float: left;
-    width: span(percentage(1/3) - $feature-offset);
-    margin-right: -200%;
+    display: block;
     background: color(white, .8);
     color: $base;
     border-color: $base;
@@ -58,39 +69,51 @@ $feature-offset: 3%;
     color: $accent;
   }
 
-  &.pyo {
-    @include border-left-radius(rhythm(.25));
-    border-right: 0;
-  }
-
-  &.consult {
-    @include adjust-font-size-to($medpx);
-    @include leader(-1.5);
-    @include box-shadow($base 0 0 6px);
-    @include transition(all 300ms);
-    position: relative;
-    width: span(percentage(1/3) + ($feature-offset * 2));
-    margin-left: percentage(1/3) - $feature-offset;
-    background: color(white, .85);
-    z-index: 10;
-
-    #{$focus} {
-      @include scale(1.1);
-      background: white;
-    }
-  }
-
-  &.tcs {
-    @include border-right-radius(rhythm(.25));
-    float: right;
-    margin-right: 0;
-    border-left: 0;
-  }
-
   [class^="icon-"] {
     @include trailer(.5);
     display: block;
     text-align: center;
+  }
+
+  @include breakpoint(40em) {
+    #{$link} {
+      @include trailer(0);
+      float: left;
+      width: span(percentage(1/3) - $feature-offset);
+      margin-right: -200%;
+    }
+
+    &.pyo {
+      @include border-left-radius(rhythm(.25));
+      border-right: 0;
+    }
+
+    &.consult {
+      @include leader(-1.5);
+      @include box-shadow($base 0 0 6px);
+      @include transition(all 300ms);
+      position: relative;
+      width: span(percentage(1/3) + ($feature-offset * 2));
+      margin-left: percentage(1/3) - $feature-offset;
+      background: color(white, .85);
+      z-index: 10;
+
+      #{$focus} {
+        @include scale(1.1);
+        background: white;
+      }
+    }
+
+    &.tcs {
+      @include border-right-radius(rhythm(.25));
+      float: right;
+      margin-right: 0;
+      border-left: 0;
+    }
+  }
+
+  @include breakpoint(60em) {
+    &.consult { @include adjust-font-size-to($medpx); }
   }
 }
 

@@ -11,7 +11,7 @@
   @extend %container;
   > [class$="-wrap"] {
     @include pie-clearfix;
-    @include rhythm-padding(2);
+    @include rhythm-padding(1,2);
   }
 
   &:target, &.target {
@@ -21,10 +21,12 @@
 
 .section-title {
   @include serif;
-  @include adjust-font-size-to($largepx);
+  @include adjust-font-size-to($medpx);
   @include trailer;
   text-align: center;
   text-transform: uppercase;
+
+  @include breakpoint(40em) { @include adjust-font-size-to($largepx); }
 }
 
 .block-title { @extend %sub-title; }
@@ -43,19 +45,32 @@
   @include arrow(top center $back $largepx, 2px solid color($base, .25));
   z-index: 20;
 
-  > [class$="-wrap"] {
-    @include background(image-url('girl.svg') no-repeat scroll span(1) center);
-    @include background-size(span(5) auto);
-    @include rhythm-padding(6);
+  h1, p {
+    @include serif;
+    @include gutters;
   }
 
-  h1, p { @include pre(6); }
+  h1 { @include adjust-font-size-to($largepx); }
+  p { font-weight: bold; }
 
-  h1 { @extend %main-title; }
-  p {
-    @include serif;
-    @include adjust-font-size-to($medpx);
-    font-weight: bold;
+  @include breakpoint(35em) {
+    > [class$="-wrap"] {
+      @include background(image-url('girl.svg') no-repeat scroll span(1) center);
+      @include background-size(span(4) auto);
+      @include rhythm-padding(2);
+    }
+    h1, p { @include pre(5); }
+  }
+
+  @include breakpoint(60em) {
+    > [class$="-wrap"] { @include background-size(span(5) auto); }
+    h1, p { @include pre(6); }
+    h1 { @include adjust-font-size-to($xxlargepx); }
+    p { @include adjust-font-size-to($medpx); }
+  }
+
+  @include breakpoint(60em (min-height 35em)) {
+    > [class$="-wrap"] { @include rhythm-padding(4); }
   }
 }
 
@@ -67,17 +82,22 @@ $what-border: color($yellow);
 
 .what {
   @include arrow(top center $what-back $normpx, 2px solid $what-border);
-  @include leading-border(2px,2);
+  @include leading-border(2px,1);
   background: $what-back;
   border-color: $what-border;
   > [class$="-wrap"] { @include padding-leader(0); }
+
+  @include breakpoint(45em) { @include leading-border(2px,2); }
 }
 
 .what-block {
-  @include gallery(4, of-type);
+  @include gutters;
+  @include trailer;
   @include background(no-repeat scroll);
-  @include background-size(auto rhythm(6));
-  padding-top: rhythm(8);
+  @include background-size(auto rhythm(3));
+  padding-top: rhythm(4);
+
+  .block-title { text-align: center; }
 
   &.personal {
     background-image: image-url('students.svg');
@@ -85,15 +105,31 @@ $what-border: color($yellow);
   }
 
   &.khan {
-    @include background-size(auto rhythm(7));
+    @include background-size(auto rhythm(4));
     background-image: image-url('khan-logo.png');
     background-position: top;
   }
 
   &.flipped {
-    @include background-size(auto rhythm(5));
     background-image: image-url('flip.svg');
-    background-position: center rhythm(1.5);
+    background-position: center rhythm(.5);
+  }
+
+  @include breakpoint(35em) { @include pad(2); }
+
+  @include breakpoint(50em) {
+    @include gallery(4, of-type);
+    @include trailer(0);
+    @include pad(0);
+    @include background-size(auto rhythm(6));
+    padding-top: rhythm(8);
+
+    .block-title { text-align: left; }
+    &.khan { @include background-size(auto rhythm(7)); }
+    &.flipped {
+      @include background-size(auto rhythm(5));
+      background-position: center rhythm(1.5);
+    }
   }
 }
 
@@ -102,21 +138,27 @@ $what-border: color($yellow);
 
 .who {
   @include arrow(top center $back $normpx, 2px solid $what-border);
-  @include leading-border(2px,2);
+  @include leading-border(2px,1);
   border-color: $what-border;
   background: $back;
   > [class$="-wrap"] { @include padding-leader(0); }
+
+  @include breakpoint(45em) { @include leading-border(2px,2); }
 }
 
 .who-block {
-  @include gallery(6, of-type);
+  @include gutters;
+  @include trailer;
 
   .fn { @include trailer(0); }
 
   .photo {
-    @include span(2 of 6 split);
-    margin-left: 0;
     border: 2px solid $alt;
+
+    @include breakpoint(25em) {
+      @include span(2 of 6 split);
+      margin-left: 0;
+    }
   }
 
   .note {
@@ -138,4 +180,9 @@ $what-border: color($yellow);
   }
 
   .contact, .note { @include clearfix; }
+
+  @include breakpoint(45em) {
+    @include gallery(6, of-type);
+    @include trailer(0);
+  }
 }
