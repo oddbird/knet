@@ -120,7 +120,6 @@ $what-border: color($yellow);
   @include breakpoint(50em) {
     @include gallery(4, of-type);
     @include trailer(0);
-    @include pad(0);
     @include background-size(auto rhythm(6));
     padding-top: rhythm(8);
 
@@ -167,7 +166,9 @@ $what-border: color($yellow);
 
   .contact {
     @include adjust-font-size-to($smallpx);
-    margin-left: span(2 of 6 no-gutters) + gutter(of 6);
+    @include breakpoint(25em) {
+      margin-left: span(2 of 6 no-gutters) + gutter(of 6);
+    }
   }
 
   strong { font-weight: bold; }
