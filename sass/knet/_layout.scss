@@ -13,7 +13,11 @@ html { background: $back; }
   }
 }
 
-%large-title {
+@mixin large-title {
   @include serif;
   @include adjust-font-size-to($xxlargepx);
+}
+
+%large-title {
+  @include large-title;
 }
